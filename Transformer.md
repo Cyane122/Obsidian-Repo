@@ -42,4 +42,4 @@ $$PE_{(pos, 2i)} = \sin \left(\dfrac{pos}{10000^{2i/d_{\mathrm{model}}}} \right)
 - T5 (2019)
 - Vision Transformer (ViT): 이미지 패치를 토큰으로 취급해 Transformer 적용
 - Sparse Transformer: $O(n^2)$ Attention 복잡도를 줄이기 위한 변형
-- Flash Attenti
+- Flash Attention: IO-aware 구현으로 Attention 연산 속도 및 메모리 효율 개선
