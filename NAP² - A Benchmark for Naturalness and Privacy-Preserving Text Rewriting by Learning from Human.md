@@ -74,3 +74,35 @@ Annotations
 -> Deleting은 문장을 짧게 만들고, Obscuring은 원문보다 약간 길어지며 어휘 다양성도 소폭 증가한다.
 
 ## Synthetic Data Augmentation
+PERSONA-CHAT 학습셋에서 ROBERTA NLI로 alignment (threshold 0.3) -> GPT-4로 실제 프라이버시 노출 재검증.
+최종 3900쌍을 GPT-4로 재작성 생성.
+프롬프트 구성:
+- Validation set에서 가장 유사한 예시 1개 (utterance + persona + human rewrite 포함)
+- 비민감 발화 예시 1개 (rewrite 없이 원문 유지 -> 노출 없으면 그대로 두라는 지시)
+- 두 에시는 sentence embedding 기반 k-NN으로 선택.
+
+# Experiments
+## 비교 모델
+- DP 기반: DPNR, DP-Forward, DP-PROMPT, DP-BART
+- 스크러빙: FLAIR-SCRUBBING
+- Zero-shot LLM: T5-ZEROSHOT, LLAMA2-13B-ZEROSHOT, GPT-3.5 TURBO, GPT-4
+- NAP² fine-tuned: T5-NAP²-GPT4
+
+## 평가 지표
+- PRIVACY_NLI: ROBERTA MNLI로 재작성한 결과가 원래 persona를 함의하는지 측정. 높을수록 프라이버시 보존 우수.
+$$
+1-P(\mathrm{entail}|y, p)
+$$
+- ROUGE-1 / ROUGE-LSUM: 비민감 내용 보존 정도.
+- Human evaluation: SPRIVACY / SREL / SNATURAL - 프라이버시, 의미 보존, 자연스러움.
+
+## 주요 결과
+- T5-NAP²-GPT4가 PRIVACY_NLI 93.81%로 전체 1위. DP 기반 최고 모델 DP-BART의 78.22%를 큰 차이로 능가함.
+- DP 기반 방법들은 PRIVACY_NLI는 어느 정도 나오지만, human evaluation SPRIVACY에서 거의 0%에 수렴했다. -> 노이즈 주입이 너무 심해서 의미가 파괴됨
+- GPT-4 합성 데이터 추가 시 Obscuring 전략에서 프라이버시 보존 +7%p 향상.
+- PRIVACY_NLI <-> SPRIVACY 사이 Spearman 상관계수 0.7 -> 자동 지표가 인간의 평가를 잘 대리함.
+
+# Conclusion
+1. LLM 추론 시점의 프라이버시 보호를 위한 naturalness-preserving text rewriting task를 정의하고, 최초의 전용 말뭉치 NAP²를 구축.
+2. 인간의 실제 전략(Deleting/Obscuring)을 학습한 소형 모델(T5-BASE)이 대형 zero-shot LLM 및 DP 기반 SOTA를 모두 능가
+3. 자동 평가 지표 PRIVACY_NLI가 인간 평가와 높은 상관관계를 보여 신뢰할 수 있는 대리 지표로 기능함.
