@@ -32,4 +32,14 @@
 
 ### 파이프라인 2단계
 1. Privacy Segment Alignment: $u$를 분해해 민감 부분을 짚어낸다. 각 segment $t_j$에 대해 $\mathrm{Align}_{t_j}=\mathrm{Pri}(p, t_j)$ 점수를 embedding 유사도/cosine으로 계산해 집중 개입할 타깃 시퀀스 $t_p^{(1)}, \cdots, t_p^{(m)}$를 분리한다.
-2. [[Monte Carlo Tree Search(MCTS)]]
+2. [[Monte Carlo Tree Search(MCTS)]]-Inspired 재작성: 재작성을 decision tree로 모델링한다.
+	- root node = $u$의 부분 상태
+	- branch = action (고민감도 span에 대한 deletion / generalization을 통한 obscuration)
+	- node 선택은 [[Upper Confidence Bound for Trees|UCT]]로 유망한 경로에 가중
+	- 프라이버시 전략으로 프롬프트된 one-step LLM rewriter가 후보 집합 $Y_{cand}$ 생성 후 utility 함수 $L_S(y, p_{seg}) \leq \gamma$로 게이팅한다.
+	- reward model $R(y, p)$가 [[Natural Language Inference|NLI]] 기반 privacy entailment 점수와 도메인별 utility 측정치를 종합해 backpropagation으로 탐색을 반복 정제한다.
+
+### 주요 기여
+1. NaPaRe: sampling, UCT selection, composite reward를 융합한 tree-based iterative rewriter. deletion, obscuration 전략을 탐색하며 zero-shot 환경에서 다양한 $p$에 적응한다.
+2. 종합 평가: NAP² corpus와 ECHR 법률 판결문 대상으로 프라이버시(PRIVACY_NLI, PII F1), 유용성([[ROUGE]]-1, judgement accuracy), 자연스러움([[Perplexity]], human 평가) 측정. baseline 대비 상대적 프라이버시 22.3% 향상. 유용성 손실은 미미, 원문 대비 perplexity 1.5점 이내 유지.
+3. 광범위한 실험: privacy leakage, utility, naturalness 세 차원에서 검증. redaction 도구 및 경쟁 LLM 재작성 기법을 모두 능가.
