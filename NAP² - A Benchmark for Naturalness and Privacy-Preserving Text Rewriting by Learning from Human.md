@@ -93,7 +93,7 @@ PERSONA-CHAT 학습셋에서 ROBERTA NLI로 alignment (threshold 0.3) -> GPT-4�
 $$
 1-P(\mathrm{entail}|y, p)
 $$
-- ROUGE-1 / ROUGE-LSUM: 비민감 내용 보존 정도.
+- [[ROUGE]]-1 / ROUGE-LSUM: 비민감 내용 보존 정도.
 - Human evaluation: SPRIVACY / SREL / SNATURAL - 프라이버시, 의미 보존, 자연스러움.
 
 ## 주요 결과
