@@ -43,3 +43,26 @@
 1. NaPaRe: sampling, UCT selection, composite reward를 융합한 tree-based iterative rewriter. deletion, obscuration 전략을 탐색하며 zero-shot 환경에서 다양한 $p$에 적응한다.
 2. 종합 평가: NAP² corpus와 ECHR 법률 판결문 대상으로 프라이버시(PRIVACY_NLI, PII F1), 유용성([[ROUGE]]-1, judgement accuracy), 자연스러움([[Perplexity]], human 평가) 측정. baseline 대비 상대적 프라이버시 22.3% 향상. 유용성 손실은 미미, 원문 대비 perplexity 1.5점 이내 유지.
 3. 광범위한 실험: privacy leakage, utility, naturalness 세 차원에서 검증. redaction 도구 및 경쟁 LLM 재작성 기법을 모두 능가.
+
+## Privacy-Aware Text Rewriting
+### Task 정의
+- 입력: 사용자가 제공한 privacy 정보 $p$ + 입력 발화 $u$
+- 목표: 로컬 배포 LLM의 생성 능력을 활용해, $p$에 명시된 민감 정보를 $u$에서 제거하거나 은폐하도록 재작성.
+- $p$의 성격: 일반화된 privacy specification. 다음 중 무엇이든 가능하다.
+	- 제거할 PII 집합
+	- 텍스트 형식의 프라이버시 요구 사항
+	- 사용자 프로파일(persona)
+
+### 생성 문장 $y$의 요구조건
+1. $p$에서 식별된 어떤 민감 정보도 드러내지 않는다.
+2. $u$의 비민감 내용은 보존하여, 재작성된 문장이 클라우드에서 적절한 작업을 수행할 수 있게 한다.
+3. 텍스트가 이미 재작성되었다는 사실을 untrusted party에게 경고하지 않는다(자연스러움 보존).
+
+### 가정
+- 민감 정보를 클라우드에 업로드하지 않기 위해, 재작성 모델은 로컬 배포되고 추론은 완전히 오프라인이다.
+- 단일 사용자 기준으로, 로컬 디바이스 위의 애플리케이션 형태로 동작한다고 가정한다.
+- privacy 정보 $p$는 두 형태가 가능하다.
+	- 사전 정의된 속성 집합
+	- 사용자가 자기 디바이스에서 입력한 임의의 정보
+> [!note] 경고가 없다는 것
+보통 익명화는 `[MASK]`나 `<PERSON>` 같은 흔적을 남기는데, 이 흔적 자체만으로도 민감 정보의 존재 유무를 알려주는 신호가 됨. NaPaRe의 목적은 이 신호마저도 없애서 재작성되었다는 사실조차 숨기는 것.
