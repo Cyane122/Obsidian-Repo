@@ -74,4 +74,4 @@
 - 절차
 	1. stochastic language model $G_{LLM}$에 privacy-aware prompting 전략 $a \in \{\text{obscuring, deleting}\}$을 적용해 $N$개의 후보 재작성 $Y_{cand}$를 생성한다.
 	2. 각 후보 $y \in Y_{cand}$를 utility 함수 $L_S(y, p_{seg}) \in [0, 1]$로 점수화한다.
-		- 이 점수는 잔존하는 private attribute의 정도 또는 monitor
+		- 이 점수는 잔존하는 private attribute의 정도 또는 monitor 함수에 따른 생성 품질을 정량화한다.
