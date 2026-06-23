@@ -75,3 +75,10 @@
 	1. stochastic language model $G_{LLM}$에 privacy-aware prompting 전략 $a \in \{\text{obscuring, deleting}\}$을 적용해 $N$개의 후보 재작성 $Y_{cand}$를 생성한다.
 	2. 각 후보 $y \in Y_{cand}$를 utility 함수 $L_S(y, p_{seg}) \in [0, 1]$로 점수화한다.
 		- 이 점수는 잔존하는 private attribute의 정도 또는 monitor 함수에 따른 생성 품질을 정량화한다.
+	3. monotonic threshold $\gamma$를 설정한다. $\gamma$가 높아질수록 수용 기준이 더 엄격해진다.
+
+### 후보 선택 규칙
+- $L_S(y, p_{seg}) \leq \gamma$를 만족하는 후보들을 acceptable set $Y_{acc}(x)$로 유지한다.
+- 이 accepted set에서 하나의 예시를 무작위로 선택한다.
+- 만약 기준을 만족하는 후보가 없으면, $y_{cand}$ 중 utility 점수가 가장 높은 문장을 반환한다.
+- tree 생성 도중에도 one-step rewrite에서 언급된 $\gamma$와 동일한 threshold 값을 적용한다.
