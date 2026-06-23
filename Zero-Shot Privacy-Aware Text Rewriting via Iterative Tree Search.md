@@ -66,3 +66,12 @@
 	- 사용자가 자기 디바이스에서 입력한 임의의 정보
 > [!note] 경고가 없다는 것
 보통 익명화는 `[MASK]`나 `<PERSON>` 같은 흔적을 남기는데, 이 흔적 자체만으로도 민감 정보의 존재 유무를 알려주는 신호가 됨. NaPaRe의 목적은 이 신호마저도 없애서 재작성되었다는 사실조차 숨기는 것.
+
+## One Step LLM Text Rewrite
+### Rewrite
+- 프라이버시 보존 재작성을 생성하는 controllable rewriting 메커니즘.
+- 입력: 입력 문장 $x$ + 단일 privacy segment $p_{seg}$
+- 절차
+	1. stochastic language model $G_{LLM}$에 privacy-aware prompting 전략 $a \in \{\text{obscuring, deleting}\}$을 적용해 $N$개의 후보 재작성 $Y_{cand}$를 생성한다.
+	2. 각 후보 $y \in Y_{cand}$를 utility 함수 $L_S(y, p_{seg}) \in [0, 1]$로 점수화한다.
+		- 이 점수는 잔존하는 private attribute의 정도 또는 monitor
