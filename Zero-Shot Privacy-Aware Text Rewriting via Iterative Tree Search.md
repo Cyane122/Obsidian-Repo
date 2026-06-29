@@ -82,3 +82,34 @@
 - 이 accepted set에서 하나의 예시를 무작위로 선택한다.
 - 만약 기준을 만족하는 후보가 없으면, $y_{cand}$ 중 utility 점수가 가장 높은 문장을 반환한다.
 - tree 생성 도중에도 one-step rewrite에서 언급된 $\gamma$와 동일한 threshold 값을 적용한다.
+
+## Tree Search Iterative Refinement Privacy Rewrite
+### 동기
+- 텍스트 내 개인정보 보호는 일반적인 obfuscation이 아니라, 정밀하고 맥락 인식적인(context-aware) 재작성을 요구한다.
+- 기존 접근의 한계:
+	- named entity masking: 과도한 내용 제거로 이어질 수 있다.
+	- sentence-level paraphrasing: 민감한 세부 정보를 충분히 은폐하지 못할 수 있다.
+- 제안: zero-shot 방식으로 발화 내 privacy segment를 명시적으로 재작성하도록 모델에 지시하는 tree-search 기반 프레임워크.
+
+## 2단계 파이프라인
+1. Privacy Segment Alignment
+	- 직접 프롬프팅으로 LLM에 개인정보 제거를 지시하는 것은 신뢰도가 낮다. 모델이 암묵적(implicit)인 노출을 식별하고 수정하는 데 약하기 때문이며, 특히 한 문장에 여러 민감 정보가 있을 때 더욱 그렇다.
+	- 대신, privacy specification을 기준으로 입력 문장을 분해해 segment 단위로 재작성하는 alignment 전략을 채택한다.
+	- 매핑 함수: 입력 발화 $u$에서 persona $p$의 정보와 정렬되는 privacy segment를 선택한다. $p$의 의미로부터, $u$ 내에서 가장 alignment 점수가 높은 segment $t_s$를 식별한다.
+	- alignment 점수는 [[Cosine Simliarity]] 같은 유사도 지표나 fine-tuned 언어 모델로 측정 가능하다.
+	- 각 segment $t_j \in u$에 대하여
+	$$\mathrm{Align}_{t_i} = \mathrm{Pri}(p, t_j)$$
+		- $\mathrm{Pri}(p, t_j)$: 토큰 $t_j$와 persona $p$ 사이의 private alignment 점수
+	- 이 매핑으로 aligned token 집합 $(t_1, t_2, \cdots, t_m)$이 생성되며, $u$에서 개인정보를 드러낼 가능성이 높은 토큰들을 식별한다.
+2. Tree-Search Privacy Rewriting
+	- 각 privacy segment를 서로 다른 전략으로 반복 재작성하기 위해, 재작성 과정을 tree-search 문제로 모델링한다.
+		- 각 node = 문장의 수정된 버전
+		- 각 branch = 단일 privacy segment에 적용된 재작성 action
+	- Action Space: 각 node(중간 재작성 상태)에서 단일 privacy segment에 대해 두 전략을 고려한다.
+		- deleting: privacy segment를 문장에서 제거한다.
+		- obscuring: privacy segment를 덜 구체적이거나 더 일반적인 표현으로 대체한다.
+	- [[Upper Confidence Bound for Trees|UCT]]
+		- candidate 재작성 탐색을 안내하기 위해 Upper Confidence Bound for Trees (UCT)를 채택한다.
+		- 고-reward 후보의 exploitation과 덜 방문된 옵션의 exploration 사이 균형을 맞춘다.
+		- 다음 목적함수를 최대화하는 action을 선택한다.
+			$$\mathrm{UCT}(i) = \bar X_i + C \cdot \sqrt {\dfrac{\ln N}{n_i}}$$
