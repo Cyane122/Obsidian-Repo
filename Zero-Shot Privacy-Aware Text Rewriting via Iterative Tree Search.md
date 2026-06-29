@@ -113,3 +113,36 @@
 		- 고-reward 후보의 exploitation과 덜 방문된 옵션의 exploration 사이 균형을 맞춘다.
 		- 다음 목적함수를 최대화하는 action을 선택한다.
 			$$\mathrm{UCT}(i) = \bar X_i + C \cdot \sqrt {\dfrac{\ln N}{n_i}}$$
+			- $\bar X_i$: 노드 $i$의 평균 reward (exploitation 항)
+			- $n_i$: 노드 $i$가 방문된 횟수
+			- $N$: 부모 노드의 총 방문 횟수
+			- $C$: 조정 가능한 exploration 상수
+		- 해석: 좌항은 지금까지 잘 나온 경로를 밀어주고, 우항은 적게 가본 경로에 보너스를 줘 다양성을 확보한다.
+		- 본 논문 설정: validation 성능 기준으로 $C=6.36$으로 설정.
+	- Algorithm 1: Tree-Structured Iterative Privacy Refinement
+		입력: 입력 문장 $x$, reward model $\mathrm{Reward}$, 재작성 전략 집합 $A=\{\mathrm{deleting}, \mathrm{obscuring}\}$, one-step rewrite 알고리즘 $\mathrm{Rewrite}$, tree 생성 예산 $B$, 샘플링 예산 $C$
+		출력: privatized 문장
+		1. $p$에 따라 $x$에서 privacy segment $T_p = \{t_p^{(1)}, \cdots, t_p^{(m)}\}$를 추출한다.
+		2. root 상태 $s_0 \leftarrow x$로 초기화한다.
+		3. 각 privacy segment $t_p^{(i)}$에 대해 다음을 반복한다.
+			1. root node $s_0$, $t_p^{(i)}$로 새로운 search tree를 초기화한다.
+			2. $k=1$부터 $B$까지 반복한다.
+				1. Selection: root에서 tree를 순회하며, UCT 확률에 따라 action $a \in A$를 가진 leaf node를 선택한다.
+				2. Evaluation: 새로 생성된 자식 node마다 부모 node의 생성 문장을 사용해 갱신된 문장을 만든다.
+					$y' = \mathrm{Rewrite}(x, a, C)$
+				3. reward 계산: node의 문장을 reward 함수 $R$에 통과시킨다.
+					$r \leftarrow R(y', t_p^{(i)})$
+				4. Backpropagation: reward $r$을 tree 위로 전파하며, 각 조상 node의 $Q(\cdot)$와 방문 횟수 $N(\cdot)$를 갱신한다.
+				5. 만약 $r' \geq \gamma$ 이면 break.
+			3. best leaf node $\mathrm{leaf}_{best}$까지 순회하고 $y_{t_p^{(i)}} \leftarrow \mathrm{Rewrite}(\mathrm{leaf}_{best}, \epsilon)$으로 확정한다.
+			4. $s_p \leftarrow y_{t_p^{(i)}}$를 다음 private token의 입력 문장으로 설정한다.
+		4. 생성이 끝나면 마지막 생성 예시를 최종 출력으로 설정한다.
+			$y_{final} \leftarrow y_{t_p^{(i)}}$
+		5. $y_{final}$을 반환한다.
+### 알고리즘 동작 요약
+- root node = 원본 문장 $x$로 초기화.
+- 첫 단계에서 단일 privacy segment를 선택하고, 두 전략 중 하나를 균등 샘플링한다.
+- 한 번의 생성 후 discriminator가 reward $r$을 평가한다. 이후:
+	1. Update Node Reward and re-weight: $r \leq \gamma$이면 생성을 계속하고 점수를 tree 위로 전파한다. root나 상위 branch로 돌아가, 관측된 reward에 기반해 각 전략 선택 확률을 재가중한다. 새 node 확장 시, 갱신된 확률로 root에서 새 leaf까지 샘플링한다.
+	2. Termination Check: 어떤 leaf node가 reward threshold $\gamma$를 초과하면 현재 segment의 생성을 종료한다. 예산이 소진되도록 적절한 재작성을 못 찾으면, leaf node를 순회해 지금까지 최선의 생성을 취한다.
+- 첫 segment의 최선 재작성이 확정되면 그 변환을 고정하고 부분 재작성된 문장을 새 root로 삼아 다음 segment로 진행한다. $x$의 모든 privacy segment가 처리될 때까지 반복한다.
