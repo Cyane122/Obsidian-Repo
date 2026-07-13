@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian 논문 노트"
+  short_description: "논문과 용어 노트를 일관된 폴더와 태그 체계로 정리합니다"
+  default_prompt: "Use $obsidian-paper-notes to organize this paper into my Obsidian vault."
