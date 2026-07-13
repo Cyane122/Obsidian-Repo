@@ -12,6 +12,7 @@ description: Obsidian 저장소에서 AI·NLP·ML 논문 노트, 기술 용어 �
 - 태그를 추가하거나 바꿀 때 저장소 루트의 `90 Meta/태그 일람.md`를 반드시 읽는다. 이 파일을 태그의 단일 기준으로 취급한다.
 - 새 파일을 만들거나 파일 이동을 제안할 때 `references/folder-layout.md`를 읽는다.
 - 새 논문·개념·주제 지도 파일을 만들 때 `references/note-templates.md`에서 해당 템플릿을 읽는다.
+- 기존 용어 문서를 표준 섹션으로 정리할 때 `scripts/normalize-concept-notes.ps1`을 먼저 `-DryRun`으로 실행한다.
 - PDF를 저장하거나 논문 노트와 연결할 때 `references/pdf-library.md`를 읽는다.
 - 읽기 상태를 추가하거나 바꿀 때 `references/reading-workflow.md`를 읽는다.
 - 기존 태그를 정리하거나 대량 이동할 때 `references/legacy-migration.md`를 읽는다.
@@ -84,6 +85,8 @@ description: Obsidian 저장소에서 AI·NLP·ML 논문 노트, 기술 용어 �
 - **Paper-origin concept**: 최초 또는 대표 논문이 오늘날에도 정의의 핵심이다. 예: Skip-gram, Transformer, BERT, LoRA.
 
 불확실하면 대표 논문 연결을 보존하는 Paper-origin concept로 처리한다. 기존 문서가 있으면 정의를 덮어쓰지 말고, 더 일반적이고 정확한 정의를 기준으로 중복을 병합한다.
+
+개념 노트의 최상위 섹션은 `정의`, `왜 필요한가`, `작동 원리`, `수식 / 알고리즘`, `특징과 한계`, `대표 변형`, `등장/대표 논문`, `관련 개념` 순서로 유지한다. 기존 하위 주제는 이 표준 섹션 아래 `##` 이하로 보존한다.
 
 ## 부가 작업
 

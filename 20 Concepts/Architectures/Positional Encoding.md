@@ -9,11 +9,23 @@ tags:
   - method/attention
 ---
 # 정의
+
 [[Transformer]] 계열 모델에서 RNN과 달리 순서 정보가 구조에 내재되어 있지 않으므로, 각 토큰의 시퀀스 내 위치 정보를 명시적으로 주입하는 매커니즘.
 - 입력 임베딩 $x_i$에 위치 정보 벡터 $PE_i$를 더해 모델에 전달한다.
 - 위치 정보 없이는 Transformer가 토큰 순서를 구별하지 못한다 (순열 불변의 문제)
 
-# 방식별 분류
+# 왜 필요한가
+
+# 작동 원리
+
+# 수식 / 알고리즘
+
+# 특징과 한계
+
+# 대표 변형
+
+## 방식별 분류
+
 1. Sinusoidal Postional Encoding
 	- [[Attention Is All You Need]]에서 제안된 방법.
 	- 학습 파라미터 없이 사인/코사인 함수로 위치 벡터를 결정론적으로 생성한다.
@@ -46,7 +58,10 @@ tags:
 	- 학습 길이를 훨씬 초과하는 시퀀스에도 사용 성능이 우수하다.
 	- 구현이 단순하고 추가 파라미터도 없다.
 
+# 등장/대표 논문
+
 # 관련 개념
+
 - [[Transformer]]
 - [[Multi-Head Attention]]
 - [[Scaled Dot-Product Attention]]

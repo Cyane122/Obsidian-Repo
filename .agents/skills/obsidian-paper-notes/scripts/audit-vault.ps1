@@ -10,6 +10,10 @@ $AllowedStatuses = [System.Collections.Generic.HashSet[string]]::new(
     [string[]]@('to-read', 'reading', 'read', 'review-needed'),
     [System.StringComparer]::Ordinal
 )
+$ConceptSections = @(
+    '정의', '왜 필요한가', '작동 원리', '수식 / 알고리즘',
+    '특징과 한계', '대표 변형', '등장/대표 논문', '관련 개념'
+)
 
 $taxonomyPath = Join-Path $Root '90 Meta\태그 일람.md'
 if (-not (Test-Path -LiteralPath $taxonomyPath)) {
@@ -112,6 +116,13 @@ foreach ($file in $files) {
             -not [regex]::IsMatch($readDateMatch.Groups['value'].Value, '^\d{4}-\d{2}-\d{2}$')
         ) {
             $Errors.Add("Invalid read_date '$($readDateMatch.Groups['value'].Value)': $($file.FullName)")
+        }
+    } elseif ($expectedType -eq 'concept') {
+        $headings = @([regex]::Matches($body, '(?m)^#\s+(.+?)\s*$') | ForEach-Object { $_.Groups[1].Value })
+        foreach ($section in $ConceptSections) {
+            if ($section -notin $headings) {
+                $Errors.Add("Missing concept section '$section': $($file.FullName)")
+            }
         }
     }
 
