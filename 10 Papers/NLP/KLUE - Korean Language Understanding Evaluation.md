@@ -96,16 +96,16 @@ GLUE/SuperGLUE는 영어 model을 비교할 공통 기준을 만들었다. 한�
 
 ## Tasks
 
-| Task | 형식 | Train / Dev / Test | 주요 평가 지표 |
-|---|---|---:|---|
-| KLUE-TC (YNAT) | 단일 문장 7-class topic 분류 | 45k / 9k / 9k | Macro F1 |
-| KLUE-STS | 문장 쌍 similarity regression·이진 분류 | 11k / 0.5k / 1k | Pearson's $r$, F1 |
-| KLUE-NLI | 문장 쌍 3-class 추론 | 25k / 3k / 3k | [[Accuracy]] |
-| KLUE-NER | character-level sequence tagging | 21k / 5k / 5k | Entity·character-level Macro F1 |
-| KLUE-RE | entity pair의 30-class relation 분류 | 32k / 8k / 8k | Micro F1, AUPRC |
-| KLUE-DP | word-level dependency parsing | 10k / 2k / 2.5k | UAS, LAS |
-| KLUE-MRC | passage 기반 answer span 예측 | 12k / 8k / 9k | Exact Match, character-level ROUGE-W |
-| KLUE-DST (WoS) | dialogue slot-value 예측 | 8k / 1k / 1k | Joint Goal Accuracy, slot Micro F1 |
+| Task           | 형식                                | Train / Dev / Test | 주요 평가 지표                             |
+| -------------- | --------------------------------- | -----------------: | ------------------------------------ |
+| KLUE-TC (YNAT) | 단일 문장 7-class topic 분류            |      45k / 9k / 9k | Macro F1                             |
+| KLUE-STS       | 문장 쌍 similarity regression·이진 분류  |    11k / 0.5k / 1k | Pearson's $r$, F1                    |
+| KLUE-NLI       | 문장 쌍 3-class 추론                   |      25k / 3k / 3k | [[Accuracy]]                         |
+| KLUE-NER       | character-level sequence tagging  |      21k / 5k / 5k | Entity·character-level Macro F1      |
+| KLUE-RE        | entity pair의 30-class relation 분류 |      32k / 8k / 8k | Micro F1, AUPRC                      |
+| KLUE-DP        | word-level dependency parsing     |    10k / 2k / 2.5k | UAS, LAS                             |
+| KLUE-MRC       | passage 기반 answer span 예측         |      12k / 8k / 9k | Exact Match, character-level ROUGE-W |
+| KLUE-DST (WoS) | dialogue slot-value 예측            |       8k / 1k / 1k | Joint Goal Accuracy, slot Micro F1   |
 
 ### KLUE-NER
 - Entity type: person, location, organization, date, time, quantity
@@ -174,15 +174,15 @@ KLUE-BERT, KLUE-RoBERTa를 함께 학습하고 공개한다.
    - KoELECTRA: STS, NLI, NER
 4. KLUE-RoBERTa-LARGE는 YNAT와 NER을 제외한 모든 task에서 가장 높다.
 
-| KLUE-RoBERTa-LARGE 주요 결과 | 점수 |
-|---|---:|
-| KLUE-STS Pearson's $r$ | 93.35 |
-| KLUE-NLI Accuracy | 89.17 |
+| KLUE-RoBERTa-LARGE 주요 결과       |            점수 |
+| ------------------------------ | ------------: |
+| KLUE-STS Pearson's $r$         |         93.35 |
+| KLUE-NLI Accuracy              |         89.17 |
 | KLUE-NER entity / character F1 | 85.00 / 91.86 |
-| KLUE-RE Micro F1 / AUPRC | 71.13 / 72.98 |
-| KLUE-DP UAS / LAS | 93.48 / 88.36 |
-| KLUE-MRC EM / ROUGE-W | 75.58 / 80.59 |
-| WoS JGA / slot F1 | 50.22 / 92.23 |
+| KLUE-RE Micro F1 / AUPRC       | 71.13 / 72.98 |
+| KLUE-DP UAS / LAS              | 93.48 / 88.36 |
+| KLUE-MRC EM / ROUGE-W          | 75.58 / 80.59 |
+| WoS JGA / slot F1              | 50.22 / 92.23 |
 
 # Discussion
 

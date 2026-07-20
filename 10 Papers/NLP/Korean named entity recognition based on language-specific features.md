@@ -45,9 +45,9 @@ aliases:
 2. 한국어는 교착어라서 명사 뒤에 조사나 어미가 바로 붙는다.
 3. 하나의 개체명이 여러 어절에 걸칠 수 있고, 한 어절의 일부만 개체명일 수도 있다.
 
-예를 들어 `에마뉘엘 웅가로가`에서 실제 인명은 `에마뉘엘 웅가로`까지다. 마지막 `가`는 주격 조사.
+예를 들어 `태건이가`에서 실제 인명은 `태건`까지다. 마지막 `이가`는 조사/어미.
 - 어절 단위로 보면 전체를 하나의 entity로 처리하게 된다.
-- 형태소 단위로 보면 `가`만 `O` tag로 분리 가능.
+- 형태소 단위로 보면 `이가`만 `O` tag로 분리 가능.
 
 ## 기존 annotation 단위의 한계
 - 어절 기반: 자연스러운 띄어쓰기는 유지하지만 functional morpheme을 개체명에서 뺄 수 없다.
@@ -74,14 +74,14 @@ CoNLL-U의 multiword token 구조를 사용한다.
 
 기존 공개 corpus는 annotation 단위가 서로 다르다.
 
-| 말뭉치 | 표기 단위 | Train | Dev | Test |
-|---|---:|---:|---:|---:|
-| KIPS 2016 | 형태소 | 3,660 | - | - |
-| KIPS 2017 | 형태소 | 3,555 | 501 | 2,569 |
-| NAVER NER | 어절 | 90,000 | - | - |
-| MODU 2019 | 음절 | 150,082 | - | - |
-| MODU 2021 | 음절 | 68,400 | 1,085 | 8,685 |
-| [[KLUE - Korean Language Understanding Evaluation|KLUE]] | 음절 | 21,008 | 5,000 | 5,000 |
+| 말뭉치                                                       | 표기 단위 |   Train |   Dev |  Test |
+| --------------------------------------------------------- | ----: | ------: | ----: | ----: |
+| KIPS 2016                                                 |   형태소 |   3,660 |     - |     - |
+| KIPS 2017                                                 |   형태소 |   3,555 |   501 | 2,569 |
+| NAVER NER                                                 |    어절 |  90,000 |     - |     - |
+| MODU 2019                                                 |    음절 | 150,082 |     - |     - |
+| MODU 2021                                                 |    음절 |  68,400 | 1,085 | 8,685 |
+| [[KLUE - Korean Language Understanding Evaluation\|KLUE]] |    음절 |  21,008 | 5,000 | 5,000 |
 
 # Conversion
 
@@ -122,21 +122,17 @@ BERT tokenizer가 한 형태소를 여러 subword로 나누면 첫 번째 subwor
 - Neural model: seed 41~45 평균 ± 표준편차
 - Metric: entity-level [[F1 Score]]
 
-$$
-F_1 = 2\frac{PR}{P+R}
-$$
-
 공식 test set이 공개되지 않아 NAVER training set을 다시 split했다.
 
 ## Model 비교
 
-| 모델 | F1 |
-|---|---:|
-| CRF | 71.50 |
-| BiLSTM-CRF | 84.76 ± 0.29 |
-| multilingual BERT-CRF | 87.28 ± 0.37 |
-| XLM-RoBERTa-CRF | 88.16 ± 0.33 |
-| KLUE-RoBERTa-CRF | **88.84 ± 0.43** |
+| 모델                    |               F1 |
+| --------------------- | ---------------: |
+| CRF                   |            71.50 |
+| BiLSTM-CRF            |     84.76 ± 0.29 |
+| multilingual BERT-CRF |     87.28 ± 0.37 |
+| XLM-RoBERTa-CRF       |     88.16 ± 0.33 |
+| KLUE-RoBERTa-CRF      | **88.84 ± 0.43** |
 
 결과
 - contextual embedding의 효과가 큼: CRF 71.50 -> KLUE-RoBERTa-CRF 88.84
@@ -163,12 +159,12 @@ UPOS가 가장 높다. 처음에는 한국어 전용 XPOS가 더 유용할 것 �
    - entity type이 14개라 `E`, `S`까지 추가하면 label space가 너무 커진다 -> BIO가 더 높음
 3. 형태소 vs 음절
 
-| Dataset | CoNLL-U | Syllable |
-|---|---:|---:|
-| MODU 2019 | 88.03 | 84.91 |
-| MODU 2021 | 81.72 | 78.10 |
-| KLUE | 91.72 | 88.15 |
-| ETRI | 97.59 | 93.28 |
+| Dataset   | CoNLL-U | Syllable |
+| --------- | ------: | -------: |
+| MODU 2019 |   88.03 |    84.91 |
+| MODU 2021 |   81.72 |    78.10 |
+| KLUE      |   91.72 |    88.15 |
+| ETRI      |   97.59 |    93.28 |
 
 네 dataset 모두 형태소 형식이 3.12~4.31 F1 높았다.
 
