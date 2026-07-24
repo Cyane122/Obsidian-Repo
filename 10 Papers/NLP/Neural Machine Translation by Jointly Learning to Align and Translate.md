@@ -2,10 +2,12 @@
 type: paper
 title: "Neural Machine Translation by Jointly Learning to Align and Translate"
 authors:
-  - "Dzmitry Bahdanau 외"
+  - "Dzmitry Bahdanau"
+  - "Kyunghyun Cho"
+  - "Yoshua Bengio"
 year: 2015
-venue: ""
-url: ""
+venue: "ICLR 2015"
+url: "https://arxiv.org/abs/1409.0473"
 pdf: ""
 status: reading
 read_date: ""

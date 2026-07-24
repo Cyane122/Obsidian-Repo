@@ -2,10 +2,12 @@
 type: paper
 title: "Sequence to Sequence Learning with Neural Networks"
 authors:
-  - "Ilya Sutskever 외"
+  - "Ilya Sutskever"
+  - "Oriol Vinyals"
+  - "Quoc V. Le"
 year: 2014
-venue: ""
-url: ""
+venue: "NeurIPS 2014"
+url: "https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks"
 pdf: ""
 status: reading
 read_date: ""

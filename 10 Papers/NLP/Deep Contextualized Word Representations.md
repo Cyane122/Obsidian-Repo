@@ -2,14 +2,21 @@
 type: paper
 title: "Deep Contextualized Word Representations"
 authors:
-  - "Matthew E.Peters 외"
+  - "Matthew E. Peters"
+  - "Mark Neumann"
+  - "Mohit Iyyer"
+  - "Matt Gardner"
+  - "Christopher Clark"
+  - "Kenton Lee"
+  - "Luke Zettlemoyer"
 year: 2018
-venue: ""
-url: ""
+venue: "NAACL-HLT 2018"
+url: "https://aclanthology.org/N18-1202/"
 pdf: ""
 status: reading
 read_date: ""
-aliases: []
+aliases:
+  - "ELMo"
 tags:
   - domain/nlp
   - task/representation-learning

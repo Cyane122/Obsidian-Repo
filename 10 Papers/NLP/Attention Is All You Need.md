@@ -2,10 +2,17 @@
 type: paper
 title: "Attention Is All You Need"
 authors:
-  - "Ashish Vaswani 외"
+  - "Ashish Vaswani"
+  - "Noam Shazeer"
+  - "Niki Parmar"
+  - "Jakob Uszkoreit"
+  - "Llion Jones"
+  - "Aidan N. Gomez"
+  - "Łukasz Kaiser"
+  - "Illia Polosukhin"
 year: 2017
-venue: ""
-url: ""
+venue: "NeurIPS 2017"
+url: "https://papers.nips.cc/paper/7181-attention-is-all-you-need"
 pdf: ""
 status: reading
 read_date: ""

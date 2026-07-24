@@ -2,10 +2,12 @@
 type: paper
 title: "GloVe: Global Vectors for Word Representation"
 authors:
-  - "Jeffrey Pennington 외"
+  - "Jeffrey Pennington"
+  - "Richard Socher"
+  - "Christopher D. Manning"
 year: 2014
-venue: ""
-url: ""
+venue: "EMNLP 2014"
+url: "https://aclanthology.org/D14-1162/"
 pdf: ""
 status: reading
 read_date: ""

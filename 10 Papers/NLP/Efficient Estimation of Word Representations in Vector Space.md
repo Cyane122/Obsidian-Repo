@@ -2,10 +2,13 @@
 type: paper
 title: "Efficient Estimation of Word Representations in Vector Space"
 authors:
-  - "Tomas Mikolov 외"
+  - "Tomas Mikolov"
+  - "Kai Chen"
+  - "Greg Corrado"
+  - "Jeffrey Dean"
 year: 2013
-venue: ""
-url: ""
+venue: "arXiv preprint"
+url: "https://arxiv.org/abs/1301.3781"
 pdf: ""
 status: reading
 read_date: ""

@@ -1,15 +1,23 @@
 ---
 type: paper
-title: "NAP²: A Benchmark for Naturalness and Privacy-Preserving Text Rewriting by Learning from Human"
+title: "NAP2: A Benchmark for Naturalness and Privacy-Preserving Text Rewriting by Learning from Human"
 authors:
-  - "Shuo Huang et al."
+  - "Shuo Huang"
+  - "William Maclean"
+  - "Xiaoxi Kang"
+  - "Qiongkai Xu"
+  - "Zhuang Li"
+  - "Xingliang Yuan"
+  - "Gholamreza Haffari"
+  - "Lizhen Qu"
 year: 2025
-venue: ""
-url: ""
+venue: "Findings of EMNLP 2025"
+url: "https://aclanthology.org/2025.findings-emnlp.476/"
 pdf: ""
 status: reading
 read_date: ""
-aliases: []
+aliases:
+  - "NAP²"
 tags:
   - domain/nlp
   - task/text-rewriting

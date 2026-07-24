@@ -1,5 +1,6 @@
 param(
-    [string]$VaultRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..')).Path
+    [string]$VaultRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..')).Path,
+    [switch]$StrictLinks
 )
 
 $ErrorActionPreference = 'Stop'
@@ -25,7 +26,7 @@ foreach ($match in [regex]::Matches($taxonomy, '#((?:domain|task|method|theme)/[
     [void]$allowedTags.Add($match.Groups[1].Value)
 }
 
-$noteDirectories = @('10 Papers', '20 Concepts', '30 Maps')
+$noteDirectories = @('10 Papers', '20 Concepts', '30 Maps', '35 Comparisons', '37 Syntheses')
 $files = @()
 foreach ($directory in $noteDirectories) {
     $path = Join-Path $Root $directory
@@ -42,8 +43,21 @@ foreach ($group in $duplicateNames) {
 }
 
 $targets = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
+$canonicalByTarget = [System.Collections.Generic.Dictionary[string, string]]::new(
+    [System.StringComparer]::OrdinalIgnoreCase
+)
+$incomingCounts = @{}
 foreach ($file in $files) {
     [void]$targets.Add($file.BaseName)
+    if (
+        $canonicalByTarget.ContainsKey($file.BaseName) -and
+        $canonicalByTarget[$file.BaseName] -ne $file.BaseName
+    ) {
+        $Errors.Add("Canonical name/alias collision '$($file.BaseName)': $($canonicalByTarget[$file.BaseName]), $($file.BaseName)")
+    } else {
+        $canonicalByTarget[$file.BaseName] = $file.BaseName
+    }
+    $incomingCounts[$file.BaseName] = 0
     $content = [System.IO.File]::ReadAllText($file.FullName)
     $frontmatterMatch = [regex]::Match($content, '(?s)\A---\r?\n(?<yaml>.*?)\r?\n---(?:\r?\n|$)')
     if (-not $frontmatterMatch.Success) {
@@ -56,7 +70,16 @@ foreach ($file in $files) {
         foreach ($aliasLine in $aliasMatch.Groups['block'].Value -split '\r?\n') {
             $valueMatch = [regex]::Match($aliasLine, '^  - "(?<value>.*)"$')
             if ($valueMatch.Success) {
-                [void]$targets.Add($valueMatch.Groups['value'].Value)
+                $alias = $valueMatch.Groups['value'].Value
+                [void]$targets.Add($alias)
+                if (
+                    $canonicalByTarget.ContainsKey($alias) -and
+                    $canonicalByTarget[$alias] -ne $file.BaseName
+                ) {
+                    $Errors.Add("Alias collision '$alias': $($canonicalByTarget[$alias]), $($file.BaseName)")
+                } else {
+                    $canonicalByTarget[$alias] = $file.BaseName
+                }
             }
         }
     }
@@ -67,6 +90,7 @@ $legacyTargets = @(
     'Singular Value Decompostion', 'Positonal Encoding',
     'bidirectional Language Model', 'bidirectional RNN', 'Recurrent Neural Networks'
 )
+$documentTypes = @{}
 
 foreach ($file in $files) {
     $content = [System.IO.File]::ReadAllText($file.FullName)
@@ -77,18 +101,24 @@ foreach ($file in $files) {
     $yaml = $frontmatterMatch.Groups['yaml'].Value
     $body = $content.Substring($frontmatterMatch.Length)
 
-    $expectedType = if ($file.FullName.StartsWith((Join-Path $Root '10 Papers') + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
-        'paper'
+    $expectedTypes = if ($file.FullName.StartsWith((Join-Path $Root '10 Papers') + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
+        @('paper')
     } elseif ($file.FullName.StartsWith((Join-Path $Root '20 Concepts') + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
-        'concept'
+        @('concept')
+    } elseif ($file.FullName.StartsWith((Join-Path $Root '30 Maps') + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
+        @('map')
+    } elseif ($file.FullName.StartsWith((Join-Path $Root '35 Comparisons') + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
+        @('comparison')
     } else {
-        'map'
+        @('synthesis')
     }
     $typeMatch = [regex]::Match($yaml, '(?m)^type:\s*(\S+)\s*$')
-    if (-not $typeMatch.Success -or $typeMatch.Groups[1].Value -ne $expectedType) {
+    if (-not $typeMatch.Success -or $typeMatch.Groups[1].Value -notin $expectedTypes) {
         $Errors.Add("Type/folder mismatch: $($file.FullName)")
     }
-    if ($expectedType -eq 'paper') {
+    $documentType = if ($typeMatch.Success) { $typeMatch.Groups[1].Value } else { '' }
+    $documentTypes[$file.BaseName] = $documentType
+    if ($documentType -eq 'paper') {
         $pdfMatch = [regex]::Match($yaml, '(?m)^pdf:\s*"(?<value>.*)"\s*$')
         if (-not $pdfMatch.Success) {
             $Errors.Add("Missing pdf property: $($file.FullName)")
@@ -117,7 +147,7 @@ foreach ($file in $files) {
         ) {
             $Errors.Add("Invalid read_date '$($readDateMatch.Groups['value'].Value)': $($file.FullName)")
         }
-    } elseif ($expectedType -eq 'concept') {
+    } elseif ($documentType -eq 'concept') {
         $headings = @([regex]::Matches($body, '(?m)^#\s+(.+?)\s*$') | ForEach-Object { $_.Groups[1].Value })
         foreach ($section in $ConceptSections) {
             if ($section -notin $headings) {
@@ -145,23 +175,62 @@ foreach ($file in $files) {
         $Errors.Add("Legacy inline tags remain: $($file.FullName)")
     }
 
-    foreach ($link in [regex]::Matches($body, '\[\[(?<target>[^\]|#]+)')) {
+    $yamlLinkLines = @(
+        $yaml -split '\r?\n' |
+            Where-Object { $_ -match '\[\[' -and $_ -notmatch '^pdf:' }
+    )
+    $linkSource = $body + "`n" + ($yamlLinkLines -join "`n")
+    foreach ($link in [regex]::Matches($linkSource, '\[\[(?<target>[^\]|#]+)')) {
         $target = $link.Groups['target'].Value.Trim()
+        if ([string]::IsNullOrWhiteSpace($target)) {
+            continue
+        }
         $target = [System.IO.Path]::GetFileNameWithoutExtension($target.Replace('/', '\'))
         if ($legacyTargets -ccontains $target) {
             $Errors.Add("Legacy wikilink target '$target': $($file.FullName)")
         }
-        if (-not $targets.Contains($target)) {
+        if ($targets.Contains($target)) {
+            $canonical = $canonicalByTarget[$target]
+            if ($canonical -ne $file.BaseName) {
+                $incomingCounts[$canonical] += 1
+            }
+        } else {
             [void]$Unresolved.Add($target)
         }
     }
 }
 
+$Orphans = @(
+    $files |
+        Where-Object {
+            $incomingCounts[$_.BaseName] -eq 0 -and
+            $documentTypes[$_.BaseName] -ne 'map'
+        } |
+        Sort-Object FullName
+)
+$ReportedUnresolved = @(
+    $Unresolved |
+        Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
+        Sort-Object
+)
+
 Write-Output "Notes audited: $($files.Count)"
 Write-Output "Canonical tags registered: $($allowedTags.Count)"
-Write-Output "Unresolved wikilink targets: $($Unresolved.Count)"
-if ($Unresolved.Count -gt 0) {
-    $Unresolved | Sort-Object | ForEach-Object { Write-Output "  $_" }
+Write-Output "Unresolved wikilink targets: $($ReportedUnresolved.Count)"
+if ($ReportedUnresolved.Count -gt 0) {
+    $ReportedUnresolved | ForEach-Object { Write-Output "  $_" }
+}
+Write-Output "Orphan note candidates: $($Orphans.Count)"
+if ($Orphans.Count -gt 0) {
+    $Orphans | ForEach-Object {
+        Write-Output "  $($_.FullName.Substring($Root.Length + 1))"
+    }
+}
+
+if ($StrictLinks) {
+    foreach ($target in $ReportedUnresolved) {
+        $Errors.Add("Unresolved wikilink target: $target")
+    }
 }
 
 if ($Errors.Count -gt 0) {

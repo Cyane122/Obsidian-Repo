@@ -2,10 +2,14 @@
 type: paper
 title: "Distributed Representations of Words and Phrases and their Compositionality"
 authors:
-  - "Tomas Mikolov 외"
+  - "Tomas Mikolov"
+  - "Ilya Sutskever"
+  - "Kai Chen"
+  - "Greg Corrado"
+  - "Jeffrey Dean"
 year: 2013
-venue: ""
-url: ""
+venue: "NeurIPS 2013"
+url: "https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality"
 pdf: ""
 status: reading
 read_date: ""

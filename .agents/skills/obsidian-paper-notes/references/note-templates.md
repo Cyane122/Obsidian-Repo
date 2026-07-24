@@ -168,6 +168,100 @@ aliases: []
 - [[Concept B]]
 ```
 
+## Comparison note
+
+```markdown
+---
+type: comparison
+title: "Comparison Question or Subject"
+subjects:
+  - "[[Paper or Concept A]]"
+  - "[[Paper or Concept B]]"
+sources:
+  - "[[Paper A]]"
+  - "[[Paper B]]"
+tags:
+  - domain/nlp
+  - theme/evaluation
+aliases: []
+---
+
+# 비교 목적
+
+무엇을 어떤 조건에서 판단하기 위한 비교인지 쓴다.
+
+# 비교 축
+
+| 축 | 대상 A | 대상 B |
+|---|---|---|
+| 문제 정의 |  |  |
+| 핵심 가정 |  |  |
+| 방법 |  |  |
+| 데이터·평가 |  |  |
+| 결과 |  |  |
+| 한계 |  |  |
+
+# 핵심 차이
+
+비교표를 반복하지 말고 선택에 영향을 주는 차이를 설명한다.
+
+# 비교 가능성의 한계
+
+데이터셋, split, metric, 모델 규모, 학습 조건이 달라 직접 비교할 수 없는 부분을 쓴다.
+
+# 관련 문서
+
+- [[Related Map or Synthesis]]
+```
+
+## Synthesis note
+
+```markdown
+---
+type: synthesis
+title: "Reusable Synthesis Question"
+scope: "다루는 범위와 제외 범위"
+sources:
+  - "[[Paper A]]"
+  - "[[Paper B]]"
+tags:
+  - domain/nlp
+  - theme/evaluation
+aliases: []
+---
+
+# 핵심 결론
+
+여러 출처를 함께 보아야 얻을 수 있는 결론을 2~4문장으로 쓴다.
+
+# 합의되는 내용
+
+서로 독립적인 출처가 공통으로 지지하는 내용을 근거와 함께 쓴다.
+
+# 조건에 따른 차이
+
+방법, 데이터, 가정, 평가 조건에 따라 달라지는 결론을 구분한다.
+
+# 충돌과 근거의 한계
+
+출처 간 모순, 불확실성, 직접 비교 불가능성을 숨기지 않는다.
+
+# 미해결 질문
+
+- 다음 자료나 실험으로 확인해야 할 질문
+
+# 다음 읽기 경로
+
+- [[Related Paper or Concept]]: 왜 다음에 읽어야 하는지 설명한다.
+```
+
+### Comparison and synthesis rules
+
+- `subjects`는 직접 비교하는 대상만, `sources`는 판단 근거로 실제 사용한 문서만 넣는다.
+- 출처 하나를 요약하는 문서는 synthesis가 아니라 paper 또는 concept로 둔다.
+- 비교표의 빈칸을 추측으로 채우지 않는다. 확인하지 못한 값은 `확인되지 않음`으로 표시한다.
+- synthesis 제목은 자료 이름의 나열보다 반복해서 물을 수 있는 주제나 질문을 사용한다.
+
 ## Formatting rules
 
 - 본문은 한국어 문어체로 작성하되 기술 용어와 canonical wikilink는 English-first로 쓴다.
@@ -175,3 +269,4 @@ aliases: []
 - 한두 문장뿐인 하위 주제에는 제목을 만들지 말고 bullet을 사용한다.
 - callout 제목과 내용은 반드시 서로 다른 줄에 둔다.
 - 쉼표로 나열한 inline tag 줄을 만들지 말고 YAML `tags` 목록을 사용한다.
+- comparison과 synthesis의 주요 주장에는 관련 `[[paper]]` 또는 `[[concept]]`가 추적 가능하게 연결되어야 한다.

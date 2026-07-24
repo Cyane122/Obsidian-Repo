@@ -2,10 +2,13 @@
 type: paper
 title: "Zero-Shot Privacy-Aware Text Rewriting via Iterative Tree Search"
 authors:
-  - "Shuo Huang et al."
+  - "Shuo Huang"
+  - "Xingliang Yuan"
+  - "Gholamreza Haffari"
+  - "Lizhen Qu"
 year: 2025
-venue: ""
-url: ""
+venue: "Findings of EMNLP 2025"
+url: "https://aclanthology.org/2025.findings-emnlp.488/"
 pdf: ""
 status: reading
 read_date: ""

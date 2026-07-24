@@ -2,10 +2,12 @@
 type: paper
 title: "Collaborative Filtering for Implicit Feedback Datasets"
 authors:
-  - "Yifan Hu 외"
+  - "Yifan Hu"
+  - "Yehuda Koren"
+  - "Chris Volinsky"
 year: 2008
-venue: ""
-url: ""
+venue: "ICDM 2008"
+url: "https://doi.org/10.1109/ICDM.2008.22"
 pdf: ""
 status: reading
 read_date: ""
