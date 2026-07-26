@@ -26,6 +26,9 @@
     Recommender Systems/
     Multimodal/
     General Machine Learning/
+50 Courses/
+  <Course Name>/
+  Attachments/
 90 Meta/
 ```
 
@@ -39,6 +42,7 @@
    - 동일한 축으로 둘 이상의 대상을 비교하는 문서: `30 Maps/Comparisons/`
    - 여러 출처의 합의·차이·연구 공백을 종합하는 문서: `30 Maps/Syntheses/`
    - 논문 원문 PDF: `40 Sources/Papers/<논문 노트와 같은 분야>/`
+   - 강의, 주차별 공부 기록, 실습 메모: `50 Courses/<강의명>/`
    - 태그 사전과 저장소 운영 규칙: `90 Meta/`
 2. 논문은 논문이 기여한 주 연구 공동체 하나를 canonical home으로 고른다.
    - 언어 모델, 번역, 텍스트 재작성, NLP 프라이버시: `10 Papers/NLP/`
@@ -60,6 +64,8 @@
    - 탐색 순서와 연구 흐름을 안내하면 map이다.
    - 정해진 축으로 대상을 나란히 판단하면 comparison이다.
    - 여러 출처에서 하나의 상위 결론과 미해결 질문을 도출하면 synthesis다.
+8. `50 Courses/`는 개인 학습 기록 보관소다. paper·concept·map의 canonical 문서로 강제 변환하지 말고 원래 강의 흐름, 주차명, 개인 메모를 보존한다. 필요할 때만 본문에서 `10 Papers/`나 `20 Concepts/`의 canonical 문서로 연결한다.
+9. `50 Courses/Attachments/`는 강의 스크린샷과 붙여넣은 이미지의 보관소다. 이미지 바이너리는 일반 git 객체로 올리지 말고 Git LFS로 추적한다.
 
 ## 현재 저장소에 대한 예시
 
@@ -74,6 +80,8 @@
 - `논문 읽기 프로젝트.md` → `30 Maps/`
 - `Text Anonymization Methods.md` → `30 Maps/Comparisons/`
 - `What Makes Text Anonymization Effective.md` → `30 Maps/Syntheses/`
+- `3~4주차. 행렬 분해.md` → `50 Courses/데이터 분석 실전반 - 추천 시스템/`
+- `2주차.md` → `50 Courses/파이썬 텍스트 분석과 LLM, RAG 애플리케이션 개발/`
 
 ## 이동 안전 규칙
 
