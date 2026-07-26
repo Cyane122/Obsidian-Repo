@@ -128,3 +128,8 @@ Wikipedia에서는 상위 모델의 재식별 성능이 훨씬 높았다.
 - GPT-4의 추측 거부는 safety policy에 따른 행동일 수 있어, 잠재 지식 보유량과 실제 공격 능력을 분리하기 어렵다.
 - 향후 더 긴 context, 법률·뉴스 특화 pre-training, chain-of-thought, 구조화 데이터베이스와 knowledge graph가 결합되면 위험이 달라질 수 있다.
 - 재식별 도구는 익명화 검증에 유용하지만 동일한 기술이 공격에도 쓰일 수 있는 dual-use 문제를 가진다.
+
+# Related Documents
+
+- [[Attack and Defense in LLM-based Text Anonymization - Anonymity at Risk and IncogniText]]
+- [[프라이버시 보존 텍스트 재작성]]

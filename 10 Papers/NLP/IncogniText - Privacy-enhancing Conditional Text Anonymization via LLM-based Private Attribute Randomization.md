@@ -128,3 +128,8 @@ IncogniText의 차별점은 삭제·일반화만으로 실제 속성의 흔적�
 - 목표값을 암시하도록 넣은 새 정보는 의미 보존 지표에서 hallucination으로 평가될 수 있고, 실제 사용에서는 사실성이나 downstream 의사결정을 왜곡할 수 있다.
 - 자동 LLM judge 중심의 utility 평가를 실제 사용자 평가로 보완할 필요가 있다.
 - [[Differential Privacy]] 보장은 제공하지 않는다. 저자들은 true value도 일정 확률로 뽑는 randomized response 확장을 후속 과제로 남긴다.
+
+# Related Documents
+
+- [[Attack and Defense in LLM-based Text Anonymization - Anonymity at Risk and IncogniText]]
+- [[프라이버시 보존 텍스트 재작성]]
