@@ -100,12 +100,12 @@ $$
 
 합성 데이터셋에서 가장 좋은 IncogniText 설정인 Phi-3-small은 공격자 정확도를 원문의 71.2%에서 7.2%로 낮췄다. 이는 원래 속성 누출의 약 90% 감소에 해당하며, FgAA 재현 결과 43.2%보다도 낮다. ROUGE는 80.7%, utility judge는 92.2%였다.
 
-| 설정 | Privacy ↓ | ROUGE | Utility |
-|---|---:|---:|---:|
-| Unprotected original | 71.2 | 100.0 | 100.0 |
-| FgAA 재현 | 43.2 | 87.9 | 98.8 |
-| IncogniText Llama-3-70B | 13.5 | 78.7 | 92.2 |
-| IncogniText Phi-3-small | **7.2** | 80.7 | 92.2 |
+| 설정                      | Privacy ↓ | ROUGE | Utility |
+| ----------------------- | --------: | ----: | ------: |
+| Unprotected original    |      71.2 | 100.0 |   100.0 |
+| FgA                     |      43.2 |  87.9 |    98.8 |
+| IncogniText Llama-3-70B |      13.5 |  78.7 |    92.2 |
+| IncogniText Phi-3-small |   **7.2** |  80.7 |    92.2 |
 
 실제 Reddit self-disclosure 데이터셋에서도 공격자 정확도를 73.0%에서 12.8%로 낮췄다. 대부분의 속성에서 원래 누출을 90% 이상 줄였으며, income level은 86% 감소했다. 샘플의 80% 이상은 한 번의 반복만으로 익명화되어 평균 반복 횟수도 FgAA의 1.9회보다 적은 1.3회였다.
 
