@@ -42,7 +42,7 @@ NER 기반 masking이나 일반화는 미리 정의한 entity에는 대응하지
 
 # RUPTA
 
-## 문제 정식화
+## 문제 공식화
 
 원문 $x_0$의 가능한 편집 집합을 $X_0$, privacy와 utility 목적함수를 각각 $f_p$와 $f_u$라 두고 다음 lexicographic optimization을 푼다.
 
