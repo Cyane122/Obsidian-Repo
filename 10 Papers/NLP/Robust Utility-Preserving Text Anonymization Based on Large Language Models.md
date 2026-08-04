@@ -115,12 +115,12 @@ GPT-4 기반 반복 최적화의 최종 출력을 supervised fine-tuning label�
 
 RUPTA(GPT-4)는 AF와 거의 같은 disclosure success rate를 보이면서 분류 성능을 크게 보존했다.
 
-| 방법 | SR ↓ | F1 ↑ | Accuracy ↑ |
-|---|---:|---:|---:|
-| Original | 100.00 | 99.61 | 99.58 |
-| IncogniText | 58.06 | 87.32 | 88.28 |
-| AF | 52.91 | 91.75 | 92.02 |
-| RUPTA (GPT-4) | **52.67** | **95.91** | **96.02** |
+| 방법            |      SR ↓ |      F1 ↑ | Accuracy ↑ |
+| ------------- | --------: | --------: | ---------: |
+| Original      |    100.00 |     99.61 |      99.58 |
+| IncogniText   |     58.06 |     87.32 |      88.28 |
+| AF            |     52.91 |     91.75 |      92.02 |
+| RUPTA (GPT-4) | **52.67** | **95.91** |  **96.02** |
 
 RUPTA(GPT-4)의 utility 결과는 AF보다 one-tailed paired t-test에서 유의하게 높았다($p<0.05$). 반복 횟수가 늘면 일반적인 adversarial feedback 방식은 disclosure risk와 accuracy가 함께 낮아졌지만, RUPTA에는 privacy를 확보한 뒤 accuracy가 회복되는 구간이 나타났다.
 
