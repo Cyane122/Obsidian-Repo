@@ -107,17 +107,17 @@ $$
 
 ### FineWeb utility
 
-| Family | Model | Validation loss | [[Perplexity|PPL]] |
-|---|---|---:|---:|
-| Pythia | Teacher | 2.75 | 15.66 |
-| Pythia | Baseline | 2.87 | 17.69 |
-| Pythia | Student | **2.85** | **17.31** |
-| OLMo-2 | Teacher | 3.41 | 26.34 |
-| OLMo-2 | Baseline | 3.67 | 34.61 |
-| OLMo-2 | Student | **3.44** | **28.15** |
-| Qwen-3 | Teacher | 3.34 | 23.49 |
-| Qwen-3 | Baseline | 3.65 | 33.23 |
-| Qwen-3 | Student | **3.40** | **25.65** |
+| Family | Model    | Validation loss | [[Perplexity\|PPL]] |
+| ------ | -------- | --------------: | ------------------: |
+| Pythia | Teacher  |            2.75 |               15.66 |
+| Pythia | Baseline |            2.87 |               17.69 |
+| Pythia | Student  |        **2.85** |           **17.31** |
+| OLMo-2 | Teacher  |            3.41 |               26.34 |
+| OLMo-2 | Baseline |            3.67 |               34.61 |
+| OLMo-2 | Student  |        **3.44** |           **28.15** |
+| Qwen-3 | Teacher  |            3.34 |               23.49 |
+| Qwen-3 | Baseline |            3.65 |               33.23 |
+| Qwen-3 | Student  |        **3.40** |           **25.65** |
 
 Student는 세 계열 모두 같은 크기의 baseline보다 validation loss와 PPL이 낮다. 즉 memorization 감소가 단순히 덜 학습된 모델의 부산물이라는 설명과 맞지 않는다.
 
