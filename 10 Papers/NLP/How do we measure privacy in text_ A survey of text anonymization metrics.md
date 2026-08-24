@@ -58,16 +58,16 @@ ACL Anthology와 Google Scholar에서 `text anonymization`, `text sanitization`,
 
 Figure 1은 여섯 가지 프라이버시 목표를 다음 질문으로 대비한다.
 
-| 프라이버시 목표 | 핵심 질문 | 그림의 예시 |
-|---|---|---|
-| Identifier removal effectiveness | 이름·주소 등 식별자를 제대로 가렸는가 | `John Smith`, `123 Main St.`를 `[NAME]`, `[ADDRESS]`로 치환 |
-| Dataset membership | 특정 record가 학습 집합에 있었음을 공격자가 알 수 있는가 | 주입한 canary `Xjqwz Qubit`을 모델이 다시 생성 |
-| Attribute inference risk | 성별 같은 민감 속성을 여전히 맞힐 수 있는가 | 익명화된 review로 분류기가 여성이라고 예측 |
-| Reconstruction attacks | 익명화본에서 원문을 다시 복원할 수 있는가 | 가려진 ER 방문문에서 원래 이름을 맞힘 |
-| Semantic inference risk | 명시적 식별자 없이도 민감한 사건·의미가 전달되는가 | Stage IV lung cancer를 가린 뒤 aggressive chemotherapy가 남음 |
-| Theoretical privacy bounds | 형식적 보장 아래에서 최악의 누출 상한은 무엇인가 | 프라이버시 예산 $\epsilon = 2.0$, $\delta = 10^{-5}$ |
+| 프라이버시 목표                         | 핵심 질문                               | 예시                                                      |
+| -------------------------------- | ----------------------------------- | ------------------------------------------------------- |
+| Identifier removal effectiveness | 이름·주소 등 식별자를 제대로 가렸는가               | `John Smith`, `123 Main St.`를 `[NAME]`, `[ADDRESS]`로 치환 |
+| Dataset membership               | 특정 record가 학습 집합에 있었음을 공격자가 알 수 있는가 | 주입한 canary `Xjqwz Qubit`을 모델이 다시 생성                     |
+| Attribute inference risk         | 성별 같은 민감 속성을 여전히 맞힐 수 있는가           | 익명화된 review로 분류기가 여성이라고 예측                              |
+| Reconstruction attacks           | 익명화본에서 원문을 다시 복원할 수 있는가             | 가려진 ER 방문문에서 원래 이름을 맞힘                                  |
+| Semantic inference risk          | 명시적 식별자 없이도 민감한 사건·의미가 전달되는가        | Stage IV lung cancer를 가린 뒤 aggressive chemotherapy가 남음  |
+| Theoretical privacy bounds       | 형식적 보장 아래에서 최악의 누출 상한은 무엇인가         | 프라이버시 예산 $\epsilon = 2.0$, $\delta = 10^{-5}$           |
 
-Table 1에서 집계한 각 목표의 보고 논문 수는 식별자 제거 18편, 데이터셋 membership 8편, 속성 추론 9편, 원문 복원 16편, 의미 추론 8편, 이론적 상한 16편이다. 한 논문이 여러 목표의 지표를 함께 보고할 수 있으므로 합계는 47보다 크다. 다만 §3.1에서는 식별자 제거 지표가 15편에 쓰였다고도 적혀 있다. 본문과 표의 집계 차이에 관해 저자들은 별도 설명을 하지 않는다.
+Table 1에서 집계한 각 목표의 보고 논문 수는 식별자 제거 18편, 데이터셋 membership 8편, 속성 추론 9편, 원문 복원 16편, 의미 추론 8편, 이론적 상한 16편이다. 한 논문이 여러 목표의 지표를 함께 보고할 수 있으므로 합계는 47보다 크다. 다만 [[#3.1 HIPAA Emphasis on Identifier Removal and Expert Judgment|3.1]]에서는 식별자 제거 지표가 15편에 쓰였다고도 적혀 있다. 본문과 표의 집계 차이에 관해 저자들은 별도 설명을 하지 않는다.
 
 ### 2.2.1 Identifier Removal Effectiveness
 
