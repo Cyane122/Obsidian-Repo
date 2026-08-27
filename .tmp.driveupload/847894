@@ -1,0 +1,8 @@
+{
+  "interfaceFontFamily": "Pretendard,JetBrains Mono",
+  "textFontFamily": "Pretendard,AppleSDGothicNeoSB00,JetBrains Mono NL",
+  "monospaceFontFamily": "JetBrains Mono,AppleSDGothicNeoSB00",
+  "baseFontSize": 21,
+  "cssTheme": "Velocity",
+  "theme": "obsidian"
+}

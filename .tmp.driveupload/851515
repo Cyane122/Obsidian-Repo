@@ -1,0 +1,33 @@
+---
+type: project-concept
+title: "분위수 기준 최근 인기 Snapshot"
+aliases: [Quantile Snapshot, Recent Popularity Snapshot]
+project: "[[Two-stage 추천 시스템]]"
+session_refs: ["claude:da0d417f"]
+tags: []
+---
+
+# 정의
+
+최근 인기 후보를 계산할 기준 시각을 데이터의 단순 최댓값이 아니라 timestamp 분위수로 정하는 방법이다.
+
+# 문제
+
+일부 장기 활동 사용자의 늦은 timestamp가 전체 최댓값을 밀어 올리면, ‘최근’ 창에 들어오는 상호작용이 지나치게 적어진다. 실제 실험에서는 단순 기준의 최근 창이 529개 상호작용만 포함했다.
+
+# 변경 결과
+
+분위수 기반 snapshot으로 바꾸자 같은 최근 창에 5,345개 상호작용이 들어왔다. 특정 outlier 사용자의 시각에 끌리지 않으면서 데이터 전체의 현재 시점을 근사했다.
+
+# 한계
+
+분위수는 MovieLens의 몰아 입력 특성을 완화하는 경험적 기준이다. 실제 서비스라면 서버 시각과 노출·소비 event time을 명확히 구분하는 편이 낫다.
+
+# 관련 문서
+
+- [[Candidate Generation (MovieLens)]]
+- [[Per-user Temporal Split (MovieLens)]]
+
+# 세션 근거
+
+- `claude:da0d417f` — 최근 인기 창의 529→5,345 변화와 snapshot 기준 수정

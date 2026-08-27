@@ -1,0 +1,49 @@
+## 비개인화 추천
+- 개인에 따라 달라지지 않는 추천 시스템. 보통 통계 기반 추천.
+	1. 비개인화 추천과의 비교 -> 개인화 추천의 개선을 증명
+		- Baseline Model: 개인화 추천보다 이 모델이 좋으면 안 된다
+		- 오류 검증
+		- 실제 성과 예측
+	2. Fallback
+		- 모델이 실패할 때
+		- 새로운 유저에 대한 추천
+		- 서버에 문제가 있을 때
+		- 구성:
+			- 이벤트: 판매량 기준 / 매출 기준 / 클릭 수 기준
+			- 기간: 최근 2주 / 3개월 / 1년
+			- 개수: 100개 ~ 1000개
+		- 개선 방법
+			- 세그먼트 분리(나이별로, 가입 기간별로 등)
+			- 업데이트 주기 개선
+			- 상품 카테고리 다양성
+
+## 추천 모델 평가: 비즈니스
+- 피드백 루프: 도입으로 끝나는 게 아니라, 도입 -> 유저 반응 수집 -> 모델 개선을 거치는 것.
+- CTR/CVR
+	$\mathrm{CTR} = 100 \times \dfrac{\mathrm{Total \ Clicks}} {\mathrm{Total \ Impressions}}$
+	$\mathrm{CVR} = 100 \times \dfrac{\mathrm{Total \ Achievements}} {\mathrm{Total \ Clicks}}$
+- 백테스트
+	- 기본적으로 과거에 다른 걸 보여줬어야 한다는 것 -> 현실에서 과거를 바꿀 수 없잖아?
+	- 일반적인 ML 방법론처럼 Test 데이터를 잘 맞추는지 맞춰보자.
+- 정확도 평가
+	- Precision
+	- Recall
+	- nDCG
+		- $\mathrm{NDCG}@k = \dfrac{\mathrm{DCG}@k}{\mathrm{IDCG}@k}$
+		- $\mathrm{DCG}@k = \sum_{i=1}^k \dfrac{2^{rel}_i - 1}{\log_2 (i+1)}$
+		- $\mathrm{IDCG}@k = \sum_{i=1}^k \dfrac{2^{rel}_{\sigma(i)} - 1}{\log_2 (i+1)}$
+		- Relativity를 고려한 nDCG가 일반적인 지표.
+		- Rel은 보통 선호도 순으로 정렬
+		- 상위 $n$개에 대한 nDCG@K를 주로 사용.
+		- 좀 더 직관적인 Hit@k도 많이 쓰임
+
+## Data Split
+- 당연히, 원본 데이터는 Train, Valid, Test로 나뉨.
+	- 비율은 논문이나 연구마다 다 다름
+- Cross Validation
+	- 데이터의 양이 충분하지 않을 때, 효과적으로 학습하기 위해 쓰임
+	- 데이터 여러 개를 Fold로 나눠 처리하는 방법
+- Sliding Window
+	- 현실에선 Train/Test를 랜덤으로 할 필요가 없음. (Test는 최근 데이터셋을 사용해야 함)
+	- 따라서, 대부분 시간 단위로 데이터를 쪼갬.
+	- 이때, (이전 며칠) - (최근 며칠) 형태로 데이터를 쪼개 Train-Test 쌍을 구성하는 방법을 말함.

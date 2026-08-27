@@ -1,0 +1,33 @@
+---
+type: project-concept
+title: "스텔라이브 채널 구독 확장안"
+aliases: [StelLive Channel Subscription, 채널 알림 확장]
+project: "[[스텔라이브 음악·채널 서비스]]"
+session_refs: ["codex:01a03cd3"]
+tags: []
+---
+
+# 정의
+
+Google 로그인 뒤 스텔라이브 메인·멤버 채널을 사용자별로 구독하고, YouTube 새 영상과 치지직 라이브 상태를 알리는 후속 기능 설계다. 음악 원장과 조회수 수집 기능과 달리 구현 완료는 확인되지 않는다.
+
+# YouTube
+
+PubSub 계열 푸시로 새 영상을 거의 실시간 감지하는 방향을 검토했다. 새 영상은 방송 다시보기나 일반 콘텐츠일 수 있으므로 알림은 자동으로 보내되 곡 아카이브에는 수동 검토 후 등록한다.
+
+# 치지직
+
+client credentials로 3~5분 간격 라이브 상태를 확인하는 방향이었다. 단순 상태 조회에는 사용자 access token이 필수는 아니며 client ID와 secret으로 가능하다고 검토했다. 사용자 token은 access 약 1일, refresh 약 30일의 수명과 비활성 앱 운영 제약이 있다.
+
+# 필요한 저장 계층
+
+공개 곡 원장과 달리 로그인 identity, 채널별 구독, 알림 권한과 delivery 상태는 사용자별 저장이 필요하다. 알림 실패가 조회수 갱신이나 곡 목록을 막지 않도록 파이프라인을 분리해야 한다.
+
+# 관련 문서
+
+- [[YouTube 조회수 수집 파이프라인]]
+- [[스텔라이브 곡 아카이브]]
+
+# 세션 근거
+
+- `codex:01a03cd3` — Google 로그인, YouTube PubSub, 치지직 polling과 token 제약 검토

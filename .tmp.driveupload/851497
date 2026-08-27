@@ -1,0 +1,33 @@
+---
+type: project-concept
+title: "통제 태그 사전"
+aliases: [Controlled Tag Taxonomy, 태그 일람]
+project: "[[AI·NLP 학술 지식 Wiki]]"
+session_refs: ["codex:019f597a"]
+tags: []
+---
+
+# 정의
+
+`통제 태그 사전`은 새 노트가 임의의 키워드를 태그로 만들지 못하게 하고 `domain / task / method / theme` 네 축의 등록된 태그만 사용하게 하는 규칙이다. 실제 단일 기준은 `90 Meta/태그 일람.md`다.
+
+# 도입 배경
+
+초기 저장소에는 `#NLP`, `#RNNs`, `noise_injection`, `matrix_factorization`, `#training-stabilty`, 논문 고유명 태그가 섞여 있었다. 대소문자·복수형·구분자·오탈자와 분류 축이 모두 달라 검색 결과가 불안정했다.
+
+# 규칙
+
+- 한 노트에는 대체로 2~4개 태그를 쓴다.
+- domain 1개, 필요하면 task 1개, method/theme 1~2개를 고른다.
+- 모델명, 논문명, 저자, 연도, 데이터셋은 태그가 아니라 속성·위키링크로 표현한다.
+- 새 태그는 최소 3개 이상의 노트에서 재사용될 때만 등록한다.
+- 임의의 대문자·복수형·underscore 태그를 만들지 않는다.
+
+# 관련 문서
+
+- [[Canonical Note (개인 Wiki)]]
+- [[Vault Audit (개인 Wiki)]]
+
+# 세션 근거
+
+- `codex:019f597a` — 기존 태그 혼란 분석, 네 축 사전과 마이그레이션 규칙

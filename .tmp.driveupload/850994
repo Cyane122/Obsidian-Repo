@@ -1,0 +1,41 @@
+# 추천 시스템의 기본 개념
+추천 = 사용자가 다음에 할 행동을 예측하는 문제.
+정답 = 클릭, 구매, star, watch, fork 같은 다음 행동 로그.
+
+## 추천 데이터의 종류
+- Explicit Feedback: 평점/좋아요 같은 명시적 반응. 적지만 명확함
+- Implicit Feedback: 클릭, 조회, star, fork, comment 같은 행동. 많지만 Noisy함.
+
+실무에선 대개 Implicit Feedback을 중심으로 시작한다. 데이터가 훨씬 많기 때문이다.
+추천 문제의 가장 큰 어려움 = sparsity. 유저 - 아이템 조합은 매우 크지만 실제 관측된 행동은 극히 일부에 지나지 않기 때문이다.
+
+# Baseline과 평가 지표
+인기순, 최신순 추천은 단순하지만 매우 강한 Baseline이다. 특히 cold start나 장애 상황에선 fallback으로 쓸 수도 있다.
+평가 = 온/오프라인 지표를 함께 본다.
+- CTR: 노출 대비 클릭률
+- CVR: 클릭 대비 구매/전환율
+- nDCG@K: 관련 아이템을 상위에 올렸는지
+- Recall@K: 정답 아이템이 후보 안에 들어왔는지
+- unique@K: 추천이 일부 인기 아이템에 쏠리지 않는지
+특히 nDCG@10만 보는 것으로는 부족하며, 후보 생성 실험에서는 Recall@100과 unique@100도 같이 보는 것이 중요하다.
+
+# Matrix Factorization, ALS, BPR
+Matrix Factorization: 거대한 유저-아이템 행렬을 작은 두 행렬로 근사하는 방식. 유저와 아이템을 같은 latent space에 놓고, 둘의 내적이 높을수록 선호도가 높다.
+ALS: Confidence 기반 행렬분해 방식
+BPR: Positive Item이 Negative보다 앞서도록 학습
+Embedding Search: 학습된 embedding에서 가까운 아이템을 찾음
+ANN/FAISS: brute force보다 빠르게 근접 아이템 검색
+
+# Two-stage Architecture
+전체 아이템을 한 번에 정렬하지 않으며, 두 번에 나누어 정리한다.
+1. Candidate Generation / Retrieval: 후보를 넓게 가져옴. Precision보다 Recall 향상을 목표로.
+2. Ranking / Re-ranking: 후보 안에서 순서를 정교하게 고친다. 상위 랭킹 품질 향상을 목표로 한다.
+후보 안에 정답 repo가 없으면, 뒤의 LGBM ranker가 아무리 좋아도 맞출 수 없다. 그래서 candidate generation은 precision보다 recall이 중요하다.
+
+# Why Two Stage?
+전체 아이템을 매번 정렬하는 건 계산량이 너무 크다.
+
+e.g. 1000명의 유저 x 100만개의 items -> 10억 회의 추론.
+	만약 1회 추론에 1밀리초일 때, 11.6일이 걸린다.
+	if Stage 1에서 후보를 500개로 줄인다면 고작 50만 회의 추론 수준에 그친다.
+즉, 성능을 위한 구조가 아니라 계산을 현실적으로 가능하게 하는 구조이다.

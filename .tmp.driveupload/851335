@@ -1,0 +1,46 @@
+---
+type: project
+title: "CH2026 센서 데이터 예측"
+aliases:
+  - CH2026 Metrics
+category: ai-data-knowledge
+session_period: "2026-05-18 ~ 2026-05-26"
+last_session_date: 2026-05-26
+session_refs:
+  - "codex:019e6277"
+tags:
+  - domain/machine-learning
+  - method/neural-network
+  - theme/evaluation
+---
+
+# 한 줄 요약
+
+센서 데이터에서 여러 타깃을 예측하기 위해 특징 공학, 시퀀스 모델, 트리 모델, OOF 앙상블과 Public LB 블렌드를 폭넓게 실험한 경진대회 프로젝트다.
+
+# 실험 축
+
+- 센서 parquet 집계와 calendar·history 특징
+- 기본 로지스틱·규칙 기반 모델과 시간·피험자 분할 CV
+- [[LSTM]], GRU, RNN, [[Transformer]] 기반 시퀀스 모델
+- Raw CNN과 GPU 기반 신규 모델
+- CatBoost, LightGBM, XGBoost, Extra Trees 기반 Anchor·Semantic stack
+- OOF 앙상블, 보수적 블렌드, temporal kernel과 Public LB 후보 탐색
+
+# 확인된 결과
+
+- 로컬 OOF에서 Semantic·Anchor stack 계열이 최고권이었다.
+- Public LB에서 확인된 최고 제출은 `blend_friend25_v3robust3125_v4knnrobust4375_submission.csv`였다.
+- 해당 제출의 Public logloss는 `0.5974867204`로 기록돼 있다.
+- 단순히 특정 성분의 비중을 계속 높이는 방향은 성능이 악화되는 구간이 확인됐다.
+
+# 세션에서 확인된 상태
+
+2026-05-26에 Codex 세션 한도 때문에 Claude로 넘기기 위한 코드·실험 인수인계가 작성됐다. 대회의 최종 종료 상태와 이후 실험은 현재 세션 기록만으로 확인되지 않는다.
+
+# 관련 문서
+
+- [[LSTM]]
+- [[Transformer]]
+- [[F1 Score]]
+- [[Cross-Entropy]]

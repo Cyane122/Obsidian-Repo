@@ -1,0 +1,54 @@
+---
+type: project-concept
+title: "Deferred Commit (GraphRAG)"
+aliases: [지연 커밋, GraphRAG Deferred Commit]
+project: "[[GraphRAG]]"
+session_refs: ["claude:697838f0", "codex:019f93f9"]
+tags: []
+---
+
+# 정의
+
+`Deferred Commit`은 Actor가 만든 응답의 부수 효과를 즉시 세계 상태에 쓰지 않고, 그 응답이 사용자에게 받아들여진 뒤에만 반영하는 [[GraphRAG]]의 커밋 규칙이다. Actor의 산문과 세계 상태 변경을 같은 순간에 확정하지 않는다는 뜻이다.
+
+# 왜 필요한가
+
+LLM 응답은 생성 도중 끊길 수 있고, 사용자가 재생성하거나 버릴 수도 있다. 응답이 나오자마자 시간·위치·관계·기억을 갱신하면 화면에는 폐기된 답변이 남지 않았는데 내부 세계만 진행되는 문제가 생긴다. Deferred Commit은 ‘보여준 응답’과 ‘실제로 일어난 사건’을 맞추기 위한 안전장치다.
+
+# 작동 방식
+
+```text
+현재 상태 조회
+→ Manager가 컨텍스트와 프롬프트 구성
+→ Actor가 응답 생성
+→ 부수 효과는 아직 discardable 상태
+→ 응답 수락
+→ 단일 Updater 진입점
+→ Graph 적용 또는 Wiki commit 계획
+→ 시간 구동 후처리
+```
+
+Graph 모드에서는 수락된 턴이 `graph_apply.py` 계열을 거쳐 Kuzu에 반영된다. Wiki 모드에서는 `commit_planner.py`가 수정 계획을 만들고 revision-safe Markdown commit으로 큐에 넣는다. 저장 방식은 다르지만, 응답 수락 전에는 영구 상태를 바꾸지 않는 원칙은 같다.
+
+# 설계상 함의
+
+- Manager의 턴 준비는 가능한 한 부수 효과가 없어야 한다.
+- 시간은 Actor 응답의 헤더와 수락된 행동을 기준으로 진행해야 한다.
+- 재생성·중단·거절된 응답에서 나온 상태 변경은 폐기할 수 있어야 한다.
+- 새 시스템이 Actor 출력에서 파생되더라도 기존 검증·감사·커밋 경로를 우회하면 안 된다.
+
+# 오해하기 쉬운 점
+
+Deferred Commit은 모든 처리를 다음 턴까지 미룬다는 뜻이 아니다. 응답 생성에 필요한 조회와 계획은 현재 턴에 수행한다. 미루는 것은 복구하기 어려운 영구 상태 변경이다. 또한 시간 감쇠처럼 수락된 시간 변화에서 결정적으로 파생되는 작업은 LLM 출력이 아니라 post-commit 규칙으로 실행할 수 있다.
+
+# 관련 문서
+
+- [[Actor–Manager–Updater]]
+- [[단일 Updater (GraphRAG)]]
+- [[Graph Mode와 Wiki Mode]]
+- [[시간 구동 Post-commit 시스템]]
+
+# 세션 근거
+
+- `claude:697838f0` — Wiki 패리티와 단일 Updater, 결정론적 post-commit의 경계
+- `codex:019f93f9` — 수락된 Actor 응답 뒤에만 Graph mutation을 커밋하는 저장소 규칙

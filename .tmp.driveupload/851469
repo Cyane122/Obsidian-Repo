@@ -1,0 +1,47 @@
+---
+type: project-concept
+title: "시간 구동 Post-commit 시스템"
+aliases: [Time-driven Post-commit, GraphRAG 결정론적 후처리]
+project: "[[GraphRAG]]"
+session_refs: ["claude:697838f0"]
+tags: []
+---
+
+# 정의
+
+`시간 구동 Post-commit 시스템`은 턴의 산문 내용보다 수락된 시간 경과에 의해 상태가 변하는 기능을 LLM Updater 밖에서 결정론적으로 실행하는 [[GraphRAG]]의 설계 원칙이다.
+
+# 대상
+
+- needs의 시간 경과 감쇠
+- schedule tick과 예정 행동 처리
+- memory 감쇠
+- 수락된 시간 변화에 따라 계산 가능한 정기 상태 변화
+
+# 왜 Updater JSON에 넣지 않는가
+
+같은 시간이 흘렀다면 문체나 모델 응답과 무관하게 같은 결과가 나와야 한다. LLM이 감쇠량을 매번 제안하게 하면 비용이 들고 결과가 흔들리며, 누락되거나 중복 적용될 수 있다. 따라서 accepted turn이 커밋된 뒤 확정된 `t0 → t1` 구간을 입력으로 로컬 규칙이 계산한다.
+
+# 실행 순서
+
+```text
+Actor 응답 수락
+→ 내용 기반 상태 변경 커밋
+→ 확정된 시간 구간 계산
+→ needs·schedule·memory 후처리
+→ 다음 턴에서 갱신 상태 조회
+```
+
+# 주의점
+
+후처리라고 해서 감사 경로를 생략하지 않는다. Graph에서는 transaction과 namespace 규칙을 지키고, Wiki에서는 해당 상태의 canonical Markdown home과 revision 충돌 정책을 따라야 한다. 재시도 시 같은 시간 구간이 두 번 적용되지 않도록 멱등성도 필요하다.
+
+# 관련 문서
+
+- [[Deferred Commit (GraphRAG)]]
+- [[단일 Updater (GraphRAG)]]
+- [[WikiRAG 패리티]]
+
+# 세션 근거
+
+- `claude:697838f0` — needs·schedule·memory를 단일 LLM 결과가 아닌 결정론적 post-commit으로 분리한 판단

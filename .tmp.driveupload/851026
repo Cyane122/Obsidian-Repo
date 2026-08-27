@@ -1,0 +1,31 @@
+# 10주차 — 대화 메모리와 세션 관리
+
+## 학습 목표
+
+기본 LLM 호출의 stateless 성질을 이해하고, 세션별 메시지 이력과 요약 메모리로 다중 사용자 대화를 관리한다.
+
+## 핵심 용어
+
+- **Stateless**: 각 호출이 이전 요청을 자동으로 기억하지 않는 성질.
+- **Conversation History**: 이전 Human·AI 메시지의 순서 있는 기록.
+- **MessagesPlaceholder**: 프롬프트에서 메시지 이력이 삽입될 위치.
+- **RunnableWithMessageHistory**: 기존 LCEL 체인에 세션별 기록을 연결하는 wrapper.
+- **Session ID**: 서로 다른 사용자 또는 대화를 분리하는 식별자.
+- **In-Memory History**: 프로세스 메모리에 저장되는 임시 대화 기록.
+- **Summary Memory**: 오래된 대화를 요약 상태로 압축해 전달하는 방식.
+- **Context Window**: 모델이 한 요청에서 읽을 수 있는 토큰 범위.
+- **Persona**: 챗봇의 역할·말투·업무 범위를 정의한 설정.
+- **Session Isolation**: 한 사용자의 기록이 다른 사용자에게 섞이지 않게 보장하는 성질.
+
+## 설계 구분
+
+| 책임 | 담당 |
+|---|---|
+| 메시지 저장 | Message History |
+| 어떤 세션인지 구분 | Session ID |
+| 길어진 이력 압축 | Summary Chain |
+| 역할과 응답 규칙 | System Prompt / Persona |
+
+## 한계
+
+요약 메모리는 토큰을 절약하지만 세부 주문 정보나 예외 조건을 잃을 수 있으므로 중요한 구조화 정보는 별도 상태로 보존해야 한다.

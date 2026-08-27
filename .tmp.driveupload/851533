@@ -1,0 +1,30 @@
+---
+type: project-concept
+title: "UNKNOWN과 raw_notification"
+aliases: [Finance Parser Fallback]
+project: "[[개인 지출 기록 자동화]]"
+session_refs: ["antigravity:0302344a"]
+tags: []
+---
+
+# 정의
+
+알림 파서가 확실히 해석하지 못한 필드는 값을 지어내지 않고 `UNKNOWN`으로 남기며, 전체 원문을 `raw_notification`에 보존하는 실패 처리 원칙이다.
+
+# 필요한 이유
+
+금융 앱은 알림 문구를 바꿀 수 있고, 가맹점·취소·환불 형식도 일정하지 않다. 파싱 실패를 이유로 메일을 버리면 거래가 누락되고, 그럴듯한 값을 추측하면 잘못된 장부가 생긴다.
+
+# 후속 AI의 역할
+
+AI는 원문과 정규화 필드를 함께 보고 애매한 가맹점, 취소 연결, 교차 앱 중복 후보를 검토할 수 있다. 다만 확신이 없을 때도 원본을 지우거나 임의로 확정해서는 안 된다.
+
+# 관련 문서
+
+- [[Tasker 금융 알림 파이프라인]]
+- [[결정론적 event_id]]
+- [[교차 앱 중복 보존]]
+
+# 세션 근거
+
+- `antigravity:0302344a` — unexpected wording 테스트와 `UNKNOWN`, 원문 보존 요구

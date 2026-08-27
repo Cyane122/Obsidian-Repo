@@ -1,0 +1,34 @@
+# 왜 딥러닝인가?
+### 문제점
+TF-IDF와 BoW는 단어의 순서를 무시한다.
+	e.g. `영화가 지루하지 않고 재미있다.` vs. `영화가 재미있지 않고 지루하다.`
+글자가 같더라도, 다른 뜻을 가질 수 있다.
+	e.g. `사과를 먹었다.` vs  `내가 진심으로 사과할게.`
+
+## 6주차 — 딥러닝, RNN, LSTM
+
+### 학습 목표
+
+텍스트의 순서와 장기 문맥을 학습하기 위한 신경망 구조를 이해하고 PyTorch로 LSTM 감성 분류 파이프라인을 구성한다.
+
+### 핵심 용어
+
+- **Neural Network**: 가중합과 비선형 활성화를 여러 층으로 연결한 모델.
+- **Weight / Bias**: 학습으로 조정되는 연결 강도와 기본 오프셋.
+- **Activation Function**: 모델에 비선형성을 부여하는 함수. Sigmoid, Tanh, ReLU가 대표적이다.
+- **Loss Function**: 예측과 정답의 차이를 수치화한 학습 목적.
+- **Forward / Backward Propagation**: 예측을 계산하고 기울기를 역방향으로 구하는 과정. [[Backpropagation]]
+- **Gradient Descent**: 손실이 감소하는 방향으로 파라미터를 갱신하는 원리.
+- **Tensor**: PyTorch가 계산하는 다차원 배열.
+- **Autograd**: 연산 그래프를 추적해 기울기를 자동 계산하는 기능.
+- **RNN**: 이전 hidden state를 다음 시점으로 전달하는 순차 신경망. [[Recurrent Neural Network]]
+- **Hidden State**: 현재까지 읽은 시퀀스의 요약 상태.
+- **Vanishing Gradient**: 긴 역전파에서 기울기가 작아져 초기 정보 학습이 어려워지는 현상. [[Vanishing Gradient]]
+- **LSTM**: gate와 cell state로 장기 의존성을 다루는 RNN 변형. [[LSTM]]
+- **Padding**: 길이가 다른 문장을 같은 길이로 맞추기 위한 채움 값.
+- **Binary Cross-Entropy**: 이진 확률 예측에 사용하는 손실 함수. [[Cross-Entropy]]
+- **Adam**: 모멘트 추정과 적응적 학습률을 결합한 optimizer. [[Adam]]
+
+### 전체 파이프라인
+
+`텍스트 → 토큰화 → 정수 인코딩 → 패딩 → Embedding → LSTM → Linear → Sigmoid → 감성 확률`

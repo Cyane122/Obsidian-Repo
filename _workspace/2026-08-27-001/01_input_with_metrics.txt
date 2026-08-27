@@ -1,0 +1,63 @@
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 2)
+route_hint: light  (권고 — 사용자·오케스트레이터가 무시 가능)
+route_reason: 카운트형 어휘·피동 티 0건 · risk_band low — 이미 잘 쓴 글, 단일 콜·최소 파이프라인 권장
+genre: report
+char_count: 2178
+warning: baseline_genre_null:report->essay
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.36  (z=+0.57 vs report 인간 baseline)
+- comma_usage_rate: 0.70  (z=-0.60 vs report 인간 baseline)
+- ending_comma_rate: 0.50  (z=+5.84 vs report 인간 baseline)  ★ S1 트리거
+- comma_segment_length: 5.67  (z=+0.63 vs report 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.022  (z=-1.26 vs report 인간 baseline)
+- lexical_diversity: 0.82  (z=+3.45 vs report 인간 baseline)  ★ S1 트리거
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 3
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+검색 결과를 프로젝트 단위로 합치면 현재 다음 후보들이 확인된다. 동일 프로젝트가 Claude와 Codex에서 서로 다른 경로명으로 기록된 경우는 하나로 묶었다.
+
+확실한 프로젝트 후보
+
+1. GraphRAG 롤플레이 시뮬레이션 엔진 — Kuzu 그래프 DB, 장기 기억, 관계·상태 변화, 다중 LLM Actor, WikiRAG 월드, 웹 기반 채팅·월드 편집기를 포함하는 장기 프로젝트다. `graphrag`, `GraphRAG`, `NLP/GraphRAG`, `hosted-ui` 세션은 이 항목으로 합칠 수 있다.
+2. Narragraph — 결정론적 콘텐츠와 LLM 생성 구간을 결합한 QSP 스타일 인터랙티브 픽션 엔진이다. GraphRAG와 문제의식은 이어지지만 별도 코드베이스로 진행됐다.
+3. 서사 생성 모델 연구 프로토타입 — Story State, Reader State, Narrative Intent를 구조화해 장문 서사 품질을 평가하려던 실험이다. `tmp-narrative` 세션이 해당한다.
+4. AI·NLP 학술 지식 Wiki — 현재 `D:\World`의 Obsidian 저장소다. 논문·개념·지도·비교·종합 노트를 연결하고, 전용 `obsidian-paper-notes` 스킬도 함께 제작했다.
+5. 데이터·AI 데일리·주간 브리핑 — 신입·주니어 채용, 논문, AI 뉴스, 오픈소스·커뮤니티 신호를 정기적으로 수집하는 개인 자동화다.
+6. 개인 AI 개발 스킬 체계 — `python-dev` 플러그인 마이그레이션, Python 작업 규칙, WikiRAG 관련 저작 스킬 등 AI 도구의 작업 방식을 직접 설계한 묶음이다. 독립 프로젝트 하나로 볼지, 개별 스킬을 나눌지는 정리 단계에서 결정하면 된다.
+7. Two-stage 추천 시스템 — MovieLens-1M을 사용한 후보 생성과 재랭킹, nDCG·Recall·coverage 평가까지 포함한 추천 시스템 과제 프로젝트다.
+8. CH2026 센서 데이터 예측 실험 — 시계열·센서 특징, LSTM·CNN·Transformer, OOF 앙상블과 Public LB 블렌드를 실험한 경진대회 프로젝트다.
+9. 개인 지출 기록 자동화 — 안드로이드 결제 알림을 Tasker가 읽어 정형화된 Gmail 메시지로 보내고, 이후 AI가 Google Sheets 장부를 관리하게 하는 자동화다.
+10. 스텔라이브 음악·채널 서비스 — 멤버별 커버곡과 오리지널 곡을 정리하고 조회수 통계, Google 로그인, 채널 구독, 새 영상·치지직 방송 알림까지 확장한 웹 서비스다.
+11. 로스트아크 기상술사 딜 최적화기 — 캐릭터 API, 아크패시브·아크그리드·보석·트라이포드·장신구·팔찌를 반영해 스펙 조합과 스킬별 딜 상승량을 계산하는 도구다. 이후 다른 클래스 지원도 진행됐다.
+12. 아크 그리드 코어 기록장 — 여섯 캐릭터의 주간 레이드 드랍과 천장 결과를 따로 기록하고 누적 통계를 보여주는 개인용 사이트다.
+13. Minecraft RPG 모드 — 상점, 강화, 잠재능력, 제작 등 RPG 시스템과 실제 게임 Screen UI를 함께 개발한 모드 프로젝트다.
+14. Hero Rouge RPG — Godot 4 기반 로그라이크 RPG 프로젝트다. 게임 설정을 별도 Wiki로 관리하는 구조도 확인된다.
+15. 설월 Codex 펫 — 백발 여성 설표 수인 캐릭터를 9개 표준 동작과 16방향 시선을 갖춘 애니메이션 펫으로 만든 작업이다. 장기 개발 프로젝트보다는 완성형 창작 프로젝트에 가깝다.
+
+보류하거나 별도로 분류할 후보
+
+- Odysseus 로컬 실행·연동 — Docker로 실행하고 Claude·Codex·Antigravity 연동 방식을 검토한 기록은 있으나, 직접 개발한 프로젝트인지 외부 프로젝트를 설치·시험한 것인지는 세션만으로 확정하기 어렵다.
+- 포켓로그 파티 구성, SQLD 시험장·교재 탐색 — 취미·학습 기록으로는 남길 수 있지만, 현재 기록만 보면 프로젝트라기보다 일회성 상담에 가깝다.
+- humanize-korean 설치·사용 — 직접 개발한 기록보다는 외부 플러그인을 설치한 기록이므로 개인 프로젝트 목록에서는 제외하는 편이 자연스럽다.
+
+이 목록은 세션 검색 창에서 확인된 후보를 정리한 것이며, 전체 세션을 완전하게 감사했다는 뜻은 아니다. 다음 단계에서는 사용자가 실제로 자기 프로젝트라고 보는 항목만 남기고, 서로 이어진 프로젝트의 계보와 현재 상태를 정리하면 된다.
+[원문 끝]

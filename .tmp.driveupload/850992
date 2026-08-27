@@ -1,0 +1,175 @@
+추천 시스템의 전체 아키텍처
+- 전체 상품(수백만) - Preprocessing -> 추천 가능 상품 - Candidate generation -> 후보 상품(1500개 정도) - Re-ranking -> 정렬된 추천(1000개 정도) - Post-processing -> 사용자에게 노출(20~500개)
+
+왜 2-stage?
+1. 비용: 전체 상품 대상 예측은 연산량이 너무 큼
+	- 예시: 1000명 x 상품 100만개 = 10억회 연산.
+	- 모델 1회 추론: 1ms일 때, 총 11.6일 정도가 걸림
+	- 이때, Two-stage를 적용하면,
+		1. 가벼운 모델로 500개 선별
+		2. 정교한 모델로 500개 정렬 -> 50만회 연산.
+		-> 연산량 대폭 절감 가능!
+2. 효율: 각 단계에 최적화된 모델, feature 사용 가능
+	- 예시: 
+		1. Stage 1: Recall 극대화 목표
+			-  가볍고 빠른 모델 사용
+			-  핵심 피쳐만 사용
+		2. Stage 2: Precision 극대화 목표
+			-  모델: 복잡한 모델 사용
+			-  모든 피쳐 사용
+
+## Stage 1: Candidate Generation
+비교적 가벼운 모델 사용
+- Nearest Neighbor
+- DNN
+- Item2Vec
+- ALS
+비즈니스 로직 결합
+- 최근 구매/방문 상품
+- 프로모션 상품
+- 카테고리 필터링
+-> 100개에서 500개 가량의 상품 선별
+
+### 주요 방법론
+1. CF 기반
+	- User-based / Item-based CF
+	- Matrix Factorization -> ANN 검색
+2. Content-based
+	- 상품 메타데이터 유사도
+	- 텍스트/이미지 임베딩
+3. Multi source
+	- 여러 Retrieval 채널의 결과를 합침
+	- 채널: 최근 조회, 구매 이력 등.
+
+## ALS
+Matrix Factorization의 대표적 학습 방법.
+학습 방식
+- User 행렬 고정 - Item 행렬 최적화
+- Item 행렬 고정 - User 행렬 최적화
+- 번갈아 반복
+장점
+- Closed-form solution -> SGD보다 빠름
+- 병렬화 가능 (Spark MLlib ALS)
+- [[Implicit Feedback]] 지원 ([[Collaborative Filtering for Implicit Feedback Datasets|Hu et al.]])
+
+## Two Tower Model
+유저와 아이템을 독립적인 DNN으로 임베딩
+구조:
+- User Tower: 유저 피처 -> DNN -> User Embedding
+- Item Tower: 아이템 피처 -> DNN -> Item Embedding
+- `score = cos(user_embedding, item_embedding)`
+핵심
+- Item Embedding은 사전 계산 후 ANN 인덱스에 저장
+- 요청 시 User Embedding만 실시간 계산
+- ANN으로 가장 가까운 아이템 검색
+-> ALS의 딥러닝 확장판. 피처의 풍부한 활용 가능.
+
+### Cold Start
+ALS의 한계:
+- Interaction 행렬에만 의존
+- 새 유저나 아이템 -> 행렬에 행/열이 없어 임베딩 자체를 만들 수 없음
+Two Tower의 해결 방식
+- 입력 = Not interaction. Feature(나이, 카테고리, 텍스트 등)
+- 피쳐만 있으면 임베딩 생성 가능
+- 새 유저: 가입 정보 -> User Embedding 생성
+- 새 아이템: 메타데이터 -> Item Embedding 생성
+
+## Candidate Gen: ANN 실전 활용
+주요 라이브러리 비교
+`FAISS`(Meta)
+- GPU 지원. 대규모 벡터에 최적
+- IVF + PQ 조합으로 메모리/속도 균형
+- 배치 검색에 장점
+`Annoy`(Spotify)
+- 트리 기반. 메모리 매핑(mmap) 지원
+- 디스크 기반 서빙에 적합
+- 빌드 후 읽기 전용 -> 서빙 안정적
+`ScaNN`(Google)
+- .
+
+### 실서비스 멀티소스 설계
+각 소스가 독립적으로 후보를 선택 -> 합집합
+소스 예시:
+- 유저 CF: 나와 비슷한 유저가 산 상품
+- 아이템 CF: 내가 본 상품과 유사한 상품
+- 인기도: 최근 7일 인기 상품
+- 개인화 규칙: 자주 사는 카테고리 신상품
+- 실시간: 방금 본 상품 연관
+- 합산 -> 중복 제거
+-> Re-ranking으로 전달
+핵심: 소스별 Recall을 독립적으로 모니터링한다.
+
+## Stage 2: Re-ranking
+비교적 복잡한 모델 사용
+- DeepFM, Wide & Deep
+- LGBM, XGBoost
+- DIN (Deep Interest Network)
+더 많은 피처 사용
+- 유저 프로필, 컨텍스트
+- 아이템 상세 정보
+- 유저-아이템 교차 피처
+-> 앞서 나온 후보 상품을 최적 순서로 재정렬
+
+### Wide & Deep
+Google Play Store 추천에서 제안된 모델.
+Wide:
+- 선형 모델 + Cross-Product Feature
+- Memorization: 과거 패턴 기억
+Deep:
+- DNN Embedding -> Hidden layers
+- Generalization: 새로운 조합에 대한 예측
+핵심 인사이트
+- Wide만: 과적합, 새 패턴 못 잡음
+- Deep만: 희귀 패턴 놓침
+-> 결합: 두 장점을 모두 활용!
+
+### DeepFM
+FM + DNN을 결합한 CTR 예측 모델
+FM:
+- 2차 피처 교호작용을 자동 학습
+- Sparse한 Feature에서도 잘 작동
+- $y=w_0 + \sum w_ix_i + \sum<v_i, v_j>x_ix_j$
+Deep:
+- MLP로 고차 피처 교호작용 학습
+- FM이 놓치는 비선형 패턴 포착
+결합: FM output + Deep output -> sigmoid
+-> Wide(FM) & Deep을 하나로 통합한 구조.
+
+### LGBM
+Gradient Boosting 기반 랭킹 모델
+왜 이걸 사용할까?
+- Tabular 데이터에서 DNN과 동등 이상의 성능
+- 학습 속도 빠름 -> 빠른 실험 사이클
+- Feature importance -> 해석 가능성
+- Missing value 자동 처리
+실전 적용
+- Feature: 유저-아이템 교차 피처, 통계 피처
+- 타겟: CTR, CVR, 결합(multi-objective)
+- LambdaMART로 랭킹 직접 최적화 가능
+
+### Feature Interaction
+추천에서는 개별 피처보다 조합이 중요하다.
+ex) 점심 도시락 추천
+- 시간 = 12시 (단독으로는 의미 없음)
+- 유저 선호 = 한식 (단독으로는 부족)
+- 시간 = 12시 x 선호 = 한식 -> 한식 도시락 추천!
+Feature Interaction Level
+- 1차: 개별 피처(Logistic Regression)
+- 2차: 피처 쌍 조합(FM)
+- 고차: 다중 피처 조합(DNN, DCN)
+-> 모델 선택: 몇 차 Interaction까지 필요할까?
+
+## Pre-post Processing
+Preprocessing: 판매 중지 상품 제거, 어뷰징/스팸 상품 필터링, 데이터 품질 검증 등
+Postprocessing: 품절 상품 제거, 연령 제한 상품 필터링, 광고 상품 삽입, 다양성 보장 등
+
+## 한계와 발전
+한계:
+- Stage간 정보 단절: Stage 1이 놓친 아이템은 복구 불가
+- Stage 1의 Recall 상한이 전체 성능 결정
+- 각 Stage 별도 최적화 -> 전체 최적이 아닐 수 있음
+발전 방향:
+- Multi-stage: 3~4단계로 확장
+- End-to-End: 전체를 하나의 모델로 학습 시도
+- Retrieval-Augmented: LLM과 결합
+- 강화학습 기반: 장기 보상 최적화(DRL)

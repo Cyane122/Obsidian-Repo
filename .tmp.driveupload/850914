@@ -1,0 +1,11 @@
+.obsidian/
+
+.obsidian/workspace-mobile.json
+.obsidian/workspace.json
+.obsidian/app.json
+
+.trash/
+.DS_Store
+
+# Codex pet build and QA artifacts (installed pets live in the global Codex directory)
+/pet-runs/

@@ -1,0 +1,37 @@
+---
+type: project-concept
+title: "LightGBM Reranking (MovieLens)"
+aliases: [MovieLens 재랭킹]
+project: "[[Two-stage 추천 시스템]]"
+session_refs: ["claude:da0d417f"]
+tags: []
+---
+
+# 정의
+
+ALS·인기 기반 후보를 사용자별 상위 목록으로 다시 정렬하는 두 번째 단계다. 후보별 단일 점수 대신 사용자·아이템·후보 출처와 교차 특징을 LightGBM에 제공한다.
+
+# 주요 특징
+
+- ALS score와 cosine 유사도
+- 후보 출처와 출처 내 rank
+- 전체·최근 item popularity
+- 사용자 활동량과 직업 등 사용자 속성
+- 장르와 사용자 선호의 결합
+- 인기 격차와 ALS–인기 교차 특징
+
+세션 출력에서는 `als_score`, `als_cos`, `rank_als`, `rank_related`, `item_pop`, `user_occupation`, `pop_gap` 등이 gain 상위 특징으로 확인됐다.
+
+# 평가
+
+nDCG와 Recall뿐 아니라 coverage와 사용자 활동량 세그먼트를 함께 확인했다. 후보군의 정답 포함 실패를 랭커 실패로 오인하지 않도록 Candidate Oracle과 함께 본다.
+
+# 관련 문서
+
+- [[Candidate Generation (MovieLens)]]
+- [[Candidate Oracle]]
+- [[Per-user Temporal Split (MovieLens)]]
+
+# 세션 근거
+
+- `claude:da0d417f` — LightGBM 학습과 feature gain, 세그먼트 평가

@@ -1,0 +1,51 @@
+---
+type: project
+title: "Two-stage 추천 시스템"
+aliases:
+  - MovieLens-1M Two-stage Recommender
+category: ai-data-knowledge
+session_period: "2026-07-28"
+last_session_date: 2026-07-28
+session_refs:
+  - "claude:da0d417f"
+tags:
+  - domain/recommender-systems
+  - task/recommendation
+  - method/collaborative-filtering
+  - theme/evaluation
+---
+
+# 한 줄 요약
+
+MovieLens-1M의 사용자–아이템 상호작용으로 후보를 생성한 뒤 학습형 랭커로 재정렬하는 추천 시스템 과제다.
+
+# 목표
+
+강의에서 다룬 Two-stage 구조를 실제 데이터에 적용하고, 후보 생성의 회수율과 최종 상단 랭킹 품질을 함께 평가한다.
+
+# 파이프라인
+
+1. 사용자별 시간 순서에 따라 history, rank-label, test 구간을 나눈다.
+2. ALS와 최근 인기·전체 인기 후보를 결합해 후보군을 만든다.
+3. 사용자·아이템·상호작용 특징과 교차 특징을 만든다.
+4. LightGBM 기반 랭커로 후보를 재정렬한다.
+5. nDCG@K, Recall@K, coverage와 사용자 세그먼트별 결과를 평가한다.
+
+# 주요 실험 결정
+
+- MovieLens-1M 사용자가 짧은 시간에 평가를 몰아서 남긴 특성을 고려해 per-user 시간 분할을 기본값으로 삼았다.
+- ALS는 아이템 규모에 맞춰 factors와 alpha를 낮춘 설정이 더 나았다.
+- 인기 아이템으로 후보를 강제로 채우면 Recall 상한은 오르지만 nDCG@10이 낮아져 기본 동작에서는 제외했다.
+- 최근 인기의 기준 시각이 일부 장기 사용자에게 끌리지 않도록 분위수 기반 스냅샷을 사용했다.
+
+# 세션에서 확인된 상태
+
+전체 파이프라인과 스모크 테스트 7개가 통과했다. per-user 분할과 강의식 global 분할의 비교 실행, README 작성까지 진행된 완료형 과제로 보인다.
+
+# 관련 문서
+
+- [[암시적 피드백 추천]]
+- [[Implicit Feedback]]
+- [[Collaborative Filtering for Implicit Feedback Datasets]]
+- [[BPR - Bayesian Personalized Ranking from Implicit Feedback]]
+- [[Recall]]
