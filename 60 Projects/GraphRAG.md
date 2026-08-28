@@ -142,7 +142,7 @@ Actor는 Gemini만을 전제로 시작했지만 Claude와 DeepSeek까지 지원 
 
 # Agent 방식 검색을 검토한 결과
 
-2026-08-26에는 Graph와 Wiki 모두 필요한 정보만 찾는다는 점에서 Actor가 직접 도구를 반복 호출하는 Agent 구조로 바꿀 수 있는지 검토했다. 결론은 Actor 전체에 에이전트 루프를 씌우는 것은 손해가 크다는 쪽이었다.
+2026-08-26에는 Graph와 Wiki 모두 필요한 정보만 찾는다는 점에서 Actor가 직접 도구를 반복 호출하는 Agent 구조로 바꿀 수 있는지 검토했다. 검토 결과, Actor 전체에 에이전트 루프를 씌우면 손해가 크다고 판단했다.
 
 - Graph는 planner가 필요한 시스템을 고른 뒤 Kuzu를 병렬 조회한다.
 - Wiki는 visibility·소유자·정보 보유자·제목·최근성을 기준으로 후보를 정렬하고 예산만큼 자른다.
@@ -212,6 +212,13 @@ Actor는 Gemini만을 전제로 시작했지만 Claude와 DeepSeek까지 지원 
 
 - [[Narragraph]]
 - [[서사 생성 모델 연구 프로토타입]]
+- [[WikiRAG]]
+- [[Actor (GraphRAG)]]
+- [[Manager (GraphRAG)]]
+- [[Updater (GraphRAG)]]
+- [[PromptBuilder (GraphRAG)]]
+- [[Kuzu (GraphRAG)]]
+- [[sunghwa_university]]
 - [[Large Language Model]]
 - [[Word Embedding]]
 - [[Prompt Engineering]]

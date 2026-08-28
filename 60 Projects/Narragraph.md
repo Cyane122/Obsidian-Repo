@@ -17,7 +17,7 @@ tags:
 
 Narragraph는 손으로 작성한 장면과 규칙을 중심에 두고, LLM은 정해진 슬롯에서만 산문을 생성하도록 제한한 QSP 스타일 인터랙티브 픽션 엔진이다. GraphRAG가 자유 대화와 그래프 상태 갱신을 중심으로 발전한 반면, Narragraph는 하이퍼링크·선택지·상시 상태 패널을 통해 플레이어가 세계 구조를 직접 탐색하게 한다.
 
-이 프로젝트가 풀려던 문제는 “그래프에 상태가 많아도 자유 대화형 챗봇 UI에서는 그 구조가 잘 보이지 않는다”는 것이었다. Degrees of Lewdity와 Twine 계열 게임처럼 본문과 선택지가 진행을 통제하면, 위치·사건·조건·스탯 변화가 플레이어에게 더 명확하게 드러난다. 대신 모든 장면을 작성해야 하는 콘텐츠 비용이 늘어나므로, LLM은 작가가 비워 둔 생성 구간만 맡는다.
+이 프로젝트가 해결하려던 문제는 “그래프에 상태가 많아도 자유 대화형 챗봇 UI에서는 그 구조가 잘 보이지 않는다”는 것이었다. Degrees of Lewdity와 Twine 계열 게임처럼 본문과 선택지가 진행을 통제하면, 위치·사건·조건·스탯 변화가 플레이어에게 더 명확하게 드러난다. 대신 모든 장면을 작성해야 하는 콘텐츠 비용이 늘어나므로, LLM은 작가가 비워 둔 생성 구간만 맡는다.
 
 # 핵심 불변식
 
@@ -108,7 +108,7 @@ games/<pack>/
 
 # 성인 시스템 FSM
 
-성인 시스템은 구체적인 콘텐츠가 아니라 frame만 제공한다.
+성인 시스템은 구체적인 콘텐츠를 제공하지 않고 frame만 제공한다.
 
 - 축, 신체 슬롯, 의복 슬롯, 조건 registry
 - 성인 여부·프라이버시·진행 플래그·동의·축 임계치를 확인하는 결정론적 gate
@@ -190,6 +190,11 @@ Finland slice-of-life 팩 상담에서는 공통 도시 hub를 공유하고 대�
 # 관련 문서
 
 - [[GraphRAG]]
+- [[GameState (Narragraph)]]
+- [[Narragraph DSL]]
+- [[Hard–Bounded Soft–Narrative State]]
+- [[Adult Scene FSM (Narragraph)]]
+- [[safe_hint (Narragraph)]]
 - [[서사 생성 모델 연구 프로토타입]]
 - [[Large Language Model]]
 - [[Prompt Engineering]]
