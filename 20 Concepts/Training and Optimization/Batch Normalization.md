@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Batch Normalization"
+summary: "Ioffe & Szegedy (2015)가 제안한 기법으로, 미니배치 단위로 각 레이어의 입력 분포를 정규화해 학습을 안정화한다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

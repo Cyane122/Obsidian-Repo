@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Zero-Shot Privacy-Aware Text Rewriting via Iterative Tree Search"
+summary: "Zero-Shot Privacy-Aware Text Rewriting via Iterative Tree Search 논문의 서지 정보와 읽기 상태를 추적하는 노트다."
 authors:
   - "Shuo Huang"
   - "Xingliang Yuan"
@@ -48,7 +49,7 @@ tags:
 
 ### 파이프라인 2단계
 1. Privacy Segment Alignment: $u$를 분해해 민감 부분을 짚어낸다. 각 segment $t_j$에 대해 $\mathrm{Align}_{t_j}=\mathrm{Pri}(p, t_j)$ 점수를 embedding 유사도/cosine으로 계산해 집중 개입할 타깃 시퀀스 $t_p^{(1)}, \cdots, t_p^{(m)}$를 분리한다.
-2. [[Monte Carlo Tree Search(MCTS)]]-Inspired 재작성: 재작성을 decision tree로 모델링한다.
+2. [[Monte Carlo Tree Search|MCTS]]-Inspired 재작성: 재작성을 decision tree로 모델링한다.
 	- root node = $u$의 부분 상태
 	- branch = action (고민감도 span에 대한 deletion / generalization을 통한 obscuration)
 	- node 선택은 [[Upper Confidence Bound for Trees|UCT]]로 유망한 경로에 가중

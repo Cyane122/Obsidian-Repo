@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "GloVe: Global Vectors for Word Representation"
+summary: "기존 단어 벡터 학습 방법들은 벡터 산술 연산으로 의미적, 문법적 규칙성을 포착하는 데 어느 정도 성공했지만, 그 규칙성이 왜 발생하는지는 불분명한 상태였다. 기존 모델은 크게 2개로 나뉜다."
 authors:
   - "Jeffrey Pennington"
   - "Richard Socher"

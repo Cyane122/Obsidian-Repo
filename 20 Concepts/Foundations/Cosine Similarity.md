@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Cosine Similarity"
+summary: "Cosine Similarity는 두 벡터의 방향이 얼마나 가까운지를 측정한다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "코사인 유사도"
 tags:

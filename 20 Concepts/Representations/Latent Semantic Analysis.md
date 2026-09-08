@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Latent Semantic Analysis"
+summary: "대규모 말뭉치의 term-document 행렬 또는 term-term 행렬에 Singular Value Decomposition을 적용하여 저차원 밀집 벡터 표현을 얻는 행렬 분해 기반 의미 분석 방법."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

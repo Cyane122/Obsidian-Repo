@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Backpropagation"
+summary: "신경망 학습에서 손실 함수(loss function)의 기울기를 출력층에서 입력층 방향으로 연쇄 법칙(chain rule)을 적용하여 역방향으로 전파하는 알고리즘."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

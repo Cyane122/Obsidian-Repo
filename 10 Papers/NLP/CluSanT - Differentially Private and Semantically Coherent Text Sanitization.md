@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "CluSanT: Differentially Private and Semantically Coherent Text Sanitization"
+summary: "CluSanT는 Metric Local Differential Privacy(MLDP)를 만족하는 텍스트 정제 framework다. 민감 token을 바꿀 때 먼저 의미적으로 가까운 cluster를 고르고, 그 안에서 대체 token을 뽑는다."
 authors:
   - "Ahmed Musa Awon"
   - "Yun Lu"

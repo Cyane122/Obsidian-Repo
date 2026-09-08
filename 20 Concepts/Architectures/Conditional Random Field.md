@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Conditional Random Field"
+summary: "Conditional Random Field(CRF)는 관측 입력이 주어졌을 때 구조화된 출력 전체의 조건부 확률을 모델링하는 판별 모델이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "CRF"
   - "조건부 무작위장"

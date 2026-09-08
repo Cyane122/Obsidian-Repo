@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Recurrent Neural Network"
+summary: "시퀀스 데이터를 처리하기 위해 이전 시점의 은닉 상태를 현재 시점의 입력으로 재귀적으로 활용하는 신경망 구조."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Recurrent Neural Networks"
 tags:

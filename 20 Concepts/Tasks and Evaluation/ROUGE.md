@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "ROUGE"
+summary: "생성된 텍스트와 하나 이상의 참조(reference) 텍스트 사이의 n-gram, 단어 시퀀스 중첩 정도를 측정하는 자동 평가 지표 모음."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

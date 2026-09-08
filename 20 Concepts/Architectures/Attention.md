@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Attention"
+summary: "디코더가 출력 시퀀스의 각 토큰을 생성할 때, 입력 시퀀스 전체를 균등하게 참조하는 대신 현재 생성 단계와 관련성이 높은 위치에 선택적으로 집중하는 메커니즘."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

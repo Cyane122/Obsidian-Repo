@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Positive Pointwise Mutual Information"
+summary: "Pointwise Mutual Information에서 음수 값을 0으로 클리핑한 변환 기법."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Multi-Head Attention"
+summary: "Attention 연산을 단일 representation space에서 한 번 수행하는 대신, 서로 다른 subspace에서 병렬로 여러 번 수행하고 결과를 결합하는 매커니즘."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

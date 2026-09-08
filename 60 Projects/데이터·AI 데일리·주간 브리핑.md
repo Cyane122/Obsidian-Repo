@@ -1,6 +1,10 @@
 ---
 type: project
 title: "데이터·AI 데일리·주간 브리핑"
+summary: "데이터·AI 분야의 채용 공고, 논문, 공식 발표, 오픈소스와 커뮤니티 동향을 정기적으로 조사해 개인 보고서로 축적하는 자동화다."
+status: "active"
+state_source: "session-history"
+last_verified: "2026-08-27"
 aliases: [everyday-info]
 category: ai-data-knowledge
 session_period: "2026-07-19 ~ 2026-08-27"

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Neural Network Language Model"
+summary: "신경망을 이용하여 단어 시퀀스의 확률 분포 P(wt | wt-1, …, wt-N+1)를 추정하는 언어 모델의 총칭."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Bidirectional Language Model"
+summary: "순방향(forward)과 역방향(backward) 언어 모델을 결합하여 토큰의 양방향 문맥을 동시에 모델링하는 언어 모델."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

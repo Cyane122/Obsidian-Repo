@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Residual Connection"
+summary: "Residual Connection은 레이어 입력을 출력에 직접 더해 gradient가 흐를 우회 경로를 만드는 skip connection이다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

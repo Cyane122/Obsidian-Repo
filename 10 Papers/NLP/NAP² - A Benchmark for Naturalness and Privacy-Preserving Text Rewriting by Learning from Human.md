@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "NAP2: A Benchmark for Naturalness and Privacy-Preserving Text Rewriting by Learning from Human"
+summary: "클라우드 기반 LLM의 확산으로 사용자가 서비스에 민감한 정보를 입력하는 과정에서 발생하는 프라이버시 침해 우려가 증가하고 있다. 본 논문은 민감한 텍스트를 LLM에 전송하기 전에 sanitize하는 두 가지 전략을 제안한다."
 authors:
   - "Shuo Huang"
   - "William Maclean"

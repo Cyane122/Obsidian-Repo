@@ -1,12 +1,16 @@
 ---
 type: project
 title: "AI·NLP 학술 지식 Wiki"
+summary: "논문·개념·연구 흐름을 연결된 지식으로 관리하고, 전용 스킬로 구조와 품질을 유지하는 Obsidian 프로젝트다."
 aliases:
   - World
   - Obsidian Academic Wiki
 category: ai-data-knowledge
 session_period: "2026-07-13 ~ 2026-08-27"
 last_session_date: 2026-08-27
+status: active
+state_source: repository
+last_verified: 2026-09-04
 session_refs:
   - "codex:019f597a"
   - "codex:01a02773"
@@ -55,54 +59,11 @@ AI·NLP 학술 지식 Wiki는 논문을 읽은 순서대로 요약문만 쌓는 
 
 모든 기술 명사를 위키링크로 만들지 않는다. 이미 canonical 문서가 있거나, 여러 문서에서 반복되거나, 현재 문서를 이해하는 데 독립 정의가 필요할 때만 연결한다.
 
-# 폴더 구조
+# 운영 기준
 
-| 위치 | 역할 |
-|---|---|
-| `10 Papers` | 한 논문의 주장·방법·실험·한계와 PDF 추적 |
-| `20 Concepts` | 여러 출처에서 재사용되는 개념·모델·평가 방법 |
-| `30 Maps` | 연구 흐름과 읽기 경로 |
-| `30 Maps/Comparisons` | 공통 판단 축으로 둘 이상의 대상을 비교 |
-| `30 Maps/Syntheses` | 여러 출처의 합의·긴장·공백을 종합 |
-| `40 Sources/Papers` | 논문 원문 PDF |
-| `50 Courses` | 강의 순서와 개인 학습 기록 |
-| `60 Projects` | 과거 AI 세션에서 복원한 개인 프로젝트 |
-| `90 Meta` | 태그 사전과 저장소 운영 기준 |
+현재 폴더, 문서 유형, frontmatter, 검색 범위는 [[Vault Schema]]를 단일 기준으로 삼는다. 태그 이름과 의미는 [[태그 일람]]에서 관리한다. 이 프로젝트 문서에는 결정의 배경과 운영 경험만 남기며 현재 규칙을 복사하지 않는다.
 
-현재 저장소에는 `35 Comparisons`, `37 Syntheses` 폴더도 존재하지만, 전용 스킬의 목표 구조에서는 comparison과 synthesis를 `30 Maps` 하위 유형으로 정의한다. 실제 폴더와 규칙 문서의 차이는 다음 구조 정리 때 확인할 대상이다.
-
-# 문서 유형
-
-## Paper
-
-한 논문의 실제 섹션과 근거를 따라간다. title, authors, year, venue, url, pdf, status, read_date를 YAML로 관리한다. 읽기 상태는 `to-read`, `reading`, `read`, `review-needed`만 허용한다.
-
-## Concept
-
-특정 논문을 빼도 독립적인 교과서 개념인지, 대표 논문이 정의의 일부인 paper-origin concept인지 구분한다. 정의, 필요성, 작동 원리, 수식, 한계, 변형, 대표 논문, 관련 개념을 표준 골격으로 사용한다.
-
-## Map
-
-논문 목록이 아니라 한 연구가 이전 접근의 무엇을 바꾸었고 어떤 한계를 남겼는지를 설명하는 탐색 경로다.
-
-## Comparison
-
-문제 정의, 가정, 방법, 데이터·평가, 결과, 한계처럼 모든 대상에 공통으로 적용할 수 있는 축만 쓴다. 데이터셋과 split, metric, 모델 규모가 다르면 수치를 한 순위로 합치지 않는다.
-
-## Synthesis
-
-개별 논문 하나로는 답할 수 없는 반복 가능한 질문을 다룬다. 합의, 조건별 차이, 충돌하는 근거, 미해결 질문과 다음 읽기 경로를 함께 남긴다.
-
-# 태그 체계
-
-태그는 lowercase kebab-case 계층형 형태만 사용한다. 기본적으로 한 노트에 2~4개를 두며, 다음 네 축으로 제한한다.
-
-- `domain/*`: NLP, machine learning, multimodal, recommender systems, privacy and safety
-- `task/*`: language modeling, recommendation, text rewriting, summarization 등
-- `method/*`: transformer, attention, matrix factorization, differential privacy 등
-- `theme/*`: evaluation, generalization, computational efficiency 등
-
-논문 제목, 저자, 연도, 개별 모델명과 데이터셋은 태그가 아니라 속성 또는 위키링크로 표현한다. 새 태그는 적어도 세 노트 이상에서 재사용될 때만 태그 일람에 먼저 등록한다.
+2026-09-04에 comparison과 synthesis의 canonical home을 각각 `35 Comparisons`, `37 Syntheses`로 확정했다. 이전 위치인 `30 Maps/Comparisons`, `30 Maps/Syntheses`의 기존 파일은 자동으로 옮기지 않고, 승인된 migration에서만 처리한다.
 
 # 전용 스킬
 
@@ -166,13 +127,11 @@ AI·NLP 학술 지식 Wiki는 논문을 읽은 순서대로 요약문만 쌓는 
 
 # 현재 상태와 남은 과제
 
-2026-08-27 현재 프로젝트 Wiki를 추가하며 계속 사용 중이다. 현재 감사에서는 프로젝트 노트의 unresolved link와 고아 노트가 없지만, 기존 비교 문서 하나에 type·folder 불일치가 남아 있다.
+2026-09-04에 Vault Schema v2와 scope-first 검색 정책을 도입하고, 스킬 안에 흩어져 있던 폴더 규칙을 단일 기준으로 모았다. 기존 노트와 legacy 위치는 일괄 변경하지 않았으며 감사 결과에서 migration 후보로 관리한다.
 
-- 실제 `35 Comparisons`, `37 Syntheses`와 스킬 목표 구조의 차이 정리
-- 기존 비교 문서의 type·folder mismatch 검토
-- 새 프로젝트 문서가 학술 Wiki 검색을 방해하지 않도록 metadata 규칙 고정
-- 프로젝트 세션과 논문·개념 노트를 연결할 기준 마련
-- 시간이 지나며 오래된 서지·평가 결과를 갱신하는 정책 마련
+- 기존 학술 노트의 `summary`, concept `maturity`, 지식 문서 `last_reviewed`는 관련 문서를 다시 볼 때 점진적으로 채운다.
+- legacy comparison·synthesis 파일은 별도 승인 뒤 이동한다.
+- 오래된 서지·평가 결과를 재검토할 시점과 기준은 실제 사용 경험을 보고 보완한다.
 
 # 관련 고유명사
 

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Greedy Decoding"
+summary: "Greedy Decoding은 각 생성 단계에서 현재 확률이 가장 높은 토큰 하나를 즉시 선택하는 디코딩 방법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Greedy Search"
 tags:

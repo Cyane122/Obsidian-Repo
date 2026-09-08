@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Vanishing Gradient"
+summary: "Backpropagation 과정에서 gradient가 이전 time step 또는 이전 레이어로 전파될수록 지수적으로 작아져 사실상 0에 수렴하는 현상."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

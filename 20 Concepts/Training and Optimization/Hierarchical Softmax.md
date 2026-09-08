@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Hierarchical Softmax"
+summary: "일반 Softmax의 O(|V|) 계산 비용을 줄이기 위해, 어휘를 이진 트리 구조로 표현하고 루트에서 리프까지의 경로를 따라 확률을 계산하는 방식."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

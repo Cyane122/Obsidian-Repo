@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Sequence Labeling"
+summary: "Sequence Labeling은 입력 토큰 열의 각 위치에 품사·개체명·구문 경계 같은 레이블을 할당하는 구조화 예측 과제다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Sequence Tagging"
   - "시퀀스 레이블링"

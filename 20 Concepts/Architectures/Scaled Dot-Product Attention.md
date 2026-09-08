@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Scaled Dot-Product Attention"
+summary: "Query, Key, Value 세 행렬을 입력으로 받아, Query와 Key의 내적으로 유사도를 계산하고 차원 수로 스케일링한 뒤 Softmax로 정규화하여 Value의 가중합을 출력하는 Attention 연산."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

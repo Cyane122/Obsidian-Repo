@@ -1,6 +1,8 @@
 ---
 type: comparison
 title: "암시적 피드백 추천 - WR-MF와 BPR 비교"
+summary: "관측만 있고 명시적 음성이 없는 Implicit Feedback에서, confidence-weighted pointwise 학습과 pairwise ranking 학습이 미관측 항목을 어떻게 다루는지 비교한다."
+last_reviewed: ""
 subjects:
   - "[[Collaborative Filtering for Implicit Feedback Datasets]]"
   - "[[BPR - Bayesian Personalized Ranking from Implicit Feedback]]"

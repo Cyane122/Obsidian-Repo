@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Attention Is All You Need"
+summary: "기존 sequence transduction 모델은 RNN 또는 CNN 기반 encoder-decoder 구조에 의존했다. 성능이 좋은 모델들은 Attention을 추가로 결합한다."
 authors:
   - "Ashish Vaswani"
   - "Noam Shazeer"

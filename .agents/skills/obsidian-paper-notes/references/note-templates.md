@@ -6,6 +6,7 @@
 ---
 type: paper
 title: "Official Paper Title"
+summary: ""
 authors:
   - "First Author"
 year: 2026
@@ -42,6 +43,7 @@ aliases: []
 ### Paper metadata rules
 
 - `title`은 공식 제목과 정확히 일치시킨다.
+- `summary`는 검색 범위를 판단할 수 있는 1~2문장으로, 200자 이하로 쓴다. 위키링크와 서식은 넣지 않는다.
 - `authors`는 확인 가능한 저자 목록을 사용한다. 저자가 매우 많으면 본문 표시만 `First Author et al.`로 줄일 수 있지만 frontmatter에는 가능한 전체 목록을 둔다.
 - `status`는 `to-read`, `reading`, `read`, `review-needed` 중 하나를 사용한다.
 - `read_date`는 `read`로 바꿀 때 `YYYY-MM-DD` 형식으로 채운다. 아직 다 읽지 않았으면 빈 문자열로 둔다.
@@ -54,6 +56,9 @@ aliases: []
 ---
 type: concept
 title: "Full English Name"
+summary: ""
+maturity: developing
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning
@@ -99,6 +104,9 @@ tags:
 ---
 type: concept
 title: "Full English Name"
+summary: ""
+maturity: developing
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp
@@ -144,6 +152,8 @@ tags:
 ---
 type: map
 title: "Topic Name"
+summary: ""
+last_reviewed: ""
 tags:
   - domain/nlp
 aliases: []
@@ -174,6 +184,8 @@ aliases: []
 ---
 type: comparison
 title: "Comparison Question or Subject"
+summary: ""
+last_reviewed: ""
 subjects:
   - "[[Paper or Concept A]]"
   - "[[Paper or Concept B]]"
@@ -220,6 +232,8 @@ aliases: []
 ---
 type: synthesis
 title: "Reusable Synthesis Question"
+summary: ""
+last_reviewed: ""
 scope: "다루는 범위와 제외 범위"
 sources:
   - "[[Paper A]]"
@@ -257,6 +271,7 @@ aliases: []
 
 ### Comparison and synthesis rules
 
+- comparison은 `35 Comparisons/`, synthesis는 `37 Syntheses/`에 둔다.
 - `subjects`는 직접 비교하는 대상만, `sources`는 판단 근거로 실제 사용한 문서만 넣는다.
 - 출처 하나를 요약하는 문서는 synthesis가 아니라 paper 또는 concept로 둔다.
 - 비교표의 빈칸을 추측으로 채우지 않는다. 확인하지 못한 값은 `확인되지 않음`으로 표시한다.
@@ -264,6 +279,8 @@ aliases: []
 
 ## Formatting rules
 
+- frontmatter와 위치의 단일 기준은 `90 Meta/Vault Schema.md`다. 기존 노트의 도입 필드는 관련 내용을 검토할 때만 보완한다.
+- concept의 `maturity`는 `stub`, `developing`, `reviewed` 중 하나다. `reviewed`에는 유효한 `last_reviewed` 날짜가 있어야 한다.
 - 본문은 한국어 문어체로 작성하되 기술 용어와 canonical wikilink는 English-first로 쓴다.
 - 최상위 논문 섹션은 `#`, 그 안의 충분히 긴 하위 주제는 `##`를 사용한다.
 - 한두 문장뿐인 하위 주제에는 제목을 만들지 말고 bullet을 사용한다.

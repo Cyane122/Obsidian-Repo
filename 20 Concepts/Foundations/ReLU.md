@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "ReLU"
+summary: "ReLU(Rectified Linear Unit)는 f(x)=max(0,x) 로 정의되는 활성화 함수다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Rectified Linear Unit"
 tags:

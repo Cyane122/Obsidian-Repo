@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Precision"
+summary: "양성으로 예측한 샘플 중 실제 양성인 비율."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Deep Contextualized Word Representations"
+summary: "기존 Word2Vec, GloVe 등의 사전 학습 단어 표현은 단어마다 하나의 고정된 벡터를 부여한다. 이 논문은 다음 두 가지 한계를 동시에 해결하는 새로운 단어 표현 방식을 제안한다."
 authors:
   - "Matthew E. Peters"
   - "Mark Neumann"

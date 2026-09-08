@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Encoder-Decoder"
+summary: "입력 시퀀스를 하나의 벡터 표현으로 압축하는 Encoder와, 그 벡터로부터 출력 시퀀스를 생성하는 Decoder로 구성된 신경망 아키텍처."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

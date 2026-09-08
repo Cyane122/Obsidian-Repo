@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Matrix Factorization"
+summary: "추천 시스템의 Matrix Factorization은 사용자-항목 상호작용 행렬을 낮은 차원의 사용자 벡터와 항목 벡터의 곱으로 근사하는 방법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "행렬분해"
 tags:

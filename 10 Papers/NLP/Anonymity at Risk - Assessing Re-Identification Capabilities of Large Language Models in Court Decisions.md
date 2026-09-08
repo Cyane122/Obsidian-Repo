@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Anonymity at Risk? Assessing Re-Identification Capabilities of Large Language Models in Court Decisions"
+summary: "이 논문은 LLM이 익명화된 스위스 법원 판결문에서 사람을 재식별할 수 있는지 평가한다. 실제 판결문, 수작업으로 뉴스와 연결한 판결문, 이름을 가린 Wikipedia 인물 문서로 실험하고 텍스트 재식별용 지표를 제안한다."
 authors:
   - "Alex Nyffenegger"
   - "Matthias Stürmer"

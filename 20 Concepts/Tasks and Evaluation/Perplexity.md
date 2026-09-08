@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Perplexity"
+summary: "Perplexity(PPL)는 언어 모델이 정답 토큰 열에 부여한 평균 음의 로그우도를 지수화한 값이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "PPL"
   - "퍼플렉서티"

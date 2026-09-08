@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Positional Encoding"
+summary: "Transformer 계열 모델에서 RNN과 달리 순서 정보가 구조에 내재되어 있지 않으므로, 각 토큰의 시퀀스 내 위치 정보를 명시적으로 주입하는 매커니즘."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Positonal Encoding"
 tags:

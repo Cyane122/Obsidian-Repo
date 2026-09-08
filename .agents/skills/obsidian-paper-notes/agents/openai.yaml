@@ -1,4 +1,4 @@
 interface:
-  display_name: "Obsidian ÇĞ¼ú À§Å°"
-  short_description: "³í¹®°ú °³³äÀ» ¿¬°áµÈ ÇĞ¼ú Áö½Ä À§Å°·Î °ü¸®ÇÕ´Ï´Ù"
-  default_prompt: "Use $obsidian-paper-notes to integrate this material into my Obsidian academic wiki."
+  display_name: "Obsidian í•™ìˆ  ìœ„í‚¤"
+  short_description: "ë…¼ë¬¸ê³¼ ê°œë…ì„ ê¸°ì¡´ ì§€ì‹ì— í¸ì…í•˜ê³  ì—°ê²°í•©ë‹ˆë‹¤"
+  default_prompt: "Use $obsidian-paper-notes to integrate this material into my Obsidian academic wiki without duplicating existing knowledge."

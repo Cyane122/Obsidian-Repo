@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Natural Language Inference"
+summary: "전제와 가설 문장이 주어졌을 때, 전제가 가설을 의미적으로 함의(entail)하는지, 모순(contradict)되는지, 무관(neutral)한지를 분류하는 태스크."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

@@ -1,6 +1,10 @@
 ---
 type: project
 title: "Narragraph"
+summary: "Narragraph는 손으로 작성한 장면과 규칙을 중심에 두고, LLM은 정해진 슬롯에서만 산문을 생성하도록 제한한 QSP 스타일 인터랙티브 픽션 엔진이다."
+status: "prototype"
+state_source: "session-history"
+last_verified: "2026-07-03"
 aliases:
   - narragraph
 category: ai-data-knowledge

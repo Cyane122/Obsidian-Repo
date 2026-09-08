@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Word2Vec"
+summary: "Word2Vec은 Skip-gram과 Continuous Bag-of-Words로 대규모 말뭉치에서 단어 벡터를 효율적으로 학습하는 프레임워크다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

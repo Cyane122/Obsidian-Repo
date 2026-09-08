@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Adam"
+summary: "Adam(Adaptive Moment Estimation)은 기울기의 1차 모멘트와 제곱 기울기의 2차 비중심 모멘트를 지수 이동 평균으로 추정해 파라미터마다 학습률을 조절하는 최적화 방법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Adaptive Moment Estimation"
 tags:

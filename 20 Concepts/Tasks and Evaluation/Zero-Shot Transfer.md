@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Zero-Shot Transfer"
+summary: "모델이 학습 시 한 번도 본 적 없는 task 또는 카테고리에 대해, 추가적인 fine-tuning이나 labeled 예시 없이 직접 예측을 수행하는 능력."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

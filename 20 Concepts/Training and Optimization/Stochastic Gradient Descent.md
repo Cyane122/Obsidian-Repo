@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Stochastic Gradient Descent"
+summary: "손실함수 L을 최소화하기 위해 파라미터 theta를 기울기 반대 방향으로 반복적으로 업데이트하는 최적화 알고리즘."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

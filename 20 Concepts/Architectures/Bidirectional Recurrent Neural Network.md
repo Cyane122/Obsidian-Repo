@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Bidirectional Recurrent Neural Network"
+summary: "입력 시퀀스를 정방향과 역방향으로 동시에 처리하여, 각 위치의 hidden state가 앞뒤 문맥을 모두 반영하도록 설계된 RNN의 변형."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "bidirectional RNN"
 tags:

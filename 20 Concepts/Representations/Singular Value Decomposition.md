@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Singular Value Decomposition"
+summary: "임의의 행렬 M in mathbbR^mtimes n을 세 행렬의 곱 M=UΣV^T로 분해하는 행렬 분해 기법."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Singular Value Decompostion"
 tags:

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Transformer"
+summary: "Attention 메커니즘만으로 시퀀스를 처리하는 신경망 아키텍처."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

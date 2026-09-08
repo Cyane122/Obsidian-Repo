@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Pointwise Mutual Information"
+summary: "두 단어 i, j의 공동출현이 각 단어가 독립적으로 등장하는 경우에 비해 얼마나 더 자주 일어나는지를 측정하는 연관성 척도."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

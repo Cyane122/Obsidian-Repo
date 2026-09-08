@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Subsampling of Frequent Words"
+summary: "대규모 코퍼스에서 지나치게 자주 등장하는 단어(\"the\", \"in\", \"a\" 등)를 학습 중 확률적으로 제거하여, 빈도 불균형을 완화하고 학습 속도와 희귀 단어 표현 품질을 동시에 개선하는 기법."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

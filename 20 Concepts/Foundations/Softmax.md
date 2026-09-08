@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Softmax"
+summary: "K개의 클래스에 대한 logit vector z=[z1, z2, …, zK]를 확률 분포로 변환하는 함수."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "GPT"
+summary: "GPT(Generative Pre-trained Transformer)는 다음 토큰 예측으로 사전학습하는 decoder-only Transformer 계열이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Generative Pre-trained Transformer"
 tags:

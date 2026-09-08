@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Negative Sampling"
+summary: "Skip-gram 모델의 학습 목표를 단순화한 기법."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "One-hot Encoding"
+summary: "단어를 어휘 크기 |V|의 벡터로 표현하되, 해당 단어의 인덱스에만 1, 나머지는 모두 0으로 표현하는 방식."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

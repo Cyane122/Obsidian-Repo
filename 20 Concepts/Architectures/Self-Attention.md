@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Self-Attention"
+summary: "Attention Is All You Need에서 제안된 하나의 시퀀스 내부에서 각 토큰이 다른 모든 토큰을 참조하여 새로운 표현을 만드는 Attention의 일종."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

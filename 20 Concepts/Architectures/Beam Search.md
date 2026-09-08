@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Beam Search"
+summary: "시퀀스 생성 모델에서 가장 높은 확률의 출력 시퀀스를 근사적으로 탐색하는 디코딩 알고리즘."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Distributed Representations of Words and Phrases and their Compositionality"
+summary: "Skip-gram 모델의 여러 확장을 제안하여 벡터 품질과 학습 속도를 동시에 개선한다. Subsampling of Frequent Words: 학습 속도를 크게 향상시키고, 저빈도 단어 표현의 품질을 개선."
 authors:
   - "Tomas Mikolov"
   - "Ilya Sutskever"

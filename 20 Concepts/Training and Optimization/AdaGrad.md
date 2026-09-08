@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "AdaGrad"
+summary: "각 파라미터마다 학습률을 개별적으로 적용시키는 경사하강법 기반 옵티마이저."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

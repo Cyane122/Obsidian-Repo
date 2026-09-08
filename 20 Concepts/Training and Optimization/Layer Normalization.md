@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Layer Normalization"
+summary: "Layer Normalization은 단일 샘플의 feature 차원을 정규화해 배치 크기와 무관하게 학습을 안정시키는 기법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

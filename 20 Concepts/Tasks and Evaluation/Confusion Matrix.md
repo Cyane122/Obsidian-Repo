@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Confusion Matrix"
+summary: "분류 모델의 예측 결과를 실제 레이블과 대조하여 정리한 행렬."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

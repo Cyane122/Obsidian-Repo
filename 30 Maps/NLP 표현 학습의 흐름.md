@@ -1,6 +1,8 @@
 ---
 type: map
 title: "NLP 표현 학습의 흐름"
+summary: "NLP 표현 학습은 단어마다 하나의 벡터를 학습하는 정적 표현에서, 문장 안의 사용 맥락에 따라 표현을 바꾸는 문맥적 사전학습으로 이동했다. 계산 효율과 전역 통계 활용을 둘러싼 Word2Vec·GloVe의 선택은 ELMo의 깊은 양방향 언어 모델을 거쳐 BERT의 범용 fine-tuning 방식으로 이어졌다."
+last_reviewed: ""
 tags:
   - domain/nlp
   - task/representation-learning

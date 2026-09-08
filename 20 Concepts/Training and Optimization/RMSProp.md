@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "RMSProp"
+summary: "RMSProp은 최근 기울기 제곱의 지수 이동 평균으로 각 파라미터의 갱신량을 정규화하는 적응형 최적화 방법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "RMSprop"
 tags:

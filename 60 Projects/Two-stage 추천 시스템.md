@@ -1,6 +1,10 @@
 ---
 type: project
 title: "Two-stage 추천 시스템"
+summary: "MovieLens-1M의 사용자–영화 상호작용을 이용해 후보를 넓게 찾고, 학습형 랭커가 상위 순서를 다시 결정하는 Two-stage 추천 시스템 과제다."
+status: "complete"
+state_source: "session-history"
+last_verified: "2026-07-28"
 aliases: [MovieLens-1M Two-stage Recommender]
 category: ai-data-knowledge
 session_period: "2026-07-28"

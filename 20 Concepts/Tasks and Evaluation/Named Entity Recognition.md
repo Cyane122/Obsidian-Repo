@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Named Entity Recognition"
+summary: "텍스트에서 인명, 지명, 기관명, 기타 고유 개체를 식별하고 사전에 정의된 범주로 분류하는 Sequence Labelling Task."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

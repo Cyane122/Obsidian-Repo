@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Dropout"
+summary: "Dropout은 학습 중 뉴런을 무작위로 비활성화해 특정 뉴런 조합에 대한 의존과 과적합을 줄이는 정규화 기법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

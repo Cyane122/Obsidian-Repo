@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Distributed Representation"
+summary: "단어(또는 다른 언어 단위)를 고정된 크기의 실수 벡터로 표현하는 방식."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

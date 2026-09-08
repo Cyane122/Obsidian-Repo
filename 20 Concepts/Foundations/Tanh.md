@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Tanh"
+summary: "입력을 (-1, 1) 범위로 압축하는 활성화 함수."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "BERT"
+summary: "BERT(Bidirectional Encoder Representations from Transformers)는 Transformer encoder를 양방향 문맥으로 사전학습한 언어 표현 모델이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Bidirectional Encoder Representations from Transformers"
 tags:

@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "KLUE: Korean Language Understanding Evaluation"
+summary: "KLUE(Korean Language Understanding Evaluation)는 한국어 NLU benchmark다."
 authors:
   - "Sungjoon Park et al."
 year: 2021

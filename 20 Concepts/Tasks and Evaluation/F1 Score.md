@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "F1 Score"
+summary: "Precision과 Recall의 조화평균."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

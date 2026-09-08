@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Continuous Bag-of-Words"
+summary: "주변 문맥 단어들로부터 중심 단어를 예측하는 방식으로 Word Embedding을 학습하는 모델 아키텍처."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

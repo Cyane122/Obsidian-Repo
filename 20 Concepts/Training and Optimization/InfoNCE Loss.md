@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "InfoNCE Loss"
+summary: "InfoNCE Loss는 하나의 positive pair를 여러 negative 후보와 구분하도록 학습하는 대조 손실이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "InfoNCE"
 tags:

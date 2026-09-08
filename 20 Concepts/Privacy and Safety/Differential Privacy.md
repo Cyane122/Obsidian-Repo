@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Differential Privacy"
+summary: "데이터셋에서 개별 레코드 하나를 추가하거나 제거해도 분석 결과(쿼리 출력의 확률 분포)가 거의 변하지 않도록 보장하는 수학적 프라이버시 정의."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/privacy-and-safety

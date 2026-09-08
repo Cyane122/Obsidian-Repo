@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Hellinger PCA"
+summary: "생태학 및 생물다양성 연구에서 흔히 사용되는 다변량 통계 기법."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "LSTM"
+summary: "Recurrent Neural Network의 일종으로, 기울기 소실 문제를 해결하기 위해 게이트 메커니즘을 도입한 시퀀스 모델."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

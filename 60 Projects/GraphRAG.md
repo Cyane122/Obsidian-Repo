@@ -1,6 +1,10 @@
 ---
 type: project
 title: "GraphRAG"
+summary: "GraphRAG는 그래프에 저장된 세계 상태를 근거로 장기 롤플레이를 이어가는 시뮬레이션 엔진이다."
+status: "active"
+state_source: "session-history"
+last_verified: "2026-08-27"
 aliases:
   - GraphRAG 롤플레이 시뮬레이션 엔진
 category: ai-data-knowledge

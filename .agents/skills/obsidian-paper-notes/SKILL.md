@@ -1,25 +1,28 @@
 ---
 name: obsidian-paper-notes
-description: Obsidian 저장소를 AI·NLP·ML 학술 지식 위키로 유지한다. 논문·PDF·웹 자료를 기존 지식에 편입하고 paper·concept·map·comparison·synthesis 노트를 생성·확장·연결·질의·복습·감사한다. 사용자가 논문 PDF·제목·링크를 주거나 "논문 정리", "옵시디언 노트", "위키로 정리", "지식베이스에 추가", "개념 문서", "두 논문 비교", "주제 종합", "관련 문서 연결", "고아 노트", "깨진 링크", "태그 정리", "PDF 보관", "읽기 상태"를 요청할 때 사용한다. 일관된 YAML, 제한된 계층형 태그, English-first 위키링크, 출처 추적, 기존 문서와 개인 메모 보존을 적용한다.
+description: Obsidian의 AI·NLP·ML 학술 위키에 논문·PDF·웹 자료를 편입하고 paper·concept·map·comparison·synthesis 노트를 생성·갱신·연결·질의·복습·감사한다. 사용자가 논문 정리, 개념 문서, 논문 비교, 주제 종합, 위키 질의, 링크·태그·PDF·읽기 상태 관리를 요청할 때 사용한다. 일반 Obsidian 문법 안내나 비학술 메모 편집만 필요한 작업에는 사용하지 않는다.
 ---
 
 # Obsidian Academic Wiki
 
-논문을 고립된 요약문으로 쌓지 말고, 논문·개념·비교·종합·주제 지도가 서로 연결되는 학술 지식 위키로 유지한다. 본문은 간결한 한국어 문어체로 작성하고 기술 용어와 canonical wikilink는 English-first로 쓴다.
+자료를 고립된 요약으로 쌓지 않고 기존 지식과 연결된 학술 위키로 편입한다. 본문은 간결한 한국어 문어체로 쓰고 기술 용어와 canonical wikilink는 English-first로 유지한다.
 
-## 작업 전에 읽기
+## 기준과 라우팅
 
-- 모든 작업에서 저장소를 먼저 검색하고 `30 Maps/`의 관련 지도와 기존 제목·별칭·링크를 확인한다.
-- 자료 수집, 기존 문서 병합, 비교, 종합, 위키 질의, 링크·구조 감사에는 `references/wiki-workflow.md`를 읽는다.
-- 태그를 추가하거나 바꿀 때 저장소 루트의 `90 Meta/태그 일람.md`를 반드시 읽는다. 이 파일을 태그의 단일 기준으로 취급한다.
-- 새 파일을 만들거나 파일 이동을 제안할 때 `references/folder-layout.md`를 읽는다.
-- 새 문서를 만들 때 `references/note-templates.md`에서 해당 유형의 템플릿을 읽는다.
-- 기존 용어 문서를 표준 섹션으로 정리할 때 `scripts/normalize-concept-notes.ps1`을 먼저 `-DryRun`으로 실행한다.
-- PDF를 저장하거나 논문 노트와 연결할 때 `references/pdf-library.md`를 읽는다.
-- 읽기 상태를 추가하거나 바꿀 때 `references/reading-workflow.md`를 읽는다.
-- 구조·태그·링크를 검사할 때 `scripts/audit-vault.ps1`을 사용한다. 기본 실행은 읽기 전용이다.
-- 기존 태그를 정리하거나 대량 이동할 때 `references/legacy-migration.md`를 읽는다.
-- 이 저장소의 기존 루트 노트를 실제로 마이그레이션할 때 `scripts/migrate-vault.ps1`을 먼저 `-DryRun`으로 실행한다. 마이그레이션 뒤에는 `scripts/audit-vault.ps1`로 구조, 태그, 링크를 검사한다.
+폴더, 문서 유형, frontmatter, 질문별 검색 범위는 저장소의 `90 Meta/Vault Schema.md`를 따른다. 태그 이름과 의미는 `90 Meta/태그 일람.md`가 단일 기준이다. skill reference와 template가 두 문서와 다르면 vault의 기준을 우선한다.
+
+| 작업 | 읽을 자료 |
+|---|---|
+| 자료 수집, 병합, 비교, 종합, 위키 질의 | [references/wiki-workflow.md](references/wiki-workflow.md) |
+| 검색 범위와 읽기 순서 | [references/retrieval-policy.md](references/retrieval-policy.md) |
+| 위키링크 생성·검증 | [references/linking-policy.md](references/linking-policy.md) |
+| 출처, 주장 강도, 해석 구분 | [references/provenance-policy.md](references/provenance-policy.md) |
+| MCP·CLI·파일시스템 선택과 쓰기 안전 | [references/obsidian-tools.md](references/obsidian-tools.md) |
+| 새 문서 생성 | [references/note-templates.md](references/note-templates.md)에서 해당 유형만 |
+| PDF 보관·연결 | [references/pdf-library.md](references/pdf-library.md) |
+| 읽기 상태 변경 | [references/reading-workflow.md](references/reading-workflow.md) |
+| 구조·메타데이터·링크 감사 | [references/audit-policy.md](references/audit-policy.md) |
+| 승인된 기존 구조·태그 정리 | [references/legacy-migration.md](references/legacy-migration.md) |
 
 ## 핵심 원칙
 
@@ -39,89 +42,45 @@ description: Obsidian 저장소를 AI·NLP·ML 학술 지식 위키로 유지한
 | `paper` | 한 논문의 주장·방법·실험·한계와 원문 PDF를 추적한다 | `10 Papers/` |
 | `concept` | 여러 출처에서 재사용되는 개념·모델·알고리즘·평가 방법을 정의한다 | `20 Concepts/` |
 | `map` | 분야의 연구 흐름과 탐색 경로를 설명한다 | `30 Maps/` |
-| `comparison` | 둘 이상의 논문·개념을 동일한 판단 축으로 비교한다 | `30 Maps/` |
-| `synthesis` | 여러 출처의 합의·긴장·빈틈을 재사용 가능한 설명으로 종합한다 | `30 Maps/` |
+| `comparison` | 둘 이상의 논문·개념을 동일한 판단 축으로 비교한다 | `35 Comparisons/` |
+| `synthesis` | 여러 출처의 합의·긴장·빈틈을 재사용 가능한 설명으로 종합한다 | `37 Syntheses/` |
 
-## 표준 위키 작업 흐름
+## 표준 작업 흐름
 
 1. 요청을 `ingest`, `update`, `query`, `compare`, `synthesize`, `review`, `audit` 중 하나 이상으로 판별한다.
-2. 관련 지도와 기존 문서 레지스트리를 조사해 생성·갱신·연결 후보를 정한다.
-3. 새 자료에서 출처 노트에 남길 내용과 canonical 개념 문서에 편입할 내용을 분리한다.
-4. 템플릿과 기존 문체를 따라 최소 범위로 작성한다.
-5. 관련 문서에 자연스러운 탐색 경로가 생기도록 본문 링크나 `관련 개념`·`관련 문서` 항목을 갱신한다.
-6. frontmatter, 태그, 링크 대상, PDF, 읽기 상태, 주장 강도를 검증한다.
-7. 새 지식이 기존 연구 흐름을 바꾸면 관련 `map` 또는 `synthesis` 갱신을 제안하고, 요청 범위에 포함되면 함께 갱신한다.
+2. 질문이 학술 지식, 특정 논문, 연구 흐름, 수업, 프로젝트, Wiki 관리 중 어디에 속하는지 먼저 정한다. 이 스킬은 `10`~`40`의 학술 영역을 맡고, 수업·프로젝트 자체의 편집은 범위 밖이다.
+3. [references/retrieval-policy.md](references/retrieval-policy.md)의 사다리로 identity → structured → lexical → graph → semantic 순서에서 후보를 좁힌다. 필요한 섹션만 읽고 full read는 마지막에 한다.
+4. 각 대상을 `create`, `update`, `link`, `mention only`, `unchanged`로 판정한다. 새 자료에서 paper에 남길 내용과 canonical concept·comparison·synthesis에 편입할 내용을 분리한다.
+5. 기존 문체와 template를 따라 최소 범위로 수정한다. 기존 파일은 heading 또는 frontmatter 단위 patch를 우선하고 전체 overwrite는 피한다.
+6. 변경한 부분을 다시 읽어 frontmatter, 태그, 링크 대상, PDF, 읽기 상태, maturity, 주장 강도를 검증한다.
+7. 결과를 `created`, `updated`, `linked`, `unchanged`, `needs review`로 나눠 보고한다. 새 지식이 연구 흐름을 바꾸지만 요청 범위 밖이라면 map·synthesis 갱신을 제안만 한다.
 
-## 논문·개념 작성 흐름
+## 문서화 판단
 
-### 1. 요청과 자료 확인
+- PDF가 있으면 이를 1차 출처로 삼고 제목, 저자, 연도, 실제 섹션 구조를 확인한다. 제목이나 링크만 있으면 출판사, 학회, arXiv 등 권위 있는 원문을 우선한다.
+- 새 문서는 독립적으로 다시 쓸 가치가 있고 같은 canonical 대상이 없을 때만 만든다. 그 밖에는 기존 문서를 갱신하거나 현재 문서에서만 언급한다.
+- 파일명은 논문의 공식 제목 또는 개념의 full English name을 쓴다. 같은 이름이 있으면 숫자 접미사가 아니라 병합, alias, 명확한 canonical name으로 해결한다.
+- generic concept는 특정 기원 논문을 빼도 교과서적 개념으로 독립한다. 대표 논문이 정의의 핵심이면 paper-origin concept로 두고 출처 연결을 보존한다.
+- 새 학술 노트에는 `summary`를 쓴다. concept에는 `maturity`, paper를 제외한 검토된 지식 문서에는 `last_reviewed`를 `90 Meta/Vault Schema.md`에 맞춰 기록한다.
+- 태그는 `90 Meta/태그 일람.md`에 등록된 값만 2~4개 쓴다. 논문 제목, 저자, 연도, 단일 모델·데이터셋 이름은 태그가 아니다.
 
-- PDF가 있으면 PDF를 1차 출처로 사용하고 제목, 저자, 연도, 섹션 구조를 확인한다.
-- PDF를 저장소에 보관할 때 논문 노트와 같은 분야 및 basename을 사용하고 `pdf` 속성으로 연결한다. 단일 PDF 수납은 `scripts/import-paper-pdf.ps1`을 우선 사용한다.
-- 제목이나 링크만 있으면 출판사, 학회, arXiv 등 권위 있는 원문을 우선 확인한다.
-- 기존 노트 수정이면 현재 문체, 링크, 수식, 사용자가 직접 남긴 해석을 보존한다.
-- 논문 노트, 개념 노트, 주제 지도, 비교, 복습, 추천 중 필요한 작업을 판별한다.
+## 반복 작업
 
-### 2. 대상과 위치 결정
+- 구조·태그·링크 검사: `scripts/audit-vault.ps1` — 기본 report-only
+- concept 표준 섹션 정리: `scripts/normalize-concept-notes.ps1 -DryRun`
+- PDF 수납과 연결: `scripts/import-paper-pdf.ps1 -DryRun`
+- paper 읽기 상태 변경: `scripts/set-paper-status.ps1 -DryRun`
+- 승인된 legacy migration: `scripts/migrate-vault.ps1 -DryRun` 뒤 실제 실행과 재감사
 
-- 파일명은 논문 공식 제목 또는 개념의 full English name으로 정한다.
-- 폴더는 `references/folder-layout.md`의 결정 규칙으로 고른다.
-- 같은 이름이 이미 있으면 내용을 병합하거나 명확한 alias를 사용한다. 숫자 접미사로 회피하지 않는다.
+Dry Run이 있는 스크립트는 먼저 Dry Run으로 확인한다. 일상적인 단일 문서 수정은 [references/obsidian-tools.md](references/obsidian-tools.md)의 patch 정책을 따른다.
 
-### 3. 메타데이터와 태그 결정
+## 완료 기준
 
-- 새 노트에는 템플릿의 YAML frontmatter를 사용한다.
-- 논문 노트에는 `pdf`, `status`, `read_date`를 유지한다. 상태 값은 `to-read`, `reading`, `read`, `review-needed`만 사용한다.
-- 태그는 `90 Meta/태그 일람.md`에 등록된 값만 사용한다.
-- 기본적으로 2~4개를 선택한다: domain 1개, task 0~1개, method/theme 1~2개.
-- 논문 제목, 단일 모델명, 데이터셋명, 저자명, 연도는 태그로 만들지 않는다. 문서 속성이나 위키링크로 표현한다.
-- 필요한 태그가 없으면 최소 3개 이상의 노트에서 재사용될지 확인한다. 재사용성이 부족하면 태그 대신 위키링크나 본문 표현을 사용한다. 새 태그가 정말 필요할 때만 태그 일람에 정의와 예시를 먼저 추가한다.
-
-### 4. 내용 작성
-
-- 논문 노트는 실제 섹션 순서를 따른다. Abstract, Introduction, Method, Experiments, Conclusion을 기계적으로 강제하지 않는다.
-- 문제 정의, 기존 한계, 제안 방법, 실험 근거, 한계, 핵심 기여를 빠뜨리지 않는다.
-- 수식은 LaTeX로 보존하고 변수의 의미와 수식이 필요한 이유를 함께 설명한다.
-- 독립 문서로 발전할 가치가 있는 개념에만 `[[Wikilink]]`를 건다. 같은 섹션의 반복 언급에는 첫 등장만 링크한다.
-- 논문 밖의 직관이나 주의점은 중립적인 callout으로 분리한다. 섹션당 0~2개로 제한한다.
-
-```markdown
-> [!note] 해설
-> 본문과 구분할 보충 설명
-
-> [!warning] 주의
-> 흔한 오해나 해석상의 제약
-```
-
-### 5. 연결과 검증
-
-- 새 위키링크가 기존 파일명 또는 의도한 미래 개념명과 일치하는지 확인한다.
-- frontmatter의 `type`, `title`, `tags`와 파일 위치가 서로 일치하는지 확인한다.
-- `pdf` 속성이 비어 있지 않으면 대상 PDF가 실제로 존재하는지 확인한다.
-- 논문 노트의 `status`가 허용된 값인지 확인하고, `read_date`가 있으면 `YYYY-MM-DD` 형식인지 확인한다.
-- 태그의 대소문자, 복수형, 밑줄, 오탈자를 검사한다.
-- 요약이 논문의 실험 결과보다 강한 주장을 하지 않는지 확인한다.
-- 새 논문 노트가 기존 읽기 목록이나 주제 지도에 속하면 해당 지도 갱신을 제안하거나, 요청 범위에 포함된 경우 함께 갱신한다.
-
-## 개념 노트 분류
-
-- **Generic concept**: 특정 기원 논문을 빼도 교과서적 개념으로 독립한다. 예: Softmax, Backpropagation, Attention, Dropout.
-- **Paper-origin concept**: 최초 또는 대표 논문이 오늘날에도 정의의 핵심이다. 예: Skip-gram, Transformer, BERT, LoRA.
-
-불확실하면 대표 논문 연결을 보존하는 Paper-origin concept로 처리한다. 기존 문서가 있으면 정의를 덮어쓰지 말고, 더 일반적이고 정확한 정의를 기준으로 중복을 병합한다.
-
-개념 노트의 최상위 섹션은 `정의`, `왜 필요한가`, `작동 원리`, `수식 / 알고리즘`, `특징과 한계`, `대표 변형`, `등장/대표 논문`, `관련 개념` 순서로 유지한다. 기존 하위 주제는 이 표준 섹션 아래 `##` 이하로 보존한다.
-
-## 부가 작업
-
-- **읽기 전 브리핑**: 필수/권장 선행 개념, 읽을 순서, 핵심 표기만 정리한다.
-- **비교**: 문제 정의, 핵심 가정, 방법, 데이터·평가, 결과, 한계 축으로 비교한다.
-- **복습**: 섹션별 핵심 질문을 1~2개씩 내고, 답변 뒤 누락된 내용을 보완한다.
-- **추천**: 기본 3편, 최대 5편을 제안하고 이미 읽은 논문과의 연결 및 난이도를 설명한다. 최신성이나 서지 정확성이 필요하면 원문 정보를 확인한다.
-- **주제 지도**: 논문을 시간순으로 나열하는 데 그치지 말고 각 연구가 이전 한계를 어떻게 바꿨는지 연결한다.
-- **종합**: 출처별 요약을 이어 붙이지 말고 합의, 차이, 인과 관계, 근거의 빈틈, 미해결 질문을 드러낸다.
-- **위키 질의**: 관련 map과 frontmatter에서 후보를 좁힌 뒤 필요한 본문만 읽고, 핵심 주장에 `[[wikilink]]` 근거를 붙인다. 사용자가 저장을 요청하거나 반복해서 참조할 독립 지식일 때만 결과를 문서화한다.
-- **감사**: 고아 문서, 깨진 링크, 중복, 태그·frontmatter 오류, 종합이 필요한 주제를 report-only로 점검한다.
+- `type`, canonical home, `title`, `aliases`, `tags`, `summary`, maturity·날짜 값이 schema와 맞는다.
+- 새 링크는 실제 대상 또는 명시한 미래 후보와 일치하고 alias 충돌이나 모호한 basename을 만들지 않는다.
+- `pdf`가 있으면 대상이 실제로 존재하며, `status`와 `read_date`가 허용 형식이다.
+- 요약, 비교, 종합이 원문의 주장과 실험 결과보다 강한 결론을 내리지 않는다.
+- 변경하지 않은 항목과 검토가 필요한 항목을 완료한 작업처럼 보고하지 않는다.
 
 ## 금지 사항
 

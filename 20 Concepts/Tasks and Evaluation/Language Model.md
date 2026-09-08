@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Language Model"
+summary: "토큰 시퀀스에 확률 분포를 부여하는 모델."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

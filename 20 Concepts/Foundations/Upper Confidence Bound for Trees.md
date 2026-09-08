@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Upper Confidence Bound for Trees"
+summary: "내용 보강이 필요한 Upper Confidence Bound for Trees 개념 문서다."
+maturity: "stub"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

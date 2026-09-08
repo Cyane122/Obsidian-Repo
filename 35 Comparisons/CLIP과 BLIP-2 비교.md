@@ -1,6 +1,8 @@
 ---
 type: comparison
 title: "CLIP과 BLIP-2 비교"
+summary: "이미지와 언어를 연결하는 두 대표 접근을 학습 목표, 재사용하는 사전학습 모델, 지원 과제와 계산 효율 관점에서 비교한다."
+last_reviewed: ""
 subjects:
   - "[[Learning Transferable Visual Models From Natural Language Supervision]]"
   - "[[BLIP-2 - Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models]]"

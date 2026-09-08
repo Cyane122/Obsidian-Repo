@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Principal Component Analysis"
+summary: "Principal Component Analysis(PCA)는 데이터 분산을 가장 많이 설명하는 서로 직교한 축을 찾아 저차원으로 투영하는 선형 차원 축소 방법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "PCA"
   - "주성분분석"

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Gated Recurrent Unit"
+summary: "Gated Recurrent Unit은 LSTM의 gate 구조를 단순화해 파라미터를 줄이면서 장거리 의존성을 학습하는 Recurrent Neural Network 변형이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "GRU"
 tags:

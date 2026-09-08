@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "IncogniText: Privacy-enhancing Conditional Text Anonymization via LLM-based Private Attribute Randomization"
+summary: "이 논문은 텍스트의 의미와 유용성을 유지하면서 공격자가 작성자의 사적 속성을 올바르게 추론하지 못하도록 하는 IncogniText를 제안한다. IncogniText는 속성 단서를 단순히 제거하는 대신, LLM이 선택한 다른 속성값을 암시하도록 텍스트를 반복 재작성하여 공격자의 추론을 의도적으로 빗나가게 한다."
 authors:
   - "Ahmed Frikha"
   - "Nassim Walha"

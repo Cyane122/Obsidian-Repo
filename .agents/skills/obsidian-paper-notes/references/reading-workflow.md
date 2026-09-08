@@ -1,6 +1,6 @@
 # Reading workflow
 
-논문 노트는 frontmatter에 `status`와 `read_date`를 둔다.
+논문 노트는 frontmatter에 `status`와 `read_date`를 둔다. 허용값의 단일 기준은 `90 Meta/Vault Schema.md`다.
 
 ## Status values
 
@@ -16,3 +16,5 @@
 - `review-needed`는 이미 읽은 논문 중 다시 볼 이유가 있는 경우에만 사용한다.
 - 상태만 바꿀 때는 본문을 고치지 않는다. `scripts/set-paper-status.ps1`을 우선 사용한다.
 - PDF 수납은 읽기 상태를 자동으로 `read`로 바꾸지 않는다. 상태 변경은 별도 판단으로 처리한다.
+- `last_reviewed`는 `read_date`와 다르다. `read_date`는 1차 읽기를 마친 날이고, `last_reviewed`는 이후 원문과 노트를 다시 대조한 날이다.
+- 기존 노트에 `last_reviewed`가 없더라도 상태 변경만을 이유로 임의의 날짜를 채우지 않는다.

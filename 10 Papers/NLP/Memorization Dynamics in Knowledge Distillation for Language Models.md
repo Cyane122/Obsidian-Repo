@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Memorization Dynamics in Knowledge Distillation for Language Models"
+summary: "Knowledge Distillation은 같은 크기의 표준 fine-tuning보다 훈련 데이터 memorization을 줄이면서 validation 성능을 높였고, 남은 암기는 예측하기 쉬운 예제에 집중됐다."
 authors:
   - "Jaydeep Borkar"
   - "Karan Chadha"
@@ -107,7 +108,7 @@ $$
 
 ### FineWeb utility
 
-| Family | Model    | Validation loss | [[Perplexity\|PPL]] |
+| Family | Model    | Validation loss | [[Perplexity|PPL]] |
 | ------ | -------- | --------------: | ------------------: |
 | Pythia | Teacher  |            2.75 |               15.66 |
 | Pythia | Baseline |            2.87 |               17.69 |

@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+summary: "BERT는 Transformer encoder를 Masked Language Modeling과 Next Sentence Prediction으로 사전학습하고, 작은 출력층만 더해 다양한 언어 이해 과제에 미세조정하는 방식을 확립했다."
 authors:
   - "Jacob Devlin"
   - "Ming-Wei Chang"

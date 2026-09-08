@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Overfitting"
+summary: "Overfitting은 모델이 학습 데이터의 일반적 패턴뿐 아니라 우연한 잡음까지 학습해, 학습 성능은 높지만 새로운 데이터 성능이 나빠지는 상태다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "과적합"
 tags:

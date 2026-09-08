@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "BLEU Score"
+summary: "BLEU는 생성한 번역문과 참조 번역문의 n-gram 중첩을 측정해 기계번역 품질을 평가하는 자동 지표다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

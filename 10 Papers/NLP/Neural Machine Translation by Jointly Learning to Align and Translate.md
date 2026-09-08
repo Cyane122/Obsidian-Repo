@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Neural Machine Translation by Jointly Learning to Align and Translate"
+summary: "기존 Encoder-Decoder 계열 NMT 모델은 소스 문장 전체를 고정 길이 벡터(fixed-length vector) 하나로 압축한다. 이 병목이 특히 긴 문장에서 성능 저하를 유발한다."
 authors:
   - "Dzmitry Bahdanau"
   - "Kyunghyun Cho"

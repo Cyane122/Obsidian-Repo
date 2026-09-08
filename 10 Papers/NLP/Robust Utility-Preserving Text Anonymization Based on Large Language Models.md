@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Robust Utility-Preserving Text Anonymization Based on Large Language Models"
+summary: "RUPTA는 LLM 재식별 위험을 먼저 낮추고 실제 downstream task 성능을 그다음 보존하도록 privacy evaluator, utility evaluator, LLM optimizer를 결합한 반복적 텍스트 익명화 프레임워크다."
 authors:
   - "Tianyu Yang"
   - "Xiaodan Zhu"

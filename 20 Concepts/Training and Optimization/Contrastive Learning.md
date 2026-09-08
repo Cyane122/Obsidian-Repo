@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Contrastive Learning"
+summary: "유사한 샘플 쌍(positive pair)은 임베딩 공간에서 가깝게, 비유사한 샘플 쌍은(negative pair)은 멀어지도록 표현을 학습하는 자기지도학습(self-supervised learning) 패러다임."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

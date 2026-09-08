@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Monte Carlo Tree Search"
+summary: "Monte Carlo Tree Search(MCTS)는 가능한 행동을 트리로 표현하고, 일부 경로를 반복 탐색·평가해 유망한 행동에 계산을 집중하는 계획 알고리즘이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "MCTS"
   - "Monte Carlo Tree Search(MCTS)"

@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models"
+summary: "BLIP-2는 동결된 이미지 인코더와 동결된 대규모 언어 모델 사이에 가벼운 Q-Former만 학습해, 적은 학습 파라미터로 시각-언어 이해와 생성을 연결했다."
 authors:
   - "Junnan Li"
   - "Dongxu Li"

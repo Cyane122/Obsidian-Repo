@@ -40,6 +40,7 @@ $$
 - 비교 문서: [[암시적 피드백 추천 - WR-MF와 BPR 비교]]
 type: paper
 title: "BPR: Bayesian Personalized Ranking from Implicit Feedback"
+summary: "BPR: Bayesian Personalized Ranking from Implicit Feedback 논문의 서지 정보와 읽기 상태를 추적하는 노트다."
 authors:
   - "Steffen Rendle"
   - "Christoph Freudenthaler"

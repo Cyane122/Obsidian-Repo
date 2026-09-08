@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Learning Transferable Visual Models From Natural Language Supervision"
+summary: "CLIP은 4억 개 이미지-텍스트 쌍에 대한 대조 학습으로 시각 개념과 자연어를 같은 표현 공간에 정렬하고, 자연어 프롬프트만으로 새로운 분류 과제에 전이하는 방법을 보였다."
 authors:
   - "Alec Radford"
   - "Jong Wook Kim"

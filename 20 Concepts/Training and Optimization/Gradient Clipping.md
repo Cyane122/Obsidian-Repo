@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Gradient Clipping"
+summary: "학습 중 gradient의 크기가 임계값을 초과할 때 강제로 스케일을 줄여 Exploding Gradient로 인한 학습 발산을 방지하는 기법."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

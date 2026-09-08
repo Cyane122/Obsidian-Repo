@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Cross-Entropy"
+summary: "두 확률 분포 P와 Q 사이의 차이를 측정하는 정보이론적 척도."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

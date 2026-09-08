@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Large Language Model"
+summary: "Large Language Model(LLM)은 대규모 텍스트와 많은 파라미터로 일반적인 언어 패턴과 지식을 사전학습한 Language Model이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "LLM"
   - "대규모 언어 모델"

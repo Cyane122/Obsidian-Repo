@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Word Embedding"
+summary: "단어를 저차원 실수 벡터 공간에 매핑하는 기법의 총칭."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

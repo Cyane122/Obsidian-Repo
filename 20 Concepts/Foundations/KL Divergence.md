@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "KL Divergence"
+summary: "KL Divergence(Kullback-Leibler Divergence, 쿨백-라이블러 발산)은 두 확률분포 P와 Q 사이의 비대칭적 차이를 측정하는 정보이론적 척도이다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

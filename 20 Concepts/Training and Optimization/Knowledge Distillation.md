@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Knowledge Distillation"
+summary: "Knowledge Distillation(KD)은 크고 성능이 높은 teacher model의 예측 분포·생성 결과·중간 표현을 더 작은 student model에 supervision으로 전달하는 model compression 및 transfer 방법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "KD"
   - "지식 증류"

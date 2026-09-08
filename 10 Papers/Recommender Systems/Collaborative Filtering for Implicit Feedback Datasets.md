@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Collaborative Filtering for Implicit Feedback Datasets"
+summary: "추천 시스템의 주요 목적은 과거의 Implicit Feedback을 기반으로 개인화된 추천을 제공하는 것. 다만, 사용자의 선호에 대한 직접적인 입력, 특히 싫어하는 것에 대한 정보는 매우 부족하다."
 authors:
   - "Yifan Hu"
   - "Yehuda Koren"

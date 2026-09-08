@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Efficient Estimation of Word Representations in Vector Space"
+summary: "대규모 데이터셋에서 단어의 연속 벡터 표현(Distributed Representation)을 학습하기 위한 두 가지 새로운 모델 아키텍처를 제안한다."
 authors:
   - "Tomas Mikolov"
   - "Kai Chen"

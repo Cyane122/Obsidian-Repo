@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Deep Neural Networks"
+summary: "내용 보강이 필요한 Deep Neural Networks 개념 문서다."
+maturity: "stub"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

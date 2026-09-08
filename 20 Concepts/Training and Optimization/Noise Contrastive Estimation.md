@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Noise Contrastive Estimation"
+summary: "비정규화 확률 모델(unnormalized statistical model)을 학습하기 위한 추정 기법."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

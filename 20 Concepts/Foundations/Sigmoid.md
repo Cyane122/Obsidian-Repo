@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Sigmoid"
+summary: "임의의 실수 입력을 (0, 1) 범위의 값으로 압축하는 활성화 함수."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

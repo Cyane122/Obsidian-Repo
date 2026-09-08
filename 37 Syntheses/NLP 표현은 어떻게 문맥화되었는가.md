@@ -1,6 +1,8 @@
 ---
 type: synthesis
 title: "NLP 표현은 어떻게 문맥화되었는가"
+summary: "표현 학습의 핵심 변화는 통계의 범위를 local에서 global로 넓힌 것보다, 표현의 단위를 “단어 유형”에서 “문장 속 토큰 사용”으로 바꾼 데 있다."
+last_reviewed: ""
 scope: "Word2Vec·GloVe의 정적 단어 표현에서 ELMo와 BERT의 문맥적 사전학습으로 이어지는 변화"
 sources:
   - "[[Efficient Estimation of Word Representations in Vector Space]]"

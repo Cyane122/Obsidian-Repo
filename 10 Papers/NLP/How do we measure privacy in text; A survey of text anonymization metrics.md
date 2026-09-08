@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "How do we measure privacy in text? A survey of text anonymization metrics"
+summary: "이 논문은 텍스트 익명화 기법의 성능보다, 익명화된 텍스트의 프라이버시를 어떻게 평가해야 하는지를 다룬 체계적 문헌 검토다. 저자들은 2019년 이후 영어 텍스트를 대상으로 한 47편을 검토하여, 기존 지표가 사실상 여섯 가지 서로 다른 프라이버시 목표를 측정한다는 점을 보인다."
 authors:
   - "Yaxuan Ren"
   - "Krithika Ramesh"

@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Korean named entity recognition based on language-specific features"
+summary: "한국어 NER에서 생기는 문제 중 하나는 annotation 단위다."
 authors:
   - "Yige Chen"
   - "KyungTae Lim"
@@ -81,7 +82,7 @@ CoNLL-U의 multiword token 구조를 사용한다.
 | NAVER NER                                                 |    어절 |  90,000 |     - |     - |
 | MODU 2019                                                 |    음절 | 150,082 |     - |     - |
 | MODU 2021                                                 |    음절 |  68,400 | 1,085 | 8,685 |
-| [[KLUE - Korean Language Understanding Evaluation\|KLUE]] |    음절 |  21,008 | 5,000 | 5,000 |
+| [[KLUE - Korean Language Understanding Evaluation|KLUE]] |    음절 |  21,008 | 5,000 | 5,000 |
 
 # Conversion
 

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Recall"
+summary: "실제 양성 샘플 중 양성으로 올바르게 예측한 비율."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

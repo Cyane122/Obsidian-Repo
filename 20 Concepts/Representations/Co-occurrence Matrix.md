@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Co-occurrence Matrix"
+summary: "말뭉치에서 단어 i의 문맥 창(context window) 내에 단어 j가 등장한 횟수를 원소 Xij로 갇는 |V|times|V| 크기의 행렬."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/nlp

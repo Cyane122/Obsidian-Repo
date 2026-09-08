@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Accuracy"
+summary: "전체 예측 중 올바르게 예측한 비율."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

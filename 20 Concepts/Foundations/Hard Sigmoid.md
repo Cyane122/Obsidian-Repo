@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Hard Sigmoid"
+summary: "Hard Sigmoid는 Sigmoid를 구간별 선형 함수로 근사한 활성화 함수다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning

@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Prompt Engineering"
+summary: "Prompt Engineering은 Large Language Model이나 비전-언어 모델이 원하는 과제와 출력 제약을 이해하도록 지시, 문맥, 예시, 출력 형식을 설계하는 작업이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "프롬프트 엔지니어링"
 tags:

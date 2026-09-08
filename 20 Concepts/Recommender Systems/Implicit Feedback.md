@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Implicit Feedback"
+summary: "내재적인(Implicit) + 피드백(Feedback) => 사용자가 직접적으로 드러내지 않고 간접적으로 드러내는 반응."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/recommender-systems

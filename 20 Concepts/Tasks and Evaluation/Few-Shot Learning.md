@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "Few-Shot Learning"
+summary: "Few-Shot Learning은 새로운 과제를 소수의 예시만으로 학습하거나 수행하는 설정이다."
+maturity: "developing"
+last_reviewed: ""
 aliases:
   - "Few-Shot Prompting"
 tags:

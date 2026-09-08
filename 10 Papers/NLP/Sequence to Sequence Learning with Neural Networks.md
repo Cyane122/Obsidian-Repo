@@ -1,6 +1,7 @@
 ---
 type: paper
 title: "Sequence to Sequence Learning with Neural Networks"
+summary: "Deep Neural Networks은 고정 차원의 입력과 출력을 전제로 하기 때문에 가변 길이 시퀀스 간 매핑 문제에 직접 적용할 수 없다. 이 논문은 그 한계를 극복하기 위해 두 개의 LSTM을 사용하는 end-to-end 시퀀스 학습 방법을 제안한다."
 authors:
   - "Ilya Sutskever"
   - "Oriol Vinyals"

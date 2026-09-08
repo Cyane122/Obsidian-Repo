@@ -1,6 +1,9 @@
 ---
 type: concept
 title: "AdaDelta"
+summary: "AdaDelta는 누적 기울기 제곱 때문에 학습률이 계속 작아지는 AdaGrad의 문제를 지수 이동 평균으로 완화한 적응형 최적화 방법이다."
+maturity: "developing"
+last_reviewed: ""
 aliases: []
 tags:
   - domain/machine-learning
