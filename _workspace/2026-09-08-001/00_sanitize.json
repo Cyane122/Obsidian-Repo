@@ -1,0 +1,15 @@
+{
+  "changed": true,
+  "before_chars": 9461,
+  "after_chars": 9460,
+  "counts": {
+    "hangul_recomposed": 0,
+    "invisible": 0,
+    "bidi": 0,
+    "tag_chars": 0,
+    "special_spaces": 0,
+    "line_breaks": 0,
+    "trailing_space_lines": 1
+  },
+  "summary": "줄 끝 공백 1줄 정리"
+}
