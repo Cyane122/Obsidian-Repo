@@ -1,0 +1,164 @@
+# 1주차 - Multimodal AI의 출발점
+
+> [!abstract] 이번 주 핵심
+> [[Multimodal AI]]는 이미지, 텍스트, 음성, 센서처럼 서로 다른 modality를 함께 다루는 AI다. 단순히 여러 모델을 나란히 두는 것이 아니라, 각 신호를 표현하고(Representation), 서로 대응시키며(Alignment), 목적에 맞게 결합하는(Fusion) 과정이 핵심이다.
+
+## 수업 자료
+
+- [[수업 일람]]: 강의 운영과 평가 기준
+- [[자료/Week 01_Introduction to Multimodal AI_Full.pdf|1주차 강의 PDF]]
+- [[2주차]]: 다음 수업 노트
+
+## 이번 주에 확인할 것
+
+1. modality와 Multimodal AI를 구분해 설명할 수 있다.
+2. 서로 다른 modality를 바로 비교할 수 없는 이유를 이해한다.
+3. Representation, Alignment, Fusion이 각각 무엇을 해결하는지 구분한다.
+4. Early, Intermediate, Late Fusion의 차이와 적합한 상황을 설명할 수 있다.
+5. 실제 시스템에서 여러 신호를 함께 써야 하는 이유와 한계를 사례에 연결할 수 있다.
+
+## 현실 세계는 하나의 신호로 충분하지 않다
+
+현실의 사건 하나는 여러 신호를 동시에 만든다. 예를 들어 야간 횡단보도에 접근하는 자율주행차는 카메라 영상, 차량과 보행자 소리, LiDAR, 지도와 내비게이션 정보, 차량 센서 값을 함께 얻을 수 있다. 각 신호는 같은 상황을 다른 각도에서 보여 주며, 어느 하나만으로는 불완전하거나 잘못 해석될 수 있다.
+
+이때 중요한 질문은 “가장 좋은 신호가 무엇인가?”보다 “어떤 신호가 지금 상황에서 믿을 만하며, 다른 신호가 이를 보완하거나 반박하는가?”에 가깝다. 카메라는 어두움이나 가림에 약할 수 있고, 음성은 소음에 묻힐 수 있으며, 센서는 결측이나 오차를 가질 수 있다. Multimodal AI는 이런 상호 보완성과 불일치를 함께 다루려는 접근이다.
+
+## Modality란 무엇인가
+
+**Modality**는 정보를 관찰하거나 표현하는 서로 다른 채널 또는 형식이다. 같은 사람의 횡단 장면도 사진, “사람이 길을 건넌다”라는 문장, 발소리, 시간에 따른 영상, 거리 센서 값으로 나타낼 수 있다.
+
+| Modality | 전형적인 데이터 | 정보의 성격 | 예시 |
+| --- | --- | --- | --- |
+| Vision | 이미지, pixel | 공간 구조와 시각적 의미 | 사진, 의료 영상 |
+| Text | token, 문서 | 순서가 있는 기호와 명시적 의미 | 질문, 보고서 |
+| Audio | waveform, spectrogram | 시간·주파수·억양 정보 | 음성, 경보음 |
+| Video | frame의 시간열 | 공간 구조, 움직임, 장기 시간 맥락 | 행동 영상 |
+| Sensor | 연속 수치 신호 | 측정값, sampling rate, 물리 제약 | 온도, IMU, LiDAR |
+| 3D / Spatial | point cloud, depth | 거리와 공간 배치 | depth camera, LiDAR |
+| Structured Data | 표, event log | 명시적 속성과 관계 | 환자 기록, 운행 이력 |
+
+> [!note] 핵심
+> modality가 다르다는 것은 파일 형식만 다르다는 뜻이 아니다. 이미지의 가까운 pixel 관계, 텍스트의 token 순서, 음성의 시간·주파수 구조처럼 데이터가 의미를 담는 방식 자체가 다르다.
+
+## 왜 modality 사이의 연결이 어려운가
+
+모델은 이미지의 pixel과 문장의 token이 자동으로 비교 가능하다고 가정할 수 없다. 이미지에는 공간적·국소적 관계가 강하고, 텍스트는 이산 token의 순서와 기호적 의미가 중심이다. 음성은 시간에 따라 변하는 파형과 주파수 정보를, 영상은 공간과 시간의 결합을, 센서는 sampling rate·노이즈·결측을 함께 가진다.
+
+따라서 “고양이”라는 문장, 고양이 사진, 고양이 울음소리는 사람에게는 관련 있어 보이지만, 모델에는 처음부터 서로 다른 수치 배열일 뿐이다. 이 간극을 줄이려면 각 modality에 맞는 표현을 학습하고, 그 표현이 무엇과 대응하는지 찾고, 필요한 정보를 결합하는 설계가 필요하다.
+
+## Multimodal AI의 기본 흐름
+
+수업의 전체 흐름은 다음처럼 볼 수 있다.
+
+```text
+Observe → Represent → Align → Fuse → Reason → Act
+```
+
+1. **Observe**: 카메라, 마이크, 센서, 문서 등에서 입력을 받는다.
+2. **Represent**: 각 입력을 모델이 계산할 수 있는 벡터 표현으로 바꾼다.
+3. **Align**: 서로 다른 표현 가운데 같은 대상·사건·시점을 가리키는 부분을 연결한다.
+4. **Fuse**: 정렬된 정보를 하나의 표현 또는 판단에 결합한다.
+5. **Reason**: 결합된 근거를 바탕으로 질문에 답하거나 상태를 추론한다.
+6. **Act**: 경보, 추천, 제어처럼 실제 출력이나 행동으로 이어진다.
+
+이미지와 질문이 주어진 Visual Question Answering을 생각해 보자. 이미지 속 자전거 옆에 앉은 개를 보고 “What is beside the bicycle?”에 답하려면, 이미지에서 개와 자전거를 인식하고 문장의 대상인 bicycle을 찾은 뒤 두 정보를 연결해야 한다. 어느 한 modality만 처리해서는 답을 만들 수 없다.
+
+## 세 가지 핵심 개념
+
+### Representation: 서로 다른 입력을 계산 가능한 의미 공간으로 바꾸기
+
+**Representation**은 원시 입력을 학습된 벡터, 즉 embedding으로 바꾸는 과정이다. 좋은 embedding은 의미가 비슷한 입력을 가까이, 다른 입력을 멀리 두는 방향으로 학습된다. 예를 들어 “cat”이라는 텍스트, 고양이 이미지, 고양이 소리는 modality가 달라도 같은 개념을 나타낼 때 가까운 위치에 놓이도록 만들 수 있다.
+
+이는 NLP의 [[Word Embedding]]이 단어 사이의 의미 관계를 벡터 공간에 담으려는 생각을 여러 modality로 확장한 것이다. 다만 Multimodal AI에서는 각 modality의 고유 구조를 잃지 않도록 image encoder, text encoder, audio encoder처럼 별도의 encoder를 먼저 쓰는 경우가 많다.
+
+> [!warning] 주의
+> embedding 공간에서 가깝다는 사실만으로 두 입력이 같은 대상이라는 뜻은 아니다. 학습 데이터의 편향, 모호한 캡션, 우연한 공존 때문에 잘못 가까워질 수 있으므로 이후의 Alignment와 과제별 검증이 필요하다.
+
+### Alignment: 무엇이 무엇과 대응하는지 찾기
+
+**Multimodal Alignment**는 서로 다른 modality의 요소가 어떤 관계인지 학습하는 과정이다. 이미지의 객체와 문장 속 단어, 영상 frame과 음성 구간, 센서 변화와 사건 기록이 각각 무엇과 대응하는지를 찾는다. Representation이 각 modality를 어떤 벡터로 표현할지를 정한다면, Alignment는 그 벡터들이 무엇과 연결되는지를 정한다.
+
+Alignment는 다음 이유로 어렵다.
+
+- 이미지·음성·텍스트는 표현 구조와 차원이 다르다.
+- frame rate, token 길이, sensor sampling rate가 달라 시간축을 맞추기 어렵다.
+- 가림, 잡음, 누락, 모호한 설명 때문에 정확한 짝이 없을 수 있다.
+- 원시 신호와 고수준 의미는 추상화 수준이 다르다.
+
+[[Learning Transferable Visual Models From Natural Language Supervision|CLIP]]은 이미지와 그에 대응하는 텍스트를 같은 표현 공간에 정렬한 대표 사례다. 이미지-텍스트 쌍은 가깝게, 잘못 짝지은 쌍은 멀어지게 하는 [[Contrastive Learning]]으로 이 관계를 학습한다.
+
+### Fusion: 정렬한 정보를 어떻게 합칠지 결정하기
+
+**Multimodal Fusion**은 여러 modality의 정보를 하나의 표현 또는 최종 판단으로 결합하는 과정이다. 목표는 모든 신호를 무조건 섞는 것이 아니라, 서로 다른 정보를 보완하고, 반복되는 근거로 신뢰도를 높이며, 한 modality가 모호할 때 다른 modality로 해석을 좁히는 데 있다.
+
+| 방식 | 결합 시점 | 장점 | 주의할 점 |
+| --- | --- | --- | --- |
+| **Early Fusion** | 원시 입력 또는 낮은 수준 feature 단계 | 구조가 단순하고 빠르게 통합할 수 있다 | modality별 고유 구조를 충분히 처리하기 어렵다 |
+| **Intermediate Fusion** | 각 modality를 따로 encode한 뒤 | 고유 구조를 보존하면서 깊은 상호작용을 학습한다 | 설계와 계산 비용이 커질 수 있다 |
+| **Late Fusion** | modality별 독립 예측 뒤 | 결측 modality에 비교적 견고하고 해석하기 쉽다 | modality 사이의 세밀한 상호작용을 놓칠 수 있다 |
+
+현대 비전-언어 모델은 대개 **Intermediate Fusion**을 사용한다. Vision encoder와 language encoder가 만든 표현을 cross-modal attention 같은 상호작용 층에서 결합한다. [[Transformer]]와 Attention은 이후 주차에서 이 상호작용을 다루는 중요한 기반이 된다.
+
+## 정보는 보완적이기도, 중복적이기도 하다
+
+Fusion이 효과적인 이유는 modality의 관계가 하나뿐이 아니기 때문이다.
+
+- **Complementary information**: 카메라는 사람의 위치를, 마이크는 경적이나 비명을 알려 준다. 서로 다른 정보를 합쳐 상황을 더 완전하게 이해한다.
+- **Redundant information**: 영상과 LiDAR가 모두 장애물을 감지하면 판단의 신뢰도를 높일 수 있다.
+- **Contextual information**: “bank”가 있는 문장에 지도나 이미지가 함께 있으면 은행인지 강둑인지 해석을 좁힐 수 있다.
+
+반대로 신호가 충돌할 때는 단순 다수결이 답이 아니다. 조도가 낮은 밤에는 카메라보다 LiDAR의 신뢰도가 높을 수 있고, 센서가 고장 난 경우에는 그 값을 작게 반영하거나 제외해야 한다. 실제 시스템은 modality의 품질과 결측 여부까지 고려해야 한다.
+
+## 적용 분야와 한계
+
+Multimodal AI는 저수준 영상 복원에서부터 고수준 판단과 행동까지 이어진다. 수업은 Image Enhancement, 지능형 영아 모니터링, Fire & Smoke Detection, Human Action Recognition, Industrial Anomaly Detection처럼 안전·감시·산업 환경의 사례를 다룰 예정이다. 이 사례들은 카메라, 영상, 음성, 환경 센서, 기록 데이터를 어떤 수준에서 결합할지라는 공통 질문을 갖는다.
+
+다만 여러 modality를 쓴다고 항상 더 정확해지는 것은 아니다. 실제 설계에서는 다음을 함께 점검해야 한다.
+
+- **Noise와 결측**: 센서 고장, 가림, 끊긴 음성처럼 입력 품질이 고르지 않을 수 있다.
+- **Alignment error**: 서로 다른 시점이나 대상을 잘못 연결하면 잘못된 근거가 강화된다.
+- **Computational cost**: 여러 encoder와 상호작용 층은 메모리와 추론 시간을 늘린다.
+- **Bias와 reliability**: 학습 자료의 편향이나 한 modality의 오류가 결합 결과에 전파될 수 있다.
+
+> [!note] 수업 중 보충
+> Multimodal AI의 목표는 “입력이 많을수록 좋다”가 아니다. 과제에 필요한 modality를 고르고, 각 입력이 언제 신뢰할 만한지 명시하며, 실패했을 때 안전하게 동작하도록 만드는 일이 더 중요하다.
+
+## 기존 지식과의 연결
+
+- [[Multimodal AI]]: 이번 주의 Representation, Alignment, Fusion을 개념 노트로 정리한다.
+- [[비전-언어 사전학습]]: 이미지와 텍스트를 함께 학습하는 대표 연구 흐름이다.
+- [[Learning Transferable Visual Models From Natural Language Supervision|CLIP]]: 이미지-텍스트 Alignment와 zero-shot 전이의 사례다.
+- [[BLIP-2 - Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models|BLIP-2]]: 동결한 vision encoder와 Large Language Model을 연결한 후속 사례다.
+- [[Text Mining]]: 텍스트를 표현하고 분석하는 흐름은 같지만, Multimodal AI는 텍스트 외 modality와의 대응·결합까지 다룬다.
+
+## 복습 질문
+
+1. 야간 횡단보도 상황에서 카메라, LiDAR, 마이크가 각각 알려 주는 정보와 실패할 수 있는 상황을 하나씩 써 보자.
+2. Representation과 Alignment의 차이를 “고양이 이미지와 ‘cat’이라는 문장” 사례로 설명해 보자.
+3. 자막이 있는 영상에서 음성과 frame을 결합한다면 어느 Fusion 방식을 먼저 고려할지, 이유와 함께 설명해 보자.
+4. 두 modality의 예측이 충돌할 때, 단순 평균 대신 확인해야 할 신뢰도 정보는 무엇인지 생각해 보자.
+
+<!-- HUMANIZE-SUMMARY v1.6.1
+run_id: 2026-09-09-001
+metrics:
+  char_in: 6171
+  char_out: 6171
+  change_rate: 0.0%
+  self_check: 6/6
+  grade: A
+categories:
+  light-route review: low-risk draft → no wording change needed
+self_check:
+  - 고유명사·수치·인용·내용 앵커 100% 보존: ✅
+  - 변경률 30% 이하: ✅
+  - 장르 이탈 없음: ✅
+  - register 보존: ✅
+  - S1 잔존 0건: ✅
+  - 인공 표현 추가 없음: ✅
+highlights:
+  - id: light-route
+    before: "문체 위험도 low"
+    after: "원문 유지"
+residual_findings: 없음
+grade_reason: "A — light 경로 검토에서 의미 보존이 필요한 학습 노트의 문체가 이미 자연스럽고, 고쳐야 할 AI 특유의 패턴이 확인되지 않았다."
+-->
