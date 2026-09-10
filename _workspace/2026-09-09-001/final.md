@@ -5,7 +5,7 @@
 
 ## 수업 자료
 
-- [[수업 일람]]: 강의 운영과 평가 기준
+- [[멀티모달AI]]: 강의 운영과 평가 기준
 - [[자료/Week 01_Introduction to Multimodal AI_Full.pdf|1주차 강의 PDF]]
 - [[2주차]]: 다음 수업 노트
 
