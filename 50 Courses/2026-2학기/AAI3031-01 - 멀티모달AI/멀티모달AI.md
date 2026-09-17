@@ -17,7 +17,7 @@
 - 발표 15%
 ## 정리노트
 ### 중간고사 범위
-1. [[50 Courses/2026-2학기/AAI3031-01 - 멀티모달AI/1주차|1주차]]
-2. [[50 Courses/2026-2학기/AAI3031-01 - 멀티모달AI/2주차|2주차]]
+1. [[1. Introduction to Multimodal AI|1]]
+2. [[2. Deep Learning Foundations|2.]]
 ### 기말고사 범위
 1. [[???]]

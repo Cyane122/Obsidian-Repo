@@ -6,7 +6,7 @@
 
 | 단계 | 주차 | 핵심 질문 | 대표 용어 |
 |---|---:|---|---|
-| 텍스트 준비 | [[2주차]] | 텍스트를 어떻게 일관된 분석 단위로 만드는가? | Tokenization, Normalization, Stopword |
+| 텍스트 준비 | [[50 Courses/2026-1학기/파이썬 텍스트 분석과 LLM, RAG 애플리케이션 개발/2주차]] | 텍스트를 어떻게 일관된 분석 단위로 만드는가? | Tokenization, Normalization, Stopword |
 | 희소 표현 | [[3주차]] | 텍스트를 빈도 기반 숫자 벡터로 어떻게 바꾸는가? | BoW, TF, IDF, TF-IDF |
 | 전통적 분류 | [[4주차]] | 수치화된 텍스트를 어떻게 분류하고 평가하는가? | Naive Bayes, Logistic Regression, F1 |
 | 분산 표현 | [[5주차]] | 단어의 의미적 유사성을 벡터에 어떻게 담는가? | Word2Vec, Embedding, Cosine Similarity |

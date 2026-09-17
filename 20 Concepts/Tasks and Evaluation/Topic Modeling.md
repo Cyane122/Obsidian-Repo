@@ -31,10 +31,6 @@ Latent Dirichlet Allocation(LDA)은 문서 하나를 여러 topic의 혼합으�
 - topic 수와 전처리, 말뭉치의 구성에 따라 결과가 달라진다.
 - 문서의 유사한 group을 찾는 [[Text Clustering]]과 목표가 겹치지만, Topic Modeling은 단어 분포를 통해 주제 자체를 설명하려는 데 더 초점을 둔다.
 
-# 수업 자료
-
-- [[50 Courses/2026-2학기/DSC2021-01 - 텍스트마이닝기초/1주차|Text Mining 1주차]]
-
 # 관련 개념
 
 - [[Text Clustering]]

@@ -29,10 +29,6 @@ Text Classification은 주제, 감성, 스팸 여부처럼 미리 정한 class �
 - 정확도는 class 정의와 레이블 품질, 데이터의 대표성에 좌우된다.
 - 분류 결과만으로 근거를 알기 어려울 수 있어 [[Information Extraction]]과 함께 쓰기도 한다.
 
-# 수업 자료
-
-- [[50 Courses/2026-2학기/DSC2021-01 - 텍스트마이닝기초/1주차|Text Mining 1주차]]
-
 # 관련 개념
 
 - [[Sentiment Analysis]]

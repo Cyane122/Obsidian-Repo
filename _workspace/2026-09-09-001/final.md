@@ -7,7 +7,7 @@
 
 - [[멀티모달AI]]: 강의 운영과 평가 기준
 - [[자료/Week 01_Introduction to Multimodal AI_Full.pdf|1주차 강의 PDF]]
-- [[2주차]]: 다음 수업 노트
+- [[2. Deep Learning Foundations]]: 다음 수업 노트
 
 ## 이번 주에 확인할 것
 
