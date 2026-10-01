@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "Recall"
-summary: "실제 양성 샘플 중 양성으로 올바르게 예측한 비율."
+summary: "실제 양성 가운데 올바르게 양성으로 예측한 비율로, 민감도 또는 참양성률이라고도 한다."
 maturity: "developing"
 last_reviewed: ""
 aliases: []
@@ -10,6 +10,8 @@ tags:
   - theme/evaluation
 ---
 # 정의
+
+재현율(Recall)은 민감도(Sensitivity), 참양성률(TPR)과 같은 지표이며 $TP/(TP+FN)$으로 계산한다. 특이도(Specificity)는 참음성률로 $TN/(TN+FP)$이다.
 
 실제 양성 샘플 중 양성으로 올바르게 예측한 비율. 모델이 실제 양성을 얼마나 놓치지 않고 잡아내는지를 측정한다.
 $$\mathrm{Recall} = \dfrac{TP}{TP+FN}$$
@@ -35,8 +37,6 @@ $$\mathrm{Recall} = \dfrac{TP}{TP+FN}$$
 - Macro Recall: 클래스별 Recall의 단순 평균.
 - Weighted Recall: 클래스별 샘플 수로 가중평균.
 - Specificity (True Negative Rate): $\dfrac{TN}{TN+FP}$. Recall의 음성 클래스 버전.
-
-# 등장/대표 논문
 
 # 관련 개념
 

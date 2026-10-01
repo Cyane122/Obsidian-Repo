@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "Principal Component Analysis"
-summary: "Principal Component Analysis(PCA)는 데이터 분산을 가장 많이 설명하는 서로 직교한 축을 찾아 저차원으로 투영하는 선형 차원 축소 방법이다."
+summary: "중심화한 자료에서 분산이 큰 서로 직교한 축을 찾아 저차원으로 투영하는 선형 차원 축소 방법이다."
 maturity: "developing"
 last_reviewed: ""
 aliases:
@@ -14,6 +14,8 @@ tags:
 ---
 
 # 정의
+
+주성분분석(PCA)은 중심화한 자료에서 분산이 가장 큰 직교 방향들을 찾아 선택한 축으로 관측치를 투영한다.
 
 Principal Component Analysis(PCA)는 데이터 분산을 가장 많이 설명하는 서로 직교한 축을 찾아 저차원으로 투영하는 선형 차원 축소 방법이다.
 
@@ -47,5 +49,5 @@ Principal Component Analysis(PCA)는 데이터 분산을 가장 많이 설명하
 
 # 대표 변형
 
-- Kernel PCA: kernel을 통해 비선형 구조를 표현한다.
+- Kernel PCA: 커널을 이용해 비선형 구조를 표현한다.
 - [[Hellinger PCA]]: 확률형 동시발생 벡터에 Hellinger 변환을 먼저 적용한다.

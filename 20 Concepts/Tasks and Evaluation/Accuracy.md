@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "Accuracy"
-summary: "전체 예측 중 올바르게 예측한 비율."
+summary: "전체 분류 예측 가운데 정답과 일치한 예측의 비율이다."
 maturity: "developing"
 last_reviewed: ""
 aliases: []
@@ -10,6 +10,8 @@ tags:
   - theme/evaluation
 ---
 # 정의
+
+정확도(Accuracy)는 평가한 전체 사례 중 올바르게 예측한 사례의 비율이다.
 
 전체 예측 중 올바르게 예측한 비율.
 $$\mathrm{Accuracy} = \dfrac{TP+TN}{TP+TN+FP+FN}$$
@@ -37,8 +39,6 @@ $$\mathrm{Accuracy} = \dfrac{TP+TN}{TP+TN+FP+FN}$$
 
 - Balanced Accuracy: 클래스별 [[Recall]]의 평균. 불균형 데이터셋에서 Accuracy를 보완한다.
 - Top-k Accuracy: 모델의 상위 $k$개 예측 안에 정답이 포함되면 정답으로 인정한다.
-
-# 등장/대표 논문
 
 # 관련 개념
 

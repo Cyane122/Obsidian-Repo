@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "Confusion Matrix"
-summary: "분류 모델의 예측 결과를 실제 레이블과 대조하여 정리한 행렬."
+summary: "실제 클래스와 예측 클래스의 조합별 건수를 정리해 오류 유형을 보여주는 표다."
 maturity: "developing"
 last_reviewed: ""
 aliases: []
@@ -11,6 +11,8 @@ tags:
   - theme/evaluation
 ---
 # 정의
+
+혼동행렬(Confusion Matrix)은 실제 레이블과 예측 레이블의 조합별 건수를 센다. 이진분류에서는 TP, TN, FP, FN 네 칸으로 구성되며 행과 열이 무엇을 뜻하는지 명시해야 한다.
 
 분류 모델의 예측 결과를 실제 레이블과 대조하여 정리한 행렬. 행은 실제 클래스, 열은 예측 클래스를 나타낸다.
 이진 분류 기준:
@@ -44,11 +46,10 @@ tags:
 
 - Normalized Confusion Matrix: 각 행을 실제 클래스 샘플 수로 나누어 비율로 표현한다. 클래스 불균형 상황에서 직관적 해석에 용이하다.
 
-# 등장/대표 논문
-
 # 관련 개념
 
 - [[Accuracy]]
 - [[Precision]]
 - [[Recall]]
 - [[F1 Score]]
+- [[ROC Curve and AUC]]

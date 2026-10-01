@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "Overfitting"
-summary: "Overfitting은 모델이 학습 데이터의 일반적 패턴뿐 아니라 우연한 잡음까지 학습해, 학습 성능은 높지만 새로운 데이터 성능이 나빠지는 상태다."
+summary: "모델이 훈련 자료 특유의 변동까지 학습해 새로운 사례에서 성능이 낮아지는 현상이다."
 maturity: "developing"
 last_reviewed: ""
 aliases:
@@ -14,6 +14,8 @@ tags:
 
 # 정의
 
+과적합(Overfitting)은 모델이 훈련 자료에만 나타나는 변동까지 학습해 새로운 사례에 잘 적용되지 않는 현상이다.
+
 Overfitting은 모델이 학습 데이터의 일반적 패턴뿐 아니라 우연한 잡음까지 학습해, 학습 성능은 높지만 새로운 데이터 성능이 나빠지는 상태다.
 
 # 원인과 진단
@@ -22,9 +24,9 @@ Overfitting은 모델이 학습 데이터의 일반적 패턴뿐 아니라 우�
 
 # 완화 방법
 
-- 독립된 validation/test split과 교차검증으로 일반화 오차를 추정한다.
-- [[Dropout]], weight decay, data augmentation, early stopping으로 유효 용량을 제어한다.
-- 더 많은 대표 데이터와 단순한 모델을 사용하고, 하이퍼파라미터 선택에 test set을 쓰지 않는다.
+- 독립된 검증·시험 자료와 교차검증으로 일반화 오차를 추정한다.
+- [[Dropout]], 가중치 감쇠, 데이터 증강, 조기 종료로 모델의 유효 용량을 제어한다.
+- 대표성 있는 자료를 더 확보하거나 단순한 모델을 사용하고, 초매개변수 선택에 시험 자료를 사용하지 않는다.
 
 # 특징과 한계
 
@@ -33,7 +35,7 @@ Overfitting은 모델이 학습 데이터의 일반적 패턴뿐 아니라 우�
 # 관련 개념
 
 - [[Dropout]]
-- generalization
+- [[Generalization]]
 - [[Matrix Factorization]]
 
 # 왜 필요한가
@@ -42,17 +44,13 @@ Overfitting은 모델이 학습 데이터의 일반적 패턴뿐 아니라 우�
 
 # 작동 원리
 
-모델 용량이 데이터의 안정적 신호보다 커지면 경험 위험을 낮추면서 표본 특유의 변동까지 흡수한다. regularization과 독립 검증은 이 자유도를 제한하거나 실패를 조기에 감지한다.
+모델의 표현력이 자료의 안정적인 신호보다 크면 훈련오차를 낮추는 과정에서 표본 특유의 변동까지 흡수할 수 있다. 정규화와 독립 검증은 이를 억제하거나 조기에 발견하는 데 도움을 준다.
 
 # 수식 / 알고리즘
 
-일반화 간극은 대략 training risk와 validation/test risk의 차이로 관찰한다. 단일 split의 우연성을 줄이려면 교차검증과 신뢰구간을 함께 사용한다.
+일반화 간극은 훈련오차와 검증·시험오차의 차이로 관찰한다. 한 번의 분할에 따른 우연성을 줄이려면 교차검증 결과의 변동도 함께 살핀다.
 
 # 대표 변형
 
-- Data overfitting: 데이터셋 특유의 artifact에 맞춘다.
-- Hyperparameter overfitting: validation set을 반복 사용해 그 split에 맞춘다.
-
-# 등장/대표 논문
-
-- [[Dropout]]은 representation co-adaptation을 줄이는 대표 regularization 방법이다.
+- 자료 과적합: 특정 데이터셋의 우연한 흔적에 맞춰진다.
+- 초매개변수 과적합: 검증 자료를 반복 사용하면서 해당 분할에 맞춰진다.

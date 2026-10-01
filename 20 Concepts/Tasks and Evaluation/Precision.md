@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "Precision"
-summary: "양성으로 예측한 샘플 중 실제 양성인 비율."
+summary: "양성으로 예측한 사례 가운데 실제 양성인 사례의 비율이다."
 maturity: "developing"
 last_reviewed: ""
 aliases: []
@@ -10,6 +10,8 @@ tags:
   - theme/evaluation
 ---
 # 정의
+
+정밀도(Precision)는 양성으로 예측한 사례 중 실제 양성이 얼마나 되는지를 나타낸다.
 
 양성으로 예측한 샘플 중 실제 양성인 비율. 모델이 양성이라고 주장할 때, 얼마나 믿을 수 있는지를 측정한다.
 $$\mathrm{Precision} = \dfrac{TP}{TP+FP}$$
@@ -33,8 +35,6 @@ $$\mathrm{Precision} = \dfrac{TP}{TP+FP}$$
 
 - Macro Precision: 클래스별 Precision의 단순 평균.
 - Weighted Precision: 클래스별 샘플 수로 가중평균.
-
-# 등장/대표 논문
 
 # 관련 개념
 

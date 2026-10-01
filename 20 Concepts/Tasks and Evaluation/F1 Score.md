@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "F1 Score"
-summary: "Precision과 Recall의 조화평균."
+summary: "양성 클래스를 기준으로 정밀도와 재현율의 조화평균을 구한 지표다."
 maturity: "developing"
 last_reviewed: ""
 aliases: []
@@ -10,6 +10,8 @@ tags:
   - theme/evaluation
 ---
 # 정의
+
+F1 점수는 지정한 양성 클래스에 대한 [[Precision|정밀도]]와 [[Recall|재현율]]의 조화평균이다. 참음성(TN)은 계산에 들어가지 않으므로 오류 비용에 맞춰 지표를 선택해야 한다.
 
 [[Precision]]과 [[Recall]]의 조화평균. 불균형 클래스 분류 문제에서 [[Accuracy]]를 대체하는 평가 지표.
 $$\mathrm{F1} = 2 \cdot \dfrac{\mathrm{Precision} \times \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}$$
@@ -30,7 +32,7 @@ $$\mathrm{F1} = 2 \cdot \dfrac{\mathrm{Precision} \times \mathrm{Recall}}{\mathr
 
 - 정밀도와 재현율 중 하나만 높고 다른 하나가 낮으면 F1이 낮게 유지되므로, 두 지표의 균형을 요구한다.
 - 조화평균을 사용하므로 산술평균보다 작은 값에 더 민감하게 반응한다.
-- 클래스 불균형이 심한 경우 [[Accuracy]]보다 더 신뢰성 높은 지표로 사용된다.
+- 클래스 불균형 때문에 정확도가 오해를 부를 때 정밀도와 재현율을 함께 볼 수 있다. 다만 F1이 모든 과제에서 다른 지표보다 적합한 것은 아니다.
 
 # 대표 변형
 
@@ -40,8 +42,6 @@ $$\mathrm{F1} = 2 \cdot \dfrac{\mathrm{Precision} \times \mathrm{Recall}}{\mathr
 - Macro F1: 클래스별 F1을 단순 평균.
 - Micro F1: 전체 TP, FP, FN을 합산 후 F1 계산. 클래스 빈도를 반영한다.
 - Weighted F1: 클래스별 샘플 수로 가중평균.
-
-# 등장/대표 논문
 
 # 관련 개념
 
