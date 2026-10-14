@@ -1,7 +1,7 @@
 ---
 type: concept
 title: "Co-occurrence Matrix"
-summary: "말뭉치에서 단어 i의 문맥 창(context window) 내에 단어 j가 등장한 횟수를 원소 Xij로 갇는 |V|times|V| 크기의 행렬."
+summary: "말뭉치에서 단어 i의 문맥 창(context window) 내에 단어 j가 등장한 횟수를 원소 $X_{ij}$로 갖는 ${|V|}\times{|V|}$ 크기의 행렬."
 maturity: "developing"
 last_reviewed: ""
 aliases: []
@@ -11,7 +11,7 @@ tags:
 ---
 # 정의
 
-말뭉치에서 단어 $i$의 문맥 창(context window) 내에 단어 $j$가 등장한 횟수를 원소 $X_{ij}$로 갇는 $|V|\times|V|$ 크기의 행렬. ($|V|$는 어휘 크기)
+말뭉치에서 단어 $i$의 문맥 창(context window) 내에 단어 $j$가 등장한 횟수를 원소 $X_{ij}$로 갖는 $|V|\times|V|$ 크기의 행렬. ($|V|$는 어휘 크기)
 
 # 왜 필요한가
 
