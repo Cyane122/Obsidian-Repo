@@ -1,0 +1,726 @@
+=== PAGE 1 ===
+Dr. Khan Muhammad (칸 무하마드)
+Development of a Solution for Situation-
+Awareness based on the Analysis of Speech and 
+Environmental Sounds [Call Analysis]
+Department of Applied Artificial Intelligence
+Sungkyunkwan University 
+Associate Professor
+
+
+=== PAGE 2 ===
+Contents List
+LISTEN Project
+1. Fraud Detection
+2. LISTEN’s Background
+3. LISTEN’s Key Modules
+A. Gender Recognition
+B. Age Prediction
+C. Speech Emotion Recognition
+D. Fusion and Reasoning
+4. SER Patent
+2
+
+=== PAGE 3 ===
+1. Fraud Detection
+3
+Zhao, Q., Chen, K., Li, T., Yang, Y ., & Wang, X. (2018). Detecting telecommunication fraud by 
+understanding the contents of a call. Cybersecurity, 1(1), 1-12.
+
+
+=== PAGE 4 ===
+1. LISTEN Project’s Motivation/Background
+4
+Zhao, Q., Chen, K., Li, T., Yang, Y ., & Wang, X. (2018). Detecting telecommunication fraud by 
+understanding the contents of a call. Cybersecurity, 1(1), 1-12.
+
+=== PAGE 5 ===
+3.A Gender Recognition
+5
+Ahmad, J., Fiaz, M., Kwon, S. I., Sodanil, M., Vo, B., & Baik, S. W. (2016). Gender identification using mfcc for 
+telephone applications-a comparative study.International Journal of Computer Science and Electronics Engineering 
+(IJCSEE) Volume 3, Issue 5 (2015) ISSN 2320–4028 (Online) 
+
+
+=== PAGE 6 ===
+3.B Age Prediction
+6
+Kwasny, Damian, and Daria Hemmerling. "Gender and age estimation methods based on speech using deep neural 
+networks." Sensors 21.14 (2021): 4785.
+
+
+=== PAGE 7 ===
+3.C Speech Emotion Recognition
+7
+Badshah, Abdul Malik, Nasir Rahim, Noor Ullah, Jamil Ahmad, Khan Muhammad, Mi Young Lee, Soonil Kwon, and Sung Wook
+Baik. "Deep features-based speech emotion recognition for smart affective services." Multimedia Tools and Applications 78, no. 5
+(2019): 5571-5589.
+
+
+=== PAGE 8 ===
+3.D Fusion and Reasoning
+8
+Ahmad, J., Muhammad, K., Kwon, S. I., Baik, S. W., & Rho, S. (2016, February). Dempster-Shafer fusion-based gender recognition for
+speech analysis applications. In 2016 International Conference on Platform Technology and Service (PlatCon) (pp. 1-4). IEEE.
+
+
+=== PAGE 9 ===
+LISTEN Contributions (Patents)
+9
+Patent 1
+SITUATION JUDGMENT SYSTEM AND METHOD BASED ON VOICE/SOUND ANALYSIS,KIPRIS 2016.
+Applicants:
+1. KOREA INSTITUTE OF SCIENCE AND TECHNOLOGY
+2. TRIPHOS
+3. WISENUT, INC.
+4. INDUSTRY ACADEMY COOPERATION FOUNDATION OF SEJONG UNIVERSITY
+5. Powervoice Co., Ltd.
+6. IUCF-HYU (Industry-University Cooperation Foundation Hanyang University)
+Patent 2
+APPARATUS AND METHOD FOR GENDER RECOGNITION OF SPEECH DATA, KIPRIS, 2016
+Applicant: INDUSTRY ACADEMY COOPERATION FOUNDATION OF SEJONG UNIVERSITY
+Patent 3
+APPARATUS AND METHOD FOR GENDER RECOGNITION OF SPEAKER, KIPRIS, 2016.
+Applicants: INDUSTRY ACADEMY COOPERATION FOUNDATION OF SEJONG UNIVERSITY
+Patent 5
+APPARATUS AND METHOD FOR RELIABILITY MEASUREMENT OF SPEAKER, KIPRIS, 2018.
+Applicant: INDUSTRY ACADEMY COOPERATION FOUNDATION OF SEJONG UNIVERSITY
+Patent 4
+APPARATUS AND METHOD FOR AGE GROUP RECOGNITION OF SPEAKER, KIPRIS, 2017.
+Applicant: INDUSTRY ACADEMY COOPERATION FOUNDATION OF SEJONG UNIVERSITY
+Patent 6
+APPARATUS AND METHOD FOR SPEECH EMOTION RECONGNITION USING A REASONING PROCESS, KIPRIS, 2019.
+Applicant: INDUSTRY ACADEMY COOPERATION FOUNDATION OF SEJONG UNIVERSITY
+
+=== PAGE 10 ===
+LISTEN Contributions (Research papers)
+10
+Ahmad, J., Fiaz, M., Kwon, S. I., Sodanil, M., Vo, B., & Baik, S. W. (2016). Gender identification using mfcc for 
+telephone applications-a comparative study.International Journal of Computer Science and Electronics Engineering 
+(IJCSEE) Volume 3, Issue 5 (2015) ISSN 2320–4028 (Online) 
+Badshah, Abdul Malik, Nasir Rahim, Noor Ullah, Jamil Ahmad, Khan Muhammad, Mi Young Lee, Soonil Kwon,
+and Sung Wook Baik. "Deep features-based speech emotion recognition for smart affective services."
+Multimedia Tools and Applications 78, no. 5 (2019): 5571-5589.
+Ahmad, J., Muhammad, K., Kwon, S. I., Baik, S. W., & Rho, S. (2016, February). Dempster-Shafer fusion-based gen
+der recognition for speech analysis applications. In 2016 International Conference on Platform T echnologyand Servi
+ce (PlatCon) (pp. 1-4). IEEE.
+Badshah, Abdul Malik, et al. "Divide-and-conquer based ensemble to spot emotions in speech using MFCC and rand
+om forest." The 2nd International Integrated Conference & Concert on Convergence (2016).
+Ahmad, J., Sajjad, M., Rho, S., Kwon, S. I., Lee, M. Y., & Baik, S. W. (2018). Determining speaker attributes from stre
+ss-affected speech in emergency situations with hybrid SVM-DNN architecture. Multimedia T oolsand Applications, 7
+7(4), 4883-4907.
+Badshah, A. M., Ahmad, J., Rahim, N., & Baik, S. W. (2017, February). Speech emotion recognition from spectrogra
+ms with deep convolutional neural network. In 2017 international conference on platform technology and service (Plat
+Con) (pp. 1-5). IEEE.
+
+=== PAGE 11 ===
+11
+Main Contents
+1. Overall framework of our invention
+2. Structure of the proposed feature extraction method
+3. Co-existence of emotions for speech segments
+4. Computing scores for previous N samples of a speech signal
+5. Resolving conflict between conflicting emotions
+6. Reliability-Weighted fusion for confidence values of three different sources
+7. Maintaining emotional history for a speaker
+4. SER Patent
+Apparatus and Method for Speech Emotion 
+Recognition using a Reasoning Process
+
+=== PAGE 12 ===
+Neutral Happy FearSad Boredom 
+Disgust Angry
+Input: Speech Signal
+• Spatial and Temporal Features Extraction and Classification using 3D-Convolutional Neural Network. 
+• Spatial features in spectrograms correspond to short-term features whereas the temporal features 
+indicate long-term features. 
+Output/ Predicted Emotion Class 
+• Generate spectrograms from speech signals using Fourier Transform
+• Split spectrograms in fixed time slots and accumulate n spectrograms in the 3rd dimension
+Conflicting Emotions
+(e.g., sad and happy)
+?
+Compute emotion 
+co-existence score
+No
+Prediction Confidence is 
+measured using the max 
+probability value. 
+Data Accumulation Module
+Database
+Use accumulated data 
+for iterative fine-tuning 
+of the model to 
+improve accuracy
+• Happy
+• Sad
+• Fear
+• Angry
+• Boredom
+• Disgust
+• Neutral 
+Spectrograms and 
+their annotations 
+with only high 
+confidence scores 
+are accumulated
+Data Preparation
+Features Extraction 
+and Classification
+Aggregate Predictions
+Yes
+Current speaker emotional state is maintained based 
+on the history of high confidence and non-conflicting 
+emotional outputs
+Check Confidence 
+Level?
+High
+Medium
+Emotion History
+Speech 
+segment
+Emotion
+S1 Happy
+S2 Happy
+S3 Neutral
+S4 Happy
+S5 Neutral
+Evidence Validation and Reasoning Module
+Emotion 1 Emotion 2
+Sad Neutral
+Happy Neutral
+Sad Angry
+Happy Angry
+Fear Happy
+……….. …..
+Compute scores for 
+previous N 
+samples
+Select Emotion with 
+Maximum Score
+Knowledge Base for Emotion Co-Existence 
+Resolve Conflict
+Reliability-
+Weighted 
+Fusion
+Low
+Discard
+
+=== PAGE 13 ===
+2. Architecture of the Proposed Classification Method
+13
+0.12
+0.2
+0.05
+0.12
+0.4
+0.05
+0.06
+Input 3D CNN Model Output
+Emotion   Probabilities 
+Sequence of 
+spectrograms of 
+size M×N×D
+ Stack of convolution and pooling layers, 
+followed by Softmax classifier 
+Recognized 
+emotions
+M: Number of rows
+N: Number of columns
+D: Dimension
+128x128x40x64
+43x43x20x64
+43x43x20x128
+15x15x10x128
+15x15x10x64
+15x15x10x32
+5x5x5x32
+3200x1 1024x1
+7x1
+Conv
+ConvConv
+Conv
+Pool
+Pool Pool
+FC FC
+Softmax
+size
+Depth->Number of spectrograms
+Number of filters
+Three-dimensional convolutional neural networks (3D-CNN) were first used for human action recognition [1].
+
+=== PAGE 14 ===
+Checking Confidence Level
+End
+High Confidence
+Medium Confidence
+Max Probability > T1
+Max Probability > T2
+Start
+Low Confidence
+True
+False
+False
+True
+
+=== PAGE 15 ===
+3. Illustrating the co
+-
+existence of two emotions for 
+speech segments 
+15
+Emotion 1 Emotion 2 Probability
+Happy Happy 0.98
+Happy Neutral 0.6
+Happy Sad 0.05
+Sad Sad 0.98
+Sad Angry 0.46
+Angry Angry 0.98
+Angry Fear 0.14
+Fear Neutral 0.5
+Boredom Disgust 0.24
+Disgust Neutral 0.58
+……. ……… ………
+Based on the psychological studies and experts’ opinions, the above sets of emotions co-exist [2, 3]. 
+Experts have provided the probabilities for their coexistence in speech segments.
+
+=== PAGE 16 ===
+3. Illustrating the co
+-
+existence of three emotions for speech 
+segments 
+16
+Emotion 1 Emotion 3 Emotion 2 Probability
+Happy Happy Happy 0.98
+Happy Neutral Happy 0.83
+Happy Neutral Neutral 0.8
+Neutral Sad Sad 0.73
+Fear Neutral Fear 0.64
+Sad Boredom Neutral 0.41
+Fear Fear Angry 0.2
+Sad Fear Boredom 0.3
+Boredom Happy Neutral 0.1
+Happy Sad Happy 0.1
+…… …… …… ……
+Based on the psychological studies and experts’ opinions, the above sets of emotions co-exist [2, 3]. 
+Experts have provided the probabilities for their coexistence in speech segments.
+
+=== PAGE 17 ===
+State transition diagram for conflicting and co
+-
+existent 
+emotions
+17
+Note: 
+Score
+Score
+Fear
+ Neutral
+Sad
+Happy
+Boredom
+Disgust
+Angry
+0.28
+0.24
+0.05
+0.12
+0.13
+0.14
+0.27
+The probability that a speaker’s emotional
+state can change from “Happy” to “Angry”
+state is 0.12.
+0.21
+0.26
+• Conflicting emotions refer to emotions that are mutually exclusive (i.e., both cannot occur together such as 
+happy and sad).
+• Co-existent emotions indicate emotions that are mutually inclusive (i.e., they can occur together such as 
+neutral and happy).
+• The diagram shows both conflicting and co-existent emotions with their probabilities.
+• Probabilities are assigned based on psychological studies and experts’ opinions [2, 4, 5].
+Conflicting emotions
+Co-existent emotions
+0.58
+0.6
+0.4
+0.49
+• Conflicting emotions have lower probability scores
+• Co-existent emotions have higher probabilities 
+0.56
+0.46
+0.53
+0.41
+0.5
+
+=== PAGE 18 ===
+4. Computing scores for previous N samples of a speech signal
+18
+Sad=0.8 Sad=0.79 Neutral=
+0.76
+Neutral= 
+0.84
+Neutral= 
+0.77
+Sad=0.6 Sad=0.6 Fear=0.35
+Sad=0.3
+Confidence scores with small difference
+E 1
+E 2
+.
+.
+.
+E x
+= Number of detected emotions
+Suppose N=7, where N represents the number of previous speech 
+segments.
+No. of occurrences of Emotionx in N 
+N 
+Emotionx score    =
+Emotion 1: Sad   = 4
+7
+Emotion 2: Neutral   = 3
+7
+= 0.57
+= 0.43
+Maximum = max (0.57 , 0.43)=0.57->Sad
+Scenario 1
+….….
+Emotion 1: Sad=E1=4
+Emotion 2: Neutral=E2=3
+The resultant score (0.57 in this scenario) will be combined with the original confidence score and confidence score computed from emotion co-
+existence. Based on the aggregated score, the emotion with maximum confidence score will be selected as a final output for a speech segment. 
+
+=== PAGE 19 ===
+4. Computing scores for previous N samples and co
+-
+existence 
+score for speech segments
+19
+Confidence scores with small 
+difference
+No. of occurrences of Emotionx in N 
+N 
+Emotionx score    =
+E1: Happy   =
+3
+5
+E2: Neutral   = 2
+5
+= 0.6
+= 0.4
+Maximum = max (0.6 , 0.4)=0.6->Happy
+Scenario 2
+….….
+The resultant score from step 1 is combined with individual cases of step 2  and original predicted confidence score, and the maximum resultant confidence 
+value is returned. Based on the aggregated score, the emotion with maximum confidence score is selected as a final output for a speech segment. 
+Happy=
+0.77
+Happy= 
+0.81
+Happy= 
+0.84
+Neutral= 
+0.61
+Neutral= 
+0.68
+Neutral= 
+0.34
+Happy=  
+0.31
+E1: Happy=3, E2: Neutral=2, N=5 Emotion 1 Emotion 2 Emotion 3 Probability
+Happy Neutral Neutral 0.39
+Happy Neutral Happy 0.39
+Sad Sad Neutral 0.37
+..... ...... ...... …..
+Emotion co-existence knowledge base
+Case 1: Happy->Neutral->Neutral: 0.39
+Case 2: Happy->Neutral->Happy: 0.39
+Step 1
+Step 2
+
+=== PAGE 20 ===
+5. Resolving conflict between conflicting emotions
+20
+High confidence score with 
+conflicting emotions
+Steps:
+1. Count the number of unique emotions in previous N samples (It is 1 in this case: Happy)
+2. Check the probability score of different combinations of unique emotions of step 1 from 
+emotion co-existence knowledge base [In this case: (Happy, Sad) and (Happy, Happy)]
+3. Select the combination of unique emotions having maximum confidence score
+4. Output the last emotional state of the selected combination of unique emotions
+Scenario 1
+….….
+Happy=
+0.77
+Happy= 
+0.81
+Happy= 
+0.84
+Happy= 
+0.61
+Happy= 
+0.68
+Sad= 0.7
+Happy=  
+0.26
+Emotion 1: E1=Happy, N=5
+N refers to number of previous 
+speech segments
+Emotion 1 Emotion 2 Probability
+Happy Happy 0.98
+Happy Neutral 0.7
+Happy Fear 0.34
+Happy Boredom 0.32
+Happy Sad 0.1
+..... ...... …..As a result of above analysis, the predicted emotional state is Happy
+Case 1: Happy, Sad
+Case 2: Happy, Happy
+
+=== PAGE 21 ===
+5. Resolving conflict between conflicting emotions
+21
+High confidence score with 
+conflicting emotions
+Steps:
+1. Count the number of unique emotions in previous N samples 
+(Unique emotions are 2 in this case, Happy and Neutral)
+2. Check the probability score of different combinations of unique emotions from emotion 
+co-existence knowledge base
+3. Select the combination of unique emotions having maximum confidence score
+4. Output the last emotional state of the selected combination of unique emotions
+Scenario 2
+….….
+Happy=
+0.77
+Happy= 
+0.81
+Happy= 
+0.84
+Neutral= 
+0.61
+Neutral= 
+0.68
+Sad= 0.7
+Happy=  
+0.26
+E1=Happy, E2=Neutral, N=5 Emotion 1 Emotion 2 Emotion 3 Probability
+Happy Happy Happy 0.98
+Happy Neutral Happy 0.5
+Happy Happy Neutral 0.48
+Happy Neutral Sad 0.2
+Happy Fear Boredom 0.18
+Happy Sad Sad 0.1
+..... ...... ...... …..
+As a result of above analysis, the predicted emotional state is Happy
+Case 1: Happy, Neutral, Sad
+Case 2: Happy, Neutral, Happy
+
+=== PAGE 22 ===
+6. Reliability
+-
+Weighted fusion for confidence values of three 
+different sources
+22
+Source 1
+Original Prediction
+Score 1= 0.99->Happy
+Score 2= 0.79->Neutral
+Problem: We need to combine the confidence values of three sources and decide the emotional state for a speech segment. 
+Solution: We propose reliability-weighted fusion to solve this problem. The formula of our fusion method is given as follows:
+where r1, r2 and r3 are reliability weights and S1, S2 and S3 are confidence scores of 
+different sources, respectively 
+Final score = max (F(Happy), F(Neutral))= max (0.7215, 0.3635)= 0.7215->Fused score of “Happy” is greater than fused score of “Neutral”, thus, 
+“Happy” will be predicted as final emotion.
+Score 1 = 0.5-> Happy
+Score 2 = 0.58-> Neutral
+Score 1 = 0.6-> Happy
+Score 2 = 0-> Neutral
+( )332211)( SrSrSrStateEmotionFusion ++=
+( )332211)( SrSrSrStateEmotionFusion ++=
+( )99.0*35.06.0*5.05.015.0)( ++=HappyF
+Reliability weights
+Original Prediction Speaker’s History Emotion Co-existence
+r1 r2 r3
+0.15 0.5 0.35
+7215.0)( =HappyF
+Case 1 (Happy): (S1=0.5, S2=0.6, S3=0.99) 
+( )332211)( SrSrSrStateEmotionFusion ++=
+( )79.0*35.00*5.058.015.0)( ++=NeutralF
+Reliability weights
+Original Prediction Speaker’s History Emotion Co-existence
+r1 r2 r3
+0.15 0.5 0.35
+3635.0)( =NeutralF
+Case 2 (Neutral): (S1=0.58, S2=0, S3=0.79) 
+Source 3
+Emotion Co-existence
+Source 2
+Speaker’s History
+
+=== PAGE 23 ===
+Scenario for computing scores of previous N samples and 
+co
+-
+existence score and their fusion for speech segments
+23
+• Conflicting emotions
+• Original Predications
+No. of occurrences of Emotionx in N 
+N 
+Emotionx score    =
+Happy   =
+4
+5
+Neutral   =
+1
+5
+= 0.8
+= 0.2
+Maximum = max (0.8 , 0.2)=0.8->Happy
+….….
+Happy=
+0.77
+Happy= 
+0.81
+Neutral= 
+0.84
+Happy= 
+0.61
+Happy= 
+0.68
+Sad= 0.34
+Happy=  
+0.31
+E1: Happy=4, E2: Neutral=1, N=5 Emotion 1 Emotion 2 Emotion 3 Probability
+Happy Neutral Neutral 0.72
+Happy Neutral Happy 0.7
+Happy Neutral Sad 0.2
+..... ...... ...... …..
+Emotion co-existence knowledge base
+Case 1: Happy->Neutral->Sad: 0.2
+Case 2: Happy->Neutral->Happy: 0.7
+Step 1: compute a score for N samples
+Step 2: Resolve conflict 
+Combine the score of step 1 (o.8 in this scenario) to each confidence score of different cases of step 2 and original prediction and decide about sad or happy
+Final score = max (F(Sad)), F(Happy))= max (0.121, 0.691)= 0.691->Score of sad is less than happy, thus, happy will be outputted as final label
+0.121 is the fused confidence score for sad state 0.691 is the confidence score for happy
+Case 1 Case 2
+Step 3: Fusion 
+( )2.0*35.00*5.034.015.0)( ++=SadF
+121.0)( =SadF
+( )7.0*35.08.0*5.031.015.0)( ++=HappyF
+691.0)( =HappyF
+
+=== PAGE 24 ===
+7. Maintaining Emotional History for a Speaker 
+….….
+Happy Happy Neutral Neutral Happy Neutral Happy Happy Happy Happy
+0.91 0.87 0.56 0.77 0.40 0.25 0.51 0.86 0.84 0.82
+Speech Segment Emotion Probability
+1 Happy 0.91
+2 Happy 0.87
+3 Neutral 0.56
+4 Neutral 0.77
+5 Happy 0.40
+6 Neutral 0.25
+7 Happy 0.51
+8 Happy 0.86
+…… ……. …….
+.
+.
+.
+.
+Overall emotional state: Happy
+
+=== PAGE 25 ===
+7. Maintaining Emotional History for a Speaker 
+25
+Speech 
+Segment 
+Emotion Probability
+1 Fear 0.90
+2 Fear 0.83
+3 Neutral 0.57
+4 Fear 0.87
+5 Neutral 0.44
+6 Fear 0.52
+7 Fear 0.57
+8 Fear 0.80
+…… ……. …….
+Speech 
+Segment 
+Emotion Probability
+1 Angry 0.83
+2 Angry 0.77
+3 Fear 0.62
+4 Disgust 0.58
+5 Angry 0.64
+6 Disgust 0.48
+7 Angry 0.51
+8 Angry 0.68
+…… …… ……
+Our system maintains the emotional history of the speaker for better reasoning and validation of emotions
+for upcoming speech segments. The emotion history can also be used to determine the overall emotional
+state of a speaker for the duration of the call for further necessary operations at call centres.
+Overall emotional state: Fear Overall emotional state: Angry
+
+=== PAGE 26 ===
+7. Maintaining Emotional History for a Speaker 
+26
+Speech 
+Segment 
+Emotion Probability
+1 Sad 0.95
+2 Sad 0.92
+3 Sad 0.86
+4 Boredom 0.75
+5 Boredom 0.60
+6 Sad 0.40
+7 Sad 0.51
+8 Sad 0.86
+…… ……. ……
+Speech 
+Segment 
+Emotion Probability
+1 Boredom 0.73
+2 Sad 0.53
+3 Boredom 0.61
+4 Boredom 0.65
+5 Boredom 0.68
+6 Disgust 0.52
+7 Sad 0.39
+8 Boredom 0.73
+…… …… ……
+Our system maintains the emotional history of the speaker for better reasoning and validation of
+emotions for upcoming speech segments. The emotion history can also be used to determine the overall
+emotional state of a speaker for the duration of the call for further necessary operations at call centres.
+Overall emotional state: Sad Overall emotional state: Boredom
+
+=== PAGE 27 ===
+References
+27
+1. Ji, Shuiwang, Wei Xu, Ming Yang, and Kai Yu. "3D convolutional neural networks for human action 
+recognition." IEEE transactions on pattern analysis and machine intelligence 35, no. 1 (2013): 221-
+231.
+2. Wang, Shangfei, Jun Wang, Ziheng Wang, and Qiang Ji. "Multiple emotion tagging for multimedia 
+data by exploiting high-order dependencies among emotions." IEEE Transactions on Multimedia 
+17, no. 12 (2015): 2185-2197.
+3. https://www.psychologytoday.com/blog/evolution-the-self/201406/can-your-body-express-
+multiple-emotions-simultaneously (visited: 9th March 2026)
+4. https://www.psychologytoday.com/blog/evolution-the-self/201406/can-you-feel-two-emotions-
+once (visited: 9th March 2026)
+5. Williams, Patti, and Jennifer L. Aaker. "Can mixed emotions peacefully coexist?." Journal of 
+Consumer Research 28, no. 4 (2002): 636-649.
+6. Badshah, Abdul Malik, Nasir Rahim, Noor Ullah, Jamil Ahmad, Khan Muhammad, Mi Young Lee, 
+Soonil Kwon, and Sung Wook Baik. "Deep features-based speech emotion recognition for smart 
+affective services." Multimedia Tools and Applications 78, no. 5 (2019): 5571-5589.
+7. APPARATUS AND METHOD FOR SPEECH EMOTION RECONGNITION USING A REASONING 
+PROCESS (추론 프로세스를 이용한 음성 감정 인식 장치 및 방법), Korea Intellectual Property Rights 
+Information Service (KIPRIS).
+
+=== PAGE 28 ===
+LISTEN Project 28
+Thank you
+Q&A

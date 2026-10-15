@@ -1,0 +1,785 @@
+=== SLIDE 1 ===
+Introduction to Multimodal AI
+Course Title: Multimodal AI
+Course Code: AAI3031-01
+Dr. Khan Muhammad (칸무하마드)
+Department of Applied Artificial Intelligence
+Sungkyunkwan University
+Email: khanmuhammad@g.skku.edu
+Associate Professor
+
+=== SLIDE 2 ===
+Content List
+2
+Course Information
+Course Materials
+Students’ Assessment
+Contact Instructions
+Course Rules/Regulations
+Professor’s Bio and Team
+Research Topics
+Understanding AI
+Intelligence starts with the world
+What is Artificial Intelligence?
+Intelligence in Machines: Rules vs Learning
+The basic idea of an AI system
+Multimodal AI
+The real-world problem
+Why Multimodal AI?
+What is Multimodal AI?
+Understanding “Modality”
+Why  are Modalities different?
+The Multimodal Pipeline
+The three core concepts
+Application Landscape
+Course Case Studies
+Course Learning Outcomes
+Course Roadmap
+10. Goals and Expectations
+11. Assignment/Project/Presentation
+
+=== SLIDE 3 ===
+1. Course Information
+3 Credits  [Flipped Learning (1 hour online/recorded, 2 hours offline)]
+Lectures: 3 hours weekly
+Room: International Hall Multimedia Lecture Room (9B217)
+Thursday 15:00 to 15:50 PM
+Thursday 16:00 to 16:50 PM
+Total: 1 Hour, 40 min.
+Type: Theory/practical/invited speeches/Recorded/online/in-person
+Attendance
+“SKKU-Attend” for attendance, absence and late rules
+Default setting for the time being
+Zoom/Manual
+3
+
+=== SLIDE 4 ===
+2. Course Materials
+4
+PDF/PPT of slides
+The slides will be available on i-Campus of SKKU
+Sometimes the slides will be updated later.
+Recorded videos/lectures will be available on i-Campus (Lecture Contents)
+Some more references and links for lectures notes may be given time to time
+Tools
+Depending on the assigned project, you will have choice to select language/toolkit/frameworks (s):
+Python, C++
+MATLAB, Julia
+PyTorch, TorchVision, OpenCV etc.
+
+=== SLIDE 5 ===
+3. Students’ Assessment
+5
+Attendance: 10%
+Mid-term exam: 20%
+Final-term exam: 40%
+Practice Assignment (PA)/Quizzes/Homework etc.: 15%
+Presentation: 15%
+Project
+Multimodal AI and your major related project completion
+Survey/Research articles
+Subjective
+Short-answer essay
+Extended-response essay
+Problem solving
+Cheating/Copy Paste Policy
+Automatic F for both
+
+=== SLIDE 6 ===
+4. Contact Instructions
+6
+E-mail (Preferred)
+khanmuhammad@g.skku.edu (preferred)
+khanmuhammad@skku.edu
+Information needed (in English)
+Subject of the Email
+Student Name
+Student ID
+Email’s Content/Query/Question/Feedback/Suggestions etc.
+Office
+International Hall, Room # 90326
+A prior appointment through e-mail is required (extremely serious matters)
+Online Zoom/Google Meet meetings can be arranged with flexibility.
+TA
+Wajahat, Master Student (wajahatullah@g.skku.edu)
+
+=== SLIDE 7 ===
+5. Course Rules/Regulations
+7
+Assignment/Homework via e-mail is not encouraged (exceptional).
+Assessment rubrics will be followed to evaluate assignments/projects and exams (depending on the need).
+University/Department rules and regulations must be followed.
+More: Will be explained from time to time
+
+=== SLIDE 8 ===
+6. Professor’s Bio
+8
+10+
+15
+1750+
+32230+ (H-Index: 93)
+90+
+180+
+Over 300 articles/papers
+Computer Vision
+Activity Recognition (Normal, Child Hazards, Aggression, Bullying)
+Image Enhancement (Low-light, Dehazing, Denoising)
+Person Re-identification
+Large Language Models (LLMs)
+Sentiment Analysis
+Hallucinations
+Intelligent Surveillance
+Fire/smoke detection, segmentation and scene analysis
+Unexpected Road Hazards Detection and Analysis
+As lead-author (1st or corresponding author)
+As co-author
+Participation in Research Projects
+Total citations (Google Scholar)
+Impact factor
+Professional and Research Experience
+15
+Patents Record (Korean, US mainly)
+2016,2017
+Jeju, Busan Korea
+2025
+Turkey
+2016, 2017
+Pakistan
+2018
+Vietnam
+2017
+Taiwan
+2024
+Canada, Australia, India, Italy, Vietnam
+Research Interests
+Conferences and Workshops
+Khan Muhammad (Senior Member, IEEE)
+Publication Record
+2019
+Thailand
+2020
+Indonesia, Singapore
+2026
+Spain, US, Finland, Brazil, Uk, Japan
+2021
+China, Spain
+2021
+France
+Associate Professor (Tenure-Track), SKKU, Korea
+khanmuhammad@skku.edu
++82-10-4831-2104
+Editorial Board Member, 7 Journals
+Area/Associate Editor, 7 Journals
+Top 2% Researcher (Stanford Uni. List), 2020-present
+#2 in Korea (Best CS Scientists 2026, Research.com)
+HCR (top 1%), 2021-2024
+2022
+USA
+
+=== SLIDE 9 ===
+6. Research Team (Major Collaborations)
+9
+VIS2KNOW Laboratory, SKKU
+Wuhan Textile University, Hunan Normal University, China
+Visual Surveillance Lab, NIT, India
+ANU/UWA, Australia
+TECNALIA, Spain
+DIP Lab, ICP, Pakistan
+Brain AI Lab,
+KNU, Korea
+
+=== SLIDE 10 ===
+6. Research Team
+10
+Prof. Sung Wook Baik
+(Supervisor, Sejong University, South Korea) [March 2015-Feb. 2019]
+Prof. Muhammad Sajjad (Academic Mentor)
+NTNU, Norway and ICP, Pakistan)
+Abdul Malik Badshah (Master) [Industry]
+PhD Fellow, University of Missouri–Kansas City,  USA
+Prof. Irfan Mehmood (Collaborator)
+University of Bradford, UK)
+Prof. Jamil Ahmad (BS Supervisor & Collaborator)
+Islamia College Peshawar, Pakistan)
+MBZUAI, UAE
+Noor Ullah (Master) [Industry-Dabeeo, Korea]
+Nasir Rahim (Master) [Industry + SKKU]
+PDF at University of Michigan, USA
+
+=== SLIDE 11 ===
+6. Research Team (Alumni)
+11
+Dr. Amin Ullah
+(Joint Master & Ph.D, SJU, South Korea)
+[PDF at Oregon State University, USA]
+[Senior AI/ML Engineer at  Boeing Research & Technology Software, USA]
+Dr. Tanveer Hussain
+(Joint Master & Ph.D.) (2017-2022), SJU
+[PDF at University of Leeds, UK]
+Lecturer at Edge Hill University, UK]
+Dr. Fath U Min Ullah (Joint Master & Ph.D.)
+(2017-2023), SJU, South Korea
+[PDF at University of Sheffield, UK]
+Lecturer, University of Central Lancashire, UK
+Dr. Ijaz Ul Haq
+(Joint Master & Ph.D.) (2017-2022), SJU
+[PDF at Oakland/Michigan University, USA]
+Dr. Salman Khan
+(Master, SJU, South Korea, PhD, Orford-
+Brookes University, UK)
+[PDF at Oxford Brookes University, UK]
+Dr. Nasir Rahim (Master, SJU)
+[Industry + SKKU (PhD)]
+PDF, University of Michigan, USA
+
+=== SLIDE 12 ===
+6. Research Team (Mix)
+12
+Dr. Waseem Ullah (PhD, 2019-2024, SJU)
+PDF, MBZUAI, UAE
+Zulfiqar Ahmad Khan (Joint Master & PhD)
+(Feb 2019-Feb 2026)
+PDF, Umea Uni. Sweden
+Siraj, (Ph.D.)
+ICP, Pakistan
+Dr. Samee Ullah (Ph.D.) (2019-2023)
+SJU, South Korea
+[PDF, Khalifa Uni. of Science and Technology, UAE
+Muhammad Irfan, MS, SJU PhD, Oakland Uni. USA
+Hayat Ullah, MS, SJU
+PhD, Kansas State Uni. USA
+Umair Haroon (MS, SJU, 2020-2021)
+PhD, University of Barcelona, Spain
+
+=== SLIDE 13 ===
+6. Research Team (VIS2KNOW Lab)
+13
+Farhan Ahmed
+(PhD Fellow, SKKU) (March 2021-now)
+MD Tanvir Islam
+(Master, SKKU)
+(Feb 2023-Aug 2025), PhD, KNU
+Fatma Eid
+(PhD Fellow, SKKU), (Fall 2023-now)
+Zubayda
+(PhD Fellow, SKKU), (Spring 2024-now
+Shehzad Ali
+(Master-PhD, SKKU), (Spring 2024-now)
+Bilol
+(Master, SKKU)
+(Sept 2025-Aug 2027)
+JeasonHan
+(Master, SKKU)
+Glody
+(Master, SKKU)
+(March 2026-Feb 2028)
+Wajahat (TA)
+(Master, SKKU)
+(March 2026-Feb 2028)
+SeoYoung
+(Undergraduate, SKKU)
+Haong Kim
+(Undergraduate, SKKU)
+Byeon Jihwan
+(Undergraduate, SKKU)
+Nisrine Khnifass
+(Exchange student, SKKU)
+Asad Ullah
+(Master, SKKU)
+(Sept 2026– Aug 2028)
+Muhammad Farooq
+(Master, SKKU)
+(Sept 2026– Aug 2028)
+Kim Jae-Yoon
+(Undergraduate, SKKU)
+Kim Dong-Yoon
+(Undergraduate, SKKU)
+
+=== SLIDE 14 ===
+7. Research Topics
+14
+VIS2KNOW Laboratory
+Video Summarization
+Image and Video Retrieval
+Action and Activity Recognition/ Violence Detection
+Image Super Resolution/
+Dehazing
+Video Surveillance
+Disaster Management
+Information
+Security
+Data
+Prioritization
+Child Aggression Detection and Analysis
+IoT/IoMT
+
+=== SLIDE 15 ===
+8. Artificial Intelligence (AI)
+15
+
+=== SLIDE 16 ===
+8 (i): Intelligence Starts with the World
+16
+A reasonable question to think on it.
+How Do We Make Sense of the World?
+Example: A Human Crossing a Road
+Observe
+See cars, pedestrians, traffic lights
+Interpret
+“Is it safe to cross?”
+Decide
+Wait / Cross
+Act
+Move forward
+A person can:
+Recognize a familiar face
+Understand spoken language
+Detect danger
+Learn from experience
+Choose an action
+Intelligence begins with using information to understand a situation and make useful decisions.
+
+=== SLIDE 17 ===
+8 (ii): What Is Artificial Intelligence?
+17
+Definition:
+Artificial Intelligence (AI) is the field of building computational systems that can perform tasks that normally require aspects of human intelligence.
+AI can help machines:
+Perceive
+See and hear the environment
+Learn
+Learn patterns from data
+Understand
+Interpret language and information
+Reason / predict
+Use information to reach conclusions or predictions
+Act / generate
+Choose actions or produce new content
+AI performs specific tasks that involve capabilities associated with intelligence. The example for it is given in the diagram.
+
+=== SLIDE 18 ===
+8 (iii): Intelligence in Machines: Rules vs Learning
+18
+How Do We Teach a Machine to Solve a Problem?
+We can explicitly program the solution OR we can give the machine examples and let it learn the pattern.
+Example: 2
+Many spam + normal emails
+Learning
+Learned model
+New email → Spam / Not Spam
+Example:1
+IF message contains suspicious pattern
+↓
+SPAM
+ELSE
+↓
+NOT SPAM
+
+=== SLIDE 19 ===
+8 (iv): The Basic Idea of an AI System
+19
+An AI system transforms input information into a useful output.
+Basic Idea
+Some Visual Examples
+
+=== SLIDE 20 ===
+9. Multimodal AI
+20
+
+=== SLIDE 21 ===
+9 (i): The Real-World Problem
+One event. Many signals.
+Imagine an autonomous vehicle approaching a busy crossing at night.
+A single real-world situation generates multiple, complementary (different but useful together) sources of information.
+The challenge
+Can one information source provide enough evidence to understand the situation reliably?
+Real-world intelligence requires combining information that is distributed across different signals.
+Think–pair–share
+Which signal would you trust most in this situation?
+When could that signal fail?
+21
+
+=== SLIDE 22 ===
+The Central Question
+How does intelligence emerge when information comes from multiple sources?
+Traditional AI systems often specialize in one information type:
+Computer Vision
+Natural Language Processing
+Speech AI
+Video Understanding
+Sensor AI
+But real-world intelligence rarely operates on one source alone.
+Key idea
+The real world is multimodal. Intelligent systems therefore need mechanisms for integrating heterogeneous information.
+9 (ii): Why Multimodal AI?
+22
+
+=== SLIDE 23 ===
+Definition:
+Multimodal AI refers to AI systems that can process, represent, connect, and reason over information originating from multiple modalities.
+The course plan describes multimodal AI as systems that:
+9 (iii): What is Multimodal AI?
+Important distinction
+Multimodal AI is not simply putting several AI models together.
+The central challenge is:
+How can heterogeneous information be represented in a form that allows meaningful interaction between modalities?
+Perceive the information
+Align information across sources
+Reason over multiple sources
+23
+
+=== SLIDE 24 ===
+9 (iv): Understanding  "Modality"
+Modality: A distinct channel or form through which information is represented or observed.
+Common AI modalities:
+Key insight
+Different modalities describe the same world from different information perspectives.
+For example:
+A person crossing a road
+The example is explained on the next slide with visualization.
+24
+
+=== SLIDE 25 ===
+9 (iv): Understanding  "Modality“ (Example)
+25
+
+=== SLIDE 26 ===
+9 (v): Why Are Modalities Different?
+Different modalities have fundamentally different properties.
+The challenge
+A model cannot automatically assume that information represented differently is directly comparable.
+This is why multimodal systems require representation learning, alignment, and fusion mechanisms.
+26
+
+=== SLIDE 27 ===
+9 (vi): The Multimodal Pipeline
+A useful mental model does the following:
+Example:
+Image + question
+Image: a dog sitting beside a bicycle
+Question:
+"What is beside the bicycle?"
+System must:
+Image → visual representation
+Question → language representation → Alignment → Multimodal reasoning
+Answer: Dog
+27
+
+=== SLIDE 28 ===
+9 (vii): The Three Core Concepts
+Concept 1: Representation
+How do we represent multimodal data?
+Before different modalities can interact, each must be transformed into a shared computational form.
+Raw inputs are encoded into learned representations (embeddings):
+Why representation matters?
+Representation is the foundation layer of multimodal learning:
+Without meaningful representations, alignment and fusion are not possible.
+It determines how well information from different modalities can later be compared and integrated.
+INPUT
+Representation
+Model
+Embedding
+28
+
+=== SLIDE 29 ===
+9 (vii): The Three Core Concepts
+What is an Embedding?
+An embedding is a learned, dense vector representation that maps raw data
+into a continuous geometric space where semantic relationships are preserved.
+Formally:
+Semantically similar inputs → nearby vectors
+Semantically different inputs → distant vectors
+This allows different types of data to be compared and processed in
+a unified mathematical space.
+Example intuition:
+“cat” (text) → vector
+image of a cat → vector
+sound of a cat → vector
+Although these inputs come from different modalities, their embeddings can still be placed close together in the model if they describe the same idea or concept.
+When the model learns well, embeddings form an organized “meaning space,” where similar concepts are located near each other, even if they come from different types of data (like text, images, or audio).
+29
+
+=== SLIDE 30 ===
+9 (vii): The Three Core Concepts
+Concept 2: Alignment
+What is multimodal alignment?
+Multimodal alignment is the process of learning correspondences between elements across different modalities.
+It answers:
+What in one modality refers to what in another?
+Core idea
+Alignment establishes cross-modal correspondence at the semantic or temporal level.
+Why is alignment challenging?
+Alignment is non-trivial (complex, needing reasoning/effort) because modalities differ in:
+Representation structure (continuous vs discrete)
+Temporal resolution (frame rate vs tokens vs signals)
+Spatial structure (pixels vs sequences vs vectors)
+Noise and missing information
+Level of abstraction (raw signal vs semantic meaning)
+Key distinction:
+Representation defines what each modality is.
+“Alignment defines what corresponds across modalities.”
+Example:
+Video ↔ Action
+Temporal frames correspond to events (e.g., opening a door)
+30
+
+=== SLIDE 31 ===
+9 (vii): The Three Core Concepts
+Concept 3: Fusion
+What is multimodal fusion?
+Fusion is the process of integrating information from multiple modalities into a unified representation or decision space.
+It answers:
+How should aligned information be combined for reasoning or prediction?
+Types of fusion
+Early Fusion (Input-level integration)
+Raw or low-level features are combined before deep processing.
+Image features + text features → joint input representation
+✔ Simple
+✖ Limited modality-specific processing
+31
+
+=== SLIDE 32 ===
+9 (vii): The Three Core Concepts
+2. Intermediate Fusion (Representation-level interaction)
+Each modality is encoded separately, then combined through interaction layers.
+Vision encoder + Language encoder → cross-modal attention / interaction
+✔ Most widely used in modern multimodal models
+✔ Preserves modality-specific structure
+3. Late Fusion (Decision-level integration)
+Each modality produces independent predictions, which are then combined.
+Vision prediction + Audio prediction → final decision
+✔ Robust to missing modalities
+✖ Limited deep interaction
+Key principle
+Fusion is most effective when modalities provide:
+Complementary information (different aspects of same event)
+Redundant information (confirmation across sources)
+Contextual information (one modality disambiguates another)
+32
+
+=== SLIDE 33 ===
+9 (viii): Application Landscape
+Where Is Multimodal AI Used?
+Multimodal AI spans multiple real-world domains.
+33
+
+=== SLIDE 34 ===
+9 (ix): Course Case Studies
+From Theory to Real Systems
+The course is structured to bridge foundational multimodal AI theory with real-world intelligent systems deployed in perception, monitoring, and decision-making tasks.
+Each case study represents a progression in system complexity — from low-level perception to high-level reasoning and action.
+LOW-LEVEL PERCEPTION SYSTEMS:
+Image Enhancement & Restoration
+Focus:
+Improving visual quality and signal fidelity
+Noise removal, deblurring, and reconstruction
+Foundational step for all vision-based AI systems
+34
+LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond, The 17th Asian Conference on Computer Vision (ACCV), 2024, Hanoi, Vietnam. BK IF=1.
+
+=== SLIDE 35 ===
+9 (ix): Course Case Studies
+From Theory to Real Systems
+LOW-LEVEL PERCEPTION SYSTEMS:
+Image Enhancement & Restoration
+Haze-Aware Image Dehazing
+35
+Fig. 2: Our proposed framework for haze-aware single-image dehazing using specialized dehazers.
+Dataset: HazeSpace2M
+A large-scale paired dehazing dataset
+Features over 2 million hazy images
+Key Features
+Features four different scene types
+Includes three different haze types
+
+=== SLIDE 36 ===
+Course Case Studies: From Theory to Real Systems
+ENVIRONMENTAL UNDERSTANDING SYSTEMS
+Intelligent Baby Monitoring
+Focus:
+Continuous multimodal scene understanding
+Detection of activity patterns and anomalies
+Early-stage event recognition in dynamic environments
+36
+Proposed baby behaviour monitoring framework. (A): Input is acquired from smart camera attached to RPi, (B): motion computation where two different algorithms are executed to compute motion of baby, and (C): control chart construction from the detected motion, abnormal breathing behaviour detection based on one interval of control chart, and alert transmission in case of any abnormal breathing or motion behaviour.
+Hussain, T., Muhammad, K., Khan, S., Ullah, A., Lee, M. Y., & Baik, S. W. (2019). Intelligent baby behavior monitoring using embedded vision in IoT for smart healthcare centers. Journal of Artificial Intelligence and Systems, 1(1), 110-124.
+
+=== SLIDE 37 ===
+Course Case Studies: From Theory to Real Systems
+ENVIRONMENTAL UNDERSTANDING SYSTEMS
+Intelligent Baby Monitoring
+Fire & Smoke Detection
+Focus:
+Real-time scene interpretation
+Safety-critical visual recognition
+Early warning through visual
+cues and environmental signals
+37
+
+=== SLIDE 38 ===
+Course Case Studies: From Theory to Real Systems
+ENVIRONMENTAL UNDERSTANDING SYSTEMS
+Intelligent Baby Monitoring
+Fire & Smoke Detection
+Focus:
+Real-time scene interpretation
+Safety-critical visual recognition
+Early warning through visual cues and environmental signals
+38
+
+=== SLIDE 39 ===
+Course Case Studies: From Theory to Real Systems
+AGENTIC & DECISION-ORIENTED SYSTEMS
+Agent-Based Fire Monitoring
+Focus:
+Autonomous monitoring agents
+Continuous perception–decision loops
+Integration of perception with response strategies
+39
+Muhammad, Khan, et al. "Energy-efficient monitoring of fire scenes for intelligent networks." Ieee Network 34.3 (2020): 108-115.
+
+=== SLIDE 40 ===
+BEHAVIOR & HUMAN ACTIVITY INTELLIGENCE
+Human Action Recognition
+Focus:
+Understanding structured human motion patterns
+Temporal modeling of behavior
+Multimodal sensor-based interpretation
+Course Case Studies: From Theory to Real Systems
+40
+CHILD: Child Hazardous Indoor Labeled Dataset
+for Activity Recognition
+ACM Multimedia, 2025, BK IF=4. https://dl.acm.org/doi/abs/10.1145/3746027.3754795
+
+=== SLIDE 41 ===
+BEHAVIOR & HUMAN ACTIVITY INTELLIGENCE
+Human Action Recognition
+Aggressive Behavior Monitoring
+Focus:
+Complex behavior classification in real environments
+Context-aware interpretation of human actions
+Safety and surveillance applications
+Course Case Studies: From Theory to Real Systems
+41
+Child Aggression Behavior Analysis Dataset (CABAD) and CABA_Net
+CABAD: A Video Dataset for Benchmarking Child Aggression Recognition
+Alexandria Engineering Journal (Impact Factor: 6.2, Q1 Rank, Top 5%)
+
+=== SLIDE 42 ===
+BEHAVIOR & HUMAN ACTIVITY INTELLIGENCE
+INDUSTRIAL INTELLIGENCE SYSTEMS
+Industrial Anomaly Detection
+Focus:
+Detection of deviations in operational systems
+Multisensor pattern analysis
+Predictive monitoring for system reliability
+Course Case Studies: From Theory to Real Systems
+42
+
+=== SLIDE 43 ===
+Course Case Studies: From Theory to Real Systems
+43
+IARD: Intruder Activity Recognition Dataset for Threat Detection
+The 34th ACM Conference on Information and Knowledge Management (CIKM), COEX, Seoul, 2025, BK IF=3.
+
+=== SLIDE 44 ===
+Course Case Studies: From Theory to Real Systems
+44
+The 15th ACM International Conference on Multimedia Retrieval (ICMR), USA. BK IF=1.
+ROAD-6: A Diverse Dataset for Unexpected Hazard Recognition in Autonomous Vehicles
+
+=== SLIDE 45 ===
+9 (x): Course Learning Outcomes
+1. Explain
+Explain the fundamental concepts behind multimodal AI.
+2. Represent
+Understand how different modalities are represented computationally.
+3. Align
+Explain how information from different modalities can be associated and aligned.
+6. Interpret applications
+Analyze how multimodal AI is used in vision, audio, video, sensors, robotics, healthcare, autonomous systems, and safety applications.
+5. Analyze architectures
+Understand the role of neural networks, embeddings, attention, and Transformers in multimodal systems.
+4. Fuse
+Understand major strategies for combining multimodal information.
+8. Identify limitations
+Recognize challenges such as noise, missing modalities, alignment errors, computational cost, bias, and reliability.
+7. Reading Literature
+Understand and critically discuss multimodal AI research papers and case studies.
+By the end of the course, students should be able to understand these
+45
+
+=== SLIDE 46 ===
+9 (xi): Course Roadmap
+Phase: 1  Foundations
+Phase 2  Vision & Real-World Perception
+46
+Week 4
+Vision: CNNs → Vision Transformers
+
+=== SLIDE 47 ===
+9 (xi): Course Roadmap
+Phase 3 Intelligent Multimodal Systems
+Phase 4 Beyond Vision
+47
+
+=== SLIDE 48 ===
+8. Goals and Expectations
+9 (xi): Course Roadmap
+48
+Professor’s Topics of Research
+Keynote Talk
+Keynote Speaker, The 25th International Conference on Computational Science and Its Applications, Turkey, 2025
+Intelligent Fire Scene Analysis
+Exposure of Area
+Thesis Tips
+Students’ Presentation
+Topic and Contributions
+Plan and Suggestions
+Invited Speakers
+Success Story and Experiences
+Projects
+Opportunities
+
+=== SLIDE 49 ===
+8. Goals and Expectations
+My goals
+Maximize the learning effectiveness of your time
+Provide roadmap for further exposure to related research areas
+Ensure good grade with hard work, flexibility, and equality
+My expectations from you
+Attend and participate, when possible
+Follow up the lecture (if missed)
+Start assignments/homework/project etc. well before the deadline
+Stay tuned on the i-Campus
+Feedback about what’s working for you and suggest improvements
+You can write in an email
+You can submit anonymously
+Use official week 1, mid-term and final-term evaluations
+10: Goals and Expectations
+49
+
+=== SLIDE 50 ===
+8. Goals and Expectations
+Dataset Creation and Benchmarking
+Instructions
+Total Marks: 15~30
+Each student will do the assignment alone/group.
+Due date for dataset theme selection to avoid duplication (use khanmuhammad@g.skku.edu as usual): X 2026
+Due date for submission of all details of the assignment/project/presentation: XX 2026
+Task: Each student/team is required to make a comprehensive plan of a new dataset, including its title, main description of the dataset, number of classes, images count and a table listing existing datasets with their key information and details of the new dataset, showing how the new dataset is different and unique etc. You can include all possible details. I will explain via example in the class or using a separate video. The evaluation will be done based on these points:
+1. Dataset Understanding & Problem Analysis (5~10 points)
+2. Novel Dataset / Extension Proposal (5~10 points)
+3. Practical Demonstration/Feasibility (5~10 points)
+Option A (Coding track): run a prototype experiment, test a model, do possible ablation and report results.
+Option B (Non-coding track): provide a feasibility analysis, workflow diagram, collection plan, and manual annotation sample for the dataset you are proposing.
+Option C: Create a small/mini dataset (what is proposed in point 2)
+All details can be finalized once the final numbers of students are confirmed.
+11: Assignment/Project/Presentation
+50
+
+=== SLIDE 51 ===
+Thank You
+Any Question?
+Feel free to contact on khanmuhammad@g.skku.edu
+Welcome to Join!

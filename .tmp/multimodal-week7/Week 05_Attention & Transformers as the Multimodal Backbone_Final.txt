@@ -1,0 +1,554 @@
+=== SLIDE 1 ===
+Self-Attention → Cross-Attention → Transformers → Vision • Language • Audio
+Attention & Transformers as the Multimodal Backbone
+
+=== SLIDE 2 ===
+2
+From Representations to Attention
+Why Do We Need Attention ?
+The importance of the relevant information
+Context and relationships
+Attention as a mechanism for weighting information
+Saliency Detection vs Attention
+Self-Attention
+Basic Intuition
+Query, Key & Value
+Attention scores & weights
+How information interacts with the same input
+Cross-Attention
+Self vs. Cross-Attention
+How information interacts across different inputs
+Connecting different modalities
+Main contents
+From Attention to Transformers
+Positional Encoding
+Why Transformers use attention as a core mechanism
+Multi-Head Attention
+Transformer Architecture
+Transformers Across Modalities
+Text  Tokens
+Images  Patches
+Audio  Segments/Representations
+A common attention-based architecture across different inputs
+Transformers for Multimodal AI
+Vision + Language
+Audio + Language
+Video + Language
+Cross-modal interaction and understanding
+Case study: how a single architecture family underlies vision, text, and audio
+Summary & Key Takeaways
+
+=== SLIDE 3 ===
+1. What Did We Learn in Previous Lecture (s)?
+3
+Deep Learning turns raw data into useful information.
+Neural networks, embeddings, and latent spaces convert raw data into meaningful vectors
+CNNs and Transformers provide architectural ways to process these representations
+1. Raw Data  Meaningful Representation
+2. Latent Space
+
+=== SLIDE 4 ===
+What Do We Need Next?
+4
+How ???
+What is Attention Mechanism?
+An Attention Mechanism is a technique in neural networks that allows models to focus on specific parts of input data, enhancing performance by prioritizing relevant information. This approach benefits AI applications by improving context understanding and decision-making.
+
+=== SLIDE 5 ===
+What Do We Need Next? (cont…)
+1. Raw Input
+2. Split into patches (6x6)
+3. Attention
+4. Results: Focus on Important Parts
+5. Output/ Understanding
+The Model Receives Raw data
+Each patch is converted into a vector (representation)
+Model understand the relationships between different parts
+Irrelevant parts (like background) get less focus
+5
+Ans: Attention helps a model focusing on relevant information and understand relationships
+Input Layer
+Hidden Layers
+Output Layer
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+
+=== SLIDE 6 ===
+What Do We Need Next? (cont…)
+6
+https://arxiv.org/pdf/1706.03762
+
+=== SLIDE 7 ===
+What Do We Need Next? (cont…)
+7
+Applications of Attention Mechanisms
+Attention mechanisms help a model decide which parts of the input are more important for the current task. The exact meaning of “important” depends on the application.
+
+=== SLIDE 8 ===
+What Do We Need Next? (cont…)
+8
+Key idea: Attention does not simply process everything equally—it assigns more importance to information that is relevant to the current task.
+Application | How attention is used | Simple example
+Natural Language Processing | Focuses on the most relevant words when understanding or generating text. | Connects important words and context to understand a sentence.
+Image Captioning | Focuses on different image regions while generating different words. | Focus on the boy when generating “boy” and the ball when generating “football.”
+Speech Recognition | Focuses on relevant parts of the audio signal when producing each word. | Links parts of the speech signal to words such as “open,” “the,” and “door.”
+Recommender Systems | Gives more importance to the user's most relevant past behaviors or preferences. | Recent football-related activity can receive more attention when recommending videos.
+Video Analysis | Focuses on important frames, objects, or regions instead of treating everything equally. | For detecting a fall, attention can focus on the person's movement across frames.
+Medical Diagnosis | Focuses on important regions, features, or clinical information relevant to diagnosis. | A model may give higher attention to a suspicious region in a medical image.
+Document Understanding | Focuses on relevant words, tables, images, and their relationships. | Connects “Total amount” with the corresponding value “$1,250” in an invoice.
+Robot Manipulation | Focuses on the target object and the relevant part of the scene. | For “Pick up the red cup,” attention focuses on the red cup rather than other objects.
+
+=== SLIDE 9 ===
+2. Why Do We Need Attention ?
+The Importance of Relevant Information
+Real-world data contains a lot of information, but not all of it is important.
+Some information is more important than others.
+Attention helps the model focus on the most important information.
+9
+Example: 1
+The boy kicked the football
+↓
+IMPORTANT (Boy-Kicked-Football)
+ELSE
+↓
+NOT IMPORTANT (The)
+Example: 2
+Input
+• Boy
+• Football
+• Other players
+• Background
+↓
+Multiple Attention Heads
+↓
+Head 1 → Focuses on the boy
+Head 2 → Focuses on the football
+Head 3 → Focuses on other players
+↓
+All heads are combined
+↓
+Better understanding of the image
+
+=== SLIDE 10 ===
+Why Do We Need Attention ? (cont…)
+10
+Context and Relationships
+One part of the input may not be clear on its own.
+The surrounding information helps the model understand its meaning.
+Relationships can be local(nearby) or long-range(far, between).
+Attention helps connect related information, even when it is far apart.
+Attention
+
+=== SLIDE 11 ===
+Why Do We Need Attention ? (cont…)
+11
+Attention for Weighting Information
+Attention gives more weight to relevant information.
+Higher weight → more influence
+Lower weight → less influence
+These weights are learned during training.
+Higher weight
+Lower weight
+
+=== SLIDE 12 ===
+Why Do We Need Attention ? (cont…)
+12
+A weight is a number that tells an AI how important a piece of information is.
+Combines information using different weights.
+Soft attention: uses continuous weights and can focus on several parts at once.
+Hard attention: makes a more selective choice about which parts to focus on.
+How Attention Uses Weights ?
+
+=== SLIDE 13 ===
+Why Do We Need Attention ? (cont…)
+13
+1. Soft Attention (Focus on several parts)
+Gives each part of the input an importance score (weight).
+Combines information from all parts, giving more importance to the relevant ones.
+The model can consider several parts at the same time.
+2. Hard Attention (Select specific parts)
+Selects one or a few specific parts of the input to focus on.
+Gives little or no attention to the unselected parts.
+Makes a more selective choice rather than combining information from everywhere.
+Example: Understanding a Football Image
+Imagine an AI model is asked: "Where is the football?"
+Soft vs Hard Attention
+Soft Attention
+The model assigns different weights to the ball, players, field, and background. It considers information from all these areas, but gives the ball a higher weight.
+Hard Attention
+The model selects the area containing the ball and focuses on that area, largely ignoring the other parts of the image..
+
+=== SLIDE 14 ===
+Why Do We Need Attention ? (cont…)
+14
+
+=== SLIDE 15 ===
+15
+
+=== SLIDE 16 ===
+16
+Self-Attention
+
+=== SLIDE 17 ===
+3. Self Attention
+17
+Basic Intuition
+Each element can look at other elements in the same input.
+Each element asks: “Which other elements are relevant to me?”
+Relevant information is used to create a new representation.
+(Self-Attention Mechanism)
+Dynamic Connections: Self-attention lets each part of a sequence look at every other part to discover hidden relationships dynamically.
+(2.3. Self-Attention Mechanism)
+The architecture of the self-attention mechanism
+
+=== SLIDE 18 ===
+Self Attention (cont…)
+18
+Query (Q): Each word serves as a query to compute the attention scores.
+what I am looking for.
+Key (K): Each word acts as a key to determine its relevance to other words.
+what I can offer.
+Value (V): Each word contributes as a value to the attention-weighted sum.
+what I actually offer.
+In practice, attention is computed for multiple queries at the same time. These queries are packed into a matrix Q, while the Keys and Values are packed into matrices K and V.
+The attention output is then computed as:
+click and see content 3.2.1
+Query Key Value
+
+=== SLIDE 19 ===
+Self Attention (cont…)
+19
+https://huggingface.co/blog/Esmail-AGumaan/attention-is-all-you-need#self-attention-mechanism
+
+=== SLIDE 20 ===
+20
+
+=== SLIDE 21 ===
+Self Attention (cont…)
+21
+Q: How Attention Weights Are Calculated
+Step 1: Compare the Query with every Key to calculate a relevance score.
+Step 2: Scale the scores to keep the calculations numerically stable.
+Step 3: Apply Softmax to convert the scores into weights that are positive and add up to 100%.
+e.g., Scores [2.1, 0.4, 1.0] → Weights [71%, 9%, 20%]
+Step 4: Multiply each Value by its corresponding weight.
+A higher weight gives more influence to that Value.
+Step 5: Add the weighted Values together to produce the final attention output.
+Attention Scores & Weights
+Example
+Suppose we have three Values:
+V₁, V₂, V₃
+and their attention weights are:
+71%, 9%, 20%
+Then:
+Attention Output = (0.71 × V₁) + (0.09 × V₂) + (0.20 × V₃)
+i.e.,
+V1 = Boy
+V2 = Football
+V3 = Football Ground
+Q and K determine relevance
+Weights determine importance
+V provides the information
+
+=== SLIDE 22 ===
+Self Attention (cont…)
+22
+↓
+
+=== SLIDE 23 ===
+Self Attention (cont…)
+23
+How Information Interacts Within the Same Input
+Each part looks at other parts of the same input.
+It generates Q, K, and V from the same input.
+Attention matches Q with K to find relevant information, then uses V.
+Example: The boy looks at the football, players, and field to understand the situation.
+It helps the model understand relationships within one input.
+Neural Self Attention Mechanism
+Good source: RNNs, LSTM, Self-Attention and Multi-headed self-attention, PyTorch Implementation
+Figure:
+
+=== SLIDE 24 ===
+24
+Cross-Attention
+
+=== SLIDE 25 ===
+4. Cross-Attention
+25
+Basic Intuition
+Cross-attention mechanism is a key part of the Transformer model.
+It allows the decoder to access and use relevant information from the encoder.
+This helps the model focus on important details
+Cross attention enables different parts of the model to communicate and share useful information for better results.
+Figure 5. Detailed architecture of the cross-attention layer
+
+=== SLIDE 26 ===
+26
+
+=== SLIDE 27 ===
+Cross-Attention (cont…)
+27
+Self-Attention vs. Cross-Attention
+Self-Attention | Look within yourself.
+One input looks at other parts of the same input to understand their relationships.
+Cross-Attention | Look at another input.
+One input looks at another input to find the information it needs.
+Technical
+Difference | Both follow the same basic process:
+Q + K → Scores → Weights → Values → Output
+The main difference is where Q, K, and V come from.
+Self-Attention | Q, K, and V come from the same input.
+Example: Boy ↔ Football  = the boy is playing with the football.
+Boy ↔ Field = the boy is on the field.
+Cross-Attention | Q comes from one input, while K and V come from another input.
+Example: Text + Image
+The text provides the Query, while the image provides the Keys and Values.
+
+=== SLIDE 28 ===
+Cross-Attention (cont…)
+28
+Connecting Different Modalities
+Bridges inputs like text, images, and audio (converted into embeddings).
+How It Works:
+Query: What one input is looking for.
+Key & Value: Relevant information provided by the other input.
+Example: The text question "What is the person doing?" targets image regions showing someone running.
+Use Cases: Image captioning, visual question answering, and audio-text AI tasks.
+Figure: How a single Transformer processes text, images, audio, and video by capturing connections within each data type?
+
+=== SLIDE 29 ===
+Cross-Attention (cont…)
+29
+Unified Architecture For Multimodal Data
+This diagram shows how one AI architecture (the Transformer) can understand text, images, audio, and video all at once.
+It works by breaking them into small pieces and connecting them together.
+Figure 1: How a single Transformer processes text, images, audio, and video by capturing connections within each data type?
+
+=== SLIDE 30 ===
+30
+From Attention to Transformers
+
+=== SLIDE 31 ===
+5. From Attention to Transformers
+31
+Positional Encoding
+What Is Positional Encoding?
+Positional encoding describes the location or position of an entity in a sequence
+Each position is assigned a unique representation.
+This helps the Transformer model understand the order and location of elements in the input.
+Position is important because the same elements can have different meanings when their positions change.
+e.g., “A car is in front of the tree.” and “A tree is in front of the car.”
+Attention tells the model what is related
+Positional Encoding tells it where each element is and helps distinguish meaning based on position.
+
+=== SLIDE 32 ===
+From Attention to Transformers (cont…)
+32
+Why Transformers Use Attention as a Core Mechanism ?
+As we know Older models, such as RNNs, process information one step at a time, making them slower to train.
+In long sequences, information from earlier parts can become harder to use.
+Attention connects relevant elements and processes them in parallel.
+This makes Transformers faster and more efficient.
+From RNNs to Attention
+Example Figure
+
+=== SLIDE 33 ===
+From Attention to Transformers (cont…)
+33
+Scaled Dot-Product Attention
+Measures how relevant inputs are to each other using Q, K, and V.
+Scaling and softmax help assign appropriate attention weights.
+This allows the model to focus on the most relevant information.
+Multi-Head Attention
+Uses multiple attention heads in parallel.
+Each head learns to focus on different relationships or patterns.
+Their outputs are combined to create a richer representation.
+https://arxiv.org/pdf/1706.03762
+
+=== SLIDE 34 ===
+From Attention to Transformers (cont…)
+34
+Transformer Architecture
+A Transformer is built by stacking multiple Encoder and Decoder blocks.
+Encoder
+Input Embedding: converts input tokens into numerical vectors.
+Positional Encoding: adds information about the position of each token.
+Multi-Head Attention: captures different relationships between input tokens.
+Feed-Forward Network: further processes the attended information.
+Residual (Add) + Normalization (Norm): help preserve information and keep values stable across layers.
+Decoder
+Output Embedding: converts output tokens into vectors; during training, the target sequence is shifted right.
+Masked Multi-Head Attention: lets each position attend only to earlier tokens, preventing access to future tokens.
+Cross-Attention: connects the Decoder to the Encoder's output and focuses on relevant input information.
+Feed-Forward Network: further transforms the information.
+Residual (Add) + Normalization (Norm): help information flow through the layers.
+Output
+Linear: projects the Decoder output to the size of the vocabulary.
+Softmax: converts the values into probabilities for the next token.
+Overall Transformer Architecture, detailing Encoder and Decoder stacks with their respective sub-layers and data flow
+https://youtu.be/X_lyR0ZPQvA
+
+=== SLIDE 35 ===
+35
+Transformers Across Modalities
+How Transformers process each type of input
+
+=== SLIDE 36 ===
+6. Transformers across Modalities
+36
+Text → Tokens
+Before a Transformer can process text, the text is split into smaller units called tokens. These can be whole words or parts of words.
+e.g., “unbelievable” may be split into “un” + “believe” + “able.”
+Each token is converted into an embedding layer.
+Positional encoding for the position of each token in the sequence.
+The result is a sequence of vectors containing both meaning and position, which is then given to the Transformer.
+Text → Tokens → Embeddings + Positional Encoding → Transformer
+
+=== SLIDE 37 ===
+Transformers across Modalities (cont…)
+37
+Images → Patches
+The image is divided into small, fixed-size patches.
+e.g., a 224 × 224 image divided into 16 × 16 patches produces a 14 × 14 grid, giving 196 patches.
+Each patch is flattened and converted into an embedding vector.
+Positional encoding is added so the model knows where each patch is located in the image.
+The result is a sequence of patch embeddings, similar to a sequence of word embeddings in text.
+Image → Patches → Patch Embeddings + Positional Encoding → Transformer
+
+=== SLIDE 38 ===
+Transformers across Modalities (cont…)
+38
+Audio → Segments
+Audio is a continuous waveform, so it is divided into short time segments, often called frames.
+Each segment is converted into features, such as a spectrogram, and then into an embedding vector.
+Positional encoding is added so the model knows the order of the segments in time.
+The result is a sequence of audio embeddings that can be processed by the Transformer.
+Example: The 5th segment keeps its position, so the model knows when it occurs.
+Audio → Segments → Audio Embeddings + Positional Encoding → Transformer
+
+=== SLIDE 39 ===
+Transformers across Modalities (cont…)
+39
+A Common Attention-Based Architecture Across Inputs
+Text, images, and audio are converted into different types of input units.
+These units are converted into embeddings, giving each modality a common vector-based representation.
+Once represented as embeddings, they can be processed by a Transformer architecture.
+The Transformer uses core components such as self-attention, multi-head attention, feed-forward layers, and normalization.
+The main difference is how each modality is converted into tokens or segments before entering the Transformer.
+Different inputs → Different representations → Embeddings → Attention-Based Transformer
+
+=== SLIDE 40 ===
+Transformers across Modalities (cont…)
+40
+Overview of Cross-Modal AI Models & Applications
+Start with Input: You give the AI text, a picture, or audio.
+Choose Output: You decide what form you want the result to be in.
+Define Task: The AI picks the exact job to do (e.g., Text to Image or Speech to Text).
+Name the Tool: Real-world AI models (like GPT, DALL-E, or Whisper) execute that specific path.
+Figure 1: Overview of multimodal AI workflows—mapping input data types to target outputs, specific processing tasks, and real-world models.
+
+=== SLIDE 41 ===
+41
+Transformers for Multimodal AI
+How Transformers connect multiple types of input together
+
+=== SLIDE 42 ===
+7. Transformers for Multimodal AI
+42
+Vision + Language
+Images and text are converted into embeddings.
+Cross-attention connects the two modalities, allowing information from one to influence the other.
+Example: “What color is the car?” → the text focuses on the relevant image region → “Red.”
+This supports tasks such as image captioning, visual question answering, and image–text retrieval.
+During training, paired images and text help the model learn relationships between visual content and language.
+Vision provides visual information + Language provides meaning → Cross-Attention connects them.
+
+=== SLIDE 43 ===
+Transformers for Multimodal AI (cont…)
+43
+Audio + Language
+Audio is divided into short segments and converted into audio embeddings, while text is represented as word or sub-word tokens.
+Cross-attention connects the two modalities, allowing language to use relevant information from the audio.
+Example: A spoken lecture → the model focuses on relevant audio segments → written transcript.
+This supports tasks such as speech recognition, speech translation, and audio captioning.
+The same approach can work in the opposite direction, where text guides speech generation.
+Audio provides spoken information + Language provides meaning → Cross-Attention connects them.
+
+=== SLIDE 44 ===
+Transformers for Multimodal AI (cont…)
+44
+Video + Language
+Video contains visual information and time. Each frame can be divided into patches and converted into embeddings.
+The model needs to understand where something appears and when it happens.
+Cross-attention connects language with video, allowing a text query to focus on relevant frames and regions.
+Example: “When does the person throw?” → the model focuses on the relevant frames → identifies the action.
+This supports tasks such as video captioning, video question answering, and video search.
+Video provides visual information over time + Language describes what to look for → Cross-Attention connects them.
+↓
+
+=== SLIDE 45 ===
+Transformers for Multimodal AI (cont…)
+45
+Combining different modalities is not enough; the model must learn how they are related.
+Self-attention helps each modality understand its own information.
+Cross-attention allows different modalities to exchange relevant information.
+This enables the model to understand and reason across modalities rather than processing each modality separately.
+Self-Attention: Understand within a modality
+Cross-Attention: Connect different modalities
+Cross-Modal Interaction and Understanding
+Figure 1: Overall architecture of Vision-Language Transformers
+
+=== SLIDE 46 ===
+Transformers for Multimodal AI (cont…)
+46
+Modalities (Raw Data): Different types of input, like pictures, text, or sound.
+Encoders: AI translators that convert each data type into numbers.
+Embeddings: Lists of numbers (vectors) that represent the actual meaning of the data.
+Shared Space: A map where items with similar meanings (like a dog photo and the word "dog") are placed right next to each other.
+Understanding How AI Connects Different Data Types (Shared Embedding Space)
+
+=== SLIDE 47 ===
+47
+Case Study:
+One Transformer Architecture Family Across Modalities
+
+=== SLIDE 48 ===
+8. Case Study: One Transformer Architecture Family Across Modalities
+48
+Different inputs require different ways of creating tokens or segments, but they can be processed using the same Transformer architecture.
+
+=== SLIDE 49 ===
+Case Study: One Transformer Architecture Family Across Modalities (cont…)
+49
+Multimodal Data Tokenization & Transformer Processing
+Figure: How Images, Text, and Audio Are Broken Down, Encoded, and Unified by a Single Transformer Model
+
+=== SLIDE 50 ===
+Case Study: One Transformer Architecture Family Across Modalities (cont…)
+50
+Practical Limitations
+Large Data: Training needs large amounts of well-aligned multimodal data.
+High Computation: Attention can be expensive for long sequences, especially video.
+Data Quality: Poor data can lead to weak connections between modalities.
+Preprocessing: Different modalities require different preprocessing before entering the Transformer.
+Multimodal Transformers are powerful, but they require large, high-quality datasets, substantial computational resources, and modality-specific preprocessing.
+Figure 1: Key challenges and main requirements for training Multimodal Transformers, including the need for large amounts of data, high computing power, well-aligned datasets, and specialized preprocessing.
+
+=== SLIDE 51 ===
+9. Summary
+51
+Attention focuses on the most relevant information to understand context.
+Self-Attention captures relationships within the same input.
+Cross-Attention connects information from different inputs or modalities.
+Transformers use attention to process information in parallel rather than step by step.
+Images, text, and audio can be converted into tokens or embeddings, allowing Transformers to process them together.
+The Entire Overflow
+Figure 1: Step-by-step roadmap showing how attention mechanisms power Transformer architectures to unite text, image, and audio models
+
+=== SLIDE 52 ===
+Any Question?
+Thank You!

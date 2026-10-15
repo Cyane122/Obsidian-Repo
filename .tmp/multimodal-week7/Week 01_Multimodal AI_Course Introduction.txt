@@ -1,0 +1,614 @@
+=== PAGE 1 ===
+Introduction to 
+Multimodal AI
+Course Title: Multimodal AI
+Course Code: AAI3031-01
+Dr. Khan Muhammad (칸무하마드)
+Department of Applied Artificial Intelligence
+Sungkyunkwan University
+Email: khanmuhammad@g.skku.edu 
+Associate Professor
+
+=== PAGE 2 ===
+Content List
+2
+1. Course Information
+2. Students’ Assessment
+3. Professor’s Bio
+4. Research Topics
+5. Understanding AI
+i. Intelligence starts with the world
+ii. What is Artificial Intelligence?
+iii. Intelligence in Machines: Rules vs Learning
+iv. The basic idea of an AI system
+6. Multimodal AI
+i. The real-world problem
+ii. Why Multimodal AI?
+iii. What is Multimodal AI?
+iv. Understanding “Modality”
+v. Application Landscape
+vi. Course Case Studies
+vii. Course Learning Outcomes
+viii. Course Roadmap
+7. Goals and Expectations
+
+=== PAGE 3 ===
+1. Course Information
+• 3 Credits  [Flipped Learning (1 hour online/recorded, 2 hours offline)]
+Lectures: 3 hours weekly
+▪Room: International Hall Multimedia Lecture Room (9B217)
+▪ Thursday 15:00 to 15:50 PM
+▪ Thursday 16:00 to 16:50 PM
+▪ Total: 1 Hour, 40 min.
+• Type: Theory/practical/invited speeches/Recorded/online/in-person
+• Attendance
+▪“SKKU-Attend” for attendance, absence and late rules
+▪Default setting for the time being
+▪Zoom/Manual
+3
+
+=== PAGE 4 ===
+2. Students’ Assessment
+4
+• Attendance: 10%
+• Mid-term exam: 20%
+• Final-term exam: 40%
+• Practice Assignment (PA)/Quizzes/Homework etc.: 15%
+• Presentation: 15%
+• Project
+• Multimodal AI and your major related project completion
+• Survey/Research articles
+• Subjective
+• Short-answer essay
+• Extended-response essay
+• Problem solving
+• Cheating/Copy Paste Policy
+• Automatic F for both
+
+
+=== PAGE 5 ===
+3. Professor’s Bio
+5
+10+
+15
+1750+
+ 32230+ (H-Index: 93)
+90+
+180+
+Over 300 articles/papers
+Computer Vision
+Activity Recognition (Normal, Child Hazards, Aggression, Bullying)
+Image Enhancement (Low-light, Dehazing, Denoising)
+Person Re-identification
+Large Language Models (LLMs)
+Sentiment Analysis
+Hallucinations
+Intelligent Surveillance 
+Fire/smoke detection, segmentation and scene analysis
+Unexpected Road Hazards Detection and Analysis
+As lead-author (1st or corresponding author)
+As co-author
+Participation in Research Projects
+Total citations (Google Scholar)
+Impact factor
+Professional and Research Experience
+15Patents Record (Korean, US mainly)
+2016,2017
+Jeju, Busan 
+Korea
+2025
+Turkey
+2016, 2017
+Pakistan 
+2018
+Vietnam
+2017
+Taiwan
+2024
+Canada, Australia, India, 
+Italy, Vietnam
+2019
+Thailand
+2020
+Indonesia, 
+Singapore
+2026
+Spain, US, 
+Finland, Brazil, 
+Uk, Japan
+2021
+China, Spain2021
+France
+Associate Professor (Tenure-Track), SKKU, Korea
+khanmuhammad@skku.edu
++82-10-4831-2104
+Editorial Board Member, 7 Journals
+Area/Associate Editor, 7 Journals
+Top 2% Researcher (Stanford Uni. List), 2020-present
+#2 in Korea (Best CS Scientists 2026, Research.com)
+HCR (top 1%), 2021-2024
+2022
+USA
+
+=== PAGE 6 ===
+4. Research Topics
+6
+VIS2KNOW 
+Laboratory
+Video 
+Summarization 
+Image and 
+Video Retrieval
+Action and 
+Activity 
+Recognition/ 
+Violence 
+Detection 
+Image Super 
+Resolution/
+Dehazing
+Video 
+Surveillance
+Disaster 
+Management 
+Information
+Security
+Data 
+Prioritization
+Child 
+Aggression 
+Detection and 
+Analysis
+IoT/IoMT
+
+=== PAGE 7 ===
+5. Artificial Intelligence (AI)
+7
+
+
+=== PAGE 8 ===
+5 (i): Intelligence Starts with the World
+8
+A reasonable question to think on it.
+How Do We Make Sense of the World?
+Observe
+ Interpret
+ Decide
+ Act
+Example: A Human Crossing a Road
+1. Observe
+See cars, pedestrians, traffic lights
+2. Interpret
+“Is it safe to cross?”
+3. Decide
+Wait / Cross
+4. Act
+Move forward
+A person can:
+• Recognize a familiar face 
+• Understand spoken language 
+• Detect danger 
+• Learn from experience 
+• Choose an action 
+➢ Intelligence begins with using information to 
+understand a situation and make useful decisions.
+
+
+=== PAGE 9 ===
+5 (ii): What Is Artificial Intelligence?
+9
+Definition:
+Artificial Intelligence (AI) is the field of building computational systems 
+that can perform tasks that normally require aspects of human 
+intelligence.
+AI can help machines:
+• Perceive
+See and hear the environment
+• Learn
+Learn patterns from data
+• Understand
+Interpret language and information
+• Reason / predict
+Use information to reach conclusions or predictions
+• Act / generate
+Choose actions or produce new content
+AI performs specific tasks that involve capabilities associated with 
+intelligence. The example for it is given in the diagram.
+
+
+=== PAGE 10 ===
+5 (iii): Intelligence in Machines: Rules vs Learning
+10
+How Do We Teach a Machine to Solve a Problem?
+We can explicitly program the solution OR we can give the 
+machine examples and let it learn the pattern.
+1:Explicit 
+Rules “Tell me what to do?”
+2:Machine 
+Learning
+“Show me examples, So I can 
+learn pattern”
+Example: 2
+Many spam + normal emails
+• Learning
+• Learned model
+• New email → Spam / Not Spam
+Example:1
+IF message contains suspicious pattern
+        ↓
+      SPAM
+ELSE
+        ↓
+     NOT SPAM
+
+
+=== PAGE 11 ===
+5 (iv): The Basic Idea of an AI System
+11
+➢ An AI system transforms input information into a useful output.
+Basic Idea
+Some Visual Examples
+
+
+=== PAGE 12 ===
+6. Multimodal AI
+12
+
+
+=== PAGE 13 ===
+6 (i): The Real-World Problem
+One event. Many signals.
+• Imagine an autonomous vehicle 
+approaching a busy crossing at night.
+• A single real-world situation generates 
+multiple, complementary (different but useful together) 
+sources of information.
+The challenge
+Can one information source provide enough 
+evidence to understand the situation reliably?
+Real-world intelligence requires combining 
+information that is distributed across different 
+signals.
+Think–pair–share
+Which signal would you trust most in this situation?
+When could that signal fail?
+13
+
+=== PAGE 14 ===
+The Central Question
+How does intelligence emerge when 
+information comes from multiple sources?
+Traditional AI systems often specialize in one information type:
+• Computer Vision
+• Natural Language Processing
+• Speech AI
+• Video Understanding
+• Sensor AI
+But real-world intelligence rarely operates on one source alone.
+Key idea
+The real world is multimodal. Intelligent systems therefore 
+need mechanisms for integrating heterogeneous information.
+6 (ii): Why Multimodal AI?
+14
+
+
+=== PAGE 15 ===
+Definition:
+Multimodal AI refers to AI systems that can process, represent, 
+connect, and reason over information originating from multiple 
+modalities.
+The course plan describes multimodal AI as systems that:
+6 (iii): What is Multimodal AI?
+ReasonAlignPerceive
+Important distinction
+Multimodal AI is not simply putting several AI models together.
+The central challenge is:
+How can heterogeneous information be represented in a form that allows meaningful interaction between modalities?
+Perceive the 
+information
+Align 
+information 
+across 
+sources
+Reason over 
+multiple 
+sources
+15
+
+=== PAGE 16 ===
+6 (iv): Understanding "Modality"
+Modality: A distinct channel or form through which information is represented or observed.
+Common AI modalities:
+Key insight
+Different modalities describe the same 
+world from different information 
+perspectives.
+For example:
+A person crossing a road
+The example is explained on the next 
+slide with visualization.
+16
+
+=== PAGE 17 ===
+6 (iv): Understanding "Modality“ (Example)
+17
+
+=== PAGE 18 ===
+6 (v): Application Landscape
+Where Is Multimodal AI Used?
+Multimodal AI spans multiple real-world domains.
+18
+
+=== PAGE 19 ===
+6 (vi): Course Case Studies
+From Theory to Real Systems
+The course is structured to bridge foundational multimodal AI theory with real-world intelligent systems deployed in 
+perception, monitoring, and decision-making tasks.
+Each case study represents a progression in system complexity — from low-level perception to high-level reasoning 
+and action.
+❑ LOW-LEVEL PERCEPTION SYSTEMS:
+1. Image Enhancement & Restoration
+Focus:
+• Improving visual quality and signal fidelity
+• Noise removal, deblurring, and reconstruction
+• Foundational step for all vision-based AI systems
+19
+LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond, The 17th Asian Conference on Computer 
+Vision (ACCV), 2024, Hanoi, Vietnam. BK IF=1.
+
+=== PAGE 20 ===
+Course Case Studies: From Theory to Real Systems
+❑ ENVIRONMENTAL UNDERSTANDING SYSTEMS
+1. Intelligent Baby Monitoring
+Focus:
+• Continuous multimodal scene understanding
+• Detection of activity patterns and anomalies
+• Early-stage event recognition in dynamic environments
+20
+Proposed baby behaviour monitoring framework. (A): Input is 
+acquired from smart camera attached to RPi, (B): motion 
+computation where two different algorithms are executed to compute 
+motion of baby, and (C): control chart construction from the detected 
+motion, abnormal breathing behaviour detection based on one 
+interval of control chart, and alert transmission in case of any 
+abnormal breathing or motion behaviour.
+Hussain, T., Muhammad, K., Khan, S., Ullah, A., Lee, M. Y ., & Baik, S. 
+W. (2019). Intelligent baby behavior monitoring using embedded 
+vision in IoT for smart healthcare centers. Journal of Artificial 
+Intelligence and Systems, 1(1), 110-124.
+
+=== PAGE 21 ===
+Course Case Studies: From Theory to Real Systems
+❑ ENVIRONMENTAL UNDERSTANDING SYSTEMS
+1. Intelligent Baby Monitoring
+2. Fire & Smoke Detection
+Focus:
+• Real-time scene interpretation
+• Safety-critical visual recognition
+• Early warning through visual
+ cues and environmental signals
+21
+
+
+=== PAGE 22 ===
+Course Case Studies: From Theory to Real Systems
+❑ AGENTIC & DECISION-ORIENTED SYSTEMS
+1. Agent-Based Fire Monitoring
+Focus:
+• Autonomous monitoring agents
+• Continuous perception–decision loops
+• Integration of perception with response 
+strategies
+22
+Input video data
+Agent 6
+Object detection 
+and recognition
+Agent 7
+ Object type
+recognition
+Agent 8
+Evacuation 
+monitoring
+Report instantly (No. 8a)
+Agent 4
+Person detection 
+and counting
+Agent 5
+Flammable material 
+recognition
+Agent 2
+Fire expansion 
+monitoring
+Agent 1
+Feature extraction 
+and classification
+Agent 3
+Objects localization 
+and distribution
+Report instantly (No. 1)
+Report instantly 
+(No. 3)
+Report instantly (No. 2)
+Report instantly (No. 4)
+Report instantly
+(No. 5 and No. 8b)
+Collaborative monitoring of fire scene through agents
+Muhammad, Khan, et al. "Energy-
+efficient monitoring of fire scenes for 
+intelligent networks."Ieee Network 34.3 
+(2020): 108-115.
+
+=== PAGE 23 ===
+❑ BEHAVIOR & HUMAN ACTIVITY INTELLIGENCE
+1. Human Action Recognition
+Focus:
+• Understanding structured human motion patterns
+• Temporal modeling of behavior
+• Multimodal sensor-based interpretation
+Course Case Studies: From Theory to Real Systems
+23
+CHILD: Child Hazardous Indoor Labeled Dataset 
+for Activity Recognition 
+ACM Multimedia, 2025, BK IF=4. 
+https://dl.acm.org/doi/abs/10.1145/3746027.3754795 
+
+=== PAGE 24 ===
+❑ BEHAVIOR & HUMAN ACTIVITY INTELLIGENCE
+1. Human Action Recognition
+2. Aggressive Behavior Monitoring
+Focus:
+• Complex behavior classification in real environments
+• Context-aware interpretation of human actions
+• Safety and surveillance applications
+Course Case Studies: From Theory to Real Systems
+24
+Child Aggression Behavior Analysis Dataset (CABAD) and CABA_Net
+CABAD: A Video Dataset for Benchmarking Child 
+Aggression Recognition
+Alexandria Engineering Journal (Impact Factor: 
+6.2, Q1 Rank, Top 5%)
+
+=== PAGE 25 ===
+Course Case Studies: From Theory to Real Systems
+25
+The 15th ACM International Conference on 
+Multimedia Retrieval (ICMR), USA. BK IF=1.
+ROAD-6: A Diverse Dataset for Unexpected Hazard Recognition in Autonomous Vehicles
+
+=== PAGE 26 ===
+6 (vii): Course Learning Outcomes
+1. Explain
+Explain the 
+fundamental concepts 
+behind multimodal AI.
+2. Represent
+Understand how different 
+modalities are represented 
+computationally.
+3. Align
+Explain how information 
+from different modalities 
+can be associated and 
+aligned.
+6. Interpret applications
+Analyze how multimodal AI is used in 
+vision, audio, video, sensors, robotics, 
+healthcare, autonomous systems, and 
+safety applications.
+5. Analyze architectures
+Understand the role of neural networks, 
+embeddings, attention, and Transformers in 
+multimodal systems.
+4. Fuse
+Understand major strategies 
+for combining multimodal 
+information.
+8. Identify limitations
+Recognize challenges such as noise, 
+missing modalities, alignment errors, 
+computational cost, bias, and reliability.
+7. Reading Literature
+Understand and critically discuss 
+multimodal AI research papers and case 
+studies.
+By the end 
+of the 
+course, 
+students 
+should be 
+able to 
+understand 
+these
+26
+
+=== PAGE 27 ===
+6 (viii): Course Roadmap
+Week 1 Introduction to Multimodal AI
+Week 2 Deep Learning Foundations
+Week 3
+Attention & Transformers as 
+the Multimodal Backbone
+Week 5
+Low-Level Vision & Image 
+Enhancement
+Week 6 Intelligent Baby Monitoring
+Week 7
+Fire/Smoke Detection & Scene 
+Analysis
+Week 8 Mid Term Exam
+Phase: 1  Foundations Phase 2  Vision & Real-World 
+Perception
+27
+Week 4
+Vision: CNNs → Vision 
+Transformers
+
+=== PAGE 28 ===
+6 (viii): Course Roadmap
+Week 9
+Agent-Based Intelligent Fire 
+Monitoring
+Week 10
+Vision-Language Alignment & Open 
+Vocabulary Object Detection
+Week 11
+Audio & Speech
+Week 12
+Video Understanding
+Week 13
+Industrial Anomaly Detection
+Week 14
+Sensor-Based Human Action 
+Recognition
+Week 15
+Aggressive Behavior Monitoring
+Week 16
+Final Term
+Phase 3 Intelligent Multimodal 
+Systems Phase 4 Beyond Vision
+28
+
+=== PAGE 29 ===
+8. Goals and Expectations
+6 (viii): Course Roadmap
+29
+1. Professor’s Topics of Research
+2. Keynote Talk
+• Keynote Speaker, The 25th International Conference on Computational Science and Its Applications, Turkey, 
+2025
+3. Intelligent Fire Scene Analysis
+• Exposure of Area
+• Thesis Tips
+4. Students’ Presentation
+• Topic and Contributions
+• Plan and Suggestions
+5. Invited Speakers
+• Success Story and Experiences
+• Projects
+• Opportunities
+
+=== PAGE 30 ===
+8. Goals and Expectations
+1. My goals
+• Maximize the learning effectiveness of your time
+• Provide roadmap for further exposure to related research areas
+• Ensure good grade with hard work, flexibility, and equality 
+2. My expectations from you
+• Attend and participate, when possible
+• Follow up the lecture (if missed)
+• Start assignments/homework/project etc. well before the deadline
+• Stay tuned on the i-Campus
+• Feedback about what’s working for you and suggest improvements
+▪ You can write in an email
+▪ You can submit anonymously
+▪ Use official week 1, mid-term and final-term evaluations 
+7: Goals and Expectations
+30
+
+=== PAGE 31 ===
+Thank You
+Any Question?
+Feel free to contact on 
+khanmuhammad@g.skku.edu
+Welcome to Join!

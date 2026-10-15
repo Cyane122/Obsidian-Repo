@@ -1,0 +1,685 @@
+=== SLIDE 1 ===
+•Embeddings  •CNNs •Pooling Layer •Transformers
+Dr. Khan Muhammad (칸 무하마드)
+Department of Applied Artificial Intelligence
+Sungkyunkwan University
+Associate Professor
+Deep Learning Foundations
+
+=== SLIDE 2 ===
+1.  Multimodal Embeddings
+2. Convolutional Neural Networks (CNNs)
+I.  Convolution Operation
+3. Types of Layers
+I. Max Pooling
+II. Average pooling
+4. CNN for Classification
+I. Applications of CNNs
+5. Transformer
+I. Attention Mechanism
+II. Why Transformers Matter for Multimodal AI
+6. CNNs vs. Transformers
+7. From CNNs & Transformers to Multimodal AI
+Main contents
+2
+
+=== SLIDE 3 ===
+1. Multimodal Embeddings
+3
+Multimodal means working with more than one type of data, such as:
+Images
+Text
+Audio
+Video
+A multimodal embedding converts these different types of data into numerical vectors so that their meaning can be compared.
+Main idea
+Different modalities can be converted into representations that live in a shared space.
+Multimodal embeddings connect different types of data through their meaning.
+
+=== SLIDE 4 ===
+A common representation space is a shared space where different types of data—such as images, text, and audio—are represented in a way that allows their meanings to be compared.
+1. Multimodal Embeddings
+4
+Points that are semantically similar (same meaning) are close together, even if they came from different modalities.
+Key Points
+Different modalities are converted into embeddings.
+The embeddings are mapped into the same shared space.
+Data with similar meanings are placed close together.
+Data with different meanings are placed farther apart.
+This allows the model to compare information across different modalities.
+
+=== SLIDE 5 ===
+Convolutional Neural Networks, commonly referred to as CNNs are a 	specialized type of neural network designed to process and classify images.
+There are three main operations to CNNs.
+Convolution: Apply filters to generate feature maps.
+Non-linearity: Often ReLU
+Pooling: Down sampling operation on each feature map.
+2. Convolutional Neural Networks (CNNs)
+What does it learn?
+CNNs learn features hierarchically:
+Early layers → Edges, lines, colors
+↓
+Middle layers → Shapes, textures, patterns
+↓
+Deep layers → Objects and meaningful visual structures
+5
+
+=== SLIDE 6 ===
+2. Convolutional Neural Networks (CNNs)
+6
+Important Parameters
+1. Kernel Size
+Determines the size of the filter.
+Common examples: 3×3, 5×5
+Smaller kernels capture fine details; larger kernels capture more context.
+2. Stride
+Controls how far the filter moves at each step.
+Stride = 1: moves one pixel at a time.
+3. Padding
+Adds pixels, usually zeros, around the image.
+Helps control the output's spatial dimensions.
+4. Number of Filters
+Multiple filters learn different patterns.
+Each filter produces a separate feature map.
+Key Takeaway
+Convolution allows CNNs to automatically detect important visual patterns, which are represented as feature maps and used by deeper layers to recognize complex objects.
+CNN Explainer
+(https://poloclub.github.io/cnn-explainer/)
+
+=== SLIDE 7 ===
+7
+2. (i) Convolution Operation
+7
+*
+Input Image
+Filter or Kernel
+Output or Feature Map
+=
+Click Here to Explore Convolutional Operations
+1 | 0 | 1 | 0 | 1
+1 | 0 | 0 | 1 | 1
+0 | 1 | 1 | 0 | 0
+1 | 0 | 0 | 1 | 0
+0 | 0 | 1 | 1 | 0
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 | 1
+
+=== SLIDE 8 ===
+2. (i) Convolution Operation
+8
+*
+Input Image
+Filter or Kernel
+Output or Feature Map
+=
+(1 × 0) + (0 × 1) + (1 × 0) + (1 × 1) + (0 × 0) + (0 × −1) + (0 × 0) + (1 × 1) + (1 × 0) = 2
+|  |  |  |  |  |  |  |  | 0 | 1
+1x0 |  |  | 0x | 1 |  | 1x | 0 |  |  |
+1x1 |  |  | 0x | 0 |  | 0x | -1 |  | 1 | 1
+0x | 0 |  | 1x1 |  |  | 1x | 0 |  | 0 | 0
+|  |  |  |  |  |  |  |  |  |
+1 |  |  | 0 |  |  | 0 |  |  | 1 | 0
+0 |  |  | 0 |  |  | 1 |  |  | 1 | 0
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+2 |  |
+|  |
+|  |
+
+=== SLIDE 9 ===
+2. (i) Convolution Operation
+9
+Input Image
+(0 × 0) + (1 × 1) + (0 × 0) + (0 × 1) + (0 × 0) + (1 × −1) + (1 × 0) + (1 × 1) + (0 × 0) = 1
+*
+Filter or Kernel
+=
+Output or Feature Map
+1 | 0x0 | 1x1 | 0x0 | 1
+1 | 0x1 | 0x0 | 1x-1 | 1
+0 | 1x0 | 1x1 | 0x0 | 0
+1 | 0 | 0 | 1 | 0
+0 | 0 | 1 | 1 | 0
+2 | 1 |
+|  |
+|  |
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 10 ===
+2. (i) Convolution Operation
+10
+(1× 0) + (0 × 1) + (1 × 0) + (0 × 1) + (1 × 0) + (1 × −1) + (1 × 0) + (0 × 1) + (0 × 0) = -1
+*
+Filter or Kernel
+=
+Input Image
+Output or Feature Map
+1 | 0 | 1x0 | 0x1 | 1x0
+1 | 0 | 0x1 | 1x0 | 1x-1
+0 | 1 | 1x0 | 0x1 | 0x0
+1 | 0 | 0 | 1 | 0
+0 | 0 | 1 | 1 | 0
+2 | 1 | -1
+|  |
+|  |
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 11 ===
+2. (i) Convolution Operation
+11
+(1× 0) + (0 × 1) + (0 × 0) + (0 × 1) + (1 × 0) + (1 × −1) + (1 × 0) + (0 × 1) + (0 × 0) = -1
+*
+Filter or Kernel
+=
+Input Image
+Output or Feature Map
+1 | 0 | 1 | 0 | 1
+1x0 | 0x1 | 0x0 | 1 | 1
+0x1 | 1x0 | 1x-1 | 0 | 0
+1x0 | 0x1 | 0x0 | 1 | 0
+0 | 0 | 1 | 1 | 0
+2 | 1 | -1
+-1 |  |
+|  |
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 12 ===
+2. (i) Convolution Operation
+12
+(0× 0) + (0 × 1) + (1 × 0) + (1 × 1) + (1 × 0) + (0 × −1) + (0 × 0) + (0 × 1) + (1 × 0) = 1
+*
+Filter or Kernel
+=
+Input Image
+Output or Feature Map
+1 | 0 | 1 | 0 | 1
+1 | 0x0 | 0x1 | 1x0 | 1
+0 | 1x1 | 1x0 | 0x-1 | 0
+1 | 0x0 | 0x1 | 1x0 | 0
+0 | 0 | 1 | 1 | 0
+2 | 1 | -1
+-1 | 1 |
+|  |
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 13 ===
+2. (i) Convolution Operation
+13
+(0× 0) + (1 × 1) + (1 × 0) + (1 × 1) + (0 × 0) + (0 × −1) + (0 × 0) + (1 × 1) + (0 × 0) = 3
+*
+Filter or Kernel
+=
+Input Image
+Output or Feature Map
+1 | 0 | 1 | 0 | 1
+1 | 0 | 0x0 | 1x1 | 1x0
+0 | 1 | 1x1 | 0x0 | 0x-1
+1 | 0 | 0x0 | 1x1 | 0x0
+0 | 0 | 1 | 1 | 0
+2 | 1 | -1
+-1 | 1 | 3
+|  |
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 14 ===
+2. (i) Convolution Operation
+14
+(0× 0) + (1 × 1) + (1 × 0) + (1 × 1) + (0 × 0) + (0 × −1) + (0 × 0) + (0 × 1) + (1 × 0) = 2
+*
+Filter or Kernel
+=
+Input Image
+Output or Feature Map
+1 | 0 | 1 | 0 | 1
+1 | 0 | 0 | 1 | 1
+0x0 | 1x1 | 1x0 | 0 | 0
+1x1 | 0x0 | 0x-1 | 1 | 0
+0x0 | 0x1 | 1x0 | 1 | 0
+2 | 1 | -1
+-1 | 1 | 3
+2 |  |
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 15 ===
+2. (i) Convolution Operation
+15
+(1× 0) + (1 × 1) + (0 × 0) + (0 × 1) + (0 × 0) + (1 × −1) + (0 × 0) + (1 × 1) + (1 × 0) = 1
+*
+Filter or Kernel
+=
+Input Image
+Output or Feature Map
+1 | 0 | 1 | 0 | 1
+1 | 0 | 0 | 1 | 1
+0 | 1x0 | 1x1 | 0x0 | 0
+1 | 0x1 | 0x0 | 1x-1 | 0
+0 | 0x0 | 1x1 | 1x0 | 0
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 |
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 16 ===
+2. (i) Convolution Operation
+16
+(1× 0) + (0× 1) + (0 × 0) + (0 × 1) + (1 × 0) + (0 × −1) + (1 × 0) + (1 × 1) + (0 × 0) = 1
+*
+Filter or Kernel
+=
+Input Image
+Output or Feature Map
+1 | 0 | 1 | 0 | 1
+1 | 0 | 0 | 1 | 1
+0 | 1 | 1x0 | 0x1 | 0x0
+1 | 0 | 0x1 | 1x0 | 0x-1
+0 | 0 | 1x0 | 1x1 | 0x0
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 | 1
+0 | 1 | 0
+1 | 0 | -1
+0 | 1 | 0
+
+=== SLIDE 17 ===
+Extracts	features	(edges,	textures,	patterns) using filters.
+Preserves spatial structure.
+Activation functions (e.g., ReLU) are applied after this layer.
+Helps learn complex patterns.
+Pooling Layer
+Reduces dimensionality while retaining key features.
+Common types: Max Pooling, Average Pooling.
+Fully Connected (Dense) Layer
+Flattens feature maps and connects to output neurons.
+Used for classification tasks.
+Output Layer
+Produces final predictions (e.g., Softmax for multi-class classification).
+CNNs	consist	of	specialized	layers	that	efficiently	process spatial data like images.
+1)  Convolutional Layer
+3. Types of Layers
+17
+Flatten layer
+The Flatten layer in a CNN converts the learned information into a single long list of numbers.
+Suppose a CNN produces these values:
+[1, 2, 3]
+[4, 5, 6]
+The Flatten layer converts them into one long list:
+[1, 2, 3, 4, 5, 6]
+Then this list is passed to the Fully Connected (Dense) Layer for classification.
+
+=== SLIDE 18 ===
+3. Types of Layers (Example)
+CNNs automatically learn visual features—from simple edges to complex objects—directly from images.
+18
+The Flatten layer converts a multi-dimensional feature map into a single one-dimensional vector.
+For example:
+2D feature maps → 1D vector → Fully Connected Layer → Output
+In simple words: Flatten prepares the CNN features for classification.
+
+=== SLIDE 19 ===
+3. (i) Max Pooling
+19
+Feature Map
+Max Pooling: is a down sampling (subsampling) operation used in Convolutional Neural Networks (CNNs) to reduce the spatial dimensions (width and height) of feature maps while retaining the most dominant features.
+Primary Purposes
+Dimensionality Reduction: Shrinks feature map size to reduce computation and memory usage.
+Translation Invariance: Keeps features detectable despite minor shifts or distortions.
+Overfitting Prevention: Reduces spatial resolution to prevent memorizing pixel-level noise.
+Output
+https://www.geeksforgeeks.org/deep-learning/introduction-to-pooling-layer-cnn/
+https://www.sciencedirect.com/topics/computer-science/average-pooling
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 | 1
+2 | 3
+2 | 3
+
+=== SLIDE 20 ===
+3. (i) Max Pooling Operation
+20
+Feature Map
+Output
+Max Pooling : takes the maximum value
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 | 1
+2 |
+|
+
+=== SLIDE 21 ===
+40
+3. (i) Max Pooling Operation
+21
+Max Pooling : takes the maximum value
+Feature Map
+Output
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 | 1
+2 | 3
+|
+
+=== SLIDE 22 ===
+Example of a Convolution Operation
+40
+40
+3. (i) Max Pooling Operation
+22
+Max Pooling : takes the maximum value
+Feature Map
+Output
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 | 1
+2 | 3
+2 |
+
+=== SLIDE 23 ===
+40
+Example of a Convolution Operation
+40
+40
+3. (i) Max Pooling Operation
+23
+Max Pooling : takes the maximum value
+Feature Map
+Output
+2 | 1 | -1
+-1 | 1 | 3
+2 | 1 | 1
+2 | 3
+2 | 3
+
+=== SLIDE 24 ===
+40
+Example of a Convolution Operation
+40
+40
+3. (ii) Average pooling
+24
+Average pooling:  is a down sampling operation that reduces the spatial dimensions (width and height) of a feature map by calculating the arithmetic mean of values within a sliding window.
+Core Concept: Unlike Max Pooling (which selects the highest value in a region), Average Pooling calculates the average intensity across all pixels inside the pool window.
+Key Properties
+Smooth Feature Extraction: Blurs extreme activations, keeping overall background context rather than just sharp edges or maximum spikes.
+Parameter-Free: Operates deterministically (fixed rule) without any trainable weights or biases.
+Output
+Padding = 0
+
+=== SLIDE 25 ===
+40
+Example of a Convolution Operation
+40
+40
+3. (ii) Average pooling Operation
+25
+2
+2
+7
+3
+9
+4
+6
+1
+8
+5
+2
+4
+3
+1
+2
+6
+Average Pooling
+Filter Size – (2x2)
+Strid – (2,2)
+Padding = 0
+
+=== SLIDE 26 ===
+40
+Example of a Convolution Operation
+40
+40
+3. (ii) Average pooling Operation
+26
+2
+2
+7
+3
+9
+4
+6
+1
+8
+5
+2
+4
+3
+1
+2
+6
+Average Pooling
+Filter Size – (2x2)
+Strid – (2,2)
+Padding = 0
+
+=== SLIDE 27 ===
+40
+Example of a Convolution Operation
+40
+40
+3. (ii) Average pooling Operation
+27
+2
+2
+7
+3
+9
+4
+6
+1
+8
+5
+2
+4
+3
+1
+2
+6
+Average Pooling
+Filter Size – (2x2)
+Strid – (2,2)
+Padding = 0
+
+=== SLIDE 28 ===
+40
+Example of a Convolution Operation
+40
+40
+3. (ii) Average pooling Operation
+28
+2
+2
+7
+3
+9
+4
+6
+1
+8
+5
+2
+4
+3
+1
+2
+6
+Average Pooling
+Filter Size – (2x2)
+Strid – (2,2)
+Padding = 0
+
+=== SLIDE 29 ===
+Learn features in input image through convolution
+Introduce non-linearity through activation function (real-world data is non-linear!)
+Reduce dimensionality and preserve spatial invariance with pooling
+4. CNN for Classification: Feature Learning
+29
+
+=== SLIDE 30 ===
+CONV and POOL layers output high-level features of input
+Fully connected layer uses these features for classifying input image
+Express output as probability of image belonging to a particular class
+4. CNN for Classification: Class Probabilities
+30
+Softmax: converts raw, unnormalized prediction scores (logits) into a valid probability distribution to enable final multi-class classification decisions.
+
+=== SLIDE 31 ===
+Fully Connected
+Feedforward network
+cat dog ……
+Convolution
+Max Pooling
+Convolution
+Max Pooling
+Flattened
+Can repeat many times
+The whole CNN
+31
+Input
+Output
+
+=== SLIDE 32 ===
+4. Research Paper: LeNet-5
+32
+LeCun et al., 1998
+LeNet demonstrated the effectiveness of convolutional neural networks for visual recognition tasks.
+LetNet-5-> five trainable layers in the original architecture. C1, P1, C2, P2, C3
+
+=== SLIDE 33 ===
+4. LeNet-5 (Example)
+33
+LeNet-5 Architecture Overview
+Input Image: Processing a handwritten digit input (7).
+Feature Extraction (Convolutions & Subsampling): Alternating convolutional and pooling layers systematically down sample spatial resolution while extracting hierarchical features (edges, curves, loops).
+Feature Maps: Intermediate feature maps display active activations responding to distinct patterns of the input digit.
+Fully Connected Layers & Classification: Extracted features are flattened and passed through dense layers to output class probabilities for digits 0–9.
+LeNet-5 is an early convolutional neural network designed to recognize handwritten digits.
+
+=== SLIDE 34 ===
+4. (i) Applications of CNNs
+34
+CNNs have a wide range of applications, from image and video analysis to medical imaging, speech recognition, and real-world deployment.
+
+=== SLIDE 35 ===
+A Transformer is a deep learning model that helps computers understand and process data.
+It uses attention to focus on the most important parts of the input.
+It can understand the relationship between different parts of the data.
+Transformers are widely used in language, images, and video tasks.
+Attention Is All You Need — Vaswani et al., 2017
+5. Transformer
+35
+Main Components
+Input Embeddings: Convert words, image patches, or other inputs into numerical vectors.
+Positional Encoding: Provides information about the position/order of inputs.
+Self-Attention: Learns relationships between different elements.
+Feed-Forward Network: Further transforms the learned representations.
+Residual Connections (Add) & Layer Normalization: Improve training stability.
+Paper link
+Explore Transformer Architecture
+
+=== SLIDE 36 ===
+Attention allows a model to determine which parts of the input are most important when processing a particular element.
+5 (i). Attention Mechanism
+36
+
+=== SLIDE 37 ===
+5 (i). Attention Mechanism
+37
+
+=== SLIDE 38 ===
+5 (i). Why Transformers Matter for Multimodal AI
+38
+1. Cross-Modal Understanding
+Learn relationships between different modalities.
+Example: connect an image of a dog with the text “A dog playing in the park.”
+2. Attention Across Modalities
+Attention can connect:
+Image regions ↔ Words
+Audio ↔ Text
+Video frames ↔ Text
+3. Unified Representation
+Different modalities can be converted into tokens or embeddings.
+Transformers process them within a shared representation space.
+4. Scalable & Flexible
+Can handle large datasets and long sequences.
+Can be adapted to many multimodal tasks.
+
+=== SLIDE 39 ===
+6. CNNs vs. Transformers
+39
+CNN | Transformer
+Uses convolution: applies filters to small,
+nearby regions of an image. | Uses self-attention: learns relationships
+between image patches or tokens.
+Local patterns: learns edges and textures.
+Deeper layers capture broader context. | Context: ViT connects distant patches.
+Swin uses local and shifted windows.
+Hierarchical features: combines simple
+patterns into shapes and object features. | Contextual features: combines information
+according to relationships between tokens.
+Visual tasks: widely used for classification,
+object detection, and segmentation. | Visual tasks: also supports classification,
+object detection, and segmentation.
+Examples:
+AlexNet
+GoogLeNet
+Inception v1
+VGG-16
+VGG-19
+ResNet-18 / 50 / 101
+EfficientNet-B0–B7 | Examples:
+Transformer
+Vision Transformer, ViT
+Swin Transformer
+Swin-Tiny
+
+=== SLIDE 40 ===
+7. From CNNs & Transformers to Multimodal AI
+40
+Multimodal AI combines different input types, such as images and text.
+Example: answering a question about a picture
+Picture of a person
+riding a bicycle
+Extracts visual features:
+person and bicycle
+“What is the
+person riding?”
+Encodes the question
+and its context
+Combines image features
+with the question
+“A bicycle.”
+The model uses both what it sees and what the question asks.
+TEXT INPUT
+TRANSFORMER
+CNN
+IMAGE INPUT
+MULTIMODAL FUSION
+Output

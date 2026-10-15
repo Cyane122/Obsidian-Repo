@@ -1,0 +1,446 @@
+=== SLIDE 1 ===
+Neural Networks • Representation Learning • Multimodal Embeddings
+Dr. Khan Muhammad (칸무하마드)
+Department of Applied Artificial Intelligence
+Sungkyunkwan University, Seoul.
+Associate Professor
+Deep Learning Foundations
+
+=== SLIDE 2 ===
+From Multimodal AI to Deep Learning
+Deep Learning Foundations
+Neural Networks
+The Artificial Neurons
+Activation Functions
+How Neural Networks Learn
+Forward Propagation
+Loss & Cost Functions
+Backpropagation
+Optimization Algorithms
+Training Process
+Representation Learning
+Learned Features
+Embeddings
+Latent Space
+Embeddings & Latent Space (both)
+Main contents
+2
+
+=== SLIDE 3 ===
+1. From Multimodal AI to Deep Learning
+What Did We Learn in Previous lecture (s)?
+Multimodal AI works with different types of information:
+Images
+Text
+Audio
+Video
+It learns to understand, connect, and use information across modalities
+What Do We Need Next?
+How can machines learn useful information from data?
+How can data become useful representations?
+How can these representations be connected and compared?
+Answer: Deep Learning
+Deep learning learns useful representations from data.
+3
+
+=== SLIDE 4 ===
+1. From Multimodal AI to Deep Learning (Con…)
+Multimodal AI tells us WHAT information we want to combine; deep learning helps us learn HOW to represent that information.
+4
+Previously Covered
+Today’s/Next Focus
+
+=== SLIDE 5 ===
+2. Deep Learning Foundations
+5
+
+=== SLIDE 6 ===
+2. Deep Learning Foundations
+Deep Learning is a way for computers to learn patterns from data using neural networks with multiple layers.
+In simple words:
+Data → Learn Patterns → Make Predictions
+Three Basic Ideas
+Learns from data instead of relying only on manually designed rules.
+Learns useful representations from simple to complex patterns.
+Uses multiple layers to gradually transform the input into a useful output.
+Deep learning learns useful patterns and representations from data.
+6
+
+=== SLIDE 7 ===
+2. Deep Learning Foundations (Con…)
+Teaching computers how to learn a task directly from raw data
+7
+Figure: Relationship between Artificial Intelligence, Machine Learning, and Deep Learning.
+AI is the big umbrella.
+ML is the branch of AI
+DL is the branch of ML
+Artificial Intelligence (AI)
+Making computers perform tasks that normally need human intelligence.
+Examples:
+Face recognition • Voice assistants • Chess-playing computers
+Machine Learning (ML)
+Teaching computers to learn from examples and make decisions.
+Example:
+Give a computer pre-defined features (e.g., word count, keywords) from emails → it learns to identify new spam emails.
+Deep Learning (DL)
+A type of ML that uses neural networks to learn complex patterns automatically.
+Examples:
+Feed raw email text directly into a neural network → it automatically extracts complex word patterns and context to identify spam.
+Recognizing faces, handwritten numbers, or objects in images
+
+=== SLIDE 8 ===
+2. Deep Learning Foundations (Con…)
+8
+Figure: A clear mind map showing practical applications of deep learning across computer vision, text processing, healthcare, and financial analysis.
+Deep Learning Applications
+
+=== SLIDE 9 ===
+2. Deep Learning Foundations (Con…)
+Traditional Approach: Handcrafted Features
+Humans manually choose useful features.
+Features may work well for simple problems.
+Complex data can contain patterns that are difficult to define manually.
+Designing features becomes difficult as data becomes more complex.
+Deep Learning
+Learns useful features automatically from data.
+Can learn simple → complex patterns through multiple layers.
+Traditional ML (manual): Humans design the features.
+Deep Learning (automatic): The model learns the features.
+9
+Why Do We Need Deep Learning?
+
+=== SLIDE 10 ===
+Deep learning automatically learns features from raw data through multiple hidden layers, gradually transforming them into meaningful representations for prediction.
+At the core of deep learning are neural networks, which learn these patterns through interconnected layers.
+10
+How does Deep Learning works?
+2. Deep Learning Foundations (Con…)
+
+=== SLIDE 11 ===
+2 (i). Neural Network
+A neural network is a model that learns patterns from data.
+It is made of connected neurons arranged in layers.
+Each layer processes information and passes it to the next layer.
+During training, the network learns how strongly neurons should be connected.
+Three Main Parts
+Input Layer → receives the data
+Hidden Layers → learn patterns
+Output Layer → produces the result
+A neural network learns to turn input data into useful predictions.
+11
+
+=== SLIDE 12 ===
+2 (ii). The Artificial Neuron
+A neuron is the basic building block of a neural network.
+It receives inputs, gives each input a weight, adds a bias, and produces an output.
+Artificial Neuron is also called a Perceptron.
+Main Components
+Inputs (x) → information coming in
+Weights (w) → importance given to each input
+Bias (b) → helps adjust the result
+Weighted Sum → combines the inputs
+Output (z) → result passed to the next layer
+Equation
+A neuron combines information from its inputs to produce an output.
+12
+Rosenblatt, F. (1958), The Perceptron
+[Paper]
+
+=== SLIDE 13 ===
+2 (ii). The Artificial Neuron (Con…)
+13
+
+=== SLIDE 14 ===
+2 (ii). The Artificial Neuron (Con…)
+14
+Activation Functions in Artificial Neural Networks:
+An Activation function is a mathematical formula that
+Takes the neuron's calculated value and produces its output.
+Determines how strongly a neuron should respond to its inputs and passes the resulting signal to the next layer.
+An activation function can transform the value computed by a neuron in different ways. This transformation can be either linear or non-linear.
+Tanh: hyperbolic tangent
+
+=== SLIDE 15 ===
+2 (iii). Activation Functions
+Why do we need an activation function?
+A neuron first calculates a value, then the activation function controls the output.
+Activation functions help neural networks learn complex patterns.
+Three Important Activation Functions
+15
+Function | Main Idea | Common Use
+ReLU | Keeps positive values, changes negative values to 0 | Hidden layers
+Sigmoid | Converts a value to 0–1 | Binary classification
+Softmax | Converts values into class probabilities | Multi-class classification
+
+=== SLIDE 16 ===
+f(x) = max(0,x)
+2 (iii). Activation Functions (Con…)
+16
+The Relu Operation
+Change all negative values to 0
+Leave all positive Values alone
+
+=== SLIDE 17 ===
+Sigmoid Function (Logistic)
+Converts values between 0 and 1
+Useful for binary classification and probabilities
+2 (iii). Activation Functions (Con…)
+17
+
+=== SLIDE 18 ===
+Softmax Function
+2 (iii). Activation Functions (Con…)
+18
+Converts multiple values into probabilities between 0 and 1
+The probabilities add up to 1
+Used for multi-class classification to choose the most likely class.
+Formula:
+
+=== SLIDE 19 ===
+3. How Neural Networks Learn
+19
+
+=== SLIDE 20 ===
+A neural network learns by repeatedly:
+Taking an input
+Making a prediction
+Measuring how wrong the prediction is
+Finding which weights caused the error
+Updating the weights
+Repeating the process
+3. How Neural Networks Learn
+20
+Learning = reducing the error over many examples.
+Simple NN Video (<10 mints): https://youtu.be/SV2huMdNs9c
+
+=== SLIDE 21 ===
+Forward propagation is the process of moving information from the input layer to the output layer.
+Steps:
+Input data is provided to the input layer.
+Weighted	sum	of	inputs	is	calculated	at	each neuron.
+Activation function is applied.
+The output of each layer serves as input to the next
+layer.
+The final layer produces predictions.
+3 (i). Forward Propagation
+Information moves forward through the network to produce a prediction.
+21
+
+=== SLIDE 22 ===
+3 (i). Forward Propagation (Con…)
+22
+
+=== SLIDE 23 ===
+3 (i). Forward Propagation (Con…)
+23
+A short Video Clip
+🎬 Watch 5-Sec Demo: How Data Flows Through Neural Networks
+▶️ Press Play: Watch the Forward Pass in Action (5s)
+⚡ Live Animation: See How Inputs Turn Into Predictions
+
+=== SLIDE 24 ===
+3 (i). Forward Propagation (Con…)
+A neural network's prediction can differ from the actual target.
+Example
+Actual: Engaged		Predicted: Not Engaged
+Prediction Error:
+The difference between the actual target and the network prediction.
+Why does error occur?
+Untrained parameters
+Incorrect weights and biases
+Complex or ambiguous data
+Loss Function
+Measures how wrong the prediction is.
+24
+
+=== SLIDE 25 ===
+25
+A Simple Prediction Example
+3 (i). Forward Propagation (Con…)
+
+=== SLIDE 26 ===
+3 (ii). Loss Function / Cost Functions
+26
+Classification vs Regression
+Feature | Classification | Regression
+Main Purpose | Predicts a category or class | Predicts a numerical value
+Main Question | Which class? | What value? / How much?
+Output | Discrete labels | Continuous values
+Examples | Spam / Not Spam, Disease / No Disease, Cat / Dog | House Price, Temperature, Sales
+How It Works | Learns to separate data into different classes | Learns the relationship between inputs and numerical output
+Main Concept | Uses a decision boundary between classes | Finds a best-fit line or curve
+Example Output | Spam | $350,000
+Common Activation | Sigmoid for binary classification; Softmax for multi-class classification | Often a linear output for predicting continuous values
+Common Loss Functions | Binary Cross-Entropy, Categorical Cross-Entropy | MSE, MAE (Mean Absolute Error)
+Simple Idea | Which group does it belong to? | What numerical value should it be?
+
+=== SLIDE 27 ===
+Loss Function:
+A loss function measures the difference between the predicted output and the actual target.
+It helps the neural network adjust weights during training to minimize errors.
+Cost Function:
+The cost function is the average of the loss function over the entire dataset.
+It provides a single scalar value to optimize the model.
+Types of Loss Functions in Neural Networks
+3 (ii). Loss Function / Cost Functions (Con…)
+27
+Loss Function | Type | Use Case
+Mean Squared Error (MSE) | Regression | Penalizes	large	errors,	used	for
+continuous values
+Mean Absolute Error (MAE) | Regression | More robust to outliers than MSE
+Binary Cross-Entropy | Classification | For binary classification (e.g., Yes/No, 0/1)
+Categorical Cross-Entropy | Classification | For	multi-class	classification	(e.g., Image Recognition)
+Huber Loss | Regression | Combines	MSE	and	MAE,	handles outliers well
+
+=== SLIDE 28 ===
+Backpropagation is an algorithm used to reduce the loss by adjusting the weights based on the error from the output layer to the input layer.
+3 (iii). Backpropagation – Intuition
+28
+Rumelhart, Hinton & Williams (1986)
+Learning Representations by Back-Propagating Errors
+Gradient of Loss: Shows how much the loss changes when a model parameter changes, and in which direction.
+Gradient Descent: Uses the gradient to update the model parameters step by step to reduce the loss.
+Partial Derivatives: Measure how the loss changes with respect to one parameter at a time, while keeping the others fixed.
+Key Steps:
+Forward Pass → Pass the input through the network to get the output.
+Calculate Loss → Compare the predicted output with the actual output.
+Calculate Gradients → Find how each weight affects the loss using the chain rule.
+Propagate Backward → Send the gradients backward through the layers.
+Update Weights → Adjust the weights using gradient descent.
+Repeat → Continue this process to reduce the loss.
+Important Notes
+Backpropagation adjusts weights using partial derivatives of the loss.
+It propagates the error backward through the network to efficiently update the weights.
+
+=== SLIDE 29 ===
+Optimization Algorithms:
+Optimization algorithms adjust model parameters (weights) to minimize the loss function.
+Efficient optimization ensures faster convergence and better model performance.
+3 (iv). Optimization Algorithms
+29
+Popular Optimization Algorithms
+First-order derivative tells us the direction in which to change.
+Adaptive automatically adjusts how much to change.
+Algorithm | Type | Characteristics
+Stochastic Gradient Descent (SGD) https://scikit-learn.org/stable/modules/sgd.html | First-order | Updates weights using a single data point, faster but noisy
+Momentum-based SGD https://arxiv.org/abs/2602.23444 | First-order | Adds momentum to reduce oscillations and speed up convergence
+Adam (Adaptive Moment Estimation)
+https://arxiv.org/abs/1412.6980 | Adaptive | Combines	momentum	and	adaptive	learning rates, widely used
+RMSprop
+https://www.geeksforgeeks.org/deep-learning/rmsprop-optimizer-in-deep-learning/ |
+Adaptive | Adjusts	learning	rates	for	each	parameter, effective for deep networks
+Adagrad
+https://arxiv.org/abs/2602.13112 | Adaptive | Adapts  learning  rate  based  on  past  gradients, suitable for sparse data
+
+=== SLIDE 30 ===
+Loss Optimization
+We want to find the network weights that achieve the lowest loss
+30
+3 (iv). Optimization Algorithms (Con…)
+3D Loss Surface
+Weight 1 & Weight 2: Represent two model weights.
+Loss: Shows the model's error
+High Loss:  Predictions are far from the actual values, so more learning is needed.
+Minimal Loss:  Predictions are close to the actual values, so little adjustment is needed.
+Peaks: Represent areas of high loss.
+Valleys: Represent areas of low loss.
+Crosses (×): Show the steps taken during training toward lower loss.
+Minimum: The point with the lowest loss.
+
+=== SLIDE 31 ===
+To train a neural network, we optimize its parameters using backpropagation and gradient descent.
+Steps:
+Initialize weights & biases
+Forward pass (compute predictions)
+Compute loss – Measure how far predictions are from actual values.
+Backpropagation – Calculate gradients to adjust parameters.
+Update weights using gradient descent
+Repeat until convergence
+Evaluate and adjust hyperparameters
+3 (v). Neural Networks Training Process – Overview
+31
+
+=== SLIDE 32 ===
+3 (v). Neural Networks Training Process – Overview (Con…)
+32
+x : Input — the information given to the neural network.
+x₁, x₂ : Input features — two input values/features given to the network.
+1 : Bias input — a constant value used to help the neuron adjust its output.
+z : Weighted sum — the value calculated from inputs, weights, and bias.
+f : Activation function — transforms z and produces the neuron's output.
+
+=== SLIDE 33 ===
+4. Representation Learning
+33
+
+=== SLIDE 34 ===
+Representation learning is when a neural network learns how to describe data in a useful way by itself.
+Instead of humans manually choosing all the important features, the network discovers them from the data.
+We do not manually tell the network to learn features. It discovers them during training.
+4. Representation Learning
+34
+The network learns what information is important for the task.
+Why is it important?
+Representation learning helps neural networks:
+automatically learn useful features
+work with complex data
+find similarities between data
+reduce the need for manual feature engineering
+
+=== SLIDE 35 ===
+A feature is a useful property of the input. Neural networks can learn features at different levels.
+Example: Image
+Early layers
+Learn simple patterns e.g., Edges, Lines, Colors , Corners
+Middle layers
+Learn combinations e.g., Shapes, Textures, Parts of objects
+Deep layers
+Learn more meaningful concepts e.g., Eyes, Faces, Wheels, Objects.
+4 (i). Learned Features
+35
+Simple features are learned first; more complex features are built from them.
+
+=== SLIDE 36 ===
+An embedding is a list of numbers that represents something in a way a model can work with.
+4 (ii). Embeddings
+Similar things have similar embeddings. The model learns these embeddings from data
+36
+Embedding = data converted into a useful numerical representation.
+
+=== SLIDE 37 ===
+The latent space is a hidden space where the network stores useful information about the data.
+4 (iii). Latent Space
+37
+Key Points
+It is not directly visible or manually designed.
+The model learns to place similar data points closer and dissimilar points farther.
+It captures the important information while removing unnecessary details.
+Helps in tasks like classification, clustering, retrieval and generation.
+
+=== SLIDE 38 ===
+4 (iv). Embeddings & Latent Space
+38
+Latent Space
+Latent Space: A learned space where embeddings are organized based on their meaning and relationships.
+Similar objects → placed closer together.
+Different objects → placed farther apart.
+Embedding
+Embedding: A numerical representation of an object that captures its meaning or important features.
+Example: Cat → [0.8, 0.3, 0.4, …]
+
+=== SLIDE 39 ===
+1.  Multimodal Embeddings
+2. Convolutional Neural Networks (CNNs)
+I.  Convolution Operation
+3. Types of Layers
+I. Max Pooling
+II. Average pooling
+4. CNN for Classification
+I. Applications of CNNs
+5. Transformer
+I. Attention Mechanism
+II. Why Transformers Matter for Multimodal AI
+6. CNNs vs. Transformers
+7. From CNNs & Transformers to Multimodal AI
+Next Topics
+2

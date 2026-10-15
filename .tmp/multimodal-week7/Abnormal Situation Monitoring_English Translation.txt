@@ -1,0 +1,1959 @@
+=== PAGE 1 ===
+Examined Patent Publication(B1)
+Bibliographic Data
+Int. CL G08B 13/196 | G06F 18/00 | G06N 20/00 | H04N 5/77 | H04N 7/18
+Published Date 20201030
+Registration No. 1021722390000
+Registration Date 20201026
+Application No. 1020190018379
+Application Date 20190218
+Unexamined Publication
+No. 1020200103194
+Unexamined Publication
+Date 20200902
+Requested Date of
+Examination 20190218
+Agent MAPS Intellectual Property Law Firm
+Inventor BAIK,SungWook | LEE,MiYoung | MUHAMMADKhan | IjazUlhaq |
+UllahAmin | PARK,JunRyeol
+Applicant INDUSTRY ACADEMY COOPERATION FOUNDATION OF SEJONG
+UNIVERSITY
+Rightholder bns company Co., Ltd.
+발명의 명칭 Title of Invention
+영상 기반 비정상 상황 모니터링 방법 및 시스템METHOD AND SYSTEM FOR ABNORMAL
+SITUATION MONITORING BASED ON VIDEO
+·
+· ·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 1/30
+
+=== PAGE 2 ===
+요약 Abstract
+본 발명의 일 실시예에 따른 비정상 상황을 예측하는 영상
+기반 모니터링 시스템은, 데이터 통신을 통해 서로 정보를
+공유하는 복수의 카메라 에이전트 장치들을 포함하되,
+상기 카메라 에이전트 장치는 영상을 촬영하는 카메라
+모듈; 데이터 통신을 수행하는 통신 모듈; 촬영된 영상에
+기반하여 비정상 상황을 탐지하는 프로그램이 탑재된
+메모리; 및 상기 프로그램을 실행하는 프로세서를
+포함하고, 상기 프로세서는 상기 프로그램의 실행에 따라,
+촬영된 영상에서 키 프레임들을 추출하고, 추출된 키
+프레임에 대하여 객체 분석을 수행하고, 각 키 프레임에서
+분석된 각 객체들을 각 객체 단위로 시간 순서에 따라
+그룹핑한 각 객체의 시퀀스를 기계 학습 모델에 입력하여
+각 객체의 행동을 결정하고, 상기 키 프레임들 중 동일
+객체가 등장하는 키 프레임들을 시간 순서에 따라
+그룹핑한 키 프레임의 시퀀스를 상기 기계 학습 모델에
+입력하여 상기 각 객체의 행동이 이루어지는 문맥을
+결정하고, 상기 각 객체의 행동과 상기 결정된 문맥 정보의
+매칭 정도에 따라 비정상 상황이 발생할지 여부에 대한
+예측 결과를 생성하고, 상기 예측 결과에 따라 경고 메시지
+출력 여부를 결정한다.
+According to an embodiment of the present
+invention, an image-based monitoring system for
+predicting an abnormal situation comprises: a
+camera module including a plurality of camera
+agent devices sharing information with each other
+through data communication, wherein the camera
+agent device photographs an image The
+communications module performing data
+communications The memory in which the
+program which is based on in the image recording
+and detects the abnormal situation is loaded And
+a processor executing the program. the processor
+extracts key frames from a photographed image
+in accordance with the execution of the program,
+performs object analysis on the extracted key
+frame, inputs a sequence of each object, which is
+obtained by grouping each object analyzed in
+each key frame according to a time order in units
+of each object, into a machine learning model to
+determine an action of each object, inputs a
+sequence of a key frame, which is obtained by
+grouping key frames in which the same object
+appears among the key frames according to a
+time order, into the machine learning model to
+determine a context in which the action of each
+object is performed, generates a prediction result
+on whether an abnormal situation will occur
+according to a matching degree of the action of
+each object and the determined context
+information, and determines whether to output a
+warning message according to the prediction
+result.
+대표도면
+· ·
+·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 2/30
+
+=== PAGE 3 ===
+청구의 범위 Scope of Claims
+청구 1항 : Claim 1 :
+비정상 상황을 예측하는 영상 기반 모니터링 시스템에
+있어서,데이터 통신을 통해 서로 정보를 공유하는 복수의
+카메라 에이전트 장치들을 포함하되,상기 카메라 에이전트
+장치는영상을 촬영하는 카메라 모듈;데이터 통신을
+수행하는 통신 모듈;촬영된 영상에 기반하여 비정상
+상황을 탐지하는 프로그램이 탑재된 메모리; 및상기
+프로그램을 실행하는 프로세서를 포함하고, 상기
+프로세서는 상기 프로그램의 실행에 따라, 촬영된
+영상에서 키 프레임들을 추출하고, 추출된 키 프레임에
+대하여 객체 분석을 수행하고, 각 키 프레임에서 분석된 각
+객체들을 각 객체 단위로 시간 순서에 따라 그룹핑한 각
+객체의 시퀀스를 기계 학습 모델에 입력하여 각 객체의
+행동을 결정하고, 상기 키 프레임들 중 동일 객체가
+등장하는 키 프레임들을 시간 순서에 따라 그룹핑한 키
+프레임의 시퀀스를 상기 기계 학습 모델에 입력하여 상기
+각 객체의 행동이 이루어지는 문맥을 결정하고, 상기 각
+객체의 행동과 상기 결정된 문맥 정보의 매칭 정도에 따라
+비정상 상황이 발생할지 여부에 대한 예측 결과를
+생성하고, 상기 예측 결과에 따라 경고 메시지 출력 여부를
+결정하고,상기 문맥은 각 객체의 행동이 이루어지는 장소
+또는 시간을 포함하는 주변 상황에 대한 정보를 포함하는
+것인 영상 기반 모니터링 시스템.
+An image-based monitoring system for predicting
+an abnormal situation, comprising: a camera
+module for photographing an image; and a
+plurality of camera agent devices for sharing
+information with each other through data
+communication. The communications module
+performing data communications The memory in
+which the program which is based on in the image
+recording and detects the abnormal situation is
+loaded An image-based monitoring system
+comprising: a machine learning model; and a
+processor configured to execute the program,
+wherein the processor is configured to extract key
+frames from a captured image according to the
+execution of the program, perform object analysis
+on the extracted key frames, determine a
+behavior of each object by inputting, to the
+machine learning model, a sequence of each
+object in which each object analyzed in each key
+frame is grouped according to a time order in
+units of each object, determine a context in which
+the behavior of each object is performed by
+· ·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 3/30
+
+=== PAGE 4 ===
+inputting, to the machine learning model, a
+sequence of a key frame in which key frames in
+which the same object appears among the key
+frames are grouped according to a time order,
+generate a prediction result on whether an
+abnormal situation will occur according to a
+degree of matching between the behavior of each
+object and the determined context information,
+and determine whether to output a warning
+message according to the prediction result, and
+the context includes information on a surrounding
+situation including a place or time in which the
+behavior of each object is performed.
+청구 2항 : Claim 2 :
+제 1 항에 있어서,상기 프로세서는 상기 객체에 대한
+행동을 결정할 때, 각 행동별로 산출된 확률값에 기초하여
+각 객체의 행동을 결정하고,상기 문맥을 결정할 때, 각
+문맥별로 산출된 확률값에 기초하여 상기 객체의 행동이
+이루어지는 문맥을 결정하고, 상기 예측 결과가 발생할
+확률값에 기초하여 상기 예측 결과를 결정하는 것인 영상
+기반 모니터링 시스템.
+The image-based monitoring system of claim 1,
+wherein the processor is further configured to:
+determine a behavior of each object based on a
+probability value calculated for each behavior
+when determining the behavior of the object;
+determine a context in which the behavior of the
+object is performed based on the probability
+value calculated for each context when
+determining the context; and determine the
+prediction result based on a probability value at
+which the prediction result occurs.
+청구 3항 : Claim 3 :
+제 2 항에 있어서,제 1 카메라 에이전트 장치는 상기
+결정된 문맥의 확률값 및 상기 예측 결과에 대한 확률값을
+인접한 카메라 에이전트 장치에 전달하고,하나 이상의
+인접한 카메라 에이전트 장치에서 수신한 문맥의 확률값
+및 예측 결과의 확률값을 추가적으로 고려하여, 상기 예측
+결과에 대한 확률값을 재산출하되, 상기 제 1 카메라
+에이전트 장치는 상기 카메라 모듈에 대하여 설정된 감시
+영역의 적어도 일부를 함께 촬영하는 카메라 에이전트
+장치를 상기 인접한 카메라 에이전트 장치로 설정하는
+것인 영상 기반 모니터링 시스템.
+The image-based monitoring system of claim 2,
+wherein the first camera agent device transmits
+the determined probability value of the context
+and the probability value of the prediction result
+to an adjacent camera agent device, and re-
+calculates the probability value of the prediction
+result by additionally considering the probability
+value of the context and the probability value of
+the prediction result received from one or more
+adjacent camera agent devices, wherein the first
+camera agent device sets a camera agent device
+for photographing at least a part of a monitoring
+area set for the camera module together as the
+adjacent camera agent device.
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 4/30
+
+=== PAGE 5 ===
+청구 4항 : Claim 4 :
+제 3 항에 있어서,상기 제 1 카메라 에이전트 장치는
+인접한 제 2 카메라 에이전트 장치가 산출한 문맥의
+확률값 및 상기 제 1 카메라 에이전트 장치가 산출한
+문맥의 확률값에 기초하여 문맥을 결정하되,상기 확률값이
+가장 큰 문맥을 최종 문맥으로 결정하는 영상 기반
+모니터링 시스템.
+The image-based monitoring system of claim 3,
+wherein the first camera agent device determines
+a context based on a probability value of the
+context calculated by an adjacent second camera
+agent device and a probability value of the
+context calculated by the first camera agent
+device, and determines a context having the
+largest probability value as a final context.
+청구 5항 : Claim 5 :
+제 3 항에 있어서,상기 제 1 카메라 에이전트 장치는
+인접한 제 2 카메라 에이전트 장치가 산출한 문맥의
+확률값 및 상기 제 1 카메라 에이전트 장치가 산출한
+문맥의 확률값에 기초하여 문맥을 결정하되,상기 제 1
+카메라 에이전트 장치가 각 문맥별로 산출한 확률값에 제
+1 가중치를 곱하고, 상기 제 2 카메라 에이전트 장치가 각
+문맥별로 산출한 확률값에 제 2 가중치를 곱한 후, 각
+문맥별로 제 1 가중치가 적용된 확률값과 제 2 가중치가
+적용된 확률값을 합산하여 확률값이 가장 큰 문맥을 최종
+문맥으로 결정하는 영상 기반 모니터링 시스템.
+The image-based monitoring system of claim 3,
+wherein the first camera agent device determines
+a context based on a probability value of the
+context calculated by an adjacent second camera
+agent device and a probability value of the
+context calculated by the first camera agent
+device, wherein the first camera agent device
+multiplies the probability value calculated for
+each context by a first weight, the second camera
+agent device multiplies the probability value
+calculated for each context by a second weight,
+and then adds up the probability value to which
+the first weight is applied and the probability
+value to which the second weight is applied for
+each context to determine the context having the
+largest probability value as the final context.
+청구 6항 : Claim 6 :
+제 1 항에 있어서,제 1 카메라 에이전트 장치는 상기 경고
+메시지의 출력 여부, 경고 메시지의 종류 및 해당 경고
+메시지가 출력된 횟수에 대한 정보를 결정된 인접한
+카메라 에이전트 장치에 전달하되,상기 제 1 카메라
+에이전트 장치는 상기 카메라 모듈에 대하여 설정된 감시
+영역의 적어도 일부를 함께 촬영하는 카메라 에이전트
+장치를 상기 인접한 카메라 에이전트 장치로 설정하는
+것인 영상 기반 모니터링 시스템.
+The image-based monitoring system of claim 1,
+wherein the first camera agent device transmits
+information on whether to output the warning
+message, a type of the warning message, and the
+number of times the corresponding warning
+message is output to the determined adjacent
+camera agent device, and wherein the first
+camera agent device sets a camera agent device
+that photographs at least a part of a monitoring
+area set for the camera module together as the
+adjacent camera agent device.
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 5/30
+
+=== PAGE 6 ===
+청구 7항 : Claim 7 :
+제 1 항에 있어서,상기 기계 학습 모델은 상기 키
+프레임별로 이미지의 옵티컬 플로우 특징을 추출하는
+CNN(Convolution Neural Netwokr) 모듈 및상기
+CNN 모듈의 출력 결과를 상기 키 프레임의 시간 순서에
+따라 각각 수신하여 처리하는 복수의 LSTM(Long
+short-term memory) 모듈을 포함하는 영상 기반
+모니터링 시스템.
+The image-based monitoring system of claim 1,
+wherein the machine learning model comprises: a
+convolution neural network (cnn) module
+configured to extract optical flow features of an
+image for each key frame; and a plurality of long
+short-term memory (lstm) modules configured to
+receive and process output results of the cnn
+module according to a time order of the key
+frame.
+청구 8항 : Claim 8 :
+비정상 상황을 예측하는 영상 기반 모니터링 시스템을
+이용한 영상 기반 모니터링 방법에 있어서,(a) 상기 영상
+기반 모니터링 시스템에 포함된 제 1 카메라 에이전트
+장치가 촬영된 영상에서 키 프레임들을 추출하는 단계, (b)
+추출된 키 프레임에 대하여 객체 분석을 수행하고, 각 키
+프레임에서 분석된 각 객체들을 각 객체 단위로 시간
+순서에 따라 그룹핑한 각 객체의 시퀀스를 기계 학습
+모델에 입력하여 각 객체의 행동을 결정하는 단계, (c)
+상기 키 프레임들 중 동일 객체가 등장하는 키 프레임들을
+시간 순서에 따라 그룹핑한 키 프레임의 시퀀스를 상기
+기계 학습 모델에 입력하여 상기 각 객체의 행동이
+이루어지는 문맥을 결정하는 단계, (d) 상기 각 객체의
+행동과 상기 결정된 문맥 정보의 매칭 정도에 따라 비정상
+상황이 발생할지 여부에 대한 예측 결과를 생성하는 단계
+및(e) 상기 예측 결과에 따라 경고 메시지 출력 여부를
+결정하는 단계를 포함하고,상기 문맥은 각 객체의 행동이
+이루어지는 장소 또는 시간을 포함하는 주변 상황에 대한
+정보를 포함하는 것인 영상 기반 모니터링 방법.
+An image-based monitoring method using an
+image-based monitoring system for predicting an
+abnormal situation, the image-based monitoring
+method comprising: (a) extracting key frames
+from an image captured by a first camera agent
+device included in the image-based monitoring
+system; (b) performing object analysis on the
+extracted key frames and inputting a sequence of
+each object, in which each object analyzed in
+each key frame is grouped according to a time
+order in units of each object, into a machine
+learning model to determine a behavior of each
+object; (c) inputting a sequence of key frames, in
+which key frames in which the same object
+appears among the key frames are grouped
+according to a time order, into the machine
+learning model to determine a context in which
+the behavior of each object is performed; (d)
+generating a prediction result on whether an
+abnormal situation will occur according to a
+degree of matching between the behavior of each
+object and the determined context information;
+and (e) determining whether to output a warning
+message according to the prediction result,
+wherein the context includes information on a
+surrounding situation including a place or time
+where the behavior of each object is performed.
+청구 9항 : Claim 9 :
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 6/30
+
+=== PAGE 7 ===
+제 8 항에 있어서,상기 제 1 카메라 에이전트 장치는 상기
+객체에 대한 행동을 결정할 때, 각 행동별로 산출된
+확률값에 기초하여 각 객체의 행동을 결정하고,상기
+문맥을 결정할 때, 각 문맥별로 산출된 확률값에 기초하여
+상기 객체의 행동이 이루어지는 문맥을 결정하고, 상기
+예측 결과가 발생할 확률값에 기초하여 상기 예측 결과를
+결정하는 것인 영상 기반 모니터링 방법.
+The image-based monitoring method of claim 8,
+wherein, when the first camera agent device
+determines the behavior of the object, the first
+camera agent device determines the behavior of
+each object based on a probability value
+calculated for each behavior, wherein, when the
+first camera agent device determines the context,
+the first camera agent device determines the
+context in which the behavior of the object is
+performed based on the probability value
+calculated for each context, and determines the
+prediction result based on a probability value at
+which the prediction result occurs.
+청구 10항 : Claim 10 :
+제 9 항에 있어서,상기 제 1 카메라 에이전트 장치는 상기
+결정된 문맥의 확률값 및 상기 예측 결과에 대한 확률값을
+인접한 카메라 에이전트 장치에 전달하는 단계를 더
+포함하는 영상 기반 모니터링 방법.
+The image-based monitoring method of claim 9,
+further comprising: transmitting, by the first
+camera agent device, the probability value of the
+determined context and the probability value of
+the prediction result to an adjacent camera agent
+device.
+청구 11항 : Claim 11 :
+제 9 항에 있어서,상기 (c) 단계는 하나 이상의 인접한
+카메라 에이전트 장치에서 수신한 문맥의 확률값을
+추가적으로 고려하여 최종 문맥을 결정하고,상기 (d)
+단계는 상기 결정된 최종 문맥을 기초로 상기 예측 결과에
+대한 확률값을 재산출하되, 상기 제 1 카메라 에이전트
+장치는 카메라 모듈에 대하여 설정된 감시 영역의 적어도
+일부를 함께 촬영하는 카메라 에이전트 장치를 상기
+인접한 카메라 에이전트 장치로 설정하는 것인 영상 기반
+모니터링 방법.
+The image-based monitoring method of claim 9,
+wherein the step (c) further considers a
+probability value of a context received from one
+or more adjacent camera agent devices to
+determine a final context, and the step (d)
+recalculates the probability value for the
+prediction result based on the determined final
+context, wherein the first camera agent device
+sets a camera agent device for photographing at
+least a part of a monitoring area set for a camera
+module together as the adjacent camera agent
+device.
+청구 12항 : Claim 12 :
+제 11 항에 있어서,상기 (c) 단계는 상기 제 1 카메라
+에이전트 장치와 인접한 제 2 카메라 에이전트 장치가
+산출한 문맥의 확률값 및 상기 제 1 카메라 에이전트
+장치가 산출한 문맥의 확률값에 기초하여 문맥을
+The image-based monitoring method of claim 11,
+wherein in the step (c), a context is determined
+based on a probability value of a context
+calculated by a second camera agent device
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 7/30
+
+=== PAGE 8 ===
+결정하되,상기 확률값이 가장 큰 문맥을 상기 최종
+문맥으로 결정하는 영상 기반 모니터링 방법.
+adjacent to the first camera agent device and a
+probability value of a context calculated by the
+first camera agent device, and a context having
+the largest probability value is determined as the
+final context.
+청구 13항 : Claim 13 :
+제 11 항에 있어서,상기 (c) 단계는 상기 제 1 카메라
+에이전트 장치와 인접한 제 2 카메라 에이전트 장치가
+산출한 문맥의 확률값 및 상기 제 1 카메라 에이전트
+장치가 산출한 문맥의 확률값에 기초하여 문맥을
+결정하되,상기 제 1 카메라 에이전트 장치가 각 문맥별로
+산출한 확률값에 제 1 가중치를 곱하고, 상기 제 2 카메라
+에이전트 장치가 각 문맥별로 산출한 확률값에 제 2
+가중치를 곱한 후, 각 문맥별로 제 1 가중치가 적용된
+확률값과 제 2 가중치가 적용된 확률값을 합산하여
+확률값이 가장 큰 문맥을 상기 최종 문맥으로 결정하는
+영상 기반 모니터링 방법.
+The image-based monitoring method of claim 11,
+wherein, in the step (c), a context is determined
+based on a probability value of the context
+calculated by a second camera agent device
+adjacent to the first camera agent device and a
+probability value of the context calculated by the
+first camera agent device, and a context having
+the largest probability value is determined as the
+final context by multiplying the probability value
+calculated by the first camera agent device for
+each context by a first weight, multiplying the
+probability value calculated by the second
+camera agent device for each context by a
+second weight, and then summing the probability
+value to which the first weight is applied for each
+context and the probability value to which the
+second weight is applied for each context.
+청구 14항 : Claim 14 :
+제 8 항에 있어서,상기 제 1 카메라 에이전트 장치는 상기
+경고 메시지의 출력 여부, 경고 메시지의 종류 및 해당
+경고 메시지가 출력된 횟수에 대한 정보를 결정된 인접한
+카메라 에이전트 장치에 전달하는 단계를 더 포함하되,
+상기 제 1 카메라 에이전트 장치는 카메라 모듈에 대하여
+설정된 감시 영역의 적어도 일부를 함께 촬영하는 카메라
+에이전트 장치를 상기 인접한 카메라 에이전트 장치로
+설정하는 것인 영상 기반 모니터링 방법.
+The image-based monitoring method of claim 8,
+further comprising: transmitting, by the first
+camera agent device, information on whether to
+output the warning message, a type of the
+warning message, and the number of times the
+corresponding warning message is output to the
+determined adjacent camera agent device,
+wherein the first camera agent device sets a
+camera agent device for photographing at least a
+part of a monitoring area set for a camera module
+together as the adjacent camera agent device.
+청구 15항 : Claim 15 :
+제 8 항에 있어서,상기 기계 학습 모델은 상기 키
+프레임별로 이미지의 옵티컬 플로우 특징을 추출하는
+The image-based monitoring method of claim 8,
+wherein the machine learning model comprises: a
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 8/30
+
+=== PAGE 9 ===
+CNN(Convolution Neural Netwokr) 모듈 및상기
+CNN 모듈의 출력 결과를 상기 키 프레임의 시간 순서에
+따라 각각 수신하여 처리하는 복수의 LSTM(Long
+short-term memory) 모듈을 포함하는 영상 기반
+모니터링 방법.
+convolution neural network (cnn) module
+configured to extract optical flow features of an
+image for each key frame; and a plurality of long
+short-term memory (lstm) modules configured to
+receive and process output results of the cnn
+module according to a time order of the key
+frame.
+청구 16항 : Claim 16 :
+제 8 항 내지 제 15 항 중 어느 한 항에 기재된 영상 기반
+모니터링 방법을 실행하는 매체에 저장된 컴퓨터
+프로그램.
+A computer program stored in a medium for
+executing the image-based monitoring method
+according to claim 8.
+기술분야 Technical Field
+본 발명은 영상에 기반하여 비정상 상황을 모니터링하는
+시스템 및 그 방법에 관한 것이다.
+The present invention relates to a system for
+monitoring an abnormal situation based on an
+image and a method thereof.
+배경기술 Background Art
+최근에 많은 연구그룹들은 범죄 사건이나, 폭력적인 활동
+기타 그 밖의 비정상적인 상황과 같은 바람직하지 않은
+사건을 감시하고 예방하기 위해 감시 카메라와 같은
+다양한 기술을 개발해왔다. 예를 들어, 카메라 기반의
+시각센서를 사용하여 폭력행위를 감지하면, 치명적인
+사고를 예방하기 위해 경찰서 등과 같은 치안 유지 기관에
+관련 정보를 알려주는 기술이다.
+Recently, many research groups have developed
+a variety of technologies, such as surveillance
+cameras, to monitor and prevent undesirable
+events, such as criminal cases, violent activities,
+and other abnormal situations. For example, when
+a violent act is detected using a camera-based
+visual sensor, related information is informed to a
+security maintenance institution such as a police
+station to prevent a fatal accident.
+이와 같이 비전 센서를 통한 인간 활동 및 행동 분석은
+최근 각광받고 있는 연구 분야로서, 비디오 데이터에서
+다양한 행동과 활동을 인식하기 위해 개발된 다양한
+시스템이 알려져 있다.
+As such, analysis of human activity and behavior
+through vision sensors is a research field that has
+recently been in the spotlight, and various
+systems developed to recognize various
+behaviors and activities in video data are known.
+예를 들어, 비디오 데이터로부터 특징을 추출하기 위해
+시공간적 관심 지점을 이용한 시각센서를 이용하여 인간
+행동을 감지하는 시스템이 개발되었다. 해당 기술은
+For example, in order to extract features from
+video data, a system for detecting human
+behavior using visual sensors using
+· ·
+· ·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 9/30
+
+=== PAGE 10 ===
+시공간적 관심 지점들의 이전에 할당된 히스토그램 빈들
+내의 상이한 관심 지점들 사이의 관계를 계산함으로써
+특징들의 히스토그램을 생성한다. 그 후, 시스템은 사전
+결정된 동작 유형에 대한 형상 히스토그램과 기준
+히스토그램 사이의 매치 스코어의 합을 계산한다.
+spatiotemporal points of interest has been
+developed. The technique generates a histogram
+of features by calculating the relationship
+between different points of interest in previously
+assigned histogram bins of spatiotemporal points
+of interest. The system then calculates the sum
+of the match scores between the shape
+histogram and the reference histogram for the
+predetermined type of action.
+다른 기술로, 인간의 행동 인식 시스템에 기반한 3D
+컨볼루션 뉴럴 네트워크가 제안되었다. 이 시스템은 여러
+인접 프레임에 인코딩 된 모션 정보를 캡처하기 위해 3D
+컨볼루션을 수행함으로써 여러 비디오 프레임에서 사람의
+동작을 인식할 수 있다. 이 방법은 비디오 프레임에서 다중
+채널을 생성하고 사람의 행동을 인식하기 위해 서로 다른
+채널 정보를 결합하는 3D CNN모델을 사용하여 공간 및
+시간 차원의 특징을 추출한다.
+As another technology, a 3d convolutional neural
+network based on a human behavior recognition
+system has been proposed. The system may
+recognize a person's motion in multiple video
+frames by performing a 3d convolution to capture
+motion information encoded in multiple adjacent
+frames. The method extracts spatial and temporal
+dimension features using a 3d cnn model that
+generates multiple channels in a video frame and
+combines different channel information to
+recognize human behavior.
+다른 기술로, 비디오 데이터에서 폭력적인 움직임을
+감지하기 위한 기술로서, 비디오 프레임 내의 동작 코너
+포인트의 라이트 스트림을 검출하는 기술이 제안되었다.
+다음으로, 동작 각 점의 빛의 흐름에 따라 동작 엔트로피
+(motion entropy)를 계산하여 폭력 동작이 존재하는지
+여부를 판단한다. 동작 코너 포인트는 배경의 코너
+포인트에 의한 간섭 없이 동작을 효과적으로 캡처하는데
+사용할 수 있을 뿐만 아니라 노이즈 간섭을 줄일 수 있다.
+또한 동작 코너 포인트의 라이트 스트림만 계산해야
+하므로 동작 없는 픽셀에 대한 라이트 스트림을 계산할
+필요가 없어 계산 작업량이 크게 줄일 수 있다고 한다. 각
+동작 연결 영역에 대해 동작 연결 영역에 있는 동작 코너
+포인트의 라이트 스트림을 모두 합산하여 동작 엔트로피를
+계산한 다음, 폭력적인 동작이 존재하는지 여부는 동작
+엔트로피를 기반으로 판단한다.
+As another technique, as a technique for
+detecting violent movement in video data, a
+technique for detecting a light stream of an
+operating corner point in a video frame has been
+proposed. Next, a motion entropy is calculated
+according to the flow of light at each point of the
+motion to determine whether there is a violent
+motion. The operating corner point may not only
+be used to effectively capture the operation
+without interference by the corner point of the
+background, but may also reduce noise
+interference. In addition, since only the light
+stream of the operation corner point needs to be
+calculated, it is not necessary to calculate the
+light stream for a pixel without operation, so that
+the amount of calculation work can be greatly
+reduced. The operation entropy is calculated by
+summing all the light streams of the operation
+corner points in the operation connection area for
+each operation connection area, and then it is
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 10/30
+
+=== PAGE 11 ===
+determined whether a violent operation exists
+based on the operation entropy.
+다른 기술로, 사용자가 계획된 활동을 수행하고 피드백을
+받을 수 있는 가상 환경을 제공하는 시스템이 제안되었다.
+사용자는 특정 동작을 수행하도록 지시되고, 이 움직임은
+이미지 스트림에서 캡쳐된다. 이 이미지 스트림은
+사용자별 류먼 모델을 사용하여 추적되는 사용자의
+움직임에 근접하도록 시각화된다. 추적된 운동을 기반으로
+생체 역학량은 압력과 근육 힘과 같이 계산됩니다. 그런
+다음 피드백이 사용자에게 제공된다.
+As another technology, a system has been
+proposed that provides a virtual environment in
+which users can perform planned activities and
+receive feedback. The user is instructed to
+perform a specific operation, and this movement
+is captured in the image stream. This image
+stream is visualized to approximate the user's
+movement being tracked using a user-specific
+rheuman model. Based on tracked exercise,
+biomechanics are calculated as pressure and
+muscle force. Feedback is then provided to the
+user.
+다른 기술로, 각도를 가지고 배열된 다중 카메라 시스템을
+개발하여 인식이 필요한 공간을 서로 다른 방향으로
+분산시켜 다중 뷰 영상을 수집한다. 각 이미지는 2진수화
+되고 크기가 줄어든다. 이들은 공간 정규화된 이미지에
+대해 같은 간격으로 동일한 프레임에 시퀀스를
+리샘플링하기 위해 시간적 정규화를 적용한다. 시간
+정규화 단계 이후에, 각각의 중심 프레임 및 이웃하는
+프레임과 함께 동작 흐름이 구성된다. 다음으로, 움직임
+방향의 히스토그램이 계산되고 우세한 움직임 방향의
+강도가 히스토그램으로 변환된다. 마지막으로, 움직임의
+방향과 강도의 히스토그램에 의해 인간 움직임 패턴을
+다중 뷰로부터 획득한다.
+As another technology, a multi-camera system
+arranged at an angle is developed to distribute
+spaces requiring recognition in different directions
+to collect multi-view images. Each image is
+binarized and reduced in size. They apply
+temporal normalization to resample the sequence
+to the same frame at equal intervals for the
+spatially normalized image. After the time
+normalization step, an operating flow is
+configured with each central frame and a
+neighboring frame. Next, a histogram of the
+movement direction is calculated and the
+intensity of the dominant movement direction is
+converted into a histogram. Finally, a human
+motion pattern is obtained from multiple views by
+a histogram of the direction and intensity of the
+motion.
+이와 같이, 다양한 모니터링 기술이 개발되고 있는데,
+대부분의 방법은 복수의 카메라 또는 비전 센서가 중앙
+관제 시스템에 의하여 관리되고, 카메라로부터 수신되는
+신호에 기초하여 중앙 관제 시스템이 비정상 상황 발생
+여부를 감지하는 방식을 채택하고 있다.
+As described above, various monitoring
+technologies have been developed, and most
+methods adopt a method in which a plurality of
+cameras or vision sensors are managed by a
+central control system and the central control
+system detects whether an abnormal situation
+occurs based on a signal received from the
+cameras.
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 11/30
+
+=== PAGE 12 ===
+그러나, 비정상 상황이 발생하는 것을 미리 예측하기
+위해서는 여러 카메라센서를 통해 실시간으로 정보를
+수집하면서, 각 카메라 센서가 스스로 정보 처리를 수행할
+수 있어야 한다. 또한, 각 카메라 센서가 처리한 정보를
+서로 인접한 카메라 센서에 공유하여, 각 카메라 센서를
+통해 연속적으로 정보를 수집하여 보다 정확하게 비정상
+상황 발생 여부를 예측할 수 있어야 한다. 이를 통해,
+범죄와 폭력이 발생하기 전에 이를 미리 치안 유지 기관
+등에 경고하여 비정상 상황 발생을 최소화하도록 한다.
+However, in order to predict the occurrence of an
+abnormal situation in advance, each camera
+sensor should be able to perform information
+processing by itself while collecting information in
+real time through various camera sensors. In
+addition, information processed by each camera
+sensor should be shared with adjacent camera
+sensors, and information should be continuously
+collected through each camera sensor to more
+accurately predict whether an abnormal situation
+occurs. Through this, before a crime and violence
+occur, it is warned to a security maintenance
+institution in advance to minimize the occurrence
+of an abnormal situation.
+발명의 내용 Summary of Invention
+해결하고자 하는 과제 Problem to be solved
+본 발명은 전술한 문제점을 해결하기 위하여, 본 발명의 일
+실시예에 따라 각각 개별적으로 비정상 상황을 탐지하는
+복수의 카메라 에이전트 장치들을 통해 실시간으로 비정상
+상황 발생과 관련한 정보를 수집하고 비정상 상황 발생
+여부를 예측할 수 있게 하는 영상 기반 모니터링 시스템을
+제공하는 것에 목적이 있다.
+Disclosure technical problem in order to solve the
+above-described problems, an object of the
+present invention is to provide an image-based
+monitoring system capable of collecting
+information related to the occurrence of an
+abnormal situation in real time through a plurality
+of camera agent devices each individually
+detecting an abnormal situation according to an
+embodiment of the present invention and
+predicting whether an abnormal situation has
+occurred.
+다만, 본 실시예가 이루고자 하는 기술적 과제는 상기된
+바와 같은 기술적 과제로 한정되지 않으며, 또 다른 기술적
+과제들이 존재할 수 있다.
+However, the technical problem to be achieved
+by the present embodiment is not limited to the
+above-described technical problem, and other
+technical problems may exist.
+과제해결 수단 Means to solve the problem
+상기한 기술적 과제를 달성하기 위한 기술적 수단으로서
+본 발명의 일 실시예에 따른 비정상 상황을 예측하는 영상
+기반 모니터링 시스템은, 데이터 통신을 통해 서로 정보를
+공유하는 복수의 카메라 에이전트 장치들을 포함하되,
+According to an embodiment of the present
+invention, an image-based monitoring system for
+predicting an abnormal situation comprises: a
+camera module including a plurality of camera
+· ·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 12/30
+
+=== PAGE 13 ===
+상기 카메라 에이전트 장치는 영상을 촬영하는 카메라
+모듈; 데이터 통신을 수행하는 통신 모듈; 촬영된 영상에
+기반하여 비정상 상황을 탐지하는 프로그램이 탑재된
+메모리; 및 상기 프로그램을 실행하는 프로세서를
+포함하고, 상기 프로세서는 상기 프로그램의 실행에 따라,
+촬영된 영상에서 키 프레임들을 추출하고, 추출된 키
+프레임에 대하여 객체 분석을 수행하고, 각 키 프레임에서
+분석된 각 객체들을 각 객체 단위로 시간 순서에 따라
+그룹핑한 각 객체의 시퀀스를 기계 학습 모델에 입력하여
+각 객체의 행동을 결정하고, 상기 키 프레임들 중 동일
+객체가 등장하는 키 프레임들을 시간 순서에 따라
+그룹핑한 키 프레임의 시퀀스를 상기 기계 학습 모델에
+입력하여 상기 각 객체의 행동이 이루어지는 문맥을
+결정하고, 상기 각 객체의 행동과 상기 결정된 문맥 정보의
+매칭 정도에 따라 비정상 상황이 발생할지 여부에 대한
+예측 결과를 생성하고, 상기 예측 결과에 따라 경고 메시지
+출력 여부를 결정한다.
+agent devices sharing information with each other
+through data communication, wherein the camera
+agent device photographs an image The
+communications module performing data
+communications The memory in which the
+program which is based on in the image recording
+and detects the abnormal situation is loaded And
+a processor executing the program. the processor
+extracts key frames from a photographed image
+in accordance with the execution of the program,
+performs object analysis on the extracted key
+frame, inputs a sequence of each object, which is
+obtained by grouping each object analyzed in
+each key frame according to a time order in units
+of each object, into a machine learning model to
+determine an action of each object, inputs a
+sequence of a key frame, which is obtained by
+grouping key frames in which the same object
+appears among the key frames according to a
+time order, into the machine learning model to
+determine a context in which the action of each
+object is performed, generates a prediction result
+on whether an abnormal situation will occur
+according to a matching degree of the action of
+each object and the determined context
+information, and determines whether to output a
+warning message according to the prediction
+result.
+또한, 본 발명의 다른 일 실시예에 따른 비정상 상황을
+예측하는 영상 기반 모니터링 시스템을 이용한 영상 기반
+모니터링 방법은 (a) 상기 영상 기반 모니터링 시스템에
+포함된 제 1 카메라 에이전트 장치가 촬영된 영상에서 키
+프레임들을 추출하는 단계, (b) 추출된 키 프레임에 대하여
+객체 분석을 수행하고, 각 키 프레임에서 분석된 각
+객체들을 각 객체 단위로 시간 순서에 따라 그룹핑한 각
+객체의 시퀀스를 기계 학습 모델에 입력하여 각 객체의
+행동을 결정하는 단계, (c) 상기 키 프레임들 중 동일
+객체가 등장하는 키 프레임들을 시간 순서에 따라
+그룹핑한 키 프레임의 시퀀스를 상기 기계 학습 모델에
+입력하여 상기 각 객체의 행동이 이루어지는 문맥을
+결정하는 단계, (d)상기 각 객체의 행동과 상기 결정된
+문맥 정보의 매칭 정도에 따라 비정상 상황이 발생할지
+According to another aspect of the present
+invention, there is provided an image-based
+monitoring method using an image-based
+monitoring system for predicting an abnormal
+situation, the method including: (a) extracting, by
+a first camera agent device included in the
+image-based monitoring system, key frames from
+a captured image; (b) performing object analysis
+on the extracted key frames, inputting, to a
+machine learning model, a sequence of each
+object in which each object analyzed in each key
+frame is grouped in chronological order in units of
+each object to determine a behavior of each
+object; (c) inputting, to the machine learning
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 13/30
+
+=== PAGE 14 ===
+여부에 대한 예측 결과를 생성하는 단계 및 (e) 상기 예측
+결과에 따라 경고 메시지 출력 여부를 결정하는 단계를
+포함한다.
+model, a sequence of key frames in which key
+frames in which the same object appears among
+the key frames are grouped in chronological order
+to determine a context in which the behavior of
+each object is performed; (d) generating a
+prediction result as to whether an abnormal
+situation will occur according to a degree of
+matching between the behavior of each object
+and the determined context information; and (e)
+determining whether to output a warning
+message according to the prediction result.
+발명의 효과 Effects of the Invention
+전술한 본 발명의 과제 해결 수단에 의하면, 서로
+개별적으로 영상을 촬영하고 그로부터 비정상 상황을
+예측하는 복수의 카메라 에이전트 장치를 통해 비정상
+상황의 발생 여부를 보다 신속하게 예측할 수 있다. 특히,
+각각의 카메라 에이전트 장치는 자신이 획득한 비정상
+상황에 대한 정보를 인접한 카메라 에이전트 장치와
+공유하고 이를 이용하여 비정상 상황을 예측하게
+함으로써, 보다 정확하고 신속한 의사 결정이 가능하도록
+한다.
+According to the above-described problem
+solving means of the present invention, it is
+possible to more quickly predict whether an
+abnormal situation occurs through a plurality of
+camera agent devices that individually capture
+images and predict an abnormal situation
+therefrom. In particular, each camera agent
+device shares information on an abnormal
+situation acquired by the camera agent device
+with an adjacent camera agent device and
+predicts the abnormal situation using the
+information, thereby enabling more accurate and
+quick decision-making.
+발명을 실시하기 위한 구체적인 내용Description of Embodiments
+아래에서는 첨부한 도면을 참조하여 본 발명이 속하는
+기술 분야에서 통상의 지식을 가진 자가 용이하게 실시할
+수 있도록 본 발명의 실시예를 상세히 설명한다. 그러나 본
+발명은 여러 가지 상이한 형태로 구현될 수 있으며
+여기에서 설명하는 실시예에 한정되지 않는다. 그리고
+도면에서 본 발명을 명확하게 설명하기 위해서 설명과
+관계없는 부분은 생략하였으며, 명세서 전체를 통하여
+유사한 부분에 대해서는 유사한 도면 부호를 붙였다.
+Hereinafter, embodiments of the present
+invention will be described in detail with reference
+to the accompanying drawings so that those
+skilled in the art to which the present invention
+pertains may easily implement the present
+invention. The present invention may, however, be
+embodied in many different forms and should not
+be construed as limited to the embodiments set
+forth herein. In addition, in order to clearly
+describe the present invention in the drawings,
+parts irrelevant to the description are omitted,
+· ·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 14/30
+
+=== PAGE 15 ===
+and like reference numerals are assigned to like
+parts throughout the specification.
+명세서 전체에서, 어떤 부분이 다른 부분과 "연결"되어
+있다고 할 때, 이는 "직접적으로 연결"되어 있는 경우뿐
+아니라, 그 중간에 다른 소자를 사이에 두고 "전기적으로
+연결"되어 있는 경우도 포함한다. 또한 어떤 부분이 어떤
+구성요소를 "포함"한다고 할 때, 이는 특별히 반대되는
+기재가 없는 한 다른 구성요소를 제외하는 것이 아니라
+다른 구성요소를 더 포함할 수 있는 것을 의미하며, 하나
+또는 그 이상의 다른 특징이나 숫자, 단계, 동작, 구성요소,
+부분품 또는 이들을 조합한 것들의 존재 또는 부가
+가능성을 미리 배제하지 않는 것으로 이해되어야 한다.
+Throughout the specification, when an element is
+referred to as being “connected” to another
+element, it may be “directly connected” or
+“electrically connected” with another element
+interposed therebetween. It will be further
+understood that when an element is referred to as
+being “included” or “including” an element, it
+does not exclude other elements but may further
+include other elements unless otherwise
+specified, and does not preclude the presence or
+addition of one or more other features, numbers,
+steps, operations, elements, components, or
+combinations thereof.
+이하의 실시예는 본 발명의 이해를 돕기 위한 상세한
+설명이며, 본 발명의 권리 범위를 제한하는 것이 아니다.
+따라서 본 발명과 동일한 기능을 수행하는 동일 범위의
+발명 역시 본 발명의 권리 범위에 속할 것이다.
+The following examples are detailed descriptions
+for helping understanding of the present
+invention, and do not limit the scope of the
+present invention. Therefore, the invention of the
+same range performing the same function as the
+present invention will also fall within the scope of
+the present invention.
+이하 첨부된 도면을 참고하여 본 발명의 일 실시예를
+상세히 설명하기로 한다.
+Hereinafter, embodiments of the present
+invention will be described in detail with reference
+to the accompanying drawings.
+도 1은 본 발명의 일 실시예에 따른 비정상 상황을
+예측하는 영상 기반 모니터링 시스템을 도시한 도면이다.
+1 is a diagram illustrating an image-based
+monitoring system for predicting an abnormal
+situation according to an embodiment of the
+present invention.
+영상 기반 모니터링 시스템(10)은 데이터 통신을 통해
+서로 정보를 공유하는 복수의 카메라 에이전트 장치(100)
+들을 포함한다. 각각의 카메라 에이전트 장치(100)는
+비정상 상황 발생 여부를 예측하고, 그에 따라 데이터
+통신을 통해 치안 기관 관제 시스템(200)에 경고 메시지를
+전송한다. 이때, 치안 기관 관제 시스템(200)은 각각의
+카메라 에이전트 장치(100)의 경고 메시지를 수신하여,
+경고 메시지를 출력한 카메라 에이전트 장치(100)와
+인접한 치안 인력 또는 차량 등에 경고 메시지를 전달하여
+The image-based monitoring system 10 includes
+a plurality of camera agent devices 100 that
+share information with each other through data
+communication. Each camera agent device 100
+predicts whether an abnormal situation occurs,
+and accordingly, transmits a warning message to
+the security agency control system 200 through
+data communication. In this case, the security
+agency control system 200 may receive a warning
+message of each camera agent device 100 and
+transmit a warning message to a security
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 15/30
+
+=== PAGE 16 ===
+그 주변에 비정상 상황이 발생할 것이라는 메시지를
+전달할 수 있다.
+personnel or a vehicle adjacent to the camera
+agent device 100 outputting the warning message
+to transmit a message indicating that an abnormal
+situation will occur around the security personnel
+or the vehicle.
+도 2는 본 발명의 일 실시예에 따른 카메라 에이전트
+장치의 구성을 도시한 도면이다.
+2 is a diagram showing the configuration of a
+camera agent device according to an embodiment
+of the present invention.
+각각의 카메라 에이전트 장치(100)는 프로세서(110),
+메모리(120), 카메라 모듈(130) 및 통신 모듈(140)을
+포함한다.
+Each camera agent device 100 includes a
+processor 110, a memory 120, a camera module
+130, and a communication module 140.
+메모리(120)는 촬영된 영상에 기반하여 비정상 상황을
+탐지하는 프로그램을 저장한다. 또한, 메모리(120)는
+카메라 모듈(130)을 통해 촬영된 영상을 저장할 수 있다.
+또한, 메모리(120)는 프로세서(110)가 처리하는 데이터를
+일시적 또는 영구적으로 저장하는 기능을 수행한다.
+The memory(120) stores the program which is
+based on in the image recording and detects the
+abnormal situation. In addition, the memory 120
+may store an image captured through the camera
+module 130. In addition, the memory 120
+performs a function of temporarily or permanently
+storing data processed by the processor 110.
+여기서, 메모리(120)는 휘발성 저장 매체(volatile
+storage media) 또는 비휘발성 저장 매체(non-volatile
+storage media)를 포함할 수 있으나, 본 발명의 범위가
+이에 한정되는 것은 아니다. 컴퓨터 프로그램이 저장되는
+메모리(120)와 카메라 영상이 저장되는 메모리(120)의
+구성은 상이할 수 있다. 예를 들어, 컴퓨터 프로그램은
+비휘발성 저장 매체에 저장되어 있다가, 카메라 에이전트
+장치(100)가 구동됨에 따라 RAM과 같은 휘발성 저장
+매체로 이동될 수 있다. 또한, 카메라 영상은 HDD와 같은
+대용량 스토리지 장치에 저장되었다가, 이후 설명할 영상
+분석 등을 위해 휘발성 저장 매체 또는 비휘발성 저장 매체
+등에 저장될 수 있다.
+Here, the memory 120 may include a volatile
+storage medium or a non-volatile storage
+medium, but the scope of the present invention is
+not limited thereto. The configuration of the
+memory 120 in which the computer program is
+stored and the memory 120 in which the camera
+image is stored may be different. For example,
+the computer program may be stored in a non-
+volatile storage medium and then moved to a
+volatile storage medium such as ram as the
+camera agent device 100 is driven. In addition,
+the camera image may be stored in a large-
+capacity storage device such as an hdd, and may
+be stored in a volatile storage medium, a non-
+volatile storage medium, or the like for image
+analysis to be described later.
+프로세서(110)는 비정상 상황을 예측하는 프로그램을
+실행함에 따라, 비정상 상황 예측 방법을 수행한다. 이때,
+비정상 상황은 폭력 상황, 시위 상황, 테러 상황 또는
+화재나 기타 재난 상황 등 일상적으로는 나타나지 않는
+상황을 의미한다. 프로세서(110)는 카메라 모듈(130)을
+통해 촬영된 영상에서 키 프레임들을 추출하고, 추출된 키
+As the processor 110 executes a program for
+predicting an abnormal situation, the processor
+110 performs an abnormal situation prediction
+method. At this time, an abnormal situation refers
+to a situation that does not appear on a daily
+basis, such as a violent situation, a demonstration
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 16/30
+
+=== PAGE 17 ===
+프레임에 대하여 객체 분석을 수행하고, 각 키 프레임에서
+분석된 각 객체들을 각 객체 단위로 그룹핑한 각 객체의
+시퀀스를 기계 학습 모델에 입력하여 각 객체의 행동을
+결정하고, 상기 키 프레임들을 그룹핑한 키 프레임의
+시퀀스를 상기 기계 학습 모델에 입력하여 상기 각 객체의
+행동이 이루어지는 문맥을 결정하고, 상기 각 객체의
+행동과 상기 결정된 문맥 정보를 기초로 비정상 상황이
+발생할지 여부에 대한 예측 결과를 생성하고, 예측 결과에
+따라 경고 메시지 출력 여부를 결정한다. 프로세서(110)가
+수행하는 각각의 동작에 대해서는 추후 보다 상세히
+살펴보기로 한다.
+situation, a terrorist situation, or a fire or other
+disaster situation. The processor 110 extracts key
+frames from an image captured through the
+camera module 130, performs object analysis on
+the extracted key frame, inputs a sequence of
+each object, which is obtained by grouping each
+object analyzed in each key frame in units of each
+object, into a machine learning model to
+determine an action of each object, inputs a
+sequence of key frames, which is obtained by
+grouping the key frames, into the machine
+learning model to determine a context in which
+the action of each object is performed, generates
+a prediction result as to whether an abnormal
+situation will occur based on the action of each
+object and the determined context information,
+and determines whether to output a warning
+message according to the prediction result. Each
+operation performed by the processor 110 will be
+described in more detail later.
+여기서, 프로세서(120)는 프로세서(processor)와 같이
+데이터를 처리할 수 있는 모든 종류의 장치를 포함할 수
+있다. 여기서, '프로세서(processor)'는, 예를 들어
+프로그램 내에 포함된 코드 또는 명령으로 표현된 기능을
+수행하기 위해 물리적으로 구조화된 회로를 갖는,
+하드웨어에 내장된 데이터 처리 장치를 의미할 수 있다.
+이와 같이 하드웨어에 내장된 데이터 처리 장치의 일
+예로써, 마이크로프로세서(microprocessor),
+중앙처리장치(central processing unit: CPU), 프로세서
+코어(processor core), 멀티프로세서(multiprocessor),
+ASIC(application-specific integrated circuit),
+FPGA(field programmable gate array) 등의 처리
+장치를 망라할 수 있으나, 본 발명의 범위가 이에 한정되는
+것은 아니다.
+Here, the processor 120 may include all types of
+devices capable of processing data, such as a
+processor. Here, the term “processor” may refer
+to, for example, a data processing device
+embedded in hardware and having a physically
+structured circuit to perform a function
+represented by code or instructions included in a
+program. Examples of the data processing device
+embedded in the hardware may include
+processing devices such as a microprocessor, a
+central processing unit (cpu), a processor core, a
+multiprocessor, an application-specific integrated
+circuit (asic), a field programmable gate array
+(fpga), and the like, but the scope of the present
+invention is not limited thereto.
+카메라 모듈(130)은 CCTV 등과 같이, 미리 설정된 감시
+영역 범위 내에서 소정 각도만큼 좌우측 또는 상하
+방향으로 회전 이동하면서 영상을 촬영한다. 각각의
+카메라 모듈(130)을 통해 촬영된 영상은 프로세서(110)에
+의하여 처리되어 비정상 상황을 예측하는데 사용된다.
+The camera module 130 captures an image while
+rotating left and right or up and down by a
+predetermined angle within a preset monitoring
+area range, such as a cctv. An image captured
+through each camera module 130 is processed by
+the processor 110 and used to predict an
+abnormal situation. The image capturing or
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 17/30
+
+=== PAGE 18 ===
+프로세서(110)에 의하여 카메라 모듈(130)의 영상
+촬영이나 회전 동작이 제어된다.
+rotating operation of the camera module 130 is
+controlled by the processor 110.
+또한, 카메라 에이전트 장치(100)는 GPS와 같은 위치
+정보 센서를 포함할 수 있으며, 프로세서(110)는 이를
+이용하여 자신의 위치 정보를 확인할 수 있다.
+In addition, the camera agent device 100 may
+include a location information sensor such as a
+gps, and the processor 110 may check its
+location information using the location information
+sensor.
+통신 모듈(140)은 주변의 카메라 에이전트 장치와 데이터
+통신이 이루어지도록 하는 통신 인터페이스를 제공한다.
+통신 모듈(140)은 프로세서(110)를 통해 결정된 문맥의
+확률값, 예측 결과에 대한 확률값을 인접한 카메라
+에이전트 장치에 전달하고, 각각의 카메라 에이전트
+장치가 주변의 카메라 에이전트 장치에서 수신한 문맥의
+확률값 및 예측 결과의 확률값을 추가적으로 고려하여,
+예측 결과에 대한 확률값을 재산출하도록 한다.
+The communications module(140) offers the
+communications interface in which the
+neighboring camera agent apparatus and data
+communications accomplish. The communication
+module 140 transmits the probability value of the
+context determined through the processor 110
+and the probability value for the prediction result
+to the adjacent camera agent device, and allows
+each camera agent device to recalculate the
+probability value for the prediction result by
+additionally considering the probability value of
+the context received from the neighboring camera
+agent device and the probability value of the
+prediction result.
+여기서, 통신 모듈(110)은 다른 네트워크 장치와 유무선
+연결을 통해 제어 신호 또는 데이터 신호와 같은 신호를
+송수신하기 위해 필요한 하드웨어 및 소프트웨어를
+포함하는 장치일 수 있다.
+Here, the communication module 110 may be a
+device including hardware and software
+necessary for transmitting and receiving a signal
+such as a control signal or a data signal through
+wired/wireless connection with another network
+device.
+도 3은 본 발명의 일 실시예에 따른 카메라 에이전트
+장치에서 수행되는 비정상 상황 예측 방법을 도시한
+순서도이다.
+3 is a flowchart illustrating a method of predicting
+an abnormal situation performed by a camera
+agent device according to an embodiment of the
+present invention.
+먼저, 카메라 에이전트 장치(100)는 카메라 모듈(130)을
+통해 촬영된 영상에서 키 프레임을 추출한다(S310). 이때,
+카메라 에이전트 장치(100)는 촬영된 영상 중 배경 화면
+외에 적어도 하나 이상의 객체가 등장하는 경우를 키
+프레임으로 추출할 수 있다. 각각의 카메라 에이전트 장치
+(100)가 설치되는 장소는 모두 상이한데, 각 카메라 모듈
+(130)에게 할당되는 감시영역은 고정된다. 따라서, 각
+카메라 에이전트 장치(100)는 설치 이후 감시영역을
+촬영하고 학습하는 과정에서, 객체가 등장하지 않는 배경
+First, the camera agent apparatus 100 extracts a
+key frame from an image captured through the
+camera module 130 (s310). In this case, the
+camera agent apparatus 100 may extract a case
+in which at least one object appears in addition to
+the background screen among the captured
+images as a key frame. The places where each
+camera agent device 100 is installed are all
+different, and the monitoring area allocated to
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 18/30
+
+=== PAGE 19 ===
+화면을 학습할 수 있고, 이후 객체의 등장 여부를 별도로
+검출할 수 있다. 이때, 객체는 주로 움직이는 물체로서
+사람, 동물 또는 자동차 등을 포함하며, 사람 등에 의하여
+운반되는 물건 등도 객체가 될 수 있다.
+each camera module 130 is fixed. Accordingly,
+each camera agent apparatus 100 may learn a
+background screen in which an object does not
+appear in a process of photographing and
+learning a monitoring area after installation, and
+then separately detect whether an object
+appears. In this case, the object is mainly a
+moving object, and may include a person, an
+animal, a car, or the like, and an object carried by
+a person or the like may also be an object.
+그리고, 추출된 키 프레임에서 각각의 객체를 분석하고
+(S320), 각 객체들을 각 객체 단위로 그룹핑한 각 객체의
+시퀀스를 추출한다(S340). 키 프레임 내에는 복수의
+객체가 존재할 수 있고, 이들을 서로 구분하여 각각의
+객체를 추출할 수 있다. 그리고, 이와 같이 추출된
+객체들이 촬영 영상에서 연속적으로 등장할 수 있는데,
+이들 객체를 시간 순서에 따라 그룹핑하여 각 객체의
+시퀀스를 생성할 수 있다.
+Then, each object is analyzed from the extracted
+key frame (s320), and a sequence of each object
+obtained by grouping each object in units of each
+object is extracted (s340). A plurality of objects
+may exist in the key frame, and each object may
+be extracted by distinguishing them from each
+other. In addition, the extracted objects may
+continuously appear in the captured image, and a
+sequence of each object may be generated by
+grouping these objects in chronological order.
+또한, 객체를 분석하기 전의 각 키프레임을 중심으로 키
+프레임의 시퀀스를 생성한다(S330). 즉, 키 프레임들 중
+동일 객체가 등장하는 키 프레임들을 시간 순서에 따라
+그룹핑하여 키 프레임의 시퀀스를 생성할 수 있다.
+In addition, a sequence of key frames is
+generated around each key frame before
+analyzing the object (s330). That is, key frames in
+which the same object appears among key
+frames may be grouped in chronological order to
+generate a sequence of key frames.
+도 9는 본 발명의 일 실시예에 따른 영상의 시퀀스를
+식별하는 과정을 설명하기 위한 도면이다.
+9 is a diagram for explaining a process of
+identifying an image sequence according to an
+embodiment of the present invention.
+본 발명에서는 연속적으로 이어지는 키 프레임 단위로 각
+객체의 특징을 추출하고, 객체의 행동을 특정하기 위해
+컨볼루션 뉴럴 네트워크를 이용한 학습 모델을 사용한다.
+특히, 시간적으로 서로 연속되는 키 프레임들을 입력으로
+하고, 각 영상들의 시간적인 옵티컬 플로우를 특징으로
+추출하는 컨볼루션 뉴럴 네트워크를 설계한다. 옵티컬
+플로우는 추적된 타겟의 동작을 학습하는데 도움이 되는
+일련의 연속 프레임에서 객체의 움직임 변경을 추출할 수
+있도록 한다. 한편, 옵티컬 플로우를 특징으로 추출하는
+컨볼루션 뉴럴 네트워크의 구성은 종래 기술에
+해당하므로, 이에 대한 상세한 설명은 생략하기로 한다.
+In the present invention, features of each object
+are extracted in units of continuously connected
+key frames, and a training model using a
+convolutional neural network is used to specify
+the behavior of the object. In particular, a
+convolutional neural network is designed in which
+key frames that are temporally continuous with
+each other are used as inputs and temporal
+optical flows of respective images are extracted
+as features. The optical flow allows the
+movement change of the object to be extracted
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 19/30
+
+=== PAGE 20 ===
+from a series of consecutive frames that help
+learn the movement of the tracked target.
+Meanwhile, since the configuration of the
+convolutional neural network for extracting optical
+flow as a feature corresponds to the related art, a
+detailed description thereof will be omitted.
+이와 같이 추출된, 각 객체의 시간적 특징을 키 프레임의
+시간 순서에 따라 각각 수신하여 처리하는 복수의
+LSTM에 전달하여, 각 객체들의 동작을 식별할 수 있다.
+즉, 각 객체의 시퀀스가 나타내는 행위로서 보행, 달리기,
+자전거 타기, 운전 등을 서로 구분하여 출력할 수 있게
+된다.
+The extracted temporal features of each object
+may be transmitted to a plurality of lstms that
+receive and process the extracted temporal
+features of each object according to the temporal
+order of the key frame, respectively, to identify
+the operation of each object. That is, walking,
+running, bicycle riding, driving, and the like may
+be separately output as an action indicated by the
+sequence of each object.
+도 9와 같은 구성을 통해, 각 객체의 시퀀스 또는 키
+프레임의 시퀀스에 대하여 특징 정보를 추출하고, 각
+객체의 시퀀스가 나타내는 행동을 결정할 수 있다. 또한,
+각 객체의 행동이 이루어지는 문맥을 결정할 수 있다.
+이때, 각 객체의 행동은 확률값의 형태로 산출되는데 각
+객체의 시퀀스가 나타내는 행동들 중 그 확률값이 가장 큰
+행동을 객체의 행동으로서 결정한다. 또한, 문맥을 결정할
+때, 각 문맥별로 산출된 확률값에 기초하여 각 객체의
+시퀀스가 나타내는 객체의 행동이 이루어지는 문맥을
+결정한다.
+Through the configuration as shown in fig. 9,
+feature information may be extracted from a
+sequence of each object or a sequence of a key
+frame, and an action indicated by the sequence of
+each object may be determined. In addition, the
+context in which the action of each object is
+performed may be determined. In this case, the
+behavior of each object is calculated in the form
+of a probability value, and the behavior having the
+largest probability value among the behaviors
+represented by the sequence of each object is
+determined as the behavior of the object. In
+addition, when determining the context, the
+context in which the action of the object indicated
+by the sequence of each object is performed is
+determined based on the probability value
+calculated for each context.
+다시 도 3을 참조하면, 키 프레임의 시퀀스를 기초로 각
+객체의 행동이 이루어지는 문맥을 결정할 수 있다(S350).
+앞서 설명한 바와 같이, 컨볼루션 뉴럴 네트워크를 통해 키
+프레임의 시퀀스의 옵티컬 플로우의 특징을 추출하고,
+이를 복수의 LSTM에 전달하여, 키 프레임 시퀀스의
+문맥을 서로 식별할 수 있다. 이때, 복수의 후보 문맥중
+확률값이 가장 크게 나타나는 문맥을 키프레임 시퀀스의
+문맥으로서 결정한다.
+Referring back to fig. 3, a context in which an
+action of each object is performed may be
+determined based on a sequence of key frames
+(s350). As described above, features of the
+optical flow of the sequence of key frames may
+be extracted through the convolutional neural
+network, and the extracted features may be
+transmitted to a plurality of lstms to identify the
+context of the sequence of key frames with each
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 20/30
+
+=== PAGE 21 ===
+other. In this case, the context in which the
+probability value is the largest among the plurality
+of candidate contexts is determined as the
+context of the keyframe sequence.
+문맥 정보는 각 객체의 행동이 이루어지는 주변 상황에
+대한 정보를 포함한다. 예를 들면, 각 객체의 행동이
+이루어지는 장소나, 시간적인 상황을 키 프레임의 시퀀스
+단위로 식별하는 것이다.
+The contextual information includes information
+on the surrounding situation in which the behavior
+of each object is performed. For example, a place
+where the action of each object is performed or a
+temporal situation is identified in units of a
+sequence of key frames.
+그리고, 각 객체의 시퀀스에 의하여 식별되는 각 객체의
+행동과 키 프레임의 시퀀스에 의하여 결정되는 문맥
+정보를 기초로 비정상 상황을 예측한다(S360). 즉, 각
+객체의 행동이 문맥 정보를 고려했을 때 행동에
+해당하는지 비정상적인 행동에 해당하는지 여부를
+확률값의 형태로 산출한다. 예를 들어, 학습 데이터에
+비추어 비교해 볼 때, 각 객체의 행동이 문맥 정보와
+매칭될 확률이 높은 행동인 경우에는 정상적인 행동으로
+판단하고, 그렇지 않은 경우에는 비정상적인 행동으로
+판단하게 된다. 만약, 비정상 행동으로 판단되는 경우에는
+경고 메시지를 출력한다.
+Then, an abnormal situation is predicted based on
+the behavior of each object identified by the
+sequence of each object and the context
+information determined by the sequence of the
+key frame (s360). That is, when the behavior of
+each object considers contextual information, it is
+calculated in the form of a probability value
+whether the behavior corresponds to a behavior
+or an abnormal behavior. For example, in
+comparison in light of the learning data, when the
+behavior of each object is a behavior with a high
+probability of matching contextual information, it
+is determined as a normal behavior, otherwise it
+is determined as an abnormal behavior. If it is
+determined as an abnormal behavior, a warning
+message is output.
+문맥 정보는 각 객체의 행동을 인식하는 데 중요한 역할을
+수행하는 정보이다. 예를 들어, 객체가 수행하는 달리기
+활동은 문맥 정보에 따라 정상으로 결정될 수도 있고,
+비정상으로 인식될 수도 있다. 키 프레임 시퀀스에 의하여
+인식되는 문맥 정보가 조깅 코스나 산책로 등과 같이
+달리기가 일상적으로 이루어지는 환경이라면, 객체가
+수행하는 달리기는 체육활동의 일부로서 정상적인
+행동으로 고려될 수 있다. 그러나, 키 프레임 시퀀스에
+의하여 인식되는 문맥 정보가 혼잡한 도로변이나 길거리와
+같은 환경이라면, 객체가 수행하는 달리기는 수상한
+행동으로서 인식될 수 있다.
+Contextual information is information that plays
+an important role in recognizing the behavior of
+each object. For example, the running activity
+performed by the object may be determined as
+normal or abnormal according to contextual
+information. If the contextual information
+recognized by the key frame sequence is an
+environment in which running is routinely
+performed, such as a jogging course or a
+promenade, the running performed by the object
+may be considered as a normal action as part of a
+sports activity. However, if the contextual
+information recognized by the key frame
+sequence is an environment such as a congested
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 21/30
+
+=== PAGE 22 ===
+roadside or a street, the running performed by the
+object may be recognized as a suspicious action.
+도 4는 본 발명의 일 실시예에 따른 카메라 에이전트
+장치의 정보 공유 과정을 설명하기 위한 도면이다.
+4 is a diagram illustrating an information sharing
+process of a camera agent device according to an
+embodiment of the present invention.
+각각의 카메라 에이전트 장치는 카메라 원본 영상을
+이용하여, 앞서 도 3을 통해 설명한, 키 프레임 추출, 객체
+분석, 객체의 활동 분석, 문맥 분석, 비정상 상황 예측 및
+알림 메시지 전달 등의 동작을 순차적으로 수행한다. 이때,
+각 단계에서 처리되는 정보는 도 4에 도시된 바와 같이,
+계층화하여 표시될 수 있는데, 각 계층별로 추출되는
+정보는 중요도는 높아지면서, 그 용량은 작아지게 된다. 본
+발명에서는 실시간으로 정보를 공유할 수 있도록 하기
+위해, 정보의 중요성은 높으면서도 용량은 작은 상위
+계층의 정보를 인접한 카메라 에이전트 장치에 공유한다.
+Each camera agent device sequentially performs
+operations, such as key frame extraction, object
+analysis, object activity analysis, context analysis,
+abnormal situation prediction, and notification
+message delivery, described above with
+reference to fig. 3, using the original camera
+image. In this case, the information processed in
+each step may be displayed in layers as shown in
+fig. 4, and the information extracted for each layer
+has an increased importance and a reduced
+capacity. In the present invention, in order to
+share information in real time, information of an
+upper layer having high importance and small
+capacity is shared with an adjacent camera agent
+device.
+즉, 객체의 행동이 이루어졌던 상황을 분석한 문맥 분석
+결과, 객체의 행동이 비정상 상황에 해당하는지 여부를
+나타내는 의사 결정 결과 및 경고 메시지를 출력하였는지
+여부에 대한 정보를 실시간으로 주변에 인접한 카메라
+에이전트 장치에 공유한다. 이때, 주변에 인접한 카메라
+에이전트 장치의 범위는 각 카메라 모듈에 대하여 설정된
+감시 영역 중 적어도 일부를 함께 촬영하는 관계에 있는
+카메라 에이전트 장치로 설정할 수 있다. 이와 같이 서로
+인접한 카메라 에이전트 장치로 문맥 분석을 수행한
+결과인 각 문맥의 확률값, 비정상 상황인지 여부를
+나타내는 예측 결과에 대한 확률값, 예측 결과에 대한
+확률값이 임계값 이상이어서 경고 메시지를 출력한 경우
+경고 메시지를 출력하였다는 정보 등을 함께 공유한다.
+That is, as a result of context analysis analyzing a
+situation in which the behavior of the object is
+performed, a decision-making result indicating
+whether the behavior of the object corresponds
+to an abnormal situation and information on
+whether a warning message has been output are
+shared with neighboring camera agent devices in
+real time. In this case, the range of the camera
+agent device adjacent to the periphery may be
+set as a camera agent device having a
+relationship of photographing at least a part of
+the monitoring area set for each camera module
+together. As described above, a probability value
+of each context, which is a result of performing
+context analysis with adjacent camera agent
+devices, a probability value for a prediction result
+indicating whether a situation is abnormal, and
+information indicating that a warning message is
+output when the warning message is output
+because the probability value for the prediction
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 22/30
+
+=== PAGE 23 ===
+result is equal to or greater than a threshold value
+are shared together.
+이때, 각 카메라 에이전트 장치는 공유하는 정보를 시간
+스탬프, 자신의 식별 정보 또는 자신의 위치 정보 등을
+포함하는 메타 데이터와 함께 묶어 인접한 카메라
+에이전트 장치로 전송할 수 있다. 만약, 비정상 상황이
+서로 인접한 제 1 내지 제 3 카메라 에이전트 장치를
+순차적으로 경유하여 일어난다면, 제 1 시점에 제 1
+카메라 에이전트 장치가 산출하여 제 2 카메라 에이전트
+장치에 제공한 정보는 제 2 시점에 모니터링을 수행하는
+제 2 카메라 에이전트 장치에 영향을 줄 수 있고, 이는
+보다 정확한 정보를 산출하는데 도움이 될 수 있다. 특히,
+위치 정보나 시간 스탬프 정보에 기초하여 위치적으로나
+시간적으로 서로 가까이 발생한 객체의 행동은 동일한
+객체에 의하여 발생한 행동으로 취급하여, 각 객체의
+행동에 대하여 비정상 상황인지 여부를 결정할 수 있도록
+한다.
+In this case, each camera agent device may
+transmit the shared information to an adjacent
+camera agent device by grouping the shared
+information together with metadata including a
+time stamp, its own identification information, its
+own location information, or the like. If the
+abnormal situation sequentially passes through
+the first to third camera agent devices adjacent to
+each other, the information calculated by the first
+camera agent device at the first time point and
+provided to the second camera agent device may
+affect the second camera agent device that
+performs monitoring at the second time point,
+which may help calculate more accurate
+information. In particular, actions of objects that
+are located or temporally close to each other
+based on location information or time stamp
+information are treated as actions generated by
+the same object, so that it is possible to
+determine whether the actions of each object are
+in an abnormal situation.
+도 5는 본 발명의 일 실시예에 따른 카메라 에이전트
+장치의 정보 공유 과정을 설명하기 위한 도면이다.
+5 is a diagram illustrating an information sharing
+process of a camera agent device according to an
+embodiment of the present invention.
+도시된 바와 같이, 제 1 카메라 에이전트 장치는
+자체적으로 객체 분석에 따른 객체의 행동 분석, 문맥 분석
+및 비정상 상황인지 여부를 예측하는 예측 결과를
+출력한다. 이때, 제 1 카메라 에이전트와 인접한 제 2
+카메라 에이전트 장치에서 전송된 문맥 분석 결과, 비정상
+상황 예측 결과 및 경고 메시지 출력 정보를 수신하고,
+이를 함께 고려하여 예측 결과에 대한 확률값을 재산출할
+수 있다.
+As illustrated, the first camera agent device
+outputs a prediction result for analyzing behavior
+of an object, analyzing context, and predicting
+whether the object is in an abnormal situation by
+itself according to object analysis. In this case, as
+a result of the context analysis transmitted from
+the second camera agent device adjacent to the
+first camera agent, the abnormal situation
+prediction result and the warning message output
+information may be received, and a probability
+value for the prediction result may be
+recalculated in consideration thereof.
+보다 상세히 설명하면, 제 1 카메라 에이전트 장치는
+자신이 산출한 문맥 분석 결과와 제 2 카메라 에이전트
+In more detail, the first camera agent device
+compares the context analysis result calculated
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 23/30
+
+=== PAGE 24 ===
+장치가 산출한 문맥 분석 결과를 비교하고, 비교 결과에
+따라 객체의 행동이 이루어지는 상황을 나타내는 문맥을
+결정한다. 예를 들어, 제 1 카메라 에이전트 장치는 키
+프레임의 시퀀스를 기초로 A 라는 문맥(확률 75%), B
+라는 문맥(확률 70%), C 라는 문맥(50%) 등의 순서로 각
+문맥의 확률값을 산출하였고, 제 2 카메라 에이전트
+장치는 키 프레임의 시퀀스를 기초로 B 라는 문맥(확률
+80%), A 라는 문맥(확률 60%), C 라는 문맥(40%) 등의
+순서로 각 문맥의 확률값을 산출하였다고 가정한다. 이때,
+제 1 카메라 에이전트 장치는 확률값이 가장 큰 문맥인 제
+2 카메라 에이전트 장치의 문맥 분석 결과를 반영하여, 키
+프레임의 시퀀스의 문맥을 B라는 문맥으로 결정할 수
+있다.
+by the first camera agent device with the context
+analysis result calculated by the second camera
+agent device, and determines a context indicating
+a situation in which the action of the object is
+performed according to the comparison result.
+For example, it is assumed that the first camera
+agent device calculates the probability value of
+each context in the order of a context (probability
+75%), b context (probability 70%), c context
+(50%) and the like based on the sequence of key
+frames, and the second camera agent device
+calculates the probability value of each context in
+the order of b context (probability 80%), a context
+(probability 60%), c context (40%) and the like
+based on the sequence of key frames. In this
+case, the first camera agent device may
+determine the context of the sequence of key
+frames as the context b by reflecting the context
+analysis result of the second camera agent
+device, which is the context in which the
+probability value is the largest.
+또 다른 실시예에 따르면, 제 1 카메라 에이전트 장치가
+산출한 확률값에 제 1 가중치를 곱하고, 제 2 카메라
+에이전트 장치가 산출한 확률값에 제2 가중치를 곱한 후,
+각 문맥별로 제 1 가중치가 적용된 확률값과 제 2
+가중치가 적용된 확률값을 합산하여 확률값이 가장 큰
+문맥을 최종 문맥으로 결정할 수 있다. 한편, 예시를 위해
+2개의 카메라 에이전트 장치 간의 문맥 분석 결과를
+기초로 산출하는 과정을 설명하였으나, 서로 인접한
+관계에 있다면 3개 이상의 카메라 에이전트가 각각
+개별적으로 분석한 문맥 분석 결과를 기초로 각 카메라
+에이전트가 최종 문맥을 결정할 수 있다.
+According to another embodiment, a context
+having the largest probability value may be
+determined as the final context by multiplying the
+probability value calculated by the first camera
+agent device by a first weight, multiplying the
+probability value calculated by the second
+camera agent device by a second weight, and
+then summing the probability value to which the
+first weight is applied and the probability value to
+which the second weight is applied for each
+context. Meanwhile, although the process of
+calculating based on the context analysis result
+between the two camera agent devices has been
+described for illustration, if the two camera agent
+devices are adjacent to each other, each camera
+agent may determine the final context based on
+the context analysis result individually analyzed
+by each of the three or more camera agents.
+다음으로, 비정상 상황 여부를 예측하는 단계에서는 제 1
+카메라 에이전트 장치가 각 객체에 대하여 결정한 행동과
+앞선 단계에서 결정한 최종 문맥 정보와 매칭될 확률에
+Next, in the predicting of whether the situation is
+abnormal, the first camera agent device
+determines whether the situation is abnormal
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 24/30
+
+=== PAGE 25 ===
+기초하여 비정상 상황인지 여부를 결정한다. 그리고,
+비정상 상황 여부를 판단할 때의 최종 문맥 정보에
+기초하여 경고의 종류가 결정될 수 있다. 예를 들면,
+비정상의 정도에 따라 경고 메시지를 등급별로
+구분하거나, 폭력 상황, 시위 상황, 테러 상황 또는 화재
+상황 등 그 문맥의 종류에 따라 경고의 종류가 구분될 수
+있다.
+based on the probability that the action
+determined for each object matches the final
+context information determined in the previous
+step. In addition, a type of the warning may be
+determined based on final context information
+when determining whether there is an abnormal
+situation. For example, the warning message may
+be classified by grade according to the degree of
+abnormality, or the type of warning may be
+classified according to the type of context such
+as a violent situation, a demonstration situation, a
+terrorist situation, or a fire situation.
+한편, 각 카메라 에이전트 장치는 경고 출력 여부와 경고
+메시지의 종류, 해당 경고 메시지가 출력된 횟수 등에 대한
+정보를 서로 공유할 수 있다. 즉, 제 1 카메라 에이전트
+장치는 인접한 제 2 카메라 에이전트 장치로부터 경고
+출력에 대한 정보를 수신하는데, 경고 메시지가 어떤
+종류인지 해당 경고 메시지가 몇 번 출력되었는지에 대한
+정보를 확인할 수 있다. 이를 기초로, 제 1 카메라
+에이전트 장치는 자신의 예측 결과를 통해 확인한 경고의
+종류가 제 2 카메라 에이전트 장치로부터 수신한 경고의
+종류와 동일한지 여부를 판단한다.
+Meanwhile, each camera agent device may share
+information on whether to output a warning, the
+type of a warning message, the number of times
+the corresponding warning message is output,
+and the like with each other. That is, the first
+camera agent device receives information on the
+warning output from the adjacent second camera
+agent device, and may check information on how
+many times the warning message is output.
+Based on this, the first camera agent device
+determines whether the type of the warning
+confirmed through its own prediction result is the
+same as the type of the warning received from
+the second camera agent device.
+만약, 두 카메라 에이전트 장치가 예측한 경고가
+상이하다면 제 1 카메라 에이전트 장치가 최종 문맥
+정보에 기초하여 예측한 예측 결과를 기초로 경고
+메시지를 출력한다. 이때, 경고 메시지의 출력횟수는 1로
+갱신될 수 있다.
+If the warnings predicted by the two camera
+agent devices are different, the first camera agent
+device outputs a warning message based on the
+prediction result predicted based on the final
+context information. In this case, the number of
+times of outputting the warning message may be
+updated to 1.
+만약, 제 1 카메라 에이전트 장치와 제 2 카메라 에이전트
+장치가 동일한 종류의 경고를 출력한다면, 경고 메시지의
+출력 횟수를 1만큼 증가시키면서, 경고 메시지를
+출력하고, 이에 대한 정보를 인접한 카메라 에이전트
+장치로 전달한다. 따라서, 서로 순차적으로 인접한 N 개의
+카메라 에이전트 장치가 동일한 종류의 경고 메시지를
+출력하였다면, 최종 카메라 에이전트 장치는 경고
+If the first camera agent device and the second
+camera agent device output the same type of
+warning, the first camera agent device and the
+second camera agent device output a warning
+message while increasing the number of times of
+outputting the warning message by 1, and
+transmit information on the warning message to
+an adjacent camera agent device. Therefore,
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 25/30
+
+=== PAGE 26 ===
+메시지의 출력횟수를 N으로 설정하여, 인접한 카메라
+에이전트 장치에 전달하게 된다.
+when n camera agent devices sequentially
+adjacent to each other output the same type of
+warning messages, the final camera agent device
+sets the number of times of outputting the
+warning messages as n and transmits the number
+of times of outputting the warning messages to
+the adjacent camera agent devices.
+도 6은 본 발명의 일 실시예에 따른 비정상 상황 모니터링
+방법을 설명하기 위한 도면이다.
+6 is a diagram for explaining an abnormal
+situation monitoring method according to an
+embodiment of the present invention.
+먼저, 도면의 상부에 도시된 (a)는 종래 기술을 도시한
+것으로, 각 카메라가 촬영한 정보가 중앙 관제 시스템으로
+전달되어, 비정상 상황을 탐지하는 과정을 도시하고 있다.
+각 카메라는 자신의 감시 영역에 해당하는 영상을
+촬영하여 각각 중앙 관제 시스템으로 전달하게 된다.
+First, (a) shown in the upper part of the drawing
+shows the related art, and shows a process of
+detecting an abnormal situation by transmitting
+information captured by each camera to the
+central control system. Each camera photographs
+an image corresponding to its own monitoring
+area and transmits it to each central control
+system.
+본 발명의 경우, 복수의 카메라 에이전트 장치가 서로
+인접한 카메라 에이전트 장치에 자신이 분석한 문맥 분석
+결과, 비정상 상황 예측 결과 및 경고 메시지 출력 정보를
+전달한다. 제 1 카메라 에이전트 장치가 객체가 뛰는
+행동을 감지하고, 자신이 추출한 문맥 정보 상 비정상
+상황이라고 판단되면, 이에 대한 정보를 제 2 카메라
+에이전트 장치로 전달한다. 이때, 제 1 카메라 에이전트
+장치의 위치 정보와 객체의 행동이 발생한 시간 정보가
+함께 전달될 수 있다. 제 2 카메라 에이전트 장치는 소정의
+시간이 경유한 후 객체의 행동을 인식하게 되는데, 해당
+객체가 비정상 상황을 계속 유지하고 있다면, 제 2 카메라
+에이전트 장치에 의해서 비정상 상황에 대한 정보가
+탐지될 수 있다. 또한, 제 1 카메라 에이전트 장치에서
+공유된 정보를 활용하여 비정상 상황에 대한 예측을
+수행할 수 있고, 이를 이용하여 경고 메시지를 출력할 수
+있다.
+In the case of the present invention, a plurality of
+camera agent devices transmit a context analysis
+result, an abnormal situation prediction result,
+and warning message output information
+analyzed by the plurality of camera agent devices
+to adjacent camera agent devices. The first
+camera agent apparatus senses the action in
+which the object runs. if it is determined as the
+contextual information phase abnormal situation
+which oneself extracts, the information about this
+is delivered to the second camera agent
+apparatus. In this case, the location information
+of the first camera agent device and the time
+information at which the action of the object
+occurs may be transmitted together. The second
+camera agent device recognizes the behavior of
+the object after a predetermined time elapses,
+and if the corresponding object continues to
+maintain the abnormal situation, information on
+the abnormal situation may be detected by the
+second camera agent device. In addition, the first
+camera agent device may predict an abnormal
+situation by using the shared information, and
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 26/30
+
+=== PAGE 27 ===
+may output a warning message by using the
+prediction.
+도 7은 본 발명의 일 실시예에 따른 비정상 상황 모니터링
+방법을 설명하기 위한 도면이다.
+7 is a diagram for explaining an abnormal
+situation monitoring method according to an
+embodiment of the present invention.
+도시된 바와 같이, 시위 군중이 이동하는 상황이 촬영된
+경우, 각각의 카메라 에이전트 장치는 객체의 개수, 주변의
+문맥 정보를 기초로 비정상 상황 발생 여부를 자체적으로
+판단할 수 있다. 단순히 사람이 많은 수의 객체가 감지된
+것만으로 비정상 상황을 판단하기 보다는, 기계 학습
+모델에 의하여 판단된 문맥 정보가 함께 매칭되어 비정상
+상황이 판단된다. 예를 들어, 군중 간에 폭력 사태가
+일어날 조짐이 보이는 경우 등에 비정상 상황인 것으로
+판단하고, 경고 메시지를 출력한다.
+As illustrated, when a situation in which a crowd
+of protesters moves is photographed, each
+camera agent device may determine whether an
+abnormal situation has occurred based on the
+number of objects and surrounding context
+information. Rather than simply determining an
+abnormal situation just by detecting a large
+number of objects by a person, the context
+information determined by the machine learning
+model is matched together to determine an
+abnormal situation. For example, when there is a
+sign of violence between crowds, it is determined
+that the situation is abnormal, and a warning
+message is output.
+또한, 영상 정보를 통해 도로상의 차량이 밀집된 정도를
+나타내는 트래픽 밀도 등을 감지할 수 있고, 이를 이용하여
+추후 비정상 상황 발생 여부를 예측할 수 있다.
+In addition, traffic density indicating the degree of
+congestion of vehicles on the road may be
+detected through the image information, and
+whether an abnormal situation occurs later may
+be predicted using the traffic density and the like.
+도 8은 본 발명의 일 실시예에 따른 비정상 상황 모니터링
+방법을 설명하기 위한 도면이다.
+Fig. 8 is a diagram for describing a method for
+monitoring an abnormal situation according to an
+embodiment of the present invention.
+예를 들어, A라는 객체의 경우 주요 시설인 은행 주변에
+위치한 카메라 에이전트 장치를 통해 그 행동이 탐지될
+것이나, 객체의 행동이 정상적인 걷기 행동이고, 문맥
+정보에도 특이 사항이 없다면 정상 상황으로 판단될
+것이다.
+For example, in the case of an object a, the
+behavior of the object a will be detected through
+a camera agent device located around a bank,
+which is a main facility, but if the behavior of the
+object a is a normal walking behavior and there is
+no specific matter in the contextual information, it
+will be determined as a normal situation.
+그란, B 라는 객체의 경우, 특정 지역에 오랜 시간 동안
+머무는 행위가 감지되고, 그 주변에 주요 시설(예를 들면,
+은행)이 위치하고 있다는 문맥 정보가 결합되면 비정상
+상황이 발생한 것으로 판단하고, 이에 대한 정보를 주변의
+카메라 에이전트 장치에 전달한다. 이러한 경고 정보는
+In the case of an object called b, when an act of
+staying in a specific area for a long time is
+detected and context information indicating that a
+major facility (e.g., a bank) is located around the
+object is combined, it is determined that an
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 27/30
+
+=== PAGE 28 ===
+주변의 치안 기관 단말에 전송될 수 있다. 또한, 이후 B
+객체가 은행에서 나오는 A라는 객체를 추적하는 행동을 할
+경우 카메라 에이전트 장치가 이를 감지하며, 비정상
+상황이 발생할 것이라는 예측을 수행할 수 있다.
+abnormal situation has occurred, and information
+about the abnormal situation is transmitted to a
+surrounding camera agent device. The warning
+information may be transmitted to a terminal of a
+nearby security institution. In addition, when the
+object b tracks an object a coming out of the
+bank, the camera agent device may detect the
+object a and perform prediction that an abnormal
+situation will occur.
+이상에서 설명한 본 발명의 실시예에 따른 비정상 상황
+모니터링 방법은, 컴퓨터에 의해 실행되는 프로그램
+모듈과 같은 컴퓨터에 의해 실행 가능한 명령어를
+포함하는 기록 매체의 형태로도 구현될 수 있다. 이러한
+기록 매체는 컴퓨터 판독 가능 매체를 포함하며, 컴퓨터
+판독 가능 매체는 컴퓨터에 의해 액세스될 수 있는 임의의
+가용 매체일 수 있고, 휘발성 및 비휘발성 매체, 분리형 및
+비분리형 매체를 모두 포함한다. 또한, 컴퓨터 판독가능
+매체는 컴퓨터 저장 매체를 포함하며, 컴퓨터 저장 매체는
+컴퓨터 판독가능 명령어, 데이터 구조, 프로그램 모듈 또는
+기타 데이터와 같은 정보의 저장을 위한 임의의 방법 또는
+기술로 구현된 휘발성 및 비휘발성, 분리형 및 비분리형
+매체를 모두 포함한다.
+The abnormal situation monitoring method
+according to the embodiment of the present
+invention described above may be implemented in
+the form of a recording medium including
+computer-executable instructions such as a
+program module executed by a computer. Such a
+recording medium includes a computer-readable
+medium, and the computer-readable medium
+may be any available medium that can be
+accessed by a computer, and includes both
+volatile and non-volatile media and removable
+and non-removable media. In addition, the
+computer-readable medium includes a computer
+storage medium, and the computer storage
+medium includes all volatile and non-volatile,
+removable and non-removable media
+implemented by any method or technology for
+storing information such as computer-readable
+instructions, data structures, program modules, or
+other data.
+전술한 본 발명의 설명은 예시를 위한 것이며, 본 발명이
+속하는 기술분야의 통상의 지식을 가진 자는 본 발명의
+기술적 사상이나 필수적인 특징을 변경하지 않고서 다른
+구체적인 형태로 쉽게 변형이 가능하다는 것을 이해할 수
+있을 것이다. 그러므로 이상에서 기술한 실시예들은 모든
+면에서 예시적인 것이며 한정적이 아닌 것으로 이해해야만
+한다. 예를 들어, 단일형으로 설명되어 있는 각 구성
+요소는 분산되어 실시될 수도 있으며, 마찬가지로 분산된
+것으로 설명되어 있는 구성 요소들도 결합된 형태로
+실시될 수 있다.
+The above description of the present invention is
+for illustrative purposes only, and those skilled in
+the art to which the present invention pertains will
+understand that the present invention may be
+easily modified into other specific forms without
+changing the technical spirit or essential features
+of the present invention. Therefore, it should be
+understood that the above-described
+embodiments are illustrative in all aspects and not
+restrictive. For example, each component
+described as a single type may be implemented in
+a distributed manner, and similarly, components
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 28/30
+
+=== PAGE 29 ===
+described as being distributed may be
+implemented in a combined form.
+본 발명의 범위는 상기 상세한 설명보다는 후술하는
+특허청구범위에 의하여 나타내어지며, 특허청구범위의
+의미 및 범위 그리고 그 균등 개념으로부터 도출되는 모든
+변경 또는 변형된 형태가 본 발명의 범위에 포함되는
+것으로 해석되어야 한다.
+The scope of the present invention is defined by
+the following claims rather than the detailed
+description, and it should be construed that all
+changes or modified forms derived from the
+meaning and scope of the claims and their
+equivalent concepts are included in the scope of
+the present invention.
+도면에 대한 간단한 설명 Brief explanation of the drawing
+도 1은 본 발명의 일 실시예에 따른 비정상 상황을
+예측하는 영상 기반 모니터링 시스템을 도시한 도면이다.
+도 2는 본 발명의 일 실시예에 따른 카메라 에이전트
+장치의 구성을 도시한 도면이다. 도 3은 본 발명의 일
+실시예에 따른 카메라 에이전트 장치에서 수행되는 비정상
+상황 예측 방법을 도시한 순서도이다. 도 4는 본 발명의 일
+실시예에 따른 카메라 에이전트 장치의 정보 공유 과정을
+설명하기 위한 도면이다. 도 5는 본 발명의 일 실시예에
+따른 카메라 에이전트 장치의 정보 공유 과정을 설명하기
+위한 도면이다. 도 6은 본 발명의 일 실시예에 따른 비정상
+상황 모니터링 방법을 설명하기 위한 도면이다. 도 7은 본
+발명의 일 실시예에 따른 비정상 상황 모니터링 방법을
+설명하기 위한 도면이다. 도 8은 본 발명의 일 실시예에
+따른 비정상 상황 모니터링 방법을 설명하기 위한
+도면이다. 도 9는 본 발명의 일 실시예에 따른 영상의
+시퀀스를 식별하는 과정을 설명하기 위한 도면이다.
+1 is a diagram illustrating an image-based
+monitoring system for predicting an abnormal
+situation according to an embodiment of the
+present invention. The above and other objects,
+features and advantages of the present invention
+will be more clearly understood from the following
+detailed description taken in conjunction with the
+accompanying drawings, in which: fig. 2 is a
+diagram illustrating a configuration of a camera
+agent device according to an embodiment of the
+present invention; fig. 3 is a flowchart illustrating
+a method for predicting an abnormal situation
+performed by a camera agent device according to
+an embodiment of the present invention; fig. 4 is a
+diagram illustrating a process of sharing
+information of a camera agent device according
+to an embodiment of the present invention; fig. 5
+is a diagram illustrating a process of sharing
+information of a camera agent device according
+to an embodiment of the present invention; fig. 6
+is a diagram illustrating a method for monitoring
+an abnormal situation according to an
+embodiment of the present invention; fig. 7 is a
+diagram illustrating a method for monitoring an
+abnormal situation according to an embodiment
+of the present invention; fig. 8 is a diagram
+illustrating a method for monitoring an abnormal
+situation according to an embodiment of the
+present invention; and fig. 9 is a diagram
+· ·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 29/30
+
+=== PAGE 30 ===
+illustrating a process of identifying a sequence of
+an image according to an embodiment of the
+present invention.
+면책안내
+본 문서는 특허 문헌 전용의 인공지능 기반 자동번역 시스템을 이용해 생성되었습니다. 따라서 부분적으로 오역의
+가능성이 있으며, 본 문서를 자격을 갖춘 전문 번역가에 의한 번역물을 대신하는 것으로 이용되어서는 안 됩니다. 시스템
+및 네트워크의 특성때문에 발생한 오역과 부분 누락, 데이터의 불일치 등에 대하여 본원은 법적인 책임을 지지 않습니다.
+본 문서는 당사의 사전 동의 없이 권한이 없는 일반 대중을 위해 DB 및 시스템에 저장되어 재생, 복사, 배포될 수 없음을
+알려드립니다.
+(This document was generated using an AI-based automatic translation system specialized for patent
+literature. Therefore, the document can include the mistranslation, and it should not be used as a
+translation by a professional translator. We hold no legal liability for inconsistency of mistranslation,
+partial omission, and data generated by feature of system and network. We would like to inform you
+that the document cannot be regenerated, copied, and distributed by being stored in DB and system
+for unauthorized general public without our consent.)
+·
+9/11/26, 11:27 AM KIPRIS 지식재산정보  검색  서비스
+https://www.kipris.or.kr/khome/detail/translate.do 30/30

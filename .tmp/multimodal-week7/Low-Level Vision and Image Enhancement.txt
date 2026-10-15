@@ -1,0 +1,294 @@
+=== SLIDE 1 ===
+Study Towards Robust Image Enhancement in Adverse Atmospheric Conditions
+1
+
+=== SLIDE 2 ===
+Presentation
+Outline
+2
+
+=== SLIDE 3 ===
+3
+1. Motivation
+According to the WHO, worldwide, approximately 1.19 million people die each year as a result of road traffic crashes [1].
+In the US, nationwide, each year, over 38,700 vehicle crashes occur in fog, where around 21% of these are weather-related [2,3].
+In 2015 in Korea, the fatal accident rate was 6.9% on foggy days, while on clear days it was 2.5% [4].
+Challenges in Vision
+Image degradation from haze and low-light causes failures in object detection, navigation, etc.
+Autonomous systems (e.g., self-driving cars, surveillance) demand clear vision for accurate navigation.
+Weather Impact on Road Safety
+Problem Statement
+Most existing methods assume a single haze type or work on synthetic data.
+Lack of large-scale, diverse datasets.
+
+=== SLIDE 4 ===
+2. Major Contributions
+4
+HazeSpace2M
+HazeSpace2M: 2.2M images across 3 haze types & 4 scene types
+Introduced a new haze aware dehazing framework
+LoLI-Street/TriFuse
+LoLI-Street: 33,000 paired low-light images + real test set
+TriFuse model for LLIE (Transformer + Diffusion)
+Scientific Contributions
+Islam, M.T., Rahim, N., Anwar, S., Saqib, M., Bakshi, S. and Muhammad, K., 2024, October. Hazespace2m: A dataset for haze aware single image dehazing. In Proceedings of the 32nd ACM International Conference on Multimedia (pp. 9155-9164).
+Islam, M.T., Alam, I., Woo, S.S., Anwar, S., Lee, I.K. and Muhammad, K., 2024. LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond. In Proceedings of the Asian Conference on Computer Vision (pp. 1250-1267).
+Islam, M.T., Lee, I.H., Saudagar, A.K.J., Altameem, A., Abaoud, M. and Muhammad, K., Imam Mohammad Ibn saud Islamic University, 2025. Apparatus and method for single image dehazing considering haze type classification. U.S. Patent 12,217,398.
+
+=== SLIDE 5 ===
+3. HazeSpace2M Dataset (1st Contribution)
+5
+Md Tanvir Islam, Nasir Rahim, …… Khan Muhammad* “HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing” In Proceedings of the 32nd ACM International Conference on Multimedia (ACM MM), Melbourne, Australia. ACM, New York, NY, USA, 10 pages. (Acceptance rate: 26% | BK IF: 4.0 | Published)
+Dataset: HazeSpace2M
+A large-scale paired dehazing dataset
+Features over 2 million hazy images
+Diverse scenes and haze types of 10 levels
+Fig. 1: GT (Green), Synthetic (Yellow), and Real Hazy images (Red) across various scenes of HazeSpace2M.
+Key Features
+Features four different scene types
+Includes three different haze types
+Consists of a real-life hazy test set
+
+=== SLIDE 6 ===
+3. HazeSpace2M Dataset
+6
+Md Tanvir Islam, Nasir Rahim, …… Khan Muhammad* “HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing” In Proceedings of the 32nd ACM International Conference on Multimedia (ACM MM), Melbourne, Australia. ACM, New York, NY, USA, 10 pages. (Acceptance rate: 26% | BK IF: 4.0 | Published)
+Quality Assurance
+To ensure the quality of the GT images of our HazeSpace2M dataset, we established three conditions for excluding GT images as follows:
+Resolution
+Haze Presence
+Fig. 3: Haze distribution of HazeSpace2M dataset.
+Fig. 4: Sample images that we eliminated while collecting images for use as the GT images in the HazeSpace2M dataset.
+Irrelevance
+
+=== SLIDE 7 ===
+3. HazeSpace2M Dataset
+7
+Md Tanvir Islam, Nasir Rahim, …… Khan Muhammad* “HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing” In Proceedings of the 32nd ACM International Conference on Multimedia (ACM MM), Melbourne, Australia. ACM, New York, NY, USA, 10 pages. (Acceptance rate: 26% | BK IF: 4.0 | Published)
+Table 3: Number of GT and hazy images in HazeSpace2M subsets by scene type and haze condition.
+Table 4: Comparative evaluation of image quality metrics across the existing datasets.
+Table 1: Overview of HazeSpace2M dataset scene and haze types, each with 10 distinct haze intensity levels.
+Table 2: A breakdown of the various image sources and the number of GT images selected from each source
+
+=== SLIDE 8 ===
+8
+3. Haze Aware Dehazing
+Fig. 2: Our proposed framework for haze-aware single-image dehazing using specialized dehazers.
+Dataset: HazeSpace2M
+A large-scale paired dehazing dataset
+Features over 2 million hazy images
+Key Features
+Features four different scene types
+Includes three different haze types
+
+=== SLIDE 9 ===
+3. Haze-Aware Dehazing Results
+9
+Md Tanvir Islam, Nasir Rahim, …… Khan Muhammad* “HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing” In Proceedings of the 32nd ACM International Conference on Multimedia (ACM MM), Melbourne, Australia. ACM, New York, NY, USA, 10 pages. (Acceptance rate: 26% | BK IF: 4.0 | Published)
+Table 5: Evaluation of the SOTA classifiers on various combinations of the hazy benchmarking datasets, highlighting their effectiveness for haze type classification after training on the HazeSpace2M.
+Table 6: Performance comparison of LDNet, GDNet, and SDNets when subjected to dehazing tasks across various hazy conditions.
+
+=== SLIDE 10 ===
+10
+3. Haze-Aware Dehazing Results
+Fig. 5: Visual comparison of dehazing results from LDNet, GDNet, and SDNet, with PSNR and SSIM metrics highlighted.
+Table 7: Benchmarking the SOTA Dehazing models with their pre-trained weights and after employing our proposed framework.
+Table 8: Evaluating top SOTA models on foggy datasets.
+
+=== SLIDE 11 ===
+4. LoLI-Street (2nd Contribution)
+11
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Dataset: LoLI Street
+Features 33k paired low-light images
+Features a real-life low-light test set (RLLT)
+Tools: Adobe Photoshop, Illustrator
+Fig. 6: Sample images of the LoLI-Street dataset and the distribution across the subsets.
+Table 9: Comparison of LoLI-Street with the existing benchmarking datasets for LLIE.
+Table 10: Quantitative analysis of our LoLI-Street dataset
+
+=== SLIDE 12 ===
+4. Proposed Method: TriFuse
+12
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Our Proposed Method: TriFuse
+Discrete Wavelet Transformation (DWT)
+Diffusion Denoising
+Conditional Noise Module
+Edge Sharpening Module
+Achieved SOTA results on RLLT
+Tools
+Python: Numpy, Pandas, Scikit-learn, PyTorch
+Fig. 7: Overview of our TriFuse model, featuring the Conditional Noise Module (CNM) and Edge Sharpening Module (ESM) for effective LLIE.
+
+=== SLIDE 13 ===
+13
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+TriFuse first Decomposes low-light images using Haar wavelets as follows:
+This decomposes the image into low-frequency and high-frequency bands.
+Forward Diffusion:
+Reverse Diffusion:
+4. Diffusion Denoising LLIE
+Notations
+I1low is the input image
+A1low is the low-frequency band
+V1low,  H1low, and D1low are the vertical, horizontal, and diagonal high-frequency bands.
+𝑥t ​ is the image after adding noise at step 𝑡t.
+βt ​is the variance schedule value at step 𝑡t, controlling the amount of noise added.
+𝐼 is the identity matrix, indicating isotropic Gaussian noise.
+
+=== SLIDE 14 ===
+14
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+4. Diffusion Denoising LLIE
+Conditional Noise Module (CNM)
+Where the output noise map ϵθ​ is conditioned on the current state of the noisy image.
+Predicted noise is integrated into the reverse diffusion (denoising) step as follows:
+Edge Sharpening Module (ESM)
+ESM is a specialized module designed to enhance and sharpen edges in the restored images.
+The detailed residual block is as follows:
+This enhances each frequency component, and the final ESM module is expressed as follows:
+
+=== SLIDE 15 ===
+4. Diffusion Denoising LLIE
+15
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Table 11: Quantitative evaluation of the SOTA models on the validation set of LoLI-Street dataset using the pre-trained weights of each model.
+Table 12: SOTA models vs proposed TriFuse on the LoLI-Street validation set using LoLI-Street-trained weights.
+Table 13: Comparison of mainstream SOTA models and our TriFuse on the LoLI-Street real low-light testset using LoLI-Street-trained weights.
+Table 14: Object detection using YOLOV10 LLIE using different models. MC: Motorcycle, TL: Traffic light, SS: Stop sign.
+
+=== SLIDE 16 ===
+4. Diffusion Denoising LLIE
+16
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Table 15: Performance comparison between SOTA models and our proposed TriFuse based on the mainstream LLIE datasets.
+
+=== SLIDE 17 ===
+4. Diffusion Denoising LLIE
+17
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Fig. 9: Comparison between our TriFuse method and SOTA models using a sample real low-light test image from our LoLI-Street dataset.
+Fig. 8: Comparison between our TriFuse method and SOTA models testing on the real low-light images.
+
+=== SLIDE 18 ===
+4. Diffusion Denoising LLIE
+18
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Fig. 10: Comparison of the TriFuse method with SOTA models using a sample real low-light test image from our LoLI-Street dataset. (using pre-trained weights)
+
+=== SLIDE 19 ===
+4. Diffusion Denoising LLIE
+19
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Fig. 11: Comparison of our TriFuse method with SOTA models using a sample real low-light test image from our LoLI-Street dataset. (trained on our datasets)
+
+=== SLIDE 20 ===
+4. Diffusion Denoising LLIE
+20
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Fig. 12: Comparison of our TriFuse with SOTA models using sample images from different LLIE benchmarking datasets.
+
+=== SLIDE 21 ===
+4. Diffusion Denoising LLIE
+21
+Md Tanvir Islam, Inzamamul Alam, Simon S. Woo, Saeed Anwar, IK Hyun Lee, Khan Muhammad* “LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond” In Proceedings of the 17th Asian Conference on Computer Vision, ACCV 2024, Hanoi, Vietnam (Acceptance rate: 28% | BK IF: 1.0 | Published)
+Fig. 13: The outcome of YOLOV10 inference on a sample RLLT image of the LoLI-Street dataset after enhancement. TL: Traffic light, IT: Inference time.
+
+=== SLIDE 22 ===
+22
+5. Conclusion
+Limitations
+Our proposed haze-aware dehazing framework relies on a pre-trained classifier
+Wrong classification may lead to inaccurate dehazing
+Training data are synthetic and may not cover the real-world complexity
+Future Scopes
+Developing a unified method for dehazing multiple haze types
+Developing models with less computational expense.
+Developed robust pipelines for image enhancement under real atmospheric degradation.
+Contributed two high-quality large datasets.
+Proposed adaptive solutions improving both image quality and downstream vision tasks.
+
+=== SLIDE 23 ===
+23
+6. Research Outcomes
+# | Year | Paper Title | Role | Venue | Remarks | Corresponding
+1 | 2024 | HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing | First Author | ACM Multimedia | BK IF: 4.0
+(Published) | Professor
+Khan Muhammad
+2 | 2024 | LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond | First Author | Asian Conference on Computer Vision | BK IF: 1.0
+(Published) | Professor
+Khan Muhammad
+3 | 2025 | MEXFIC: A Meta Ensemble eXplainable Approach for AI-Synthesized Fake Image Classification | First Author | Alexandria Engineering Journal | IF: 6.2, Q1
+(Published) | Professor
+Khan Muhammad
+4 | 2025 | Apparatus and method for single image dehazing considering haze type classification | First Inventor | U.S. Patent | Registered | Professor
+Khan Muhammad
+5 | 2025 | Method for image dehazing of vehicular images | First Inventor | U.S. Patent | Registered | Professor
+Khan Muhammad
+6 | 2025 | ROAD-6: A Diverse Dataset for Unexpected Hazard Recognition in Autonomous Vehicles | Co-Author | ACM International Conference on Multimedia Retrieval | BK IF: 1:0
+(Accepted) | Professor
+Khan Muhammad
+7 | 2025 | Adaptive Speed Control for Line-Following Robots and Method Thereof | Co-Inventor | U.S. Patent | Registered | Professor
+Khan Muhammad
+8 | 2025 | Apparatus and method for adaptive response of autonomous vehicles in traffic intersections with flashing signals | Co-Inventor
+| U.S. Patent | Registered | Professor
+Khan Muhammad
+9 | 2025 | Apparatus and method for child hazardous activity anticipation and risk assessment system | Co-Inventor
+| U.S. Patent
+| Registered | Professor
+Khan Muhammad
+10 | 2025 | Advanced LFR for better speed control fusing the IR Sensor data with camera image data. | Contributor | Information Fusion | IF: 14.8, Q1
+(Under Review) | Professor
+Khan Muhammad
+
+=== SLIDE 24 ===
+24
+7. References
+[1] https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries
+[2] https://ops.fhwa.dot.gov/weather/weather_events/low_visibility.htm
+[3] https://happyeconews.com/car-accidents-caused-by-weather-whos-responsible
+[4] S. Kim and S. H. Lim, “An Analysis of Change in Traffic Characteristics with Fog,” The Journal of The Korea Institute of Intelligent Transport Systems, vol. 16, no. 4. The Korea Institute of Intelligent Transport Systems, pp. 92–106, 31-Aug-2017.
+Tarel, J. P., Hautiere, N., Cord, A., Gruyer, D., & Halmaoui, H. (2010, June). Improved visibility of road scene images under heterogeneous fog. In 2010 IEEE Intelligent Vehicles Symposium (pp. 478-485). IEEE.
+Cordts, M., Omran, M., Ramos, S., Rehfeld, T., Enzweiler, M., Benenson, R., ... & Schiele, B. (2016). The cityscapes dataset for semantic urban scene understanding. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 3213-3223).
+Ancuti, C., Ancuti, C. O., Timofte, R., & De Vleeschouwer, C. (2018). I-HAZE: A dehazing benchmark with real hazy and haze-free indoor images. In Advanced Concepts for Intelligent Vision Systems: 19th International Conference, ACIVS 2018, Poitiers, France, September 24–27, 2018, Proceedings 19 (pp. 620-631). Springer International Publishing.
+Ancuti, C. O., Ancuti, C., Timofte, R., & De Vleeschouwer, C. (2018). O-haze: a dehazing benchmark with real hazy and haze-free outdoor images. In Proceedings of the IEEE conference on computer vision and pattern recognition workshops (pp. 754-762).
+Li, B., Ren, W., Fu, D., Tao, D., Feng, D., Zeng, W., & Wang, Z. (2018). Benchmarking single-image dehazing and beyond. IEEE Transactions on Image Processing, 28(1), 492-505.
+Ancuti, C. O., Ancuti, C., Vasluianu, F. A., & Timofte, R. (2020). Ntire 2020 challenge on nonhomogeneous dehazing. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (pp. 490-491).
+Huang, B., Zhi, L., Yang, C., Sun, F., & Song, Y. (2020). Single satellite optical imagery dehazing using SAR image prior based on conditional generative adversarial networks. In Proceedings of the IEEE/CVF winter conference on applications of computer vision (pp. 1806-1813).
+Song, Y., He, Z., Qian, H., & Du, X. (2023). Vision transformers for single image dehazing. IEEE Transactions on Image Processing, 32, 1927-1941.
+13. Ullah, H., Muhammad, K., Irfan, M., Anwar, S., Sajjad, M., Imran, A. S., & de Albuquerque, V. H. C. (2021). Light-DehazeNet: a novel lightweight CNN architecture for single image dehazing. IEEE transactions on image processing, 30, 8968-8982.
+
+=== SLIDE 25 ===
+25
+7. References
+[14] Chen, Z., He, Z., & Lu, Z. M. (2024). DEA-Net: Single image dehazing based on detail-enhanced convolution and content-guided attention. IEEE Transactions on Image Processing, 33, 1002-1015.
+[15] Song, Y., He, Z., Qian, H., & Du, X. (2023). Vision transformers for single image dehazing. IEEE Transactions on Image Processing, 32, 1927-1941.
+[16] Zheng, Y., Zhan, J., He, S., Dong, J., & Du, Y. (2023). Curricular contrastive regularization for physics-aware single image dehazing. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 5785-5794).
+[17] Yuan, S., Chen, J., Li, J., Jiang, W., & Guo, S. (2023, October). Lhnet: A low-cost hybrid network for single image dehazing. In Proceedings of the 31st ACM International Conference on Multimedia (pp. 7706-7717).
+[18] Ullah, H., Muhammad, K., Irfan, M., Anwar, S., Sajjad, M., Imran, A. S., & de Albuquerque, V. H. C. (2021). Light-DehazeNet: a novel lightweight CNN architecture for single image dehazing. IEEE transactions on image processing, 30, 8968-8982.
+[19] Li, Y., Liu, Y., Yan, Q., & Zhang, K. (2020). Deep dehazing network with latent ensembling architecture and adversarial learning. IEEE Transactions on Image Processing, 30, 1354-1368.
+[20] Deng, Z., Zhu, L., Hu, X., Fu, C. W., Xu, X., Zhang, Q., ... & Heng, P. A. (2019). Deep multi-model fusion for single-image dehazing. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 2453-2462).
+[21] Wei, C., Wang, W., Yang, W., & Liu, J. (2018). Deep retinex decomposition for low-light enhancement. arXiv preprint arXiv:1808.04560.
+[22] Cai, J., Gu, S., & Zhang, L. (2018). Learning a deep single image contrast enhancer from multi-exposure images. IEEE Transactions on Image Processing, 27(4), 2049-2062.
+[23] Loh, Y. P., & Chan, C. S. (2019). Getting to know low-light images with the exclusively dark dataset. Computer Vision and Image Understanding, 178, 30-42.
+[24] Yang, W., Wang, W., Huang, H., Wang, S., & Liu, J. (2021). Sparse gradient regularized deep retinex network for robust low-light image enhancement. IEEE Transactions on Image Processing, 30, 2072-2086.
+[25] Jia, X., Zhu, C., Li, M., Tang, W., & Zhou, W. (2021). LLVIP: A visible-infrared paired dataset for low-light vision. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 3496-3504).
+
+=== SLIDE 26 ===
+26
+7. References
+[26] Hai, J., Xuan, Z., Yang, R., Hao, Y., Zou, F., Lin, F., & Han, S. (2023). R2rnet: Low-light image enhancement via real-low to real-normal network. Journal of Visual Communication and Image Representation, 90, 103712.
+[27] Cai, Y., Bian, H., Lin, J., Wang, H., Timofte, R., & Zhang, Y. (2023). Retinexformer: One-stage retinex-based transformer for low-light image enhancement. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 12504-12513).
+[28] Liu, Y., Huang, T., Dong, W., Wu, F., Li, X., & Shi, G. (2023). Low-light image enhancement with multi-stage residue quantization and brightness-aware attention. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 12140-12149).
+[29] Zheng, N., Zhou, M., Dong, Y., Rui, X., Huang, J., Li, C., & Zhao, F. (2023). Empowering low-light image enhancer through customized learnable priors. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 12559-12569).
+[30] Wang, T., Zhang, K., Shen, T., Luo, W., Stenger, B., & Lu, T. (2023, June). Ultra-high-definition low-light image enhancement: A benchmark and transformer-based method. In Proceedings of the AAAI conference on artificial intelligence (Vol. 37, No. 3, pp. 2654-2662).
+[31] Jiang, H., Luo, A., Fan, H., Han, S., & Liu, S. (2023). Low-light image enhancement with wavelet-based diffusion models. ACM Transactions on Graphics (TOG), 42(6), 1-14.
+[32] Fu, Z., Yang, Y., Tu, X., Huang, Y., Ding, X., & Ma, K. K. (2023). Learning a simple low-light image enhancer from paired low-light instances. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 22252-22261).
+[32] Wang, C., Wu, H., & Jin, Z. (2023, October). Fourllie: Boosting low-light image enhancement by fourier frequency information. In Proceedings of the 31st ACM International Conference on Multimedia (pp. 7459-7469).
+[33] Ma, L., Ma, T., Liu, R., Fan, X., & Luo, Z. (2022). Toward fast, flexible, and robust low-light image enhancement. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 5637-5646).
+
+=== SLIDE 27 ===
+27
+감사합니다 | Thank you
+Q&A

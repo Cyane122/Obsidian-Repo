@@ -1,0 +1,699 @@
+=== SLIDE 1 ===
+Intelligent Baby Monitoring
+Khan Muhammad
+Department of Applied AI
+Sungkyunkwan University, Seoul, Republic of Korea
+Email: khan.muhammad@ieee.org
+
+=== SLIDE 2 ===
+INDEX
+Main Contents
+Introduction
+Data collection
+Implemented methods
+Results and discussion
+Baby behavior analysis patent
+Conclusion and future directions
+
+=== SLIDE 3 ===
+01
+1. Introduction
+Motivation
+Challenges in possible baby monitoring methods
+INDEX
+
+=== SLIDE 4 ===
+4
+i. Motivation
+There are many nurseries with strangers spying on babies.
+These strangers may be careless about the babies.
+On the other hand, while keeping baby in house, doing house chores and monitoring baby becomes very difficult.
+Video: Doing house chores and monitoring baby
+Babies in nurseries
+
+=== SLIDE 5 ===
+5
+ii. Challenges in possible baby monitoring methods
+Often babies are paranoid    towards sensors.
+Babies do not leave sensor   on their chest or hands for    monitoring purposes.
+1. Monitoring through sensors
+It is very hard and challenging to detect motion or breathing of the baby through image     processing techniques.
+When baby breathes it is very slight amount of motion to    detect from camera.
+2. Monitoring through camera
+Monitoring baby through sensor in his foot
+Monitoring baby through camera
+
+=== SLIDE 6 ===
+2. Data collection
+Why creating dataset?
+Description of dataset
+INDEX
+02
+
+=== SLIDE 7 ===
+7
+i. Why creating dataset?
+The dataset is created because there are no available benchmark       datasets for baby monitoring.
+Thus, data is insufficient to make and validate experiments for baby    monitoring application.
+Sample images of dataset at three different scenarios with four different altitudes
+(a)
+(b)
+
+=== SLIDE 8 ===
+8
+ii. Description of dataset
+The dataset consists of 27 videos.
+Data is collected in three different scenarios.
+There are various poses during sleep made by the
+subjects.
+Height range varies from 65-cm to 108-cm.
+There are total 6 subjects in the dataset.
+Overall details of dataset
+(a). Sample adult video with 108-cm height
+(b). Sample baby video with 65-cm height
+Total videos  | 27
+Total height
+ranges | 4
+Total
+Subjects | 6
+
+=== SLIDE 9 ===
+9
+ii. Description of dataset
+Height
+(108-cm)
+Height
+(90-cm)
+Height
+(74-cm)
+Height
+(65-cm)
+Subject-1
+Subject-3
+Subject-2
+Subject-5
+Subject-2
+Subject-1
+Subject-6
+Subject-6
+Subject-4
+Subject-2
+Subject-3
+Subject-1
+Subject-3
+Subject-4
+
+=== SLIDE 10 ===
+10
+ii. Description of dataset
+Large
+Medium
+Small
+YouTube
+videos
+Company
+videos
+Static object
+videos
+Object size
+
+=== SLIDE 11 ===
+3. Implemented methods
+Frame difference
+Optical flow
+Background subtraction
+Hybrid method
+INDEX
+03
+
+=== SLIDE 12 ===
+12
+i. Frame difference
+In this method, motion inside video is detected through the frame  difference between consecutive frames.
+In frames difference method, pixel difference between frames is      considered to detect the motion present in video.
+Frame difference between two consecutive frames
+Figure shows the estimated change between two consecutive frames.
+
+=== SLIDE 13 ===
+13
+i. Frame difference framework
+This method comprises of the following steps:
+Calculate pixel wise difference between two successive frames.
+Convert the difference image into binary.
+Compute binary image to detect motion.
+1
+2
+Pixel value >
+max/(max*0.5)
+Morphological
+operations
+Threshold Based    Motion Area
+Selection
+Input Video
+Consecutive
+Frames
+Frames Absolute
+Difference
+Binary Image
+Motion area
+3
+
+=== SLIDE 14 ===
+14
+ii. Optical flow based motion estimation framework
+Motion estimation with optical flow
+Optical flow motion detection technique is used to estimate the motion in each    frame of video sequence.
+Consecutive frames at time (t, t + 1) are converted into HSI color model.
+These frames are input to optical flow algorithm which detects the flow.
+Flow is converted into binary, and maximum flow region inside binary image is    encircled.
+Input Video
+RGB to HSI
+Estimated motion in binary
+Optical flow
+algorithm
+Frame i
+Consecutive frames
+Frame i+1
+Frame i+1
+Frame i
+Detected flow
+Compute maximum
+flow regions
+Output results
+
+=== SLIDE 15 ===
+15
+iii. Background subtraction
+Background subtraction is a technique used for generating a             foreground mask by using static cameras.
+Foreground mask is a binary image containing the pixels that          belong to moving objects in the scene.
+Background subtraction algorithm calculates the foreground mask    by performing a subtraction between the current frame and a             background model.
+Working of background selection algorithm
+Threshold
+Foreground mask
+(motion area)
+Input Video
+Background model
+Current frame
+Frame i
+Frame i+1
+Consecutive frames
+Calculate maximum
+difference region
+Output
+
+=== SLIDE 16 ===
+16
+iv. Hybrid method
+Input Video
+Consecutive Frames
+Absolute difference
+RGB to HSI
+Optical flow
+algorithm
+Flow image
+Estimated motion in binary
+Threshold
+Subtracted image
+Background model
+Current frame
+Frame difference
+Optical flow
+Background
+subtraction
+Estimated motion in binary
+Estimated motion in binary
+If area >= 50, confidence = 100%
+Between 40&50,confidence=95%
+Between 30&40,confidence=90%
+Area < 20, confidence = 80%
+Final estimated
+motion
+Intersection
+Final output
+Compute area of motion
+
+=== SLIDE 17 ===
+17
+iv. Hybrid method
+Input Video
+Consecutive Frames
+Absolute difference
+RGB to HSI
+Optical flow
+algorithm
+Flow image
+Estimated motion in binary
+Threshold
+Subtracted image
+Background model
+Current frame
+Frame difference
+Optical flow
+Background
+subtraction
+Estimated motion in binary
+Estimated motion in binary
+Match with expert data and draw ellipses
+Final estimated
+motion
+Intersection
+Final output
+Breathing, Confidence = 100%
+
+=== SLIDE 18 ===
+4. Results and discussion
+Performance evaluation
+Experimental results
+INDEX
+04
+
+=== SLIDE 19 ===
+19
+i. Performance evaluation
+GT
+Accuracy of Different Methods
+Correct Frames Prediction
+Frame
+Difference | Optical
+Flow | Background
+Subtraction | Hybrid
+2378 | 2379 | 2447 | 2541
+994 | 981 | 1020 | 1068
+3267 | 3203 | 3298 | 3540
+910 | 1411 | 1210 | 1522
+2386 | 2606 | 2539 | 2648
+Frame
+Difference | Optical
+Flow | Background
+Subtraction | Hybrid | Remarks
+87.77% | 87.81% | 90.30% | 93.76% | Our dataset
+89.43% | 88.26% | 91.77% | 96.12% | Our dataset
+90.84% | 89.05% | 91.70% | 98.42% | Our dataset
+84.61% | 94.49% | 90.53% | 96.68% | Our dataset
+83.31% | 90.99% | 88.65% | 92.48% | Our dataset
+No. | Total
+Frames
+1 | 2710
+2 | 1111
+3 | 3597
+4 | 1690
+5 | 2864
+
+=== SLIDE 20 ===
+20
+i. Performance evaluation
+GT
+Accuracy of Different Methods
+Correct Frames Prediction
+Frame
+Difference | Optical
+Flow | Background
+Subtraction | Hybrid
+1987 | 1869 | 2368 | 2597
+1543 | 1446 | 1809 | 1859
+580 | 629 | 804 | 808
+919 | 991 | 1238 | 1247
+1775 | 1809 | 1802 | 1830
+2009 | 2175 | 2238 | 2282
+Frame
+Difference | Optical
+Flow | Background
+Subtraction | Hybrid | Remarks
+75.09% | 70.63% | 89.50% | 98.14% | Our dataset
+82.98% | 77.78% | 97.32% | 100% | Our dataset
+71.74% | 77.80% | 99.58% | 100% | Our dataset
+73.72% | 79.49% | 99.33% | 100% | Our dataset
+95.75% | 97.59% | 97.23% | 98.70% | Company
+video
+85.09% | 92.05% | 94.72% | 96.57% | YouTube
+video
+No. | Total
+Frames
+6 | 2646
+7 | 1859
+8 | 808
+9 | 1247
+10 | 1854
+11 | 2363
+
+=== SLIDE 21 ===
+21
+ii. Experimental results (Video 1)
+Experimental results of Hybrid method, height ( 90-cm ), subject 1
+
+=== SLIDE 22 ===
+22
+ii. Experimental results (Video 2)
+Experimental results of Hybrid method, height ( 90-cm ), subject 3
+
+=== SLIDE 23 ===
+23
+ii. Experimental results (Video 3)
+Experimental results of Hybrid method, height ( 65-cm ), subject 6
+
+=== SLIDE 24 ===
+24
+ii. Experimental results (Video 4)
+Experimental results of Hybrid method, height ( 90-cm ), subject 1
+
+=== SLIDE 25 ===
+25
+ii. Experimental results (Video 5)
+Experimental results of Hybrid method, height ( 90-cm ), subject 2
+
+=== SLIDE 26 ===
+26
+ii. Experimental results (Video 6)
+Experimental results of Hybrid method, height (N/A), subject doll 1
+
+=== SLIDE 27 ===
+27
+ii. Experimental results (Video 7)
+Experimental results of Hybrid method, height (N/A), subject doll 2
+
+=== SLIDE 28 ===
+28
+ii. Experimental results (Video 8)
+Experimental results of Hybrid method, height (N/A), subject doll 3
+
+=== SLIDE 29 ===
+29
+ii. Experimental results (Video 9)
+Experimental results of Hybrid method, height (N/A), subject doll 1
+
+=== SLIDE 30 ===
+30
+ii. Experimental results (Video 10)
+Experimental results of Hybrid method, height ( N/A )
+
+=== SLIDE 31 ===
+31
+ii. Experimental results (Video 11)
+Experimental results of Hybrid method, height ( N/A )
+
+=== SLIDE 32 ===
+5. Baby behavior analysis patent
+INDEX
+05
+System diagram
+Working of the proposed system
+Overall framework
+Control chart representation
+Control charts for intervals
+Control chart representation in terms of time
+Motion estimation mechanism
+Baby behavior estimation mechanism
+Standard baby size chart
+
+=== SLIDE 33 ===
+33
+i. System diagram
+Intervals processing module
+Interval selection unit
+Baby detection and segmentation unit
+Baby motion detection module
+Motion features extraction unit
+Motion assessment unit
+Apparatus and method for analyzing baby behavior
+Instant reporting module
+Alert sensing unit
+Alert notification unit
+Expert data matching unit
+Ellipse drawing unit
+Baby behavior analysis module
+Control charts construction unit
+Baby behavior assessment unit
+
+=== SLIDE 34 ===
+34
+ii. Working of the proposed system
+If the behavior of the baby is abnormal,
+parents are notified immediately
+Behavior is analyzed from the
+constructed control chart
+Control chart is constructed
+corresponding to the motion of baby
+In each interval baby
+motion area is analyzed,   and ellipse(s) is/are drawn
+Video is divided into different intervals
+6
+5
+4
+3
+2
+Input video is
+acquired from
+camera
+1
+Information sharing
+Behavior analysis
+Control chart
+construction
+Baby movement
+detection
+Intervals
+Input video
+
+=== SLIDE 35 ===
+35
+Each ellipse cannot
+exceed any body
+part size
+Information about how far is baby
+from camera
+iii. Overall framework
+Input video
+Compute frame
+to baby ratio
+Expert knowledge
+about size of baby parts [1]
+Number of ellipses
+represents diversity
+of motion
+Size of ellipses       represents intensity of motion
+Baby segmentation from background
+Compute
+motion area
+Match with
+expert data
+Movement Intensity
+1
+2
+3
+4
+5
+2
+4
+6
+8
+10
+Movement Diversity
+UCL
+LCL
+0.2
+
+=== SLIDE 36 ===
+36
+iv. Control chart representation
+Movement Intensity
+1
+2
+3
+4
+5
+2
+4
+6
+8
+10
+Movement Diversity
+UCL
+LCL
+0.2
+0
+UCL
+LCL
+UCL limit is crossed, so parents are notified about abnormal    behavior of the baby
+This whole chart represents the motion behavior of baby for a single interval
+These points are plotted based on motion difference between two consecutive frames of an interval
+UCL: Upper control limit
+LCL: Lower control limit
+LCL limit is crossed, as there is no motion of the baby so
+parents are notified about
+abnormal behavior of the baby
+Symbol | Frame in Interval
+| 1st
+| 2nd
+| 3rd
+| 4th
+| 5th
+
+=== SLIDE 37 ===
+37
+v. Control charts for intervals
+Input video
+Interval 1
+Interval 2
+Interval 3
+Interval 4
+Movement Intensity
+1
+2
+3
+4
+5
+2
+4
+6
+8
+10
+Movement Diversity
+0.2
+Movement Intensity
+1
+2
+3
+4
+5
+2
+4
+6
+8
+10
+Movement Diversity
+0.2
+Movement Intensity
+1
+2
+3
+4
+5
+2
+4
+6
+8
+10
+Movement Diversity
+0.2
+Movement Intensity
+1
+2
+3
+4
+5
+2
+4
+6
+8
+10
+Movement Diversity
+0.2
+Sign |  |  |  |  |
+Frame | 1st | 2nd | 3rd | 4th | 5th
+
+=== SLIDE 38 ===
+38
+vi. Control chart representation in terms of time
+UCL
+Intensity > UCL
+(T=1, I=0, D=0)
+(T=2, I=3, D=1)
+(T=3, I=4, D=3)
+(T=4, I=7, D=4)
+(T=5, I=7, D=5)
+Diversity and Intensity > UCL
+Diversity and Intensity < LCL
+Normal
+UCL
+LCL
+LCL
+Diversity
+Intensity
+Time
+Representation | X-axis | Y-axis | Z-axis | T | I | D
+Description | Intensity | Time | Diversity | Time | Intensity | Diversity
+
+=== SLIDE 39 ===
+39
+vii. Motion estimation mechanism
+
+=== SLIDE 40 ===
+40
+viii. Baby behavior estimation mechanism
+Start
+Input video
+Select interval
+Compute motion through motion estimation mechanism
+Draw ellipse(s) on all frames of single interval
+Construct control chart using ellipse(s) [I and D]
+I < LCL OR I > UCL?
+OR
+D < LCL OR D > UCL?
+Report instantly to
+parents for abnormal
+behavior of baby
+Normal behavior
+Last
+interval?
+End
+No
+Yes
+Yes
+No
+Process next interval
+UCL: Upper control limit
+LCL: Lower control limit
+I = Intensity
+D = diversity
+
+=== SLIDE 41 ===
+41
+ix. Standard baby size chart [1]
+Age (months)
+Body parts | 3  | 6 | 12 | 18 | 24
+| Baby size in cm |  |  |  |
+Chest | 40.5 | 43 | 45.5 | 48 | 50.5
+Center back
+(Neck-to-Wrist) | 26.5 | 29 | 31.5 | 35.5 | 45.5
+Back waist
+(length) | 15.5 | 17.5 | 19 | 20.5 | 21.5
+Cross back
+(Shoulder to shoulder) | 18.5 | 19.5 | 21 | 21.5 | 22
+Arm length
+(To underarm) | 15.5 | 16.5 | 19 | 20.5 | 21.5
+Upper arm | 14 | 15.5 | 16.5 | 17.5 | 19
+Armhole depth | 8.5 | 9 | 9.5 | 10 | 10.5
+Waist | 15.5 | 48 | 50.5 | 52 | 53.5
+Hips | 48 | 50.5 | 50.5 | 53.5 | 56
+
+=== SLIDE 42 ===
+6. Conclusion and future directions
+INDEX
+06
+
+=== SLIDE 43 ===
+43
+6. Conclusion and future directions
+
+=== SLIDE 44 ===
+44
+References
+https://www.craftyarncouncil.com/standards/baby-size-chart
+(Accessed: 14 March 2026, 9:25 AM)
+https://docs.opencv.org/3.4/d7/d8b/tutorial_py_lucas_kanade.html
+(Accessed: 14 March 2026, 9:26 AM)
+3.  https://docs.opencv.org/3.4/db/d5c/tutorial_py_bg_subtraction.html
+(Accessed: 14 March 2026, 9:27 AM)
+J. Lim and B. Han, "Generalized Background Subtraction Using Superpixels with   Label Integrated Motion Estimation," in Computer Vision – ECCV 2014, Cham,
+2014, pp. 173-187.
+Michael W. Tao, Jiamin Bai, Pushmeet Kohli, and Sylvain Paris.
+"SimpleFlow: A Non-I   terative, Sublinear Optical Flow Algorithm". Computer
+Graphics Forum (Eurographics 2012), 31(2), May 2012.
+6. Method and system for analyzing baby behavior (아기 행동 분석 시스템 및 그 방법)
+7. Hussain, T., Muhammad, K., Khan, S., Ullah, A., Lee, M. Y., & Baik, S. W. (2019).
+Intelligent baby behavior monitoring using embedded vision in IoT for smart healthcare centers. Journal of Artificial Intelligence and Systems, 1(1), 110-124.
+
+=== SLIDE 45 ===
+45
+Thank you
+Q&A
