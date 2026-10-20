@@ -82,6 +82,8 @@
 
 ### 1. 자료 범위와 읽는 방법
 
+**영어 답안 활용:** 각 개념 아래의 **English answer**는 시험에서 설명할 때 쓸 수 있는 문장이다. 논문은 영어로도 Theme와 Problem / Method / Result / Significance를 제공하고, 예상문제는 English question과 English model answer를 함께 둔다. 문제의 요구에 맞는 문장을 골라 쓰되, 자료가 보고한 결과와 자신의 판단을 구분한다.
+
 **시험 활용:** 오픈북·Ctrl+F 검색을 기준으로 구성했다. 대괄호까지 포함해 `[Cross-Attention]`처럼 검색하면 해당 개념 설명·관련 논문·예상 답안으로 이동할 수 있다. 같은 개념은 같은 영어 태그를 사용하고, 주요 약어는 전체 명칭과 함께 달았다. 출처용 `[W5, s.27–28]` 등과 검색 태그를 구분한다.
 
 | 찾고 싶은 내용 | 검색 태그 예시 |
@@ -140,6 +142,8 @@
 3. **불확실성은 어떻게 보완하는가?** SER은 화자 이력과 감정 지식으로, Dehazing은 열화 유형에 맞는 모델 선택으로 대응한다. 두 사례는 서로 다른 방식으로 입력·예측의 조건을 고려한다. [CALL p.12–23; LOW s.8, 22]
 4. **보기 좋은 영상이면 좋은 시스템인가?** 복원 품질과 객체 검출 성능은 별도로 평가한다. 모델 비교에서도 같은 데이터·학습 조건·지표인지 확인한다. [LOW s.15–21]
 
+**English summary:** Creating embeddings does not automatically align their meanings. Using several algorithms on one video is not the same as using several modalities. SER uses history and knowledge to support a current prediction, whereas haze-aware dehazing selects processing according to the input condition. Finally, image quality and downstream detection are different evaluation objectives, and model comparisons must preserve their data and training conditions.
+
 ### 4. 우선순위가 낮은 세부사항
 
 - 필터별 중간 숫자 전체, 감정 조합표의 개별 확률, 논문별 정확한 PSNR·mAP·데이터 수 암기.
@@ -159,6 +163,8 @@
 
 **Artificial Intelligence(AI)**는 인지·학습·이해·추론·행동·생성과 같이 지능이 필요한 과업을 수행하는 계산 시스템을 다루는 분야다. **Machine Learning(ML)**은 예시 데이터에서 패턴을 배우는 접근이고, **Deep Learning(DL)**은 여러 신경망 층을 통해 표현과 패턴을 학습하는 ML의 한 종류다. 강의의 포함 관계는 `DL ⊂ ML ⊂ AI`다. 사람이 조건을 정하는 Explicit Rules와 데이터에서 규칙을 배우는 ML을 스팸 분류 예시로 비교한다. [W1 s.16–19; W3 s.6–9]
 
+**English answer:** AI is the broad field of building systems that perform tasks involving intelligence, such as perception, reasoning, and action. Machine learning is an approach within AI that learns patterns from examples. Deep learning is a type of machine learning that uses multiple neural network layers to learn useful representations. Therefore, deep learning is a subset of machine learning, and machine learning is a subset of AI. In a rule-based spam filter, humans specify the conditions; in a learning-based filter, the model learns patterns from labeled examples.
+
 #### Modality와 멀티모달 접근의 목적
 
 **검색 태그:** [Modality] [Multimodal AI] [Complementary Information] [Redundant Information] [Contextual Information] [Missing Modality]
@@ -168,6 +174,8 @@
 야간 교차로에서는 영상이 외형·위치를, 소리가 접근하는 차량의 단서를, LiDAR가 깊이·기하 정보를, 지도·GPS가 위치 문맥을 제공할 수 있다. 여러 정보가 서로 다른 측면을 보완하는 **Complementary information**, 같은 판단을 확인하는 **Redundant information**, 다른 신호의 의미를 풀어 주는 **Contextual information**이 결합의 근거다. [W1 s.25, 32]
 
 모달리티를 늘리면 정렬 오류·잡음·결측·비용도 고려해야 한다. “더 많이 결합하면 항상 더 좋다”보다 **필요한 단서가 무엇이고, 각 단서가 언제 실패하는가**로 설명한다. 이는 강의의 교차로 토의 질문과 학습목표에 대응한다. [W1 s.21, 45; W5 s.50]
+
+**English answer:** A modality is a distinct channel or form of information, such as images, text, audio, video, or sensor measurements. Multimodal AI represents, connects, and reasons over information from different modalities. At a nighttime intersection, a camera provides visual appearance, audio provides sound cues, LiDAR provides depth, and GPS or maps provide location context. Complementary information adds different useful clues; redundant information confirms a conclusion; contextual information helps interpret another signal. More modalities do not automatically produce better performance because noise, missing inputs, alignment errors, and computational cost must also be considered.
 
 #### Representation·Alignment·Fusion
 
@@ -181,6 +189,8 @@
 
 **Embedding**은 입력의 유용한 특징·의미를 담은 학습된 밀집 벡터다. 의미가 비슷한 입력을 가까운 벡터로 표현하는 것이 목표다. 벡터 차원이나 형식이 같다는 이유만으로 의미적 대응까지 보장되는 것은 아니다. 강의는 의미 있는 Representation을 Alignment·Fusion의 토대로 설명한다. [W1 s.27–32]
 
+**English answer:** Representation converts raw inputs into useful features or embeddings. Alignment establishes semantic or temporal correspondences between inputs. Fusion combines information into a joint representation or decision. For visual question answering, an image and a question are first encoded, the word “bicycle” is matched to the corresponding image region, and the relevant visual and language information is combined to answer “dog.” An embedding is a learned dense vector. Having vectors of the same size does not by itself mean that their meanings are aligned.
+
 #### Fusion 방식의 비교
 
 **검색 태그:** [Fusion] [Early Fusion] [Intermediate Fusion] [Late Fusion] [Missing Modality]
@@ -193,6 +203,8 @@
 
 Late Fusion의 장점을 “어떤 입력이 없어도 무조건 정상 작동한다”로 외우지 않는다. 선택 이유는 **독립 예측을 결합하는 구조의 유연성**이고, 필요한 결측 대응은 시스템 설계에 달려 있다. [W1 s.31–32]
 
+**English answer:** Early fusion combines raw inputs or low-level features before deeper processing. It is simple but may limit modality-specific processing. Intermediate fusion first encodes each modality separately and then allows their representations to interact, for example through cross-attention. Late fusion combines independent predictions at the decision level. It can be more flexible when a modality is missing, but it provides less detailed interaction between modalities. The choice depends on whether the task needs fine-grained interaction or independent evidence. Missing-input handling still needs to be designed.
+
 #### 활용 분야와 범위
 
 **검색 태그:** [Applications] [Multimodal AI] [Robotics] [Healthcare]
@@ -200,6 +212,8 @@ Late Fusion의 장점을 “어떤 입력이 없어도 무조건 정상 작동�
 강의는 자율주행·로봇 조작·접근성 지원·의료 정보 결합·산업 이상 탐지·안전 감시를 제시한다. 예를 들어 “빨간 컵을 집어라”는 언어 지시와 장면 속 대상의 대응이 필요하고, 이미지 설명은 Vision과 Language의 연결이 필요하다. [W1 s.33; W5 s.8]
 
 Fire/Smoke, CHILD, CABAD/CABA_Net, IARD, ROAD-6, Industrial Anomaly Detection은 입문 슬라이드의 사례·향후 주제에 등장한다. 현재 자료에는 이들 각각의 독립적인 상세 강의가 없으므로 목적을 알아두는 수준으로 둔다. [W1 s.36–44, 46–47]
+
+**English answer:** Multimodal AI can support autonomous driving, robot manipulation, accessibility, healthcare, industrial monitoring, and safety applications. For example, a robot following “Pick up the red cup” must connect the language instruction to the correct object in the scene. Image captioning connects visual information to a language description. The introductory slides also mention fire and smoke monitoring, human activity recognition, and road hazards, but the available materials do not explain every listed system in detail.
 
 ### 2. Week 03 — Deep Learning Foundations, Part A
 
@@ -218,6 +232,8 @@ Fire/Smoke, CHILD, CABAD/CABA_Net, IARD, ROAD-6, Industrial Anomaly Detection은
 
 Sigmoid는 각 값의 변환이고, Softmax는 여러 클래스 점수를 **함께 정규화**한다. Softmax 출력에서 가장 큰 값을 선택하는 분류와, 확률값을 다른 근거와 결합하는 CALL 사례를 연결할 수 있다. [W3 s.14–18; CALL p.12–14, 22]
 
+**English answer:** A neural network contains input, hidden, and output layers. A neuron calculates a weighted sum of its inputs, adds a bias, and applies an activation function. Weights control the contributions of inputs, while the bias shifts the response. Nonlinear activation functions allow the network to represent complex nonlinear relationships. ReLU keeps positive values and sets negative values to zero. Sigmoid maps a value to the range between zero and one and is used for binary classification. Softmax jointly normalizes class logits into probabilities that sum to one. Tanh is another nonlinear activation function introduced in the lecture.
+
 #### 학습 과정: 각 단계가 하는 일
 
 **검색 태그:** [Forward Propagation] [Loss Function] [Cost Function] [Backpropagation] [Gradient] [Chain Rule] [Optimizer] [Gradient Descent]
@@ -231,6 +247,8 @@ Sigmoid는 각 값의 변환이고, Softmax는 여러 클래스 점수를 **함�
 
 Backpropagation의 핵심은 **Gradient 계산**, Optimizer의 핵심은 **그 Gradient를 이용한 갱신 규칙**이다. [W3 s.20–31]
 
+**English answer:** Forward propagation uses the current weights, biases, and activation functions to produce a prediction. A loss function measures the difference between the prediction and the target. In the lecture, cost refers to the average loss over the dataset. Backpropagation applies the chain rule to calculate the gradient of the loss with respect to each parameter. An optimizer then uses these gradients to update the parameters. Gradient descent updates them in a direction that reduces the loss. The key distinction is that backpropagation calculates gradients, whereas the optimizer defines how to use them for parameter updates.
+
 #### 출력 과업과 Loss의 연결
 
 **검색 태그:** [Classification] [Regression] [Loss Function] [Cross-Entropy] [MSE] [MAE] [Huber Loss] [SGD] [Momentum] [Adam] [RMSprop] [Adagrad]
@@ -242,6 +260,8 @@ Backpropagation의 핵심은 **Gradient 계산**, Optimizer의 핵심은 **그 G
 
 MSE는 큰 오차에 더 큰 벌점을 주고, MAE는 MSE보다 이상치에 덜 민감한 방식으로 소개된다. Huber는 두 방식의 성질을 결합하는 예다. SGD는 빠르지만 noisy한 갱신, Momentum은 진동 완화·수렴 가속, Adam은 Momentum과 적응적 학습률의 결합으로 설명된다. RMSprop·Adagrad는 이름과 적응적 조절의 취지를 아는 정도로 우선순위를 낮춘다. [W3 s.26–30]
 
+**English answer:** Classification predicts a category, whereas regression predicts a numerical value. Binary or categorical cross-entropy is used for classification, while MSE or MAE is used for regression. MSE penalizes large errors more strongly; MAE is less sensitive to outliers than MSE. Huber loss combines properties of both. SGD makes noisy updates, momentum helps reduce oscillation and accelerate convergence, and Adam combines momentum with adaptive learning rates. RMSprop and Adagrad are also introduced as methods that adapt update sizes using gradient information.
+
 #### Representation Learning·Embedding·Latent Space
 
 **검색 태그:** [Representation Learning] [Representation] [Embedding] [Latent Space]
@@ -249,6 +269,8 @@ MSE는 큰 오차에 더 큰 벌점을 주고, MAE는 MSE보다 이상치에 덜
 **Representation Learning**은 사람이 특징을 모두 지정하는 대신 과업에 유용한 표현을 데이터에서 학습하는 것이다. 이미지에서는 초기 층의 edge·line·color가 중간 층의 texture·shape, 깊은 층의 object 특징으로 이어진다. [W3 s.34–35]
 
 **Embedding은 한 입력의 벡터**, **Latent Space는 그 벡터들의 관계가 조직되는 학습 공간**으로 구분한다. 이 표현은 분류·군집·검색·생성에 활용될 수 있고, 멀티모달에서는 서로 다른 입력의 의미를 비교하는 공통 표현 공간으로 이어진다. [W3 s.36–38; W4 s.3–4]
+
+**English answer:** Representation learning allows a model to learn useful features from data instead of requiring humans to specify every feature manually. In image processing, early layers learn edges, lines, and colors; intermediate layers learn textures and shapes; deeper layers learn object-related features. An embedding is the vector representation of one input. A latent space is the learned space in which such representations and their relationships are organized. These representations support classification, clustering, retrieval, and generation. In multimodal learning, a shared space allows meanings across different modalities to be compared.
 
 ### 3. Week 04 — Deep Learning Foundations, Part B
 
@@ -265,6 +287,8 @@ MSE는 큰 오차에 더 큰 벌점을 주고, MAE는 MSE보다 이상치에 덜
 
 숫자 암기보다 “작은 영역을 곱해서 더한 뒤 이동한다”를 설명하고 한 영역의 값을 계산할 수 있어야 한다. 강의는 이 과정을 여러 슬라이드에 걸쳐 반복한다. [W4 s.6–16]
 
+**English answer:** A CNN learns spatial features from images using convolutional filters. A filter moves across the input, and each output value is calculated by multiplying corresponding elements in a local region and summing the products. The resulting feature map shows the responses to that filter. Different filters learn different patterns. Kernel size determines the region examined at each step, stride determines the movement distance, and padding adds values around the boundary to control spatial output size. The number of filters determines the number of output feature maps. Deeper layers combine simple features into more meaningful visual structures.
+
 #### Pooling·Flatten·Classification
 
 **검색 태그:** [Pooling] [Max Pooling] [Average Pooling] [Flatten] [Fully Connected] [Classification] [Softmax]
@@ -279,6 +303,8 @@ MSE는 큰 오차에 더 큰 벌점을 주고, MAE는 MSE보다 이상치에 덜
 
 강의의 분류 흐름은 `Image → Convolution/ReLU/Pooling → Flatten → Fully Connected → Softmax → Class`다. LeNet-5는 손글씨 숫자를 대상으로 이 흐름을 설명하는 대표 사례다. [W4 s.29–33]
 
+**English answer:** Pooling reduces the spatial size of feature maps by summarizing local regions. Max pooling selects the largest value, while average pooling calculates the mean. For the region [1, 3; 2, 6], max pooling returns 6 and average pooling returns 3. Flattening reshapes a multidimensional feature map into a one-dimensional vector for a dense layer. Unlike pooling, it changes the shape rather than summarizing values. The lecture's classification pipeline is convolution, activation, pooling, flattening, fully connected layers, and softmax. LeNet-5 illustrates this process for handwritten digit recognition.
+
 #### CNN vs Transformer
 
 **검색 태그:** [CNN] [Transformer] [ViT] [Swin Transformer] [VQA]
@@ -286,6 +312,8 @@ MSE는 큰 오차에 더 큰 벌점을 주고, MAE는 MSE보다 이상치에 덜
 CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 더 넓은 문맥을 형성한다. Transformer는 token·patch 사이 관계를 Attention으로 결합한다. 강의는 ViT의 먼 patch 연결과 Swin의 local/shifted window도 구분한다. 따라서 “CNN은 문맥을 못 보고 Transformer는 언제나 모든 위치를 한꺼번에 본다”는 식의 단정은 피한다. 둘 다 Classification·Detection·Segmentation에 사용할 수 있다. [W4 s.35–39]
 
 이미지 질문 응답에서는 CNN으로 얻은 시각 특징과 Transformer로 얻은 질문 표현을 결합해 답할 수 있다. 중요한 것은 모델 이름보다 **질문이 요구하는 시각 정보와 연결되는 과정**이다. [W4 s.40]
+
+**English answer:** CNNs begin with local filtering operations and build broader context through deeper layers. Transformers use attention to combine information according to relationships between tokens or patches. ViT connects image patches, including distant ones, while Swin uses local and shifted windows. Therefore, CNNs are not limited to isolated local information, and Transformers do not always use unrestricted global attention. Both can support classification, detection, and segmentation. In visual question answering, CNN visual features can be combined with a Transformer-based question representation to identify the information needed for the answer.
 
 ### 4. Week 05 — Attention & Transformers as the Multimodal Backbone
 
@@ -298,6 +326,8 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 **Saliency Detection**은 강의의 비교에서 질문과 독립적으로 시각적으로 눈에 띄는 영역을 찾는 방식이고, **Attention Mechanism**은 현재 query·task와 관련된 정보를 가중한다. 결과가 heatmap처럼 보여도 목적과 계산 역할이 같다 보기는 어렵다. [W5 s.15, 이미지 비교표]
 
 **Soft Attention**은 여러 부분에 연속적인 가중치를 주어 결합한다. **Hard Attention**은 하나 또는 소수의 부분을 선택한다. Soft Attention은 중요도가 낮은 정보를 반드시 모두 버리는 방식은 아니다. [W5 s.12–14]
+
+**English answer:** Attention gives greater influence to information that is relevant to the current task or query. For “What did the boy kick?”, the ball and the action relationship matter more than unrelated background details. In the lecture's comparison, saliency detection identifies visually noticeable regions, while attention weights information according to task relevance. Soft attention combines multiple parts using continuous weights. Hard attention selects one or a few parts. Soft attention does not necessarily discard every less important part; those parts can still contribute with smaller weights.
 
 #### Q·K·V와 Attention의 작동 원리
 
@@ -317,6 +347,8 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 
 `QKᵀ`는 관련성 점수, `√dₖ`는 점수 크기 조절, Softmax는 가중치 정규화, 마지막 `V`와의 곱은 정보 결합이다. 복잡한 행렬 유도보다 각 항의 목적이 우선이다. 예컨대 가중치가 0.7·0.2·0.1이면 결과는 `0.7V₁ + 0.2V₂ + 0.1V₃`다. [W4 s.36; W5 s.18, 21–22]
 
+**English answer:** The query represents what information is being sought. Keys provide descriptors used to calculate relevance, and values contain the information to be combined. Attention compares queries with keys, scales the scores, applies softmax, and computes a weighted sum of the values. In Attention(Q,K,V) = softmax(QKᵀ / √dₖ)V, QKᵀ gives relevance scores, √dₖ scales them, softmax normalizes the weights, and multiplication by V combines the information. For weights 0.7, 0.2, and 0.1, the output is 0.7V₁ + 0.2V₂ + 0.1V₃. A larger weight gives the corresponding value more influence.
+
 #### Self-Attention vs Cross-Attention
 
 **검색 태그:** [Self-Attention] [Cross-Attention] [QKV] [VQA]
@@ -327,6 +359,8 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 | Cross-Attention | 한 입력의 Q와 다른 입력의 K·V | 텍스트 질문이 이미지 영역을 참조; Decoder가 Encoder 출력을 참조 |
 
 “What is the person doing?”의 텍스트 Query가 이미지의 Key와 비교하여 달리는 사람의 Value를 가져오는 것이 Cross-Attention의 직관이다. Self/Cross의 가장 정확한 구분은 **Q와 K/V의 출처**다. Cross-Attention은 encoder–decoder 사이에도 쓰이므로, 반드시 서로 다른 감각 모달리티여야 하는 것은 아니다. [W5 s.23–28]
+
+**English answer:** Self-attention generates queries, keys, and values from the same input and models relationships within that input. Cross-attention uses queries from one input and keys and values from another. For example, a text question can query image features to find the region needed for an answer. The decisive difference is the source of Q versus K and V. Cross-attention also connects a decoder to an encoder, so the two inputs do not have to come from different sensory modalities.
 
 #### Transformer의 구성 요소
 
@@ -342,6 +376,8 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 
 여기서 Encoder–Decoder는 **강의가 설명하는 원형 Transformer 구조**다. 핵심 학습 포인트는 RNN의 순차 처리와 비교한 Attention의 관계 연결·병렬 처리다. 이를 모든 환경에서 무조건 빠르고 저렴하다는 주장으로 확장하지 않는다. [W5 s.31–34, 50]
 
+**English answer:** Positional encoding provides order or location information. Multi-head attention learns several kinds of relationships in parallel and combines their outputs. Feed-forward networks further transform the representations, while residual connections and normalization support information flow and stable processing. In the original encoder-decoder architecture described in class, the encoder builds contextual input representations. The decoder uses masked self-attention to prevent access to future tokens and cross-attention to refer to encoder outputs. A linear layer and softmax produce next-token probabilities. Attention supports parallel processing compared with sequential RNN processing, but long sequences can still be computationally expensive.
+
 #### 서로 다른 입력을 어떻게 처리하는가?
 
 **검색 태그:** [Tokenization] [Token] [Patch] [Audio Segment] [Embedding] [Transformer] [Preprocessing] [Alignment] [Computational Cost]
@@ -355,6 +391,8 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 
 공통점은 벡터 sequence로 바꾸어 Attention을 적용할 수 있다는 것이다. **같은 구조 계열을 적용할 수 있음**과 **전처리·학습된 파라미터가 모두 같음**은 구분한다. 모달리티별 단위화·전처리가 필요하며, 관계 학습에는 잘 정렬된 양질의 데이터가 필요하다. 긴 영상 sequence는 계산 비용도 크다. [W5 s.36–39, 44, 48–50]
 
+**English answer:** Text is divided into word or subword tokens, images into patches, and audio into short segments or frames. Each unit is converted into an embedding. Position information represents word order, spatial patch locations, or temporal segment order. Video requires both spatial and temporal information. This vector-sequence format allows the Transformer architecture family to process different input types. However, each modality still needs its own preprocessing, and using the same architecture family does not imply identical learned parameters. Learning cross-modal relationships requires well-aligned, high-quality data, and long video sequences increase computational cost.
+
 ### 5. 사례 — Fake Call Analysis와 LISTEN
 
 #### 두 흐름을 구분하기
@@ -364,6 +402,8 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 CALL의 앞부분은 통화 내용 기반 사기 탐지와 LISTEN의 모듈을 소개한다. p.4의 도식은 **Call → Recording → Speech Recognition → Text → Fraud Detection Rules → Alert**다. 성별 추정·연령 예측·Speech Emotion Recognition(SER)·Fusion/Reasoning도 별도 기능으로 소개된다. 감정 하나를 예측한 결과가 곧 사기 확정이라는 뜻은 아니다. [CALL p.2–10]
 
 후반부는 **추론 과정을 이용한 SER**을 설명한다. 음성을 Spectrogram으로 변환하고 시간 구간별로 나누어 쌓은 뒤, 3D CNN과 Softmax로 감정 후보를 출력한다. Spectrogram은 음성의 시간·주파수 표현이며, 이미지처럼 처리해도 정보원은 여전히 Audio다. [CALL p.11–14]
+
+**English answer:** The call-analysis material introduces content-based fraud detection and several LISTEN modules, including gender recognition, age prediction, speech emotion recognition, and fusion and reasoning. In the content-based pipeline, a call is recorded, speech is converted into text, and detection rules determine whether to issue an alert. The later SER pipeline converts speech into spectrogram segments, stacks them, and applies a 3D CNN and softmax to predict emotion candidates. A spectrogram represents audio over time and frequency; treating it as an image does not create a new input modality. An emotion prediction alone does not establish that a call is fraudulent.
 
 #### 순간 예측을 이력·지식으로 보완
 
@@ -385,6 +425,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 **답변에 쓸 한계 — 자료 기반 추론:** 이력에 큰 비중을 두면 실제 감정 변화가 과거 상태에 눌릴 수 있고, 잘못된 이력이 후속 판단에 영향을 줄 수 있다. 이는 제안 구조에서 도출한 검토 의견이며, 강의가 보고한 실패 실험 결과는 아니다. 감정 공존표도 이 자료의 reasoning 가정으로 설명한다.
 
+**English answer:** The SER system checks confidence using the maximum predicted probability, discards low-confidence outputs, and uses additional evidence to examine ambiguous or conflicting emotions. It combines the current prediction, the speaker's emotional history, and emotion co-existence knowledge. The history score for emotion E is its number of occurrences among the previous N segments divided by N. Reliability-weighted fusion calculates F(E) = r₁S₁(E) + r₂S₂(E) + r₃S₃(E), and the emotion with the highest fused score is selected. Thus, the final decision can differ from the current classifier's top prediction. Reliable outputs maintain emotional history, while high-confidence annotated spectrograms can be accumulated for fine-tuning. A possible limitation is that strong reliance on history may suppress a genuine sudden emotion change; this is a design concern inferred from the structure, not a reported failure experiment.
+
 ### 6. 사례 — Intelligent Baby Monitoring
 
 #### 목적과 관측의 어려움
@@ -392,6 +434,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 **검색 태그:** [Baby Monitoring] [Dataset] [Motion Detection]
 
 보호자의 지속적인 관찰 부담을 줄이기 위해 카메라로 움직임을 관찰한다. 부착형 센서는 착용 유지가 어렵고, 카메라는 호흡처럼 작은 움직임을 검출하기 어렵다는 동기가 제시된다. 자체 데이터는 27 videos·6 subjects·여러 촬영 높이·상황으로 구성되며, 결과 예시에는 doll·company·YouTube 영상도 등장한다. 모든 평가 장면을 실제 아기 영상으로 해석하지 않는다. [BABY s.4–10, 21–31]
+
+**English answer:** Camera-based baby monitoring aims to reduce the burden of continuous observation by caregivers. Attached sensors may be difficult to keep in place, while cameras face the challenge of detecting very small movements such as breathing. The lecture describes a dataset of 27 videos with six subjects and different recording heights and scenarios. The result examples also include dolls and company or YouTube videos. Therefore, the full evaluation should not be described as testing exclusively on real babies.
 
 #### 세 Motion Detection 방법과 Hybrid
 
@@ -405,6 +449,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 | Hybrid | 세 방법의 binary motion 추정 결과를 결합 | 같은 영상의 서로 다른 검출 근거를 함께 사용 |
 
 슬라이드의 Hybrid 도식은 Intersection을 표시한다. 세 입력 모달리티를 결합하는 것으로 외우지 않는다. 보고된 11개 영상의 accuracy에서는 Hybrid가 각 단일 방법보다 높지만, 평가 장면과 자료 범위가 제한되어 있다. 결론은 Hybrid를 권고하면서 **상대적으로 계산 비용이 크다**고 밝히고, 영상 수·상황·난점을 늘리는 dataset 확장을 후속 과제로 제시한다. [BABY s.12–20, 43]
+
+**English answer:** Frame difference detects changes between consecutive frames using pixel differences and thresholding. Optical flow estimates apparent motion between frames. Background subtraction compares the current frame with a background model to obtain a foreground mask. The hybrid method combines the binary motion estimates from these three methods, and its diagram indicates an intersection operation. These are different methods applied to one video modality. The reported accuracy table favors the hybrid method across the eleven listed videos, but it has higher computational cost. The lecture also calls for a larger dataset covering more scenarios and challenges.
 
 #### Motion Detection에서 Behavior Analysis로
 
@@ -420,6 +466,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 **동작 영역 검출**과 **행동의 정상·이상 판단**은 별도 단계다. 크기 보정·특징 추출·범위 비교가 두 단계를 이어 준다. [BABY s.33–41]
 
+**English answer:** The system divides video into intervals, segments the baby, detects motion regions, calibrates their size, and represents them with ellipses. Calibration uses camera distance, the frame-to-baby ratio, and knowledge of body-part sizes because pixel size changes with recording conditions. Ellipse size represents movement intensity, and the number of ellipses represents movement diversity. A control chart compares these features with lower and upper control limits, LCL and UCL. If either feature falls below its lower limit or rises above its upper limit, the system alerts the caregiver. Too little movement can therefore also trigger an alert. Detecting a motion region and judging abnormal behavior are separate stages.
+
 ### 7. 사례 — Low-Level Vision and Image Enhancement
 
 #### Enhancement와 Recognition의 차이
@@ -427,6 +475,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 **검색 태그:** [Low-Level Vision] [Image Enhancement] [Dehazing] [LLIE] [Low-Light Image Enhancement] [Object Detection]
 
 **Low-Level Vision**의 이번 중심은 열화된 영상을 복원·개선하는 것이다. **Dehazing**은 haze에 의한 시야 저하, **Low-Light Image Enhancement(LLIE)**는 부족한 조명 조건을 다룬다. 출력은 개선된 이미지다. 반면 **Object Detection**의 출력은 객체의 class·위치이며, Enhancement 이후의 활용을 검증하는 downstream task다. [LOW s.3–4, 8, 12, 15, 21]
+
+**English answer:** Image enhancement restores or improves a degraded image. Dehazing addresses reduced visibility caused by haze, while low-light image enhancement addresses poor illumination. Their output is an enhanced image. Object detection instead predicts object classes and locations. It is a downstream task that can be used to test whether enhancement makes the image more useful for recognition. Image quality and recognition performance should therefore be evaluated separately.
 
 #### HazeSpace2M과 Haze-Aware Dehazing
 
@@ -440,6 +490,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 한계는 **Classifier Dependency**와 **Synthetic-to-Real Gap**이다. 잘못 분류하면 부적합한 dehazer를 선택할 수 있고, 합성 데이터가 실제 환경을 충분히 대표하지 못할 수 있다. 강의의 후속 방향은 여러 type을 처리하는 Unified Method와 계산 비용 절감이다. [LOW s.22]
 
+
+**English answer:** HazeSpace2M addresses limited diversity in dehazing data. It includes four scene categories, three haze types, multiple intensity levels, and a real haze test set. Not every scene contains every haze type. The approximately 2.2 million total counts ground-truth and hazy images together. Paired data link a degraded input to its corresponding reference for training and evaluation. Ground-truth quality checks consider resolution, existing haze, and relevance. The haze-aware framework first classifies the haze type and then selects a specialized dehazer. The dataset and the framework are different contributions. Its main limitations are classifier dependency and the synthetic-to-real gap: a wrong class can select an unsuitable model, and synthetic conditions may not represent the real world sufficiently. The lecture proposes unified methods and lower computational cost as future directions.
 
 #### LoLI-Street와 TriFuse
 
@@ -457,6 +509,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 큰 구조·완만한 변화와 방향별 경계·detail을 나누어 처리한다는 아이디어가 핵심이다. **여러 주파수 band·여러 모델 구성 요소와 여러 modality는 구분**한다. [LOW s.12–14, Fig.7]
 
+**English answer:** LoLI-Street is a benchmark for low-light enhancement of street images. The lecture introduces 33,000 paired low-light images and a separate real-life low-light test set, RLLT. TriFuse combines wavelet decomposition, diffusion, and Transformer-based processing. A Haar DWT separates the image into low-frequency and directional high-frequency bands. The low-frequency branch uses diffusion denoising; forward diffusion adds noise, while the learned reverse process removes it. The conditional noise module, CNM, uses encoder, Transformer, and decoder components to predict noise using the input condition. The edge sharpening module, ESM, improves high-frequency edges and details using components including residual connections and cross-attention. Inverse DWT reconstructs the enhanced image. These are different components and frequency bands of one RGB input, rather than separate input modalities.
+
 #### 결과를 읽는 기준
 
 **검색 태그:** [Evaluation] [Image Quality] [PSNR] [SSIM] [MS-SSIM] [MSE] [MAE] [LPIPS] [BRISQUE] [NIQE] [Object Detection] [YOLOv10] [mAP] [Pretrained] [Dataset-Trained]
@@ -472,6 +526,8 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 위 지표의 방향과 평가 용도는 강의 표를 읽기 위한 수준이다. 상세 정의·수식은 현재 자료가 충분히 설명하지 않으므로 암기 대상으로 추가하지 않았다. [LOW s.9–10, 15–16]
 
 TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 결과를 보이지만, Light 조건 PSNR 등에서는 다른 방법이 더 높다. 따라서 핵심 결론은 **실제 환경·평가 지표·학습 조건을 나누어 강점을 설명한다**는 것이다. [LOW s.15, Tables 12–14]
+
+**English answer:** Evaluation should distinguish classification, image restoration, real-image quality, and downstream detection. Classification metrics assess whether the haze type is predicted correctly. In the lecture's tables, higher PSNR, SSIM, and MS-SSIM are preferred, while lower MSE, MAE, and LPIPS are preferred. BRISQUE and NIQE evaluate quality without a reference image, with lower values preferred in the reported comparison. YOLOv10 mAP assesses detection after enhancement. Pretrained and dataset-trained results must be kept separate. TriFuse performs well on the reported trained-weight RLLT comparison and average detection mAP, but other methods score higher on some individual metrics, such as Light-condition PSNR. Its strengths should be stated for the relevant data, metric, and training condition.
 
 ## Part 3. 논문 요약
 
@@ -501,6 +557,16 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **직전 기억:** “다양한 haze 데이터를 만들고, 먼저 haze 종류를 알아본 뒤 전용 복원 모델을 고른다. 분류 오류와 실제 환경의 차이가 한계다.”
 
+**English paper answer:**
+
+- **Theme:** Diverse dehazing data and haze-dependent restoration model selection.
+- **Problem:** Existing approaches and datasets do not adequately cover diverse real-world haze conditions.
+- **Method:** The work introduces paired data across different scenes, haze types, and intensities, together with a real test set. Its framework classifies the haze type and selects a specialized dehazer.
+- **Result:** In the lecture’s Fog, Environmental Haze, and Cloud comparison, SDNets achieve higher average PSNR and SSIM and lower average MSE than LDNet and GDNet. This finding applies to the reported comparison.
+- **Significance:** The contribution combines dataset diversity with condition-dependent restoration. Classification errors and the synthetic-to-real gap remain important limitations.
+
+**One-sentence takeaway:** HazeSpace2M provides diverse data, and the framework selects a dehazer according to the predicted haze type.
+
 ### 3. LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond — TriFuse
 
 **테마:** 도로 저조도 영상의 benchmark·복원과 개선 후 객체 검출.
@@ -517,6 +583,16 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 **연결 개념:** Transformer, Cross-Attention, Conditional processing, Reference/no-reference evaluation.
 
 **직전 기억:** “TriFuse는 주파수를 나누어 noise와 detail을 각각 처리한다. LoLI-Street 연구는 밝아 보이는 정도뿐 아니라 실제 영상 품질과 객체 검출까지 확인한다.”
+
+**English paper answer:**
+
+- **Theme:** Street-image enhancement, real-image evaluation, and downstream object detection.
+- **Problem:** Poor illumination reduces the visibility of street-scene details and makes subsequent visual tasks more difficult.
+- **Method:** The work introduces paired LoLI-Street data and the real-life RLLT set. TriFuse uses DWT to separate frequency bands, diffusion and CNM for low-frequency restoration, and ESM for high-frequency detail enhancement before reconstruction.
+- **Result:** The lecture reports the lowest BRISQUE and NIQE and the highest two average YOLOv10 mAP values for TriFuse in the specified trained-weight comparisons. It does not rank first for every condition, metric, or object class.
+- **Significance:** The work evaluates both image quality and the usefulness of enhanced images for object detection.
+
+**One-sentence takeaway:** TriFuse treats low-frequency restoration and high-frequency details separately, and its evaluation includes downstream detection.
 
 ### 4. Attention Is All You Need — Vaswani et al., 2017
 
@@ -535,6 +611,16 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **직전 기억:** “Attention으로 관련 정보를 직접 연결한다. 위치는 Positional Encoding이, 여러 관계는 Multi-Head가, 다른 입력 참조는 Cross-Attention이 맡는다.”
 
+**English paper answer:**
+
+- **Theme:** Attention-based sequence processing and the Transformer architecture.
+- **Problem:** The lecture motivates the approach through sequential RNN processing and the difficulty of using earlier information in long sequences.
+- **Method:** The Transformer connects relevant elements using attention, with multi-head attention, positional encoding, feed-forward networks, residual connections, normalization, and an encoder-decoder structure.
+- **Result:** The lecture explains relationship modeling and parallel processing. It does not provide the original paper’s quantitative translation results or training-cost comparisons.
+- **Significance:** This architecture family can process embeddings derived from text tokens, image patches, or audio segments and support cross-input interaction.
+
+**One-sentence takeaway:** Attention connects relevant information; positional encoding supplies position, and multiple heads capture different relationships.
+
 ### 5. LeNet-5 — LeCun et al., 1998
 
 **테마:** 계층적 시각 특징 학습을 이용한 손글씨 숫자 분류.
@@ -551,6 +637,16 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 **연결 개념:** Local feature, Hierarchy, Feature map, Pooling, Classification.
 
 **직전 기억:** “작은 시각 특징을 쌓아 손글씨 숫자를 분류하는 초기 CNN 사례다.”
+
+**English paper answer:**
+
+- **Theme:** Hierarchical visual feature learning for handwritten digit classification.
+- **Problem:** The task is to recognize handwritten digits from images.
+- **Method:** Convolution and subsampling or pooling extract hierarchical features, and dense classification layers predict the digit class.
+- **Result:** The lecture presents LeNet-5 as an early demonstration of effective CNN-based visual recognition, without reporting a specific error rate.
+- **Significance:** It illustrates how simple visual patterns such as edges and curves can support digit recognition through a sequence of processing layers.
+
+**One-sentence takeaway:** LeNet-5 learns visual features with convolution and subsampling and uses them to classify handwritten digits.
 
 ### 6. Intelligent baby behavior monitoring using embedded vision in IoT for smart healthcare centers
 
@@ -569,6 +665,16 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **직전 기억:** “세 움직임 검출법의 Hybrid가 보고된 비교에서 가장 좋았지만 계산 비용이 크다. 여러 방법과 여러 modality는 구분한다.”
 
+**English paper answer:**
+
+- **Theme:** Non-contact video monitoring and comparison of motion detection methods.
+- **Problem:** Continuous caregiver observation is difficult, and cameras must detect very small movements.
+- **Method:** The lecture compares frame difference, optical flow, background subtraction, and their hybrid combination. This summary follows the lecture comparison because the paper’s full text is not attached.
+- **Result:** The hybrid method has the highest reported accuracy across the eleven listed videos. The lecture also identifies higher computational cost and a need for broader datasets.
+- **Significance:** The comparison illustrates the benefits and costs of combining different methods applied to the same video input.
+
+**One-sentence takeaway:** The hybrid method combines motion evidence from three algorithms; this is multiple-method fusion within one modality.
+
 ### 7. CALL에서 도식으로 소개한 논문 5편
 
 이 연구들은 참고문헌에 이름만 있는 경우보다 설명 근거가 많지만, 개별 슬라이드 수준의 소개다. 아래 **Result는 슬라이드에서 확인할 수 있는 출력·설명 범위**이며 원 논문의 미제공 정량 성과를 대신 만들지 않는다.
@@ -581,6 +687,28 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 | **Deep features-based speech emotion recognition for smart affective services** — Badshah et al., 2019. CALL p.7 | 발화의 감정 분류 | Spectrogram을 chunk로 나누고 CNN의 예측을 Majority Voting으로 모음 | 최종 emotion label을 얻는 도식. 성능 미제시 | “시간 구간의 예측을 투표로 모은다.” 뒤의 이력·지식 기반 추론과 구별 | 음성의 구간별 감정 분류와 투표 결합. [SER] [Speech Emotion Recognition] [Spectrogram] [CNN] [Majority Voting] [Fusion] |
 | **Dempster-Shafer fusion-based gender recognition for speech analysis applications** — Ahmad et al., 2016. CALL p.8 | 음성 구간의 속성 예측 결합 | MFCC → SVM 구간별 예측 → DS Fusion | Fusion-based gender prediction 도식. 성능 미제시 | “구간별 근거를 결합해 최종 판단한다.” DS의 상세 수식은 자료 설명 없음 | 구간별 예측 근거의 Dempster-Shafer 결합. [Gender Recognition] [MFCC] [SVM] [Dempster-Shafer Fusion] [Fusion] |
 
+
+**English answers for the five brief paper examples:**
+
+**Detecting telecommunication fraud by understanding the contents of a call**
+
+Theme: content-based call fraud detection. Problem: detecting fraudulent calls from their contents. Method: record the call, convert speech to text, and apply detection rules. Result: the diagram produces an alert for a suspected fraudulent call; no numerical performance is provided. Significance: speech recognition supplies text for content analysis, which is different from recognizing an emotion.
+
+**Gender identification using mfcc for telephone applications—a comparative study**
+
+Theme: speaker-attribute recognition through speech features and pattern matching. Problem: estimating a speaker attribute from telephone speech. Method: extract features, store training features, and use pattern matching and decision logic during recognition. Result: the slide shows a recognition pipeline but gives no comparative accuracy. Significance: the example connects a speech representation to a classification decision.
+
+**Gender and age estimation methods based on speech using deep neural networks**
+
+Theme: shared speech representations for age and gender estimation. Problem: estimating age and gender from speech. Method: preprocess the waveform, extract features, and obtain a DNN embedding for age regression, age classification, and gender classification. Result: the diagram outputs an exact age, an age label, and a gender label; numerical performance is not provided. Significance: one representation supports both numerical regression and categorical classification.
+
+**Deep features-based speech emotion recognition for smart affective services**
+
+Theme: segment-based speech emotion recognition and voting. Problem: predicting emotion from speech. Method: divide a spectrogram into chunks, classify the chunks with a CNN, and combine predictions by majority voting. Result: the diagram produces a final emotion label; quantitative accuracy is not shown. Significance: segment predictions are aggregated rather than treating one segment as the whole call. This is distinct from the later history-and-knowledge reasoning pipeline.
+
+**Dempster-Shafer fusion-based gender recognition for speech analysis applications**
+
+Theme: evidence fusion across speech-segment predictions. Problem: combining segment-level gender predictions. Method: extract MFCC features, use an SVM for segment predictions, and apply Dempster-Shafer fusion. Result: the diagram produces a fused gender prediction without reporting numerical accuracy. Significance: multiple pieces of prediction evidence support a final decision; the lecture does not explain the detailed fusion equations.
 
 ### 8. 이름·참고문헌만 보고 깊게 확장하지 않을 항목
 
@@ -599,137 +727,205 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 ### 1. Representation·Alignment·Fusion을 이미지 질문 응답으로 설명하라.
 
+**English question:** Explain representation, alignment, and fusion using visual question answering.
+
 **검색 태그:** [Representation] [Alignment] [Fusion] [VQA]
 
 **모범답안:** 이미지를 시각 벡터로, 질문을 언어 벡터로 바꾸는 것이 Representation이다. 질문의 ‘자전거’와 해당 이미지 영역을 연결하는 것이 Alignment이며, 질문과 주변 객체의 정보를 함께 사용해 ‘개’라고 답하는 것이 Fusion과 추론이다. 벡터 표현·대응 관계·정보 결합은 서로 다른 역할이다.
+
+**English model answer:** Representation converts the image into visual vectors and the question into language vectors. Alignment connects “bicycle” in the question to the corresponding image region. Fusion combines the question with relevant visual information to answer “dog.” These stages respectively provide numerical representations, establish correspondences, and combine information for reasoning.
 
 **필수 개념:** Embedding, Correspondence, Joint use of information. [W1 s.27–32]
 
 ### 2. 멀티모달이 단일 모달보다 유리하거나 불리할 수 있는 상황은?
 
+**English question:** When can multimodal AI be more or less useful than a single-modality approach?
+
 **검색 태그:** [Multimodal AI] [Alignment] [Missing Modality] [Computational Cost]
 
 **모범답안:** 야간 교차로처럼 한 신호가 부족한 상황에서는 영상·소리·깊이·위치 정보가 서로 보완될 수 있다. 다만 신호의 시간 대응이 어긋나거나 데이터 품질이 낮으면 결합도 잘못될 수 있다. 필요한 단서와 실패 조건을 확인하고, 정렬·계산 비용을 감당할 가치가 있는지 판단해야 한다.
+
+**English model answer:** At a nighttime intersection, vision, audio, depth, and location information can provide complementary evidence when one source is insufficient. However, poor data quality or incorrect temporal alignment can make fusion unreliable. I would identify the necessary clues and their failure conditions, then assess whether the benefits justify the alignment effort and computational cost.
 
 **필수 개념:** Complementarity, Alignment, Noise/Missing information, Cost. [W1 s.21, 25, 30, 45; W5 s.50]
 
 ### 3. 입력 하나가 누락될 수 있는 감시 시스템에서 어떤 Fusion을 고려하겠는가?
 
+**English question:** Which fusion strategy would you consider for a monitoring system with potentially missing inputs?
+
 **검색 태그:** [Fusion] [Late Fusion] [Intermediate Fusion] [Missing Modality]
 
 **모범답안:** 각 입력이 독립 예측을 만들 수 있다면 Late Fusion을 우선 고려하겠다. 결과를 결합하는 방식은 모달리티 결측에 상대적으로 유연하기 때문이다. 반면 소리의 특정 구간과 영상의 특정 동작을 세밀하게 연결해야 한다면 Intermediate Fusion이 더 적합할 수 있다. 결측 대응과 깊은 상호작용 사이의 요구를 비교하겠다.
+
+**English model answer:** I would first consider late fusion if each input can produce an independent prediction. Combining predictions provides flexibility when a modality is missing. If the task requires detailed correspondence between a sound segment and a visual action, intermediate fusion may be more suitable. The choice depends on the balance between missing-input handling and fine-grained interaction.
 
 **필수 개념:** Decision-level vs Representation-level, Missing modality, Interaction. [W1 s.31–32]
 
 ### 4. Self-Attention과 Cross-Attention의 차이와 역할을 설명하라.
 
+**English question:** Explain the difference between self-attention and cross-attention and their roles.
+
 **검색 태그:** [Self-Attention] [Cross-Attention] [QKV] [VQA]
 
 **모범답안:** Self-Attention은 같은 입력에서 Q·K·V를 만들어 내부 요소의 관계를 학습한다. Cross-Attention은 한 입력의 Q가 다른 입력의 K·V를 참조한다. VQA에서는 질문을 내부적으로 이해하고, 질문 Query로 필요한 이미지 영역을 찾아 답에 사용할 수 있다.
+
+**English model answer:** Self-attention generates Q, K, and V from the same input to model internal relationships. Cross-attention uses Q from one input and K and V from another. In visual question answering, the model can first represent the question internally and then use its queries to retrieve relevant image information for the answer.
 
 **필수 개념:** Q/K/V의 출처, Within-input relation, Cross-input reference. [W5 s.23–28, 42]
 
 ### 5. Attention weight가 큰 정보는 어떻게 출력에 반영되는가?
 
+**English question:** How does an attention weight affect the output?
+
 **검색 태그:** [Attention] [QKV] [Softmax] [Weighted Sum]
 
 **모범답안:** Query와 Key의 관련성 점수를 scaling하고 Softmax로 정규화해 가중치를 만든다. 각 Value를 해당 가중치로 곱해 더하므로, 큰 가중치의 정보가 출력에 더 크게 기여한다. 중요도가 낮은 정보가 언제나 완전히 삭제되는 것은 아니다.
+
+**English model answer:** Attention calculates relevance scores between queries and keys, scales them, and applies softmax to obtain weights. It multiplies each value by its weight and sums the results. A larger weight gives the corresponding value more influence. Lower-weight information is not necessarily removed completely.
 
 **필수 개념:** Relevance score, Scaling, Softmax, Weighted sum. [W5 s.18–22]
 
 ### 6. Transformer에 Positional Encoding과 Multi-Head Attention이 필요한 이유는?
 
+**English question:** Why are positional encoding and multi-head attention used in a Transformer?
+
 **검색 태그:** [Transformer] [Positional Encoding] [Multi-Head Attention]
 
 **모범답안:** Attention의 관계 정보에 더해 입력의 위치·순서를 제공하려고 Positional Encoding을 사용한다. Multi-Head는 여러 관점의 관계를 병렬로 학습해 결합한다. 따라서 ‘무엇이 관련되는가’, ‘어디에 있는가’, ‘어떤 여러 관계가 있는가’를 함께 표현할 수 있다.
+
+**English model answer:** Positional encoding supplies input order or location information in addition to the relationships captured by attention. Multi-head attention learns different relationships in parallel and combines their outputs. Together, they help represent what is related, where elements occur, and several types of relationships.
 
 **필수 개념:** Position/order, Multiple relationships. [W5 s.31–34]
 
 ### 7. Transformer가 이미지·텍스트·오디오를 처리할 수 있는 이유와 한계는?
 
+**English question:** Why can Transformers process images, text, and audio, and what are the limitations?
+
 **검색 태그:** [Transformer] [Tokenization] [Preprocessing] [Alignment] [Computational Cost]
 
 **모범답안:** Text는 token, Image는 patch, Audio는 segment로 나눈 뒤 embedding sequence로 바꾸면 공통 Attention 구조를 적용할 수 있다. 그러나 입력별 전처리는 다르며, 모달리티 관계 학습에는 잘 정렬된 데이터가 필요하다. 영상처럼 sequence가 길면 계산 비용도 커진다.
+
+**English model answer:** Text tokens, image patches, and audio segments can be converted into embedding sequences and processed using an attention-based architecture. However, the modalities require different preprocessing, and cross-modal learning needs well-aligned data. Long sequences, particularly video, can also make attention computationally expensive.
 
 **필수 개념:** Tokenization, Embedding, Modality-specific preprocessing, Alignment, Cost. [W5 s.36–39, 48–50]
 
 ### 8. 신경망 학습에서 Forward·Loss·Backpropagation·Optimizer는 어떻게 다른가?
 
+**English question:** Distinguish forward propagation, loss, backpropagation, and the optimizer.
+
 **검색 태그:** [Forward Propagation] [Loss Function] [Backpropagation] [Optimizer] [Gradient]
 
 **모범답안:** Forward는 현재 파라미터로 예측을 만들고, Loss는 target과의 차이를 수치화한다. Backpropagation은 손실의 파라미터별 Gradient를 계산한다. Optimizer는 그 Gradient를 이용해 Weight·Bias를 갱신하며, 이를 반복해 손실을 줄인다.
+
+**English model answer:** Forward propagation produces predictions using the current parameters. The loss measures the difference from the target. Backpropagation calculates the loss gradient with respect to each parameter. The optimizer uses these gradients to update weights and biases. Repeating this process aims to reduce the loss.
 
 **필수 개념:** Prediction, Error, Gradient, Parameter update. [W3 s.20–31]
 
 ### 9. 영상 분류에서 Convolution·Pooling·Flatten은 각각 무엇을 하는가?
 
+**English question:** What do convolution, pooling, and flattening do in image classification?
+
 **검색 태그:** [CNN] [Convolution] [Pooling] [Flatten]
 
 **모범답안:** Convolution은 필터를 이동시키며 공간 패턴을 Feature Map으로 추출한다. Pooling은 지역의 최대·평균값 등으로 공간 크기를 줄여 특징을 요약한다. Flatten은 Feature Map을 1차원으로 펼쳐 Dense 분류층에 넘긴다. 추출·요약·형식 변환의 차이다.
+
+**English model answer:** Convolution applies moving filters to extract spatial patterns into feature maps. Pooling summarizes local regions using operations such as maximum or average to reduce spatial size. Flattening reshapes the feature maps into a one-dimensional vector for dense classification layers. Their roles are feature extraction, summarization, and reshaping.
 
 **필수 개념:** Filter, Feature map, Downsampling, Dense input. [W4 s.5–31]
 
 ### 10. Haze-Aware 방식의 장점과 classifier가 틀렸을 때의 문제는?
 
+**English question:** What is the advantage of haze-aware dehazing, and what happens if the classifier is wrong?
+
 **검색 태그:** [Haze-Aware Dehazing] [Dehazing] [Classifier Dependency] [Conditional Model Selection]
 
 **모범답안:** 열화 유형을 먼저 구분하고 해당 Specialized Dehazer를 선택해 조건에 맞는 복원을 할 수 있다. 그러나 classifier가 틀리면 맞지 않는 복원 경로를 사용하게 된다. 따라서 분류 성능과 최종 복원 품질을 함께 보고, 강의가 제시한 unified method나 비용 절감 방향도 검토할 수 있다.
+
+**English model answer:** Haze-aware dehazing first identifies the degradation type and selects a specialized dehazer suited to that condition. If the classifier is wrong, it may select an unsuitable restoration model. Therefore, I would evaluate both classification accuracy and final restoration quality. The lecture also proposes unified methods and lower computational cost as future directions.
 
 **필수 개념:** Conditional selection, Error propagation, Restoration evaluation. [LOW s.8–10, 22]
 
 ### 11. HazeSpace2M의 기여는 단순히 이미지 수가 많은 것인가?
 
+**English question:** Is the contribution of HazeSpace2M simply its large number of images?
+
 **검색 태그:** [HazeSpace2M] [Dataset Diversity] [Paired Data] [Ground Truth]
 
 **모범답안:** 규모와 함께 scene·haze type·intensity의 다양성이 핵심이다. Paired GT는 학습·평가 기준을 주고 real testset은 실제 환경 적용을 확인하는 데 필요하다. 따라서 기여를 설명할 때 데이터의 양·조건의 범위·reference 품질·실제 환경 평가를 연결해야 한다.
+
+**English model answer:** Its contribution includes diversity in scenes, haze types, and intensity levels as well as scale. Paired ground-truth images provide references for training and evaluation, while the real test set helps examine real-world applicability. A complete explanation should therefore cover size, condition diversity, reference quality, and real-image evaluation.
 
 **필수 개념:** Diversity, Paired reference, Quality assurance, Real testset. [LOW s.5–7]
 
 ### 12. TriFuse는 왜 주파수를 분해하고 서로 다른 처리를 하는가?
 
+**English question:** Why does TriFuse separate frequency bands and process them differently?
+
 **검색 태그:** [TriFuse] [LLIE] [DWT] [Diffusion] [CNM] [ESM]
 
 **모범답안:** 저주파의 큰 구조·완만한 변화와 고주파의 방향별 경계·detail은 처리 목적이 다르기 때문이다. TriFuse는 저주파를 Diffusion과 조건부 noise 예측으로 복원하고 고주파는 ESM으로 보완한 뒤 Inverse DWT로 합친다. 같은 이미지의 성분별 처리를 결합하는 구조다.
+
+**English model answer:** Low-frequency components describe broad structures and gradual changes, while high-frequency components contain directional edges and details. TriFuse restores the low-frequency branch using diffusion and conditional noise prediction and enhances high-frequency details using ESM. Inverse DWT then reconstructs the image. This combines different processing paths for components of the same image.
 
 **필수 개념:** DWT, Low/high frequency, CNM, ESM, Reconstruction. [LOW s.12–14]
 
 ### 13. 영상 개선 모델은 PSNR이 높으면 충분히 좋다고 판단할 수 있는가?
 
+**English question:** Is a high PSNR sufficient to judge an image enhancement model?
+
 **검색 태그:** [Evaluation] [Image Quality] [PSNR] [Object Detection] [TriFuse]
 
 **모범답안:** 하나의 지표만으로 실제 목적을 판단하기 어렵다. 강의는 reference 기반 품질, RLLT의 reference 없는 품질, Enhancement 후 객체 검출을 따로 평가한다. TriFuse가 모든 품질 지표에서 최고는 아니어도 downstream 평균 mAP에서 좋은 결과를 보이는 점이 평가 목적의 차이를 보여 준다.
+
+**English model answer:** One metric alone does not establish usefulness for the intended task. The lecture separately evaluates reference-based image quality, no-reference quality on RLLT, and object detection after enhancement. TriFuse is not best on every quality metric, but it performs well in average downstream mAP. The conclusion depends on the evaluation objective.
 
 **필수 개념:** Multiple evaluation views, Real images, Downstream utility. [LOW s.15–21]
 
 ### 14. Baby Monitoring에서 Hybrid와 크기 보정이 각각 필요한 이유는?
 
+**English question:** Why are the hybrid method and size calibration used in baby monitoring?
+
 **검색 태그:** [Baby Monitoring] [Hybrid] [Fusion] [Calibration] [Intensity] [Diversity]
 
 **모범답안:** Hybrid는 같은 영상에서 서로 다른 세 motion 검출법의 결과를 함께 사용한다. 크기 보정은 촬영 거리·높이에 따라 달라지는 pixel 크기를 신체 크기 지식과 연결한다. 검출 결과를 안정적으로 해석한 뒤 ellipse 크기·개수를 행동 특징으로 사용한다는 점에서 역할이 다르다.
+
+**English model answer:** The hybrid method combines the outputs of three motion detection algorithms applied to the same video. Size calibration accounts for changes in pixel size caused by camera distance or height using body-size knowledge. The calibrated motion regions can then be described by ellipse size and number. Combining detection evidence and calibrating its scale serve different purposes.
 
 **필수 개념:** Multiple methods, Calibration, Intensity/Diversity. [BABY s.12–17, 35, 41]
 
 ### 15. 아기 움직임이 거의 없을 때도 경고해야 하는가?
 
+**English question:** Can very little movement also trigger an alert in the baby monitoring system?
+
 **검색 태그:** [Baby Monitoring] [Control Chart] [LCL] [UCL] [Alert]
 
 **모범답안:** 강의 시스템은 움직임이 지나치게 큰 경우뿐 아니라 LCL 아래로 낮은 경우도 Alert 대상으로 둔다. Intensity나 Diversity 중 하나라도 범위를 벗어나는지 확인한다. 이는 설정한 행동 범위 이탈의 감지이며, 특정 질환을 확진하는 결과로 해석하지 않겠다.
+
+**English model answer:** Yes. The lecture’s system checks for movement below the lower control limit as well as movement above the upper control limit. An alert is generated if intensity or diversity leaves its allowed range. This indicates a deviation from the configured movement limits; it should not be presented as a confirmed diagnosis of a specific disease.
 
 **필수 개념:** LCL/UCL, I/D, Range-based alert. [BABY s.36–40]
 
 ### 16. SER에서 현재 예측보다 History를 믿는 방식의 장점과 한계는?
 
+**English question:** What are the benefits and limitations of using speaker history in SER?
+
 **검색 태그:** [SER] [Speaker History] [Emotion Co-existence] [Reliability-Weighted Fusion] [Reasoning]
 
 **모범답안:** 순간 감정 score가 모호할 때 화자의 이전 경향과 감정 공존 지식으로 판단을 보완할 수 있다. 다만 실제 감정이 갑자기 바뀌면 과거 이력이 현재 변화를 억누를 수 있다. 따라서 이력을 무조건 정답으로 취급하기보다 신뢰도와 현재 근거를 함께 고려하는 설계가 필요하다.
+
+**English model answer:** Speaker history and emotion co-existence knowledge can help resolve an ambiguous current prediction. However, if the speaker’s emotion changes suddenly, strong reliance on past outputs may suppress the new state. I would consider both current evidence and its reliability instead of treating history as ground truth. This limitation is an inference from the design, not a reported experimental finding.
 
 **필수 개념:** Current prediction, Temporal history, Knowledge, Reliability weighting. 한계는 구조에서 도출한 의견. [CALL p.12–26]
 
 ### 17. 자신의 분야에 멀티모달 AI를 적용하는 아이디어를 제안하라.
 
+**English question:** Propose a multimodal AI application in your field.
+
 **검색 태그:** [Applications] [Healthcare] [Multimodal AI] [Representation] [Alignment] [Fusion]
 
 **모범답안:** 강의의 의료 응용을 따라 의료 영상과 임상 텍스트를 결합하는 판독 지원을 제안하겠다. 각 입력을 embedding으로 표현하고 같은 환자·검사에 대응시키며, 질문에 관련된 영상 정보를 텍스트와 연결해 사용한다. 단일 자료의 부족한 단서를 보완할 수 있지만 입력 대응 오류·결측·편향·신뢰도를 함께 검토해야 한다.
+
+**English model answer:** I would propose a healthcare support system that combines medical images with clinical text, following the lecture’s healthcare example. Each input would be encoded and aligned with the same patient and examination. Relevant image information would then be connected to the text question. This could provide complementary evidence, but alignment errors, missing data, bias, and reliability would need to be considered. This is an application proposal, not a claim of demonstrated performance.
 
 **필수 개념:** Task, Modalities, Representation → Alignment → Fusion, Limitations. 새로운 실험 성과를 주장하지 않는 제안 답안. [W1 s.33, 45; W5 s.28, 50]
 
@@ -748,49 +944,76 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 근거: W1 s.23–32; W3 s.20–38; W4 s.5–31; W5 s.18–39, 50.
 
+**English quick review:**
+
+1. **Multimodal AI:** Learn useful relationships between different modalities and use them together for reasoning.
+2. **Representation → Alignment → Fusion:** Encode inputs, establish correspondences, and combine information for a prediction.
+3. **Neural network training:** Forward prediction → loss → backpropagation of gradients → optimizer update.
+4. **CNN:** Extract local features with filters, summarize with pooling, and classify using dense layers and softmax.
+5. **Attention:** Compare Q with K, scale and normalize the scores, and take a weighted sum of V.
+6. **Self vs cross-attention:** Q/K/V from the same input versus Q from one input and K/V from another.
+7. **Transformer:** Combine position information, multi-head attention, feed-forward networks, residual connections, and normalization; encode tokens, patches, or segments as vectors.
+8. **Application judgment:** Explain what evidence is added, when it can fail, and whether it helps the intended task.
+
 ### 2. 논문·사례별 한 문장
 
-| 이름 | 시험 직전 기억 |
-| --- | --- |
-| HazeSpace2M | 다양한 haze·scene·강도의 paired data와 real testset; haze type에 맞는 Specialized Dehazer 선택 |
-| LoLI-Street / TriFuse | 저주파는 Diffusion·CNM, 고주파는 ESM, Inverse DWT로 재구성; 실제 품질과 Detection도 평가 |
-| Attention Is All You Need | Attention으로 관계를 직접 연결하고 병렬 처리; 위치·다양한 관계·다른 입력 참조의 역할 구분 |
-| LeNet-5 | Convolution·Subsampling·분류층으로 손글씨 숫자 인식 |
-| Baby Monitoring | 세 motion 방법의 Hybrid → 보정 → ellipse 크기 I·개수 D → LCL/UCL → Alert; 계산 비용·평가 범위 고려 |
-| SER Reasoning | 현재 예측 + 화자 이력 + 감정 공존 지식 → 신뢰도 가중 결합 |
-| CALL의 짧은 논문 사례 | 내용 기반 사기 탐지 / 음성 특징·패턴 매칭 / 공통 embedding의 age·gender 출력 / 감정 chunk voting / DS 기반 구간 예측 결합 |
+| 이름 | 시험 직전 기억 | English wording |
+| --- | --- | --- |
+| HazeSpace2M | 다양한 haze·scene·강도의 paired data와 real testset; haze type에 맞는 Specialized Dehazer 선택 | Diverse paired haze data and a real test set; select a specialized dehazer according to haze type. |
+| LoLI-Street / TriFuse | 저주파는 Diffusion·CNM, 고주파는 ESM, Inverse DWT로 재구성; 실제 품질과 Detection도 평가 | Use diffusion and CNM for low-frequency restoration, ESM for high-frequency details, and inverse DWT for reconstruction; evaluate real-image quality and detection. |
+| Attention Is All You Need | Attention으로 관계를 직접 연결하고 병렬 처리; 위치·다양한 관계·다른 입력 참조의 역할 구분 | Connect relevant elements through attention and support parallel processing, with explicit roles for position, multiple heads, and cross-input interaction. |
+| LeNet-5 | Convolution·Subsampling·분류층으로 손글씨 숫자 인식 | Use convolution, subsampling, and classification layers to recognize handwritten digits. |
+| Baby Monitoring | 세 motion 방법의 Hybrid → 보정 → ellipse 크기 I·개수 D → LCL/UCL → Alert; 계산 비용·평가 범위 고려 | Combine three motion methods, calibrate scale, measure ellipse size and number, and compare with control limits; consider cost and evaluation scope. |
+| SER Reasoning | 현재 예측 + 화자 이력 + 감정 공존 지식 → 신뢰도 가중 결합 | Combine current predictions, speaker history, and emotion knowledge using reliability weights. |
+| CALL의 짧은 논문 사례 | 내용 기반 사기 탐지 / 음성 특징·패턴 매칭 / 공통 embedding의 age·gender 출력 / 감정 chunk voting / DS 기반 구간 예측 결합 | Content-based fraud detection; speech-feature matching; age/gender outputs from embeddings; emotion-chunk voting; and DS fusion of segment predictions. |
 
 논문별 정확한 출처·제공된 결과 범위는 Part 3을 따른다.
 
+
 ### 3. 혼동하기 쉬운 비교
 
-| A vs B | 한 줄 구분 |
-| --- | --- |
-| Embedding vs Latent Space | 한 입력의 벡터 vs 벡터 관계가 조직되는 공간 |
-| Alignment vs Fusion | 대응 관계를 찾기 vs 정보를 결합하기 |
-| Early vs Intermediate vs Late | 깊은 처리 전 vs 표현 상호작용 단계 vs 독립 예측 후 |
-| Self vs Cross-Attention | 구분 기준은 Q와 K/V의 출처 |
-| Soft vs Hard Attention | 여러 요소의 연속 가중 결합 vs 일부 선택 |
-| Saliency vs Attention | 눈에 띄는 영역 vs 현재 질문·과업에 관련된 정보 |
-| Backpropagation vs Optimizer | Gradient 계산 vs 갱신 규칙 |
-| Max vs Average Pooling | 최대 반응 vs 평균 반응 |
-| Frame Difference vs Background Subtraction | 연속 frame끼리 비교 vs 현재 frame과 배경 모델 비교 |
-| Intensity vs Diversity | ellipse 크기 vs ellipse 개수 |
-| Dehazing vs LLIE | haze 열화 복원 vs 저조도 개선 |
-| Enhancement vs Detection | 개선 이미지 출력 vs 객체 class·위치 출력 |
-| HazeSpace2M vs Haze-Aware Framework | dataset vs type별 복원 경로를 고르는 방법 |
-| LoLI-Street vs TriFuse | benchmark dataset vs 제안 LLIE 모델 |
-| Multimodal vs Multiple-method Fusion | 서로 다른 정보 형태 결합 vs 같은 영상에 여러 분석법 적용 |
+| A vs B | 한 줄 구분 | English wording |
+| --- | --- | --- |
+| Embedding vs Latent Space | 한 입력의 벡터 vs 벡터 관계가 조직되는 공간 | A vector for one input vs the learned space organizing representations and their relationships. |
+| Alignment vs Fusion | 대응 관계를 찾기 vs 정보를 결합하기 | Establish correspondences vs combine information. |
+| Early vs Intermediate vs Late | 깊은 처리 전 vs 표현 상호작용 단계 vs 독립 예측 후 | Before deeper processing vs interaction between representations vs combining independent predictions. |
+| Self vs Cross-Attention | 구분 기준은 Q와 K/V의 출처 | The distinction is where Q and K/V come from. |
+| Soft vs Hard Attention | 여러 요소의 연속 가중 결합 vs 일부 선택 | Continuous weighting of multiple parts vs selecting particular parts. |
+| Saliency vs Attention | 눈에 띄는 영역 vs 현재 질문·과업에 관련된 정보 | Visually noticeable regions vs information relevant to the current task or query. |
+| Backpropagation vs Optimizer | Gradient 계산 vs 갱신 규칙 | Calculate gradients vs apply a parameter-update rule. |
+| Max vs Average Pooling | 최대 반응 vs 평균 반응 | Select the maximum vs calculate the mean. |
+| Frame Difference vs Background Subtraction | 연속 frame끼리 비교 vs 현재 frame과 배경 모델 비교 | Compare consecutive frames vs compare the current frame with a background model. |
+| Intensity vs Diversity | ellipse 크기 vs ellipse 개수 | Ellipse size vs number of ellipses. |
+| Dehazing vs LLIE | haze 열화 복원 vs 저조도 개선 | Restore haze-degraded images vs enhance poorly illuminated images. |
+| Enhancement vs Detection | 개선 이미지 출력 vs 객체 class·위치 출력 | Output an improved image vs output object classes and locations. |
+| HazeSpace2M vs Haze-Aware Framework | dataset vs type별 복원 경로를 고르는 방법 | A dataset vs a method that selects restoration models by haze type. |
+| LoLI-Street vs TriFuse | benchmark dataset vs 제안 LLIE 모델 | A benchmark dataset vs the proposed LLIE model. |
+| Multimodal vs Multiple-method Fusion | 서로 다른 정보 형태 결합 vs 같은 영상에 여러 분석법 적용 | Combine different information modalities vs apply multiple analysis methods to the same video. |
 
 근거: W1 s.30–32; W3 s.28–29, 36–38; W4 s.17–28; W5 s.12–15, 27; BABY s.12–17, 35; LOW s.4–15.
+
 
 ### 4. T/F에서 개념을 오해하기 쉬운 문장만 확인
 
 - **“여러 AI 모델을 결합하면 반드시 멀티모달이다.” → F.** 입력 정보 형태와 상호작용을 봐야 한다. [W1 s.23–24; BABY s.16–17]
+
+  **English:** “Combining several AI models always makes a system multimodal.” — False. The input modalities and their interaction matter.
+
 - **“Cross-Attention의 Q·K·V는 전부 같은 입력에서 온다.” → F.** 그것은 Self-Attention의 설명이다. [W5 s.27]
+
+  **English:** “In cross-attention, Q, K, and V all come from the same input.” — False. That describes self-attention.
+
 - **“Soft Attention은 가장 중요한 영역 외의 정보는 전부 삭제한다.” → F.** 여러 Value를 다른 가중치로 결합한다. [W5 s.12–15, 21]
+
+  **English:** “Soft attention removes every part except the most important region.” — False. Multiple values can contribute with different weights.
+
 - **“움직임이 너무 적어도 Baby Monitoring의 경고 조건이 될 수 있다.” → T.** LCL 아래도 확인한다. [BABY s.36–40]
+
+  **English:** “Very little movement can trigger an alert in baby monitoring.” — True. The system also checks for values below LCL.
+
 - **“TriFuse는 자료의 모든 조건·지표·객체 class에서 최고다.” → F.** 평균 성과와 개별 지표를 구분한다. [LOW s.15]
+
+  **English:** “TriFuse is best under every condition, metric, and object class in the lecture.” — False. Aggregate results and individual results differ.
 
 ### 5. 답안 작성 틀
 
@@ -799,6 +1022,14 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 **논문 문제:** “기존 문제 → 핵심 설계 → 자료가 보고한 결과 범위 → 의미·한계 한 개.”
 
 **생각 문제:** “내 선택 → 강의 개념으로 근거 → 구체적 적용 → 실패 조건 한 개.”
+
+**English answer templates:**
+
+- **Concept:** “[Concept] refers to … It works by … It is used to … For example, …”
+- **Paper:** “The paper addresses … Its key idea is … The reported comparison shows … This matters because … A limitation is …”
+- **Opinion or application:** “I would choose/propose … because … For example, … However, … should be considered.”
+
+**결과를 쓰는 표현:** 자료에 비교 결과가 있으면 “In the reported comparison, …”으로 범위를 붙인다. 결과 수치가 없으면 “The lecture illustrates the pipeline but does not report numerical performance.”라고 쓴다. 자신의 한계 분석은 “A possible limitation is …”으로 구분한다.
 
 ### 6. 원본 대조에서 남긴 주의점
 
