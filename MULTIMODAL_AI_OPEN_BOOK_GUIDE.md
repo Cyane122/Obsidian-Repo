@@ -19,8 +19,8 @@
   - [[#7. 영상 개선과 목적별 평가]]
 - [[#Part 3. 논문을 응용 답안에 사용하는 방법]]
   - [[#논문 선택 기준]]
-  - [[#논문 — HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing]]
-  - [[#논문 — LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond — TriFuse]]
+  - [[#논문 — HazeSpace2M — A Dataset for Haze Aware Single Image Dehazing]]
+  - [[#논문 — LoLI-Street — Benchmarking Low-Light Image Enhancement and Beyond — TriFuse]]
   - [[#논문 — Attention Is All You Need — Vaswani et al., 2017]]
   - [[#논문 — LeNet-5 — LeCun et al., 1998]]
   - [[#논문 — Intelligent baby behavior monitoring using embedded vision in IoT for smart healthcare centers]]
@@ -31,7 +31,7 @@
   - [[#Q3 — 멀티모달 학습 도우미의 네 가지 어려움]]
   - [[#Q4 — SER의 네 가지 어려움]]
   - [[#Q5 — 영상 개선의 네 가지 어려움]]
-  - [[#Q6 — Baby Monitoring을 공부 중 자세 점검에 적용]]
+  - [[#Q6 — Baby Monitoring을 공부 중 장시간 같은 자세 알림에 적용]]
   - [[#Q7 — Haze-Aware 원리를 필기 사진 정리에 적용]]
   - [[#Q8 — VQA를 냉장고 확인에 적용]]
   - [[#Q9 — Early Fusion과 Late Fusion 비교]]
@@ -72,6 +72,11 @@
 | BABY | `Intelligent Baby Monitoring.pptx` | 45슬라이드. 움직임 검출·행동 분석 |
 | LOW | `Low-Level Vision and Image Enhancement.pptx` | 27슬라이드. HazeSpace2M·LoLI-Street·TriFuse |
 | CALL | `Fake Call Analysis.pdf` | 28쪽. LISTEN·음성 감정 인식·추론 |
+| PAT-ASM | `1020190018379B1_Abnormal Situation Monitoring_Korean.pdf`, `Abnormal Situation Monitoring_English Translation.pdf` | 한국 특허(등록 10-2172239)와 영문 번역. 행동+문맥 기반 비정상 상황 감시 |
+| PAT-HAZE | `US12217398B1_Haze-Aware Dehazing.pdf` | 미국 특허. Haze type 분류 후 Specialized Dehazer 선택(SSC·HCC). 스캔 PDF |
+| PAT-VEH | `US12277682B1_Follow Up Patent.pdf` | PAT-HAZE의 continuation. 차량 카메라 영상 대상. 스캔 PDF |
+
+특허 세 건은 교수님이 발명자인 사례 자료이며, 과목 노트의 중간고사 범위 `1-1. Multimodal AI Case Studies`에 해당한다. 특허를 묻기보다 **그 시스템의 아이디어를 사례로 쓰는** 용도로 정리했다. PAT-HAZE·PAT-VEH는 스캔본이라 세부는 과목 정리노트 기준이다.
 
 녹화·구두 설명·영상 데모 전사는 제공되지 않았다. 아래에서 수업 사례의 상세 처리 단계가 자료에 없으면 확인된 범위만 쓰고, 구체화는 제안이라고 구분한다.
 
@@ -121,7 +126,7 @@
 
 **영어 틀:** “In the lecture, [system] takes [input]. It first [step], then [step], and outputs [result]. I would apply the same idea to [ordinary situation]. I would replace [original input or criterion] with [new input or criterion]. This could help [purpose], but [limit].”
 
-입력·시간 단위·출력·기준 중 무엇을 유지하고 무엇을 바꾸는지 말해야 실제 적용이 된다. 예시: [[#Q6 — Baby Monitoring을 공부 중 자세 점검에 적용]], [[#Q7 — Haze-Aware 원리를 필기 사진 정리에 적용]], [[#Q8 — VQA를 냉장고 확인에 적용]].
+입력·시간 단위·출력·기준 중 무엇을 유지하고 무엇을 바꾸는지 말해야 실제 적용이 된다. 예시: [[#Q6 — Baby Monitoring을 공부 중 장시간 같은 자세 알림에 적용]], [[#Q7 — Haze-Aware 원리를 필기 사진 정리에 적용]], [[#Q8 — VQA를 냉장고 확인에 적용]].
 
 ### 유형 4 — 두 개념 비교와 확인되는 다른 명칭
 
@@ -135,7 +140,7 @@
 
 **영어 틀:** “Both A and B [shared purpose]. For [criterion], A [property], whereas B [property]. In [same task], A [role] and B [role]. The lecture also describes A as [verified label] and B as [verified label].”
 
-다른 명칭은 강의가 직접 병기한 표현이나 약어만 사용한다. Early Fusion의 **Input-level integration**, Late Fusion의 **Decision-level integration**은 강의의 설명 명칭이다. Intermediate Fusion은 **Representation-level interaction**으로 설명한다. [W1 s.31–32] Self-Attention과 Cross-Attention에 대해 “within-input / across-input”은 설명 문구이며 별도의 공식 동의어가 아니다. [[#Q9 — Early Fusion과 Late Fusion 비교]], [[#Q10 — Self-Attention과 Cross-Attention 비교]].
+다른 명칭은 강의가 직접 병기한 표현이나 약어만 사용한다. Early Fusion의 **Input-level integration**, Late Fusion의 **Decision-level integration**은 강의의 설명 명칭이다. Intermediate Fusion은 **Representation-level interaction**으로 설명한다. [W1 s.31–32] Self-Attention과 Cross-Attention에 대해 강의의 “Look within yourself / Look at another input”은 직관적 설명 문구이며 별도의 공식 동의어가 아니다. [W5 s.27] [[#Q9 — Early Fusion과 Late Fusion 비교]], [[#Q10 — Self-Attention과 Cross-Attention 비교]].
 
 ### 유형 5 — 수업 사례 2개와 새 사례 2개
 
@@ -143,13 +148,13 @@
 
 | 항목 | 작성법 |
 | --- | --- |
-| 질문에서 확인 | 총 4개인지, 수업 2＋새 제안 2인지, 기술의 적용 범위가 제한되는지 |
+| 질문에서 확인 | 총 4개인지, 수업 2+새 제안 2인지, 기술의 적용 범위가 제한되는지 |
 | 구성 순서 | **수업 확인 1·2 / 새 응용 제안 1·2**로 나눈 뒤 각 항목에 상황·입력·처리·출력·적합성·한계 |
 | 자주 생기는 문제 | 수업 사례를 새 사례로 재사용; 실제 논문 이름만 가져옴; 의료·교육 같은 분야명만 나열; 같은 상황에서 이름만 바꿈 |
 
 **영어 틀:** “Lecture example 1 is [case, source]. It takes [inputs], uses [method], and produces [output]. This fits [need], but [limit].” 새 제안은 “My first proposed use is … I would … It could …”로 시작한다. 새 사례의 영어 구분은 **New proposal — unconfirmed in the provided materials**로 표시한다.
 
-새 사례는 예를 들어 **녹음과 필기 사진으로 복습 구간 찾기**, **냉장고 사진과 부족한 물건 메모로 장보기 목록 만들기**처럼 과업 자체가 보여야 한다. 이미 만들어진 연구·제품을 외워 와서 자기 제안처럼 쓰지 않는다. [[#Q11 — 멀티모달 AI의 사례 네 가지]], [[#Q12 — Attention의 사례 네 가지]].
+새 사례는 예를 들어 **녹음과 필기 사진으로 복습 구간 찾기**, **냉장고 사진과 이번 주 요리 재료 목록으로 장보기 목록 만들기**처럼 과업 자체가 보여야 한다. 이미 만들어진 연구·제품을 외워 와서 자기 제안처럼 쓰지 않는다. [[#Q11 — 멀티모달 AI의 사례 네 가지]], [[#Q12 — Attention의 사례 네 가지]].
 
 ## Part 2. 핵심 주제별 답안 재료
 
@@ -201,7 +206,7 @@
 | Intermediate Fusion | 각 encoder가 표현을 만든 뒤 interaction layer 등에서 결합 | 고유 구조를 보존하면서 Cross-Attention 같은 깊은 상호작용 가능 |
 | Late Fusion | 각 모델이 독립적으로 예측한 뒤 결과를 결합 | 모달리티 결측에 상대적으로 대응하기 쉽지만 세밀한 상호작용은 제한됨 |
 
-Late Fusion의 장점을 “어떤 입력이 없어도 무조건 정상 작동한다”로 외우지 않는다. 선택 이유는 **독립 예측을 결합하는 구조의 유연성**이고, 필요한 결측 대응은 시스템 설계에 달려 있다. [W1 s.31–32]
+슬라이드 원문은 Intermediate Fusion을 “✔ Most widely used in modern multimodal models”, Late Fusion을 “✔ **Robust to missing modalities** / ✖ Limited deep interaction”으로 정리한다. T/F에서 “Late Fusion은 모달리티 결측에 강건하다”는 강의 기준 **T**다. 서술형에서는 그 이유가 **독립 예측을 결합하는 구조**이며, 남은 예측을 어떻게 결합할지는 여전히 설계해야 한다고 덧붙인다. [W1 s.31–32]
 
 **English answer:** Early fusion combines inputs or low-level features before deep processing. Intermediate fusion allows encoded representations to interact. Late fusion combines independent predictions; missing-input handling still needs design.
 
@@ -215,17 +220,39 @@ Fire/Smoke, CHILD, CABAD/CABA_Net, IARD, ROAD-6, Industrial Anomaly Detection은
 
 **English answer:** Lecture examples include a robot linking a red-cup instruction to a scene and image captioning linking visual content to words. Introductory application names alone do not establish detailed system designs.
 
+#### 행동+문맥 — Abnormal Situation Monitoring
+
+**검색 태그:** [Abnormal Situation Monitoring] [Context] [Behavior] [Two-Stream] [Camera Agent] [Multi-View] [Alignment] [Fusion] [LSTM] [Optical Flow]
+
+**핵심 아이디어:** 같은 행동도 **문맥에 따라 정상·비정상이 달라진다.** 조깅 코스·산책로에서 달리기는 운동이지만, 다른 장소·상황의 달리기는 의심 행동일 수 있다. 행동만 보는 판단과 달리 장소·시간 같은 주변 문맥을 함께 본다. [PAT-ASM]
+
+`Video → Key Frames → Object 분석 → (Object Sequence → Behavior) + (Key-frame Sequence → Context) → Behavior–Context matching → Abnormal 예측 → Warning`
+
+| 흐름 | 입력 | 판단 대상 |
+| --- | --- | --- |
+| Object-centered stream | 같은 객체를 시간 순서로 묶은 object sequence | 걷기·달리기·자전거·운전 등 behavior |
+| Context-centered stream | 그 객체가 등장하는 key frame sequence | 장소·시간 등 surrounding context |
+
+- **모델:** key frame별 optical-flow 특징을 CNN으로 추출하고, 시간 순서대로 복수의 LSTM이 처리한다. 행동·문맥 후보를 probability로 표현하고 둘의 matching 정도로 비정상 여부를 판단한다. [PAT-ASM 청구항 7]
+- **Camera Agent 협력:** 각 카메라가 자체 분석한 context probability·예측 probability·경고 여부를 timestamp·agent ID·위치 메타데이터와 함께 인접 카메라에 공유한다. 원본 영상보다 작은 분석 결과만 보낸다. 카메라별 probability에 weight를 곱해 더하고 최댓값 context를 고른 뒤 예측을 재산출한다. [PAT-ASM]
+- **강의 개념 연결:** 시간·위치로 같은 대상·사건을 맞추는 것은 **Alignment**, 카메라별 probability를 weight로 합치는 것은 **decision-level Fusion**에 해당한다. 행동과 문맥의 결합은 W1의 **Contextual information**(한 정보가 다른 정보의 의미를 풀어 줌)의 예다.
+- **주의:** 입력은 모두 video다. 두 stream은 같은 영상의 서로 다른 representation, 여러 카메라는 서로 다른 시점(view)이다. 서로 다른 감각 모달리티를 결합한다고 과장하지 않는다.
+
+**English answer:** The same behavior can be normal or abnormal depending on context; running on a jogging course is exercise, but running elsewhere may be suspicious. The system builds an object sequence to recognize behavior and a key-frame sequence to recognize context, then judges how well they match. Neighboring camera agents share probabilities with timestamps and locations, and weighted combination updates the context. Matching events across cameras is alignment, and combining their probabilities is decision-level fusion. All inputs are video, so the streams and cameras are different views and representations rather than different sensory modalities.
+
 #### 멀티모달 응용 카드 네 가지
 
 [Application] [Multimodal AI] [Representation] [Alignment] [Fusion]
 
-**수업 확인 1 — 이미지 질문 응답(VQA).** 상황: 이미지 속 자전거 옆에 무엇이 있는지 답한다. 입력: 이미지＋텍스트 질문. 처리: 각각 embedding → 질문의 bicycle과 해당 영역의 의미 대응 → 관련 시각·언어 정보 결합. 출력: “Dog.” 적합성: 질문만으로는 알 수 없는 시각 근거를 사용한다. **한계 분석:** 물체가 가려지거나 엉뚱한 영역에 대응하면 답도 틀릴 수 있다. [W1 s.27–32; W5 s.42]
+**수업 확인 1 — 이미지 질문 응답(VQA).** 상황: 이미지 속 자전거 옆에 무엇이 있는지 답한다. 입력: 이미지+텍스트 질문. 처리: 각각 embedding → 질문의 bicycle과 해당 영역의 의미 대응 → 관련 시각·언어 정보 결합. 출력: “Dog.” 적합성: 질문만으로는 알 수 없는 시각 근거를 사용한다. **한계 분석:** 물체가 가려지거나 엉뚱한 영역에 대응하면 답도 틀릴 수 있다. [W1 s.27–32; W5 s.42]
 
-**수업 확인 2 — 언어 지시를 따르는 로봇.** 상황: “Pick up the red cup”에서 대상을 고른다. 입력: 장면 이미지＋언어 지시. 처리: 지시와 장면 속 빨간 컵을 대응시키고 그 영역에 주목한다. 출력: 집어야 할 대상 선택 및 집기 행동. 적합성: 주변 다른 물체와 목표를 구분한다. **한계 분석:** 비슷한 컵이나 가림이 있으면 선택이 어려울 수 있다. 강의는 대상에 집중하는 예를 제공하며, 실제 제어 알고리즘·성공률은 제시하지 않는다. [W5 s.8]
+**수업 확인 2 — 언어 지시를 따르는 로봇.** 상황: “Pick up the red cup”에서 대상을 고른다. 입력: 장면 이미지+언어 지시. 처리: 지시와 장면 속 빨간 컵을 대응시키고 그 영역에 주목한다. 출력: 집어야 할 대상 선택 및 집기 행동. 적합성: 주변 다른 물체와 목표를 구분한다. **한계 분석:** 비슷한 컵이나 가림이 있으면 선택이 어려울 수 있다. 강의는 대상에 집중하는 예를 제공하며, 실제 제어 알고리즘·성공률은 제시하지 않는다. [W5 s.8]
 
-**새 응용 제안 — 제공 자료에서 미확인 1 — 복습할 녹음 구간 찾기.** 상황: 필기 사진의 한 식이 언제 설명됐는지 찾는다. 입력: 학생의 강의 녹음＋필기 사진＋“이 식 설명 부분”이라는 질문. 처리 제안: 음성을 구간별 표현으로, 사진을 영역별 표현으로 바꾸고 질문과 관련된 내용·기록 시각을 맞춘 뒤 정보를 결합한다. 출력: 후보 녹음 시각과 대응 필기 영역. 적합성: 사진은 식을, 음성은 설명을 보완한다. 한계: 필기를 늦게 쓰면 기록 시각만으로는 맞지 않으므로 의미도 확인해야 한다.
+**수업 확인 대체 카드 — 행동+문맥 비정상 상황 감시.** 상황: 같은 달리기가 장소에 따라 정상·의심 행동이 된다. 입력: 감시 영상(여러 인접 카메라 가능). 처리: object sequence로 행동, key-frame sequence로 문맥을 인식 → 행동–문맥 matching → 인접 카메라의 probability를 weight로 결합. 출력: 비정상 상황 경고. 적합성: 행동만으로는 구분되지 않는 상황을 문맥이 풀어 준다. **한계 분석:** 문맥 오인식이 그대로 오경보로 이어질 수 있고, 입력은 모두 video이므로 “여러 감각 모달리티”의 예로 쓰려면 행동+문맥·다중 시점 결합이라고 범위를 밝힌다. [PAT-ASM]
 
-**새 응용 제안 — 제공 자료에서 미확인 2 — 장보기 전 냉장고 확인.** 상황: 물건을 중복 구매하지 않도록 목록을 정리한다. 입력: 냉장고 사진＋“우유와 달걀이 필요해”라는 메모. 처리 제안: 메모의 물건 이름을 사진 속 대상에 대응시키고 있는 것으로 보이는 항목을 구분한다. 출력: 구매 후보와 사진에서 확인할 항목. 적합성: 개인의 필요와 눈에 보이는 재고를 함께 쓴다. 한계: 가려진 물건·남은 양·유통기한을 사진만으로 확정할 수 없다.
+**새 응용 제안 — 제공 자료에서 미확인 1 — 복습할 녹음 구간 찾기.** 상황: 필기 사진의 한 식이 언제 설명됐는지 찾는다. 입력: 학생의 강의 녹음+필기 사진+“이 식 설명 부분”이라는 질문. 처리 제안: 음성을 구간별 표현으로, 사진을 영역별 표현으로 바꾸고 질문과 관련된 내용·기록 시각을 맞춘 뒤 정보를 결합한다. 출력: 후보 녹음 시각과 대응 필기 영역. 적합성: 사진은 식을, 음성은 설명을 보완한다. 한계: 필기를 늦게 쓰면 기록 시각만으로는 맞지 않으므로 의미도 확인해야 한다.
+
+**새 응용 제안 — 제공 자료에서 미확인 2 — 장보기 전 냉장고 확인.** 상황: 이미 있는 재료를 중복 구매하지 않도록 장보기 목록을 정리한다. 입력: 냉장고 사진+“이번 주 요리 재료: 우유·달걀·양파”라는 목록. 처리 제안: 목록의 재료 이름을 사진 속 대상에 대응시켜, 보이는 재료와 보이지 않는 재료를 구분한다. 출력: 사진에서 찾지 못한 재료는 구매 후보, 찾은 재료는 “이미 있음”으로 표시. 적합성: 목록은 무엇이 필요한지, 사진은 무엇이 이미 있는지를 알려 주므로 한 입력만으로는 목록을 만들 수 없다. 한계: 가려진 물건·남은 양·유통기한을 사진만으로 확정할 수 없다.
 
 #### 멀티모달의 어려움 네 쌍
 
@@ -235,8 +262,8 @@ Fire/Smoke, CHILD, CABAD/CABA_Net, IARD, ROAD-6, Industrial Anomaly Detection은
 
 | 문제 | 원인 | 대응 방법 | 왜 도움이 되는가 | 남는 한계 |
 | --- | --- | --- | --- | --- |
-| 시간 대응 오류 | 음성·영상·메모의 시간 단위와 기록 시각이 다름 | 공통 시각을 기록하고 짧은 구간의 의미도 대조 | 다른 순간의 단서를 섞는 오류를 줄일 수 있음 | 기록 지연·모호한 내용은 남음 |
-| 입력 결측 | 녹음 중단·사진 누락으로 한 채널이 없음 | 독립 예측이 가능한 부분은 Late Fusion으로 설계하고 누락 상태를 표시 | 남은 근거로 제한된 기능을 제공할 수 있음 | 사라진 정보가 필수인 질문에는 답할 수 없음 |
+| 시간 대응 오류 | 음성·영상·메모의 시간 단위와 기록 시각(timestamp)이 다름 | 공통 timestamp를 기록하고 짧은 구간의 의미도 대조 | 다른 순간의 단서를 섞는 오류를 줄일 수 있음 | 기록 지연·모호한 내용은 남음 |
+| 입력 결측 | 녹음 중단·사진 누락으로 한 채널이 없음 | 입력별 단독 기능(녹음만: 음성 텍스트 키워드 검색, 사진만: 필기 영역 검색)을 두고 결과를 Late Fusion으로 결합, 누락 상태 표시 | 남은 근거로 제한된 기능을 제공할 수 있음 | 사라진 정보가 필수인 질문에는 답할 수 없음 |
 | 의미 대응 실패 | 비슷한 물체·표현, 잘못 짝지어진 학습 자료 | 정확히 짝지어진 사례를 점검하고 헷갈리는 후보를 보여 줌 | 잘못된 연결을 배우거나 확신하는 위험을 줄임 | 모든 모호성을 제거하지 못함 |
 | 과도한 계산량 | 긴 음성·영상 전체의 token 수가 많음 | 질문 관련 구간을 먼저 좁히고 그 안에서 세밀하게 결합 | 처리할 길이가 줄어듦 | 처음 구간을 잘못 고르면 정답 근거를 놓침 |
 
@@ -263,7 +290,7 @@ Sigmoid는 각 값의 변환이고, Softmax는 여러 클래스 점수를 **함�
 
 **English answer:** A neuron applies weights and a bias, then an activation function. Nonlinear activations allow complex relationships. ReLU keeps positive values; sigmoid maps a value to 0–1, while softmax normalizes class scores together.
 
-#### 학습 과정: 각 단계가 하는 일
+#### 학습 과정 — 각 단계가 하는 일
 
 **검색 태그:** [Forward Propagation] [Loss Function] [Cost Function] [Backpropagation] [Gradient] [Chain Rule] [Optimizer] [Gradient Descent]
 
@@ -321,7 +348,7 @@ MSE는 큰 오차에 더 큰 벌점을 주고, MAE는 MSE보다 이상치에 덜
 
 ### 3. CNN과 계층적 시각 특징
 
-#### CNN: 작은 특징을 쌓아 의미 있는 특징으로
+#### CNN — 작은 특징을 쌓아 의미 있는 특징으로
 
 **검색 태그:** [CNN] [Convolutional Neural Network] [Convolution] [Kernel] [Feature Map] [Kernel Size] [Stride] [Padding] [Number of Filters]
 
@@ -461,13 +488,13 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 
 [Application] [Attention] [Cross-Attention] [QKV]
 
-**수업 확인 1 — 자동차 색 VQA.** 상황: 장면 속 자동차 색 질문. 입력: 이미지＋“What color is the car?” 처리: 질문의 Query가 이미지의 Key와 관련성을 계산하고 Value를 가중합한다. 출력: “Red.” 적합성: 배경보다 해당 자동차의 정보를 쓰게 한다. **한계 분석:** 자동차가 여러 대이고 질문이 대상을 특정하지 않으면 모호하다. [W5 s.27–28, 42]
+**수업 확인 1 — 자동차 색 VQA.** 상황: 장면 속 자동차 색 질문. 입력: 이미지+“What color is the car?” 처리: 질문의 Query가 이미지의 Key와 관련성을 계산하고 Value를 가중합한다. 출력: “Red.” 적합성: 배경보다 해당 자동차의 정보를 쓰게 한다. **한계 분석:** 자동차가 여러 대이고 질문이 대상을 특정하지 않으면 모호하다. [W5 s.27–28, 42]
 
 **수업 확인 2 — 이미지 설명 생성.** 상황: 사진을 문장으로 설명. 입력: 사진과 생성 중인 단어 문맥. 처리: “boy”를 만들 때 소년 영역, “football”을 만들 때 공 영역에 주목한다. 출력: 이미지 설명 문장. 적합성: 각 단어와 관련된 시각 정보를 사용할 수 있다. **한계 분석:** 가려진 행동은 시각 근거만으로 확정하기 어렵다. [W5 s.8, 28, 42]
 
-**새 응용 제안 — 제공 자료에서 미확인 1 — 준비물 메모와 책상 사진 점검.** 상황: 외출 전에 “학생증·충전기·노트”를 챙겼는지 본다. 입력: 준비물 텍스트＋책상 사진. 처리 제안: 각 물건 이름을 Query, 사진 영역을 Key/Value로 두어 대응 후보를 찾는다. 출력: 확인된 준비물과 다시 확인할 항목. 적합성: 질문마다 다른 물건 영역을 참조한다. 한계: 가방 속 물건은 사진에 없어도 실제로 준비되어 있을 수 있다.
+**새 응용 제안 — 제공 자료에서 미확인 1 — 꺼내 놓은 준비물 점검.** 상황: 외출 전 가방에 넣기 전에 “학생증·충전기·노트”를 책상에 다 꺼내 놓았는지 본다. 입력: 준비물 목록+꺼내 놓은 물건 사진. 처리 제안: 각 물건 이름을 Query, 사진 영역을 Key/Value로 두어 대응 후보를 찾는다. 출력: 사진에서 찾은 준비물과, 찾지 못해 빠졌을 수 있는 준비물 목록. 적합성: 물건마다 다른 영역을 참조한다. 한계: 이미 가방에 넣은 물건은 사진에 없으므로 “찾지 못함”이 곧 “없음”은 아니며, 비슷한 충전기·노트는 혼동할 수 있다.
 
-**새 응용 제안 — 제공 자료에서 미확인 2 — 조별회의에서 내 할 일 찾기.** 상황: 긴 회의 녹음에서 자신의 담당과 관련된 부분을 찾는다. 입력: 녹음 구간 표현＋“내가 다음 주까지 할 일”이라는 질문과 사용자 이름. 처리 제안: 질문을 Query로 두고 관련 발언 구간을 참조한다. 출력: 할 일 후보와 재생 시각. 적합성: 전체 발언을 같은 비중으로 요약하지 않아도 된다. 한계: 이름이 생략되거나 말이 겹치면 담당자를 확정하지 못한다.
+**새 응용 제안 — 제공 자료에서 미확인 2 — 조별회의에서 내 할 일 찾기.** 상황: 긴 회의 녹음에서 자신의 담당과 관련된 부분을 찾는다. 입력: 녹음 구간 표현+“내가 다음 주까지 할 일”이라는 질문과 사용자 이름. 처리 제안: 질문을 Query로 두고 관련 발언 구간을 참조한다. 출력: 할 일 후보와 재생 시각. 적합성: 전체 발언을 같은 비중으로 요약하지 않아도 된다. 한계: 이름이 생략되거나 말이 겹치면 담당자를 확정하지 못한다.
 
 #### Attention·Transformer의 어려움 네 쌍
 
@@ -482,7 +509,7 @@ CNN은 가까운 영역의 필터 연산으로 시작하고, 깊은 층에서 �
 
 위치·여러 head의 역할과 긴 입력의 비용은 수업 개념이다. 구체적 대응 설계와 한계는 응용 판단이다. [W5 s.31–39, 50]
 
-**짧은 영어:** Attention compares a query with keys and combines values using the resulting weights. I would use a checklist as queries over a desk photo. The output would show matching objects, but a missing match would not prove that an item was lost.
+**짧은 영어:** Attention compares a query with keys and combines values using the resulting weights. I would use a packing checklist as queries over a photo of the items I laid out before packing. The output would show found items and possibly missing ones, but a missing match would not prove that an item was forgotten.
 
 **연결:** Attention Is All You Need / [[#Q2 — Attention에 대한 5줄 의견]] / [[#Q12 — Attention의 사례 네 가지]].
 
@@ -510,9 +537,14 @@ CALL의 앞부분은 통화 내용 기반 사기 탐지와 LISTEN의 모듈을 �
 | Speaker's History | 이전 N개 구간에서 감정이 나타난 비율 |
 | Emotion Co-existence Knowledge | 감정 조합의 공존·충돌에 대해 지식표가 주는 score |
 
-이력 점수는 `H(E) = 이전 N개 중 감정 E의 횟수 / N`, 가중 결합은 `F(E) = r₁S₁(E) + r₂S₂(E) + r₃S₃(E)`다. 후보별 결합 점수 중 가장 큰 감정을 선택한다. 과거 감정이 Sad 4회·Neutral 3회이면 이력 점수는 각각 4/7·3/7이다. [CALL p.18, 22–23]
+이력 점수는 `H(E) = 이전 N개 중 감정 E의 횟수 / N`, 가중 결합은 `F(E) = r₁S₁(E) + r₂S₂(E) + r₃S₃(E)`다. 후보별 결합 점수 중 가장 큰 감정을 선택한다. 강의 예시는 이전 N=5 구간이 Happy 4회·Neutral 1회이므로 이력 점수가 Happy 4/5=0.8, Neutral 1/5=0.2다. [CALL p.18, 22–23]
 
-p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식을 결합한 최종 score는 Happy가 높다. **순간 classifier의 1등이 최종 결정의 1등과 달라질 수 있음**이 핵심이다. 예시 weight 0.15·0.50·0.35는 이 사례의 설정으로 이해한다. [CALL p.22]
+강의의 두 예시 모두 **순간 classifier의 1등이 최종 결정의 1등과 달라질 수 있음**을 보여 준다. weight는 둘 다 r₁=0.15(Original)·r₂=0.50(History)·r₃=0.35(Co-existence)로, 이 사례의 설정으로 이해한다. [CALL p.22–23]
+
+| 예시 | 현재 score | 결합 계산 | 최종 |
+| --- | --- | --- | --- |
+| p.22 | Neutral 0.58 > Happy 0.5 | F(Happy)=0.15×0.5+0.5×0.6+0.35×0.99=0.7215; F(Neutral)=0.15×0.58+0.5×0+0.35×0.79=0.3635 | Happy |
+| p.23 | Sad 0.34 > Happy 0.31 | F(Happy)=0.15×0.31+0.5×0.8+0.35×0.7≈0.691(계산상 0.6915); F(Sad)=0.15×0.34+0.5×0+0.35×0.2=0.121 | Happy |
 
 신뢰도 높고 충돌하지 않는 결과를 Emotional History에 유지하고, 신뢰도 높은 spectrogram·annotation을 누적해 iterative fine-tuning에 사용하는 흐름도 제시된다. 이력은 다음 구간의 추론과 통화 전체 감정 요약에 활용한다. [CALL p.12, 24–26]
 
@@ -526,22 +558,20 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 **수업 확인 1 — 구간별 감정 투표:** 음성 spectrogram → chunk → CNN 감정 예측 → Majority Voting → 최종 감정 label. 여러 구간의 판단을 모으는 예이며 이력·지식 reasoning과 다른 방법이다. 투표는 짧은 실제 감정 변화를 가릴 수 있다는 한계를 추론할 수 있다. [CALL p.7]
 
-**수업 확인 2 — 이력·지식 기반 감정 보완:** 현재 speech segment＋이전 감정 이력＋공존 지식 → confidence 점검과 세 score의 가중 결합 → 감정 label·통화 감정 요약. 모호한 순간 예측에 문맥을 보탠다. 이력도 모델 예측이므로 정답으로 간주할 수 없다. [CALL p.12–26]
+**수업 확인 2 — 이력·지식 기반 감정 보완:** 현재 speech segment+이전 감정 이력+공존 지식 → confidence 점검과 세 score의 가중 결합 → 감정 label·통화 감정 요약. 모호한 순간 예측에 문맥을 보탠다. 이력도 모델 예측이므로 정답으로 간주할 수 없다. [CALL p.12–26]
 
-**새 응용 제안 — 제공 자료에서 미확인:** 자신의 발표 연습을 녹음하여 긴장해 보이는 음성 구간을 다시 듣는 도우미. 음성 → 구간별 표현·감정 후보 → 이전 구간과 함께 검토 → 확인할 시각 목록. 짧은 잡음 구간을 그대로 전체 감정으로 확대하지 않는 데 도움이 될 수 있다. 음성에서 추정한 감정과 실제 감정은 다를 수 있으므로 사용자가 다시 듣고 판단한다. 연구 성과나 심리 평가 도구로 주장하지 않는다.
+**새 응용 제안 — 제공 자료에서 미확인:** 자신의 발표 연습을 녹음하여 긴장해 보이는 음성 구간을 다시 듣는 도우미. 음성 → 구간별 표현·감정 후보 → 이전 구간과 함께 검토 → 확인할 시각 목록. 강의 예시의 감정 클래스(Happy·Neutral·Sad 등)에는 “긴장”이 없으므로, nervous 같은 새 label과 그 label이 붙은 학습 음성이 필요하다. 짧은 잡음 구간을 그대로 전체 감정으로 확대하지 않는 데 도움이 될 수 있다. 음성에서 추정한 감정과 실제 감정은 다를 수 있으므로 사용자가 다시 듣고 판단한다. 연구 성과나 심리 평가 도구로 주장하지 않는다.
 
 | 문제 | 원인 | 대응 방법 | 왜 도움이 되는가 | 남는 한계 |
 | --- | --- | --- | --- | --- |
 | 낮은 confidence | 잡음·불분명한 신호 | **수업:** 낮은 confidence 결과 제외 | 약한 결과를 후속 판단 근거로 삼지 않음 | 제외 구간에 중요한 변화가 있을 수 있음 |
 | 비슷한 후보·충돌 | 현재 score만으로 감정 구별이 어려움 | **수업:** 이력·공존 지식을 reliability weight로 결합 | 추가 근거가 후보를 구분 | 가중치·지식표가 맞아야 함 |
-| 갑작스러운 변화 억제 | 과거 이력이 현재보다 지배적 | **제안:** 오래된 이력 비중을 줄이고 변화 구간 재확인 | 현재 변화가 반영될 여지 | 잡음도 변화로 볼 수 있음 |
+| 갑작스러운 변화 억제 | 직전 N개 구간 이력의 weight(r₂=0.50)가 현재 score(r₁=0.15)보다 큼 | **제안:** 현재 score가 high confidence로 이력과 다른 감정을 낼 때 r₂를 낮추거나, N개 안에서 최근 구간에 더 큰 가중치를 주고 변화 구간을 재확인 | 현재 변화가 반영될 여지 | 잡음도 변화로 볼 수 있음 |
 | 잘못된 이력·학습 자료 누적 | 높은 confidence도 실제 정답을 보장하지 않음 | **제안:** 일부 구간을 직접 확인한 뒤 이력·fine-tuning 자료로 사용 | 자기 예측 오류의 반복을 줄임 | 사람 확인 비용이 필요 |
 
 수업 방법: CALL p.12, 18, 22–26. 마지막 두 문제와 대응은 구조에서 도출한 설계 의견이다. **Confidence는 모델 score이지 검증된 정답률이 아니다.**
 
 **짧은 영어:** The SER system combines current predictions, speaker history, and emotion knowledge. History can support an unclear segment. However, I would check sudden changes and review some high-confidence labels because confidence alone does not prove correctness.
-
-**원본 표현 정정:** 현재 score보다 결합 score가 다른 감정을 선택하는 설명은 CALL **p.22와 p.23**의 예다. p.22는 Original Prediction의 Neutral 0.58이 Happy 0.5보다 높지만 결합 후 Happy를 선택한다. p.23은 Happy 0.691 표기와 제시 항의 계산값 0.6915가 약간 다르며 선택은 같다.
 
 **연결:** CALL의 짧은 논문 / [[#Q4 — SER의 네 가지 어려움]].
 
@@ -566,7 +596,7 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 | Background Subtraction | 현재 frame과 background model을 비교해 foreground mask 추출 | “배경과 무엇이 다른가” |
 | Hybrid | 세 방법의 binary motion 추정 결과를 결합 | 같은 영상의 서로 다른 검출 근거를 함께 사용 |
 
-슬라이드의 Hybrid 도식은 Intersection을 표시한다. 세 입력 모달리티를 결합하는 것으로 외우지 않는다. 보고된 11개 영상의 accuracy에서는 Hybrid가 각 단일 방법보다 높지만, 평가 장면과 자료 범위가 제한되어 있다. 결론은 Hybrid를 권고하면서 **상대적으로 계산 비용이 크다**고 밝히고, 영상 수·상황·난점을 늘리는 dataset 확장을 후속 과제로 제시한다. [BABY s.12–20, 43]
+슬라이드의 Hybrid 도식은 세 binary 결과의 Intersection을 표시하고, 최종 motion 영역의 면적에 따라 confidence를 매긴다(면적 ≥50: 100%, 40–50: 95%, 30–40: 90%, <20: 80%). 세 입력 모달리티를 결합하는 것으로 외우지 않는다. [BABY s.16] 보고된 11개 영상의 accuracy에서는 Hybrid가 각 단일 방법보다 높지만, 평가 장면과 자료 범위가 제한되어 있다. 결론은 Hybrid를 권고하면서 **상대적으로 계산 비용이 크다**고 밝히고, 영상 수·상황·난점을 늘리는 dataset 확장을 후속 과제로 제시한다. [BABY s.12–20, 43]
 
 **English answer:** Frame difference compares consecutive frames, optical flow estimates apparent motion, and background subtraction compares a frame with a background model. The hybrid combines motion estimates from the same video. It adds computation and does not add input modalities.
 
@@ -592,7 +622,7 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 **수업 확인 — 움직임 경고:** 카메라 영상 → 세 motion 검출법의 Hybrid → 크기 보정 → ellipse 크기(Intensity)·개수(Diversity) → LCL/UCL 비교 → 보호자 경고. 여러 검출법과 행동 판단은 시스템 안의 단계들이므로 별개의 응용 사례 두 개로 세지 않는다. [BABY s.12–17, 33–40]
 
-**새 응용 제안 — 제공 자료에서 미확인 1 — 공부 중 자세 점검.** 입력: 자기 책상 옆 카메라 영상. 처리: 일정 구간의 몸 움직임 영역·크기를 기록하고 촬영 거리에 맞게 크기를 보정한다. 출력: 오래 고정된 자세를 스스로 확인할 알림. 적합성: 관찰→구간별 요약→기준 이탈 알림이라는 수업 원리를 옮긴다. 한계: 가만히 있다고 나쁜 자세는 아니며, 아기용 기준을 그대로 쓰면 안 된다.
+**새 응용 제안 — 제공 자료에서 미확인 1 — 공부 중 장시간 같은 자세 알림.** 입력: 자기 책상 옆 카메라 영상. 처리: 일정 구간의 몸 움직임 영역·크기를 기록하고 촬영 거리에 맞게 크기를 보정한 뒤 개인 하한·상한과 비교한다. 출력: 하한 아래가 오래 이어지면 스트레칭 알림, 상한 위가 잦으면 산만함 확인 알림. 적합성: 관찰→구간별 요약→LCL/UCL 이탈 알림이라는 수업 원리를 양쪽 기준 그대로 옮긴다. 한계: motion은 움직임의 양만 알려 줄 뿐 자세의 좋고 나쁨은 판단하지 못하며, 아기용 기준을 그대로 쓰면 안 된다.
 
 **새 응용 제안 — 제공 자료에서 미확인 2 — 세탁 종료 확인.** 입력: 세탁기 창을 고정 촬영한 영상. 처리: 창 영역의 구간별 움직임을 요약하고 일정 시간 낮은 상태가 이어지는지 확인한다. 출력: 세탁기 표시를 확인하라는 알림. 적합성: 매번 직접 보러 가는 부담을 줄이는 보조 신호다. 한계: 세탁 중 일시 정지도 있어 움직임 없음만으로 종료를 확정할 수 없다.
 
@@ -607,9 +637,9 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 근거: BABY s.4–10, 12–20, 35, 43. Hybrid의 교집합 누락 가능성·해상도 조절은 설계 분석과 제안이다.
 
-**짧은 영어:** The system measures motion and compares it with lower and upper limits. I would adapt this idea to a study reminder, using my own recording distance and activity limits. An alert would ask me to check my posture; it would not prove a health problem.
+**짧은 영어:** The system measures motion and compares it with lower and upper limits. I would adapt this idea to a study reminder, using my own recording distance and activity limits. An alert would ask me to stretch or check my focus; it would not judge posture quality or prove a health problem.
 
-**연결:** 관련 Baby 논문 / [[#Q6 — Baby Monitoring을 공부 중 자세 점검에 적용]].
+**연결:** 관련 Baby 논문 / [[#Q6 — Baby Monitoring을 공부 중 장시간 같은 자세 알림에 적용]].
 
 ### 7. 영상 개선과 목적별 평가
 
@@ -625,7 +655,7 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 **검색 태그:** [HazeSpace2M] [Dehazing] [Haze-Aware Dehazing] [Dataset Diversity] [Paired Data] [Ground Truth] [Specialized Dehazer] [Conditional Model Selection] [Classifier Dependency] [Synthetic-to-Real Gap]
 
-기존 방법이 특정 haze나 합성 조건에 치우치고 다양한 데이터가 부족하다는 문제에 대응한다. **HazeSpace2M**은 Outdoor·Street·Farmland·Satellite의 네 scene, Fog·Environmental Haze(EH)·Cloud의 세 haze type, 여러 intensity와 Real Haze Testset을 제공한다. 모든 scene에 세 type이 전부 존재하는 구성은 아니다. 약 2.2M이라는 총량은 **GT와 hazy image의 합**이다. [LOW s.3–7]
+기존 방법이 특정 haze나 합성 조건에 치우치고 다양한 데이터가 부족하다는 문제에 대응한다. **HazeSpace2M**은 Outdoor·Street·Farmland·Satellite의 네 scene, Fog·Environmental Haze(EH)·Cloud의 세 haze type, **10단계 intensity**와 Real Haze Testset을 제공한다. 모든 scene에 세 type이 전부 존재하는 구성은 아니다. 약 2.2M이라는 총량은 **GT와 hazy image의 합**이다. [LOW s.3–7]
 
 **Paired Data**는 hazy input과 대응 GT reference가 연결된 자료다. 복원 기준과 비교할 수 있게 해 준다. GT 선정에서는 해상도·기존 haze 포함 여부·주제 관련성을 확인한다. [LOW s.5–7]
 
@@ -633,6 +663,16 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 한계는 **Classifier Dependency**와 **Synthetic-to-Real Gap**이다. 잘못 분류하면 부적합한 dehazer를 선택할 수 있고, 합성 데이터가 실제 환경을 충분히 대표하지 못할 수 있다. 강의의 후속 방향은 여러 type을 처리하는 Unified Method와 계산 비용 절감이다. [LOW s.22]
 
+**특허에서 보충되는 분류 방식:** 같은 원리의 특허는 classifier 구성을 두 가지로 설명한다. [PAT-HAZE]
+
+| 방식 | 동작 | 차이 |
+| --- | --- | --- |
+| SSC (Single Selective Classifier) | 선택한 classifier 하나로 haze type 추론 | 한 모델의 결과로 경로 결정 |
+| HCC (Hybrid Conditional Classifier) | 여러 사전학습 classifier의 predicted class·probability를 condition block에서 종합 | 여러 모델의 판단을 confidence·accuracy 등으로 조건부 결합 |
+
+- **Training vs Inference:** 학습 단계에서는 GT를 scene별로 나누고 synthetic haze·intensity를 적용해 classifier와 haze type별 dehazer를 학습한다(type별 local server 학습 → global federated server로 weight 집계). 추론 단계에서는 현재 입력의 type을 판단해 해당 dehazer로 복원한다.
+- **후속 특허(PAT-VEH):** 같은 처리 흐름을 **자율주행 차량 카메라 영상**으로 독립 청구항에 명시한 continuation이다. 복원 결과는 detection·segmentation 등 후속 과업에 쓰인다.
+- **연결:** HCC는 Classifier Dependency를 여러 classifier의 결합으로 완화하려는 설계로 볼 수 있다. 다만 성능 개선 수치는 자료에서 확인하지 않았다.
 
 **English answer:** HazeSpace2M provides diverse paired haze data and a real test set. The haze-aware method classifies the haze type and selects a specialized dehazer. Wrong classification and synthetic-to-real differences remain limits.
 
@@ -690,7 +730,7 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 | 문제 | 원인 | 대응 방법 | 왜 도움이 되는가 | 남는 한계 |
 | --- | --- | --- | --- | --- |
-| 부적절한 복원 경로 선택 | haze classifier가 잘못 분류 | **수업 후속 방향:** 여러 유형을 처리하는 Unified Method 검토 | 잘못된 유형 선택에 대한 의존을 줄이는 방향 | 모든 조건을 한 모델이 잘 처리하는지는 평가 필요 |
+| 부적절한 복원 경로 선택 | haze classifier가 잘못 분류 | **특허:** HCC로 여러 classifier 결합; **수업 후속 방향:** 여러 유형을 처리하는 Unified Method 검토 | 잘못된 유형 선택에 대한 의존을 줄이는 방향 | 모든 조건을 한 모델이 잘 처리하는지는 평가 필요 |
 | 실제 영상에서 성능 저하 | 합성 열화가 실제 조건을 충분히 대표하지 못함 | **수업:** real testset으로 별도 확인; **제안:** 실제 실패 유형을 반영해 자료 보완 | 실제 환경 차이를 발견·완화하는 데 도움 | 수집하지 못한 환경은 남음 |
 | 밝기와 세부 획·경계 보존 충돌 | 전체 밝기 처리만으로 noise·detail을 함께 다루기 어려움 | **수업 아이디어:** TriFuse처럼 성분별 처리; **제안:** 원본과 획 보존 비교 | 큰 구조와 세부 정보에 다른 처리를 적용 | 과한 보정은 인공적 경계를 만들 수 있음 |
 | 품질 점수와 사용 목적 불일치 | reference 품질과 검출·가독성이 서로 다른 목표 | **수업:** 영상 품질과 detection을 나눠 평가; **제안:** 필기라면 실제 판독도 확인 | 원하는 사용 목적에 맞게 판단 | 평가에 포함하지 않은 목적에는 일반화 못함 |
@@ -707,7 +747,7 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 논문 이름을 많이 쓰기보다 **문제와 설계 사이의 연결**을 빌려 쓴다. HazeSpace2M·LoLI-Street/TriFuse는 방법·강의 보고 결과 중심, Attention·LeNet-5는 개념 원리 중심, Baby 논문은 강의 비교 범위 중심이다. CALL의 짧은 도식은 처리 목적까지만 쓴다. 아래 **Result는 강의자료에서 확인되는 범위**이며 새 적용의 성과가 아니다.
 
-### 논문 — HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing
+### 논문 — HazeSpace2M — A Dataset for Haze Aware Single Image Dehazing
 
 **Theme:** 열화 조건이 다양한 데이터셋 구축과 haze 유형에 따른 복원 모델 선택.
 
@@ -724,11 +764,11 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **활용할 질문:** 조건에 따라 처리 방법을 바꿀 이유, classifier 오류 전파, 데이터 다양성·실제 환경 차이. [[#Q5 — 영상 개선의 네 가지 어려움]], [[#Q7 — Haze-Aware 원리를 필기 사진 정리에 적용]].
 
-**내 확장 제안 — 제공 자료에서 미확인:** 필기 사진을 어두움·흔들림·문제없음으로 나누고 조명 개선·재촬영 권유·원본 유지 중 하나를 고른다. 새 입력·열화 범주·경로·판독 평가가 필요하다. 원래 haze class와 모델을 그대로 재사용한다고 가정하지 않는다. 새로운 사례의 근거는 일상의 불편이며, 논문은 조건별 선택 원리를 설명하는 데만 사용한다.
+**내 확장 제안 — 제공 자료에서 미확인:** 필기 사진을 **찍은 직후** 어두움·흔들림·문제없음으로 나누고 조명 개선·재촬영 권유·원본 유지 중 하나를 고른다. 칠판이 지워진 뒤에는 다시 찍을 수 없으므로 판단 시점이 촬영 직후여야 한다. 새 입력·열화 범주·경로·판독 평가가 필요하다. 원래 haze class와 모델을 그대로 재사용한다고 가정하지 않는다. 새로운 사례의 근거는 일상의 불편이며, 논문은 조건별 선택 원리를 설명하는 데만 사용한다.
 
-**짧은 영어 답안:** The lecture's haze-aware system classifies haze and selects a suitable dehazer. I would use condition-based selection for my note photos, choosing enhancement or retaking the photo. I would need different condition labels and would check whether the text stays correct.
+**짧은 영어 답안:** The lecture's haze-aware system classifies haze and selects a suitable dehazer. I would use condition-based selection right after photographing my notes, choosing enhancement or an immediate retake. I would need different condition labels and would check whether the text stays correct.
 
-### 논문 — LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond — TriFuse
+### 논문 — LoLI-Street — Benchmarking Low-Light Image Enhancement and Beyond — TriFuse
 
 **Theme:** 도로 저조도 영상의 benchmark·복원과 개선 후 객체 검출.
 
@@ -766,9 +806,9 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **활용할 질문:** 관련 정보 선택, Self/Cross 비교, 위치 정보·Multi-Head의 역할, 여러 입력을 sequence로 바꾸는 이유. [[#Q2 — Attention에 대한 5줄 의견]], [[#Q10 — Self-Attention과 Cross-Attention 비교]].
 
-**내 확장 제안 — 제공 자료에서 미확인:** 준비물 메모를 Query로 책상 사진의 물건 후보를 참조한다. 이미지 encoder·text 표현·짝지어진 자료·사진 위치 표현이 필요하며, 원형 text Transformer의 구조 설명만으로 해당 기능이 완성되지는 않는다.
+**내 확장 제안 — 제공 자료에서 미확인:** 준비물 목록을 Query로, 가방에 넣기 전 꺼내 놓은 물건 사진의 물건 후보를 참조해 빠진 준비물을 찾는다. 이미지 encoder·text 표현·짝지어진 자료·사진 위치 표현이 필요하며, 원형 text Transformer의 구조 설명만으로 해당 기능이 완성되지는 않는다.
 
-**짧은 영어 답안:** Attention combines values according to query-key relevance. I would use checklist words to query regions of a desk photo. This would require image and text representations and data that link them; the architecture alone does not guarantee correct matches.
+**짧은 영어 답안:** Attention combines values according to query-key relevance. I would use checklist words to query regions of a photo of the items I laid out before packing. This would require image and text representations and data that link them; the architecture alone does not guarantee correct matches.
 
 ### 논문 — LeNet-5 — LeCun et al., 1998
 
@@ -806,9 +846,9 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **연결 개념:** Multiple-method fusion, Motion detection, Computational cost. [BABY s.4–20, 43–44]
 
-**활용할 질문:** 여러 방법 결합과 멀티모달의 차이, 검출 성능과 계산량, 관찰 시스템의 일상 적용. [[#Q6 — Baby Monitoring을 공부 중 자세 점검에 적용]].
+**활용할 질문:** 여러 방법 결합과 멀티모달의 차이, 검출 성능과 계산량, 관찰 시스템의 일상 적용. [[#Q6 — Baby Monitoring을 공부 중 장시간 같은 자세 알림에 적용]].
 
-**내 확장 제안 — 제공 자료에서 미확인:** 공부 중 자세 확인 알림. 새 촬영 거리와 움직임 요약 시간·알림 기준을 설정하고 사용자에게 유용한 알림인지 확인해야 한다. 수업 후반의 Intensity/Diversity·Control Chart는 강의 시스템 설명으로 사용하며, 첨부되지 않은 관련 논문 원문의 검증 결과라고 합쳐 쓰지 않는다.
+**내 확장 제안 — 제공 자료에서 미확인:** 공부 중 장시간 같은 자세(스트레칭) 알림. 새 촬영 거리와 움직임 요약 시간·알림 기준을 설정하고 사용자에게 유용한 알림인지 확인해야 한다. 수업 후반의 Intensity/Diversity·Control Chart는 강의 시스템 설명으로 사용하며, 첨부되지 않은 관련 논문 원문의 검증 결과라고 합쳐 쓰지 않는다.
 
 **짧은 영어 답안:** The lecture compares three motion methods and their hybrid combination. I would use motion summaries for a study reminder, with new recording conditions and activity limits. The reported baby-video comparison does not validate this new use.
 
@@ -840,22 +880,22 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **English question:** When do you think multimodal AI is useful? Answer in five lines, including how it works, an everyday use, and a limitation.
 
-**요구 조건:** 한·영 각 5줄, 입장＋원리＋근거＋새 적용 1개＋한계. 사례 2＋2 조건 없음.
+**요구 조건:** 한·영 각 5줄, 입장+원리+근거+새 적용 1개+한계. 사례 2+2 조건 없음.
 
 **한국어 모범답안:**
 
 1. 나는 한 입력만으로 답하기 어려울 때 멀티모달 AI가 유용하다고 생각한다.
 2. 이 기술은 서로 다른 입력을 표현하고 대응시킨 뒤 함께 사용한다.
-3. 예를 들어 사진은 눈에 보이는 물건을, 메모는 내가 필요한 것을 알려 준다.
-4. 나는 냉장고 사진과 메모를 결합해 장보기 후보 목록을 만드는 데 쓰고 싶다.
+3. 서로 다른 입력은 서로 다른 단서를 주므로, 합치면 한쪽만으로는 못 하는 판단이 가능하다.
+4. 나는 요리 재료 목록과 냉장고 사진을 대응시켜 사진에 없는 재료만 장보기 목록으로 만들고 싶다.
 5. 다만 사진에 가려진 물건이 있으므로 결과를 직접 확인하겠다.
 
 **English model answer:**
 
 1. I think multimodal AI is useful when one input is not enough.
 2. It represents different inputs, aligns them, and uses them together.
-3. A photo can show visible items, while a note can state what I need.
-4. I would combine a fridge photo and my note to make a shopping list.
+3. Different inputs give different clues, so together they support decisions that one input cannot.
+4. I would match a recipe list to a fridge photo and list only the missing items.
 5. However, I would check hidden items before trusting the list.
 
 **반드시 포함:** Representation·Alignment·Fusion, 보완 정보, 한계. 근거 W1 s.27–32. 냉장고 사례는 **새 응용 제안 — 제공 자료에서 미확인**.
@@ -868,7 +908,7 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **English question:** Explain in five lines why you think attention is useful in a multimodal system. Include Q/K/V, an example, and a limitation.
 
-**요구 조건:** 한·영 각 5줄. Q/K/V의 역할＋효용＋구체 예＋한계. 사례 수업 1개, 새 사례 필수 아님.
+**요구 조건:** 한·영 각 5줄. Q/K/V의 역할+효용+구체 예+한계. 사례 수업 1개, 새 사례 필수 아님.
 
 **한국어 모범답안:**
 
@@ -900,15 +940,15 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **한국어 모범답안:**
 
-1. **시간 대응:** 녹음과 필기 작성 시점이 달라 잘못 연결될 수 있다. 시각 정보와 짧은 구간의 의미를 함께 대조하겠다. 다른 순간의 자료를 섞는 일을 줄일 수 있지만 필기 지연과 모호한 내용은 남는다.
-2. **입력 결측:** 녹음 중단이나 사진 누락으로 한 입력이 없을 수 있다. 독립 처리가 가능한 기능은 Late Fusion과 누락 표시로 설계하겠다. 남은 근거로 제한된 결과를 줄 수 있지만 없는 자료에만 있는 내용은 답하지 못한다.
+1. **시간 대응:** 녹음과 필기 작성 시점이 달라 잘못 연결될 수 있다. 기록 시각(timestamp)과 짧은 구간의 의미를 함께 대조하겠다. 다른 순간의 자료를 섞는 일을 줄일 수 있지만 필기 지연과 모호한 내용은 남는다.
+2. **입력 결측:** 녹음 중단이나 사진 누락으로 한 입력이 없을 수 있다. 녹음만 있으면 음성 텍스트에서 키워드를 찾고, 사진만 있으면 필기 영역을 찾는 단독 기능을 두고, 둘의 결과는 Late Fusion으로 결합하며 누락을 표시하겠다. 남은 근거로 제한된 결과를 줄 수 있지만 없는 자료에만 있는 내용은 답하지 못한다.
 3. **의미 정렬:** 비슷한 식이나 단어를 잘못 대응할 수 있다. 올바른 음성–필기 짝을 확인하고 모호한 후보는 함께 제시하겠다. 잘못된 연결을 줄일 수 있지만 모호성 자체가 사라지지는 않는다.
 4. **계산량:** 긴 녹음의 모든 구간을 세밀히 비교하면 비용이 크다. 먼저 관련 구간을 좁혀 정밀 처리하겠다. 처리 단위 수는 줄지만 처음 선택에서 필요한 구간을 놓칠 수 있다.
 
 **English model answer:**
 
 1. **Timing:** Notes may be written after the explanation. I would check both timestamps and short-segment meaning to avoid linking different moments. Delayed or unclear notes can still cause errors.
-2. **Missing input:** A recording or photo may be absent. I would use late fusion where independent predictions are possible and mark missing inputs. This allows limited use of the remaining evidence, but it cannot recover absent content.
+2. **Missing input:** A recording or photo may be absent. I would provide single-input functions, such as keyword search in the speech transcript or region search in the note photo, combine their results with late fusion, and mark missing inputs. This allows limited use of the remaining evidence, but it cannot recover absent content.
 3. **Semantic alignment:** Similar formulas may be confused. I would check audio-note pairs and show unclear candidates. This could reduce wrong links, but some matches would remain ambiguous.
 4. **Computation:** Comparing every part of a long recording is costly. I would select likely segments before detailed processing. This reduces the input length, but early selection may miss the right segment.
 
@@ -922,20 +962,20 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **English question:** Explain four different challenges and responses in the lecture's history-and-knowledge SER system. Distinguish lecture methods from your proposed improvements.
 
-**요구 조건:** 정확히 4쌍, 수업 대응 2개＋개선 제안 2개. 각 항목 원인·대응·효과·한계.
+**요구 조건:** 정확히 4쌍, 수업 대응 2개+개선 제안 2개. 각 항목 원인·대응·효과·한계.
 
 **한국어 모범답안:**
 
 1. **낮은 confidence:** 불분명한 신호로 약한 예측이 나온다. 수업은 낮은 confidence 결과를 제외한다. 약한 결과가 이력에 영향을 주는 것을 막지만 중요한 구간도 빠질 수 있다.
 2. **후보 감정 충돌:** 현재 score만으로 감정을 가르기 어렵다. 수업은 현재 예측·이력·공존 지식을 가중 결합한다. 추가 근거를 사용할 수 있지만 가중치와 지식의 적절성에 의존한다.
-3. **갑작스러운 변화 누락:** 과거 이력이 현재 변화를 누를 수 있다. 나는 오래된 이력의 비중을 줄이고 변화 구간을 재확인하겠다. 새 상태가 반영되기 쉽지만 잡음을 변화로 오해할 수 있다.
+3. **갑작스러운 변화 누락:** 직전 N개 구간의 이력 weight(0.50)가 현재 score weight(0.15)보다 커서 현재 변화를 누를 수 있다. 나는 현재 예측이 높은 confidence로 이력과 다른 감정을 낼 때 이력 weight를 낮추고, N개 안에서도 최근 구간에 더 큰 가중치를 주며 변화 구간을 재확인하겠다. 새 상태가 반영되기 쉽지만 잡음을 변화로 오해할 수 있다.
 4. **오류 누적:** confidence가 높은 오답이 이력과 fine-tuning 자료에 남을 수 있다. 나는 일부 구간을 사람이 확인한 뒤 사용하겠다. 잘못된 자기 예측의 반복을 줄일 수 있지만 확인 비용이 든다.
 
 **English model answer:**
 
 1. **Low confidence:** Unclear speech can produce weak predictions. The lecture discards low-confidence outputs to keep weak evidence out of later decisions. Important segments may also be removed.
 2. **Conflicting candidates:** Current scores may not clearly separate emotions. The lecture weights current predictions, history, and co-existence knowledge. This adds evidence, but the weights and knowledge must fit the task.
-3. **Sudden changes:** Strong history can hide a real change. I would reduce the weight of old history and review change segments. This gives new evidence more influence, but noise may look like a change.
+3. **Sudden changes:** The history weight (0.50) is larger than the current-score weight (0.15), so history can hide a real change. When a high-confidence current prediction disagrees with history, I would lower the history weight, give recent segments within the N-segment window more weight, and review the change. This gives new evidence more influence, but noise may look like a change.
 4. **Accumulated errors:** A high-confidence mistake can enter history and training data. I would manually review some labels before reuse. This could reduce repeated mistakes, but review takes time.
 
 **반드시 포함:** confidence·conflict·history inertia·error feedback, score와 정답 구별. CALL p.12, 18, 22–26. 3·4번은 개선 제안.
@@ -952,35 +992,35 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **한국어 모범답안:**
 
-1. **경로 선택 오류:** Haze-Aware에서는 classifier 오류가 부적절한 dehazer 선택으로 이어진다. 수업의 후속 방향인 Unified Method를 검토하겠다. 분류 의존을 줄이는 방향이지만 다양한 haze 성능은 다시 평가해야 한다.
+1. **경로 선택 오류:** Haze-Aware에서는 classifier 오류가 부적절한 dehazer 선택으로 이어진다. 특허의 HCC처럼 여러 classifier의 class·confidence를 조건부로 결합해 단일 classifier의 오류를 줄이고, 장기적으로는 수업의 후속 방향인 Unified Method를 검토하겠다. 분류 의존을 줄이는 방향이지만 classifier들이 같이 틀리는 경우가 남고 다양한 haze 성능은 다시 평가해야 한다.
 2. **실제 환경 차이:** 합성 데이터가 실제 열화를 충분히 대표하지 못할 수 있다. 수업처럼 real testset을 분리해 평가하고 실제 실패 유형을 자료에 보완하겠다. 환경 차이를 찾는 데 도움이 되지만 모든 환경을 포함할 수는 없다.
 3. **detail 손상:** 밝기를 바꾸면서 noise와 경계도 손상할 수 있다. TriFuse의 성분별 처리 원리를 참고해 큰 구조와 경계를 나누어 다루겠다. 서로 다른 정보에 맞춘 처리가 가능하지만 과한 보정의 인공적 detail은 확인해야 한다.
 4. **평가 목표 불일치:** 좋은 복원 점수가 좋은 검출을 보장하지 않는다. 수업처럼 영상 품질과 downstream detection을 별도 평가하겠다. 실제 목적을 확인할 수 있지만 검출 결과가 다른 목적의 성능까지 보장하지는 않는다.
 
 **English model answer:**
 
-1. **Wrong model selection:** A wrong haze class can select the wrong dehazer. I would consider the lecture's proposed unified method to reduce this dependency. Its performance across haze types would still need testing.
+1. **Wrong model selection:** A wrong haze class can select the wrong dehazer. I would combine several classifiers' classes and confidences, as in the patent's hybrid conditional classifier, and consider the unified method named as a future direction in the lecture. Classifiers can still fail together, and performance across haze types would need testing.
 2. **Real-world gap:** Synthetic degradation may differ from real images. I would evaluate a separate real test set and add real failure cases to the data. This reveals environment gaps, but it cannot cover every condition.
 3. **Detail damage:** Brightness changes can affect noise and edges. I would use the idea of separate frequency processing from TriFuse to treat broad structures and edges differently. Artificial details could still appear and need checking.
 4. **Evaluation mismatch:** A good restoration score does not guarantee good detection. I would evaluate image quality and downstream detection separately, as in the lecture. This checks task usefulness, but detection results do not prove usefulness for every other task.
 
-**반드시 포함:** Classifier dependency·Synthetic-to-real gap·성분별 처리·품질/검출 구분. LOW s.8, 12–22. 적용 선택과 일반적 손상 가능성은 분석 의견.
+**반드시 포함:** Classifier dependency(HCC·Unified)·Synthetic-to-real gap·성분별 처리·품질/검출 구분. LOW s.8, 12–22; PAT-HAZE. 적용 선택과 일반적 손상 가능성은 분석 의견.
 
-### Q6 — Baby Monitoring을 공부 중 자세 점검에 적용
+### Q6 — Baby Monitoring을 공부 중 장시간 같은 자세 알림에 적용
 
 [System] [Application] [Baby Monitoring] [Calibration] [Control Chart]
 
-**한국어 질문:** 수업의 Baby Monitoring 원리를 설명하고, 그 원리를 공부 중 자세를 확인하는 일상 시스템에 적용하라.
+**한국어 질문:** 수업의 Baby Monitoring 원리를 설명하고, 그 원리를 공부 중 오래 같은 자세로 있으면 알려 주는 일상 시스템에 적용하라.
 
-**English question:** Explain the lecture's baby-monitoring pipeline and apply its principle to a study-posture reminder.
+**English question:** Explain the lecture's baby-monitoring pipeline and apply its principle to a reminder for staying in the same posture too long while studying.
 
-**요구 조건:** 수업 원리 1개＋일상 적용 1개. 입력·처리·출력, 유지할 원리·바꿀 기준·한계를 명시.
+**요구 조건:** 수업 원리 1개+일상 적용 1개. 입력·처리·출력, 유지할 원리·바꿀 기준·한계를 명시.
 
-**한국어 모범답안:** 수업 시스템은 영상에서 motion을 검출하고 크기를 보정한 뒤 ellipse 크기와 개수로 Intensity·Diversity를 표현한다. 이를 Control Chart의 LCL/UCL과 비교해 너무 적거나 큰 움직임을 보호자에게 알린다. Hybrid는 같은 영상에 세 검출법을 결합한 것으로 세 모달리티가 아니다. 나는 옆에서 찍은 공부 영상을 시간 구간별로 요약해 오랫동안 자세가 고정되면 스스로 확인할 알림을 제안한다. 관찰→특징→기준 비교 원리는 유지하되 촬영 거리·관찰 시간·개인 기준을 새로 설정한다. 가만히 있어도 집중 중일 수 있으므로 알림은 자세 확인 요청이며 건강 문제의 확정은 아니다.
+**한국어 모범답안:** 수업 시스템은 영상에서 motion을 검출하고 크기를 보정한 뒤 ellipse 크기와 개수로 Intensity·Diversity를 표현한다. 이를 Control Chart의 LCL/UCL과 비교해 너무 적거나 큰 움직임을 보호자에게 알린다. Hybrid는 같은 영상에 세 검출법을 결합한 것으로 세 모달리티가 아니다. 나는 옆에서 찍은 공부 영상을 시간 구간별로 요약해, 움직임이 하한 아래로 오래 이어지면 스트레칭 알림을, 상한 위로 잦으면 산만함 확인 알림을 주는 시스템을 제안한다. 관찰→특징→LCL/UCL 비교 원리는 유지하되 촬영 거리·관찰 시간·개인 기준을 새로 설정한다. motion으로 알 수 있는 것은 움직임의 양이지 자세가 좋은지 나쁜지가 아니며, 가만히 있어도 집중 중일 수 있으므로 알림은 확인 요청이지 건강 문제의 확정은 아니다.
 
-**English model answer:** The lecture system detects motion in video, calibrates its size, and represents intensity and diversity by ellipse size and number. A control chart compares them with LCL and UCL and alerts the caregiver for too little or too much movement. The hybrid combines three methods on one video modality. I would summarize side-view study video over time and give a reminder when my posture stays fixed for a long period. I would keep the observe-measure-compare principle but set new camera, time, and personal limits. Stillness may simply mean concentration, so the reminder would ask me to check my posture.
+**English model answer:** The lecture system detects motion in video, calibrates its size, and represents intensity and diversity by ellipse size and number. A control chart compares them with LCL and UCL and alerts the caregiver for too little or too much movement. The hybrid combines three methods on one video modality. I would summarize side-view study video over time and give a stretching reminder when my movement stays below a lower limit for a long period, and a focus check when it often rises above an upper limit. I would keep the observe-measure-compare principle but set new camera, time, and personal limits. Motion shows how much I move, not whether my posture is good, and stillness may simply mean concentration, so the reminder would only ask me to check.
 
-**반드시 포함:** Hybrid·Calibration·Intensity/Diversity·LCL/UCL·새 기준. BABY s.12–17, 33–40. 자세 알림은 **새 응용 제안 — 제공 자료에서 미확인**.
+**반드시 포함:** Hybrid·Calibration·Intensity/Diversity·LCL/UCL·새 기준. BABY s.12–17, 33–40. 장시간 같은 자세 알림은 **새 응용 제안 — 제공 자료에서 미확인**.
 
 ### Q7 — Haze-Aware 원리를 필기 사진 정리에 적용
 
@@ -990,11 +1030,11 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **English question:** Explain haze-aware dehazing and propose how to adapt its principle to organizing your note photos.
 
-**요구 조건:** 수업 시스템 1개＋생활 적용 1개. 원래 haze 복원과 새 적용 구분. 새 입력 조건·처리·출력·실패 조건 포함.
+**요구 조건:** 수업 시스템 1개+생활 적용 1개. 원래 haze 복원과 새 적용 구분. 새 입력 조건·처리·출력·실패 조건 포함.
 
-**한국어 모범답안:** 수업의 Haze-Aware 방식은 hazy image의 유형을 분류하고 해당 Specialized Dehazer를 선택해 복원한다. HazeSpace2M은 그 방법과 관련된 데이터셋이며 방법 자체의 다른 이름은 아니다. 나는 필기 사진을 어두움·흔들림·문제없음으로 나누어 조명 개선·재촬영 권유·원본 유지로 연결하겠다. 출력은 개선 후보 또는 재촬영 안내다. 상태에 따라 처리를 선택하는 원리를 유지하되 분류 범주·자료·처리 경로·평가를 바꿔야 한다. 흔들려 사라진 글자 획을 밝기 조정으로 복구했다고 주장할 수 없으며 잘못 분류하면 잘못된 처리를 고를 수 있다.
+**한국어 모범답안:** 수업의 Haze-Aware 방식은 hazy image의 유형을 분류하고 해당 Specialized Dehazer를 선택해 복원한다. HazeSpace2M은 그 방법과 관련된 데이터셋이며 방법 자체의 다른 이름은 아니다. 나는 필기 사진을 찍은 직후 어두움·흔들림·문제없음으로 나누어 조명 개선·재촬영 권유·원본 유지로 연결하겠다. 칠판이 지워지기 전에 다시 찍어야 하므로 판단은 촬영 직후에 한다. 출력은 개선 후보 또는 즉시 재촬영 안내다. 상태에 따라 처리를 선택하는 원리를 유지하되 분류 범주·자료·처리 경로·평가를 바꿔야 한다. 흔들려 사라진 글자 획을 밝기 조정으로 복구했다고 주장할 수 없으며 잘못 분류하면 잘못된 처리를 고를 수 있다.
 
-**English model answer:** The lecture's haze-aware method classifies a hazy image and selects a specialized dehazer. HazeSpace2M is a dataset, not another name for the method. For my note photos, I would distinguish dark, blurred, and acceptable images. I would then suggest lighting enhancement, retaking the photo, or keeping the original. The output would be an improved candidate or a retake message. I would need new labels, data, processing paths, and a text-readability check. Brightening cannot reliably recover strokes lost to blur, and wrong classification can still select the wrong action.
+**English model answer:** The lecture's haze-aware method classifies a hazy image and selects a specialized dehazer. HazeSpace2M is a dataset, not another name for the method. Right after I photograph my notes, I would distinguish dark, blurred, and acceptable images. I would then suggest lighting enhancement, retaking the photo, or keeping the original. The check must happen immediately because the board may be erased later. The output would be an improved candidate or an immediate retake message. I would need new labels, data, processing paths, and a text-readability check. Brightening cannot reliably recover strokes lost to blur, and wrong classification can still select the wrong action.
 
 **반드시 포함:** 조건별 선택·Dataset/Method 구분·classifier 오류 전파·새 평가. LOW s.4–10, 22. 필기 사진 적용은 **새 응용 제안 — 제공 자료에서 미확인**.
 
@@ -1006,11 +1046,11 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **English question:** Explain the lecture's visual question answering principle and apply it to checking a fridge before shopping.
 
-**요구 조건:** 수업 VQA 원리＋일상 제안 각 1개. 세 핵심 단계·출력·적합성·한계 포함.
+**요구 조건:** 수업 VQA 원리+일상 제안 각 1개. 세 핵심 단계·출력·적합성·한계 포함.
 
-**한국어 모범답안:** 수업 VQA는 이미지와 질문을 각각 표현하고 질문의 대상과 이미지 영역을 대응시킨 뒤 관련 정보를 결합해 답한다. 자전거 옆에 무엇이 있느냐는 질문에는 이미지 근거로 Dog라고 답한다. 나는 냉장고 사진과 필요한 물건 메모를 입력받아 이름과 물건 후보를 대응시키고 구매 후보 목록을 만드는 도우미를 제안한다. 사진은 보이는 재고를, 메모는 개인의 필요를 제공한다. 다만 사진에 안 보인다고 없다고 단정할 수 없으므로 가려진 물건·남은 양을 직접 확인할 항목도 함께 출력하겠다.
+**한국어 모범답안:** 수업 VQA는 이미지와 질문을 각각 표현하고 질문의 대상과 이미지 영역을 대응시킨 뒤 관련 정보를 결합해 답한다. 자전거 옆에 무엇이 있느냐는 질문에는 이미지 근거로 Dog라고 답한다. 나는 냉장고 사진과 이번 주 요리 재료 목록을 입력받아, 각 재료 이름을 사진 속 물건 후보에 대응시키는 도우미를 제안한다. 사진에서 찾지 못한 재료는 구매 후보로, 찾은 재료는 “이미 있음”으로 표시한다. 목록은 무엇이 필요한지, 사진은 무엇이 이미 있는지를 제공하므로 두 입력을 결합해야 목록을 만들 수 있다. 다만 사진에 안 보인다고 없다고 단정할 수 없으므로 가려진 물건·남은 양을 직접 확인할 항목도 함께 출력하겠다.
 
-**English model answer:** In the lecture's VQA example, the system represents the image and question, aligns the named object with an image region, and combines relevant information to answer. It uses the picture to answer dog when asked what is beside the bicycle. I would take a fridge photo and a note of needed items, match item names to visible objects, and return shopping candidates. The photo provides visible stock and the note provides personal needs. A hidden item may still be present, so I would also list items that need manual checking.
+**English model answer:** In the lecture's VQA example, the system represents the image and question, aligns the named object with an image region, and combines relevant information to answer. It uses the picture to answer dog when asked what is beside the bicycle. I would take a fridge photo and this week's recipe ingredient list and match each ingredient name to visible objects. Ingredients not found become shopping candidates, and found ones are marked as already available. The list states what is needed and the photo shows what is already there, so both inputs are required. A hidden item may still be present, so I would also list items that need manual checking.
 
 **반드시 포함:** Representation→Alignment→Fusion·보완 정보·가림 한계. W1 s.27–32. 냉장고 적용은 **새 응용 제안 — 제공 자료에서 미확인**.
 
@@ -1062,7 +1102,7 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **English question:** Give four multimodal AI applications: two confirmed lecture examples and two new everyday proposals of your own. Explain the input, process, output, suitability, and limitation of each.
 
-**요구 조건:** 수업 확인 정확히 2개＋새 제안 정확히 2개. 모든 사례에 상황·입력·처리·출력·적합성·한계.
+**요구 조건:** 수업 확인 정확히 2개+새 제안 정확히 2개. 모든 사례에 상황·입력·처리·출력·적합성·한계.
 
 **한국어 모범답안:**
 
@@ -1072,7 +1112,7 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **새 응용 제안 — 제공 자료에서 미확인 1. 복습 구간 찾기:** 강의 녹음·필기 사진·질문을 입력받아 관련 설명과 필기 영역을 대응시키고 녹음 시각을 출력하겠다. 음성이 설명을, 사진이 식을 보완한다. 필기 시점이 늦으면 시간만으로 대응할 수 없다는 한계가 있다.
 
-**새 응용 제안 — 제공 자료에서 미확인 2. 장보기 목록:** 냉장고 사진과 필요한 물건 메모의 항목을 대응시키고 구매 후보·확인 항목을 출력하겠다. 보이는 재고와 개인 필요를 함께 사용한다. 가려진 물건이나 남은 양은 직접 확인해야 한다.
+**새 응용 제안 — 제공 자료에서 미확인 2. 장보기 목록:** 요리 재료 목록의 항목을 냉장고 사진에 대응시키고, 사진에 없는 재료를 구매 후보로, 직접 볼 항목을 확인 목록으로 출력하겠다. 목록의 필요와 사진의 재고를 함께 써야 한다. 가려진 물건이나 남은 양은 직접 확인해야 한다.
 
 **English model answer:**
 
@@ -1082,9 +1122,11 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **New proposal — unconfirmed in the provided materials 1 — Study replay:** I would combine a recording, a note photo, and a question. I would match the relevant explanation to the note region and return a replay time. Audio supplies the explanation and the photo supplies the formula, but delayed notes make time alignment unreliable.
 
-**New proposal — unconfirmed in the provided materials 2 — Shopping list:** I would match items in a needed-items note to a fridge photo and return shopping candidates and items to check. This combines visible stock with personal needs. Hidden items and remaining quantities still need manual checking.
+**New proposal — unconfirmed in the provided materials 2 — Shopping list:** I would match a recipe ingredient list to a fridge photo and return missing ingredients as shopping candidates, plus items to check. This combines what I need with what is already visible. Hidden items and remaining quantities still need manual checking.
 
-**반드시 포함:** 2＋2 구분·서로 다른 일상 목적·Representation/Alignment/Fusion·각 한계. 새 제안에 성능 수치 없음.
+**반드시 포함:** 2+2 구분·서로 다른 일상 목적·Representation/Alignment/Fusion·각 한계. 새 제안에 성능 수치 없음.
+
+**수업 사례 교체용 — 비정상 상황 감시:** 한국어: 같은 달리기도 조깅 코스에서는 정상, 다른 장소에서는 의심 행동이 될 수 있다. 영상에서 객체 sequence로 행동을, key frame sequence로 문맥을 인식하고 둘의 일치 정도로 비정상 여부를 판단해 경고한다. 인접 카메라는 시간·위치로 같은 사건을 맞추고 probability를 가중 결합한다. 행동만으로 안 되는 판단을 문맥이 보완하지만, 문맥을 잘못 인식하면 오경보가 나고 입력은 모두 영상이다. English: The same running can be normal on a jogging course but suspicious elsewhere. The system recognizes behavior from an object sequence and context from key frames, then warns when they do not match a normal situation. Neighboring cameras align events by time and location and combine probabilities with weights. Context resolves what behavior alone cannot, but misrecognized context can cause false alarms, and all inputs are video. [PAT-ASM]
 
 ### Q12 — Attention의 사례 네 가지
 
@@ -1094,7 +1136,7 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **English question:** Give two lecture examples of attention and two new everyday proposals. For each, explain the situation, input, processing, output, suitability, and limitation.
 
-**요구 조건:** 정확히 수업 2＋새 제안 2. 단순 분야명 나열 금지.
+**요구 조건:** 정확히 수업 2+새 제안 2. 단순 분야명 나열 금지.
 
 **한국어 모범답안:**
 
@@ -1102,7 +1144,7 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **수업 확인 2. 이미지 설명:** 사진과 생성 중인 단어 문맥을 사용해 boy나 football에 관련된 영역에 주목하고 설명 문장을 만든다. 단어마다 필요한 시각 근거를 반영하지만 가려진 행동은 확정하기 어렵다. [W5 s.8, 28]
 
-**새 응용 제안 — 제공 자료에서 미확인 1. 준비물 확인:** 준비물 메모를 Query로 책상 사진 영역을 참조하고 확인된 물건과 재확인 항목을 출력하겠다. 각 물건에 필요한 영역을 찾을 수 있지만 가방 속 준비물까지 없다고 판단해서는 안 된다.
+**새 응용 제안 — 제공 자료에서 미확인 1. 준비물 확인:** 가방에 넣기 전 꺼내 놓은 물건 사진에서 준비물 목록의 각 이름을 Query로 관련 영역을 찾고, 찾은 물건과 빠졌을 수 있는 물건을 출력하겠다. 물건마다 필요한 영역을 참조할 수 있지만, 이미 가방에 넣은 물건은 사진에 없으므로 “찾지 못함”을 “없음”으로 단정해서는 안 된다.
 
 **새 응용 제안 — 제공 자료에서 미확인 2. 조별회의 할 일 찾기:** 녹음 구간과 내 이름·할 일 질문을 사용해 관련 발언을 가중하고 할 일 후보와 재생 시각을 출력하겠다. 긴 녹음 중 필요한 부분에 집중할 수 있지만 담당자 이름 생략과 겹친 음성은 직접 확인해야 한다.
 
@@ -1112,11 +1154,11 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 **Lecture example 2 — Image captioning:** The model uses an image and the current word context. It attends to the boy or ball region when producing the relevant word and outputs a description. This links words to visual evidence, but hidden actions remain hard to determine. [W5 s.8, 28]
 
-**New proposal — unconfirmed in the provided materials 1 — Packing check:** I would use checklist words as queries over a desk photo and return matched items and items to recheck. Each query selects relevant regions. An item inside my bag may be ready even if it is not visible.
+**New proposal — unconfirmed in the provided materials 1 — Packing check:** I would use checklist words as queries over a photo of the items I laid out before packing and return found items and possibly missing ones. Each query selects relevant regions. An item already in my bag may be ready even if it is not visible.
 
 **New proposal — unconfirmed in the provided materials 2 — Meeting tasks:** I would use my name and a task question to query recorded meeting segments and return task candidates with replay times. This focuses on relevant speech, but omitted names and overlapping voices need manual review.
 
-**반드시 포함:** 네 사례의 Query/관련 정보/출력·정확한 2＋2·각 한계. 새 제안은 연구·제품에서 가져온 검증 사례가 아님.
+**반드시 포함:** 네 사례의 Query/관련 정보/출력·정확한 2+2·각 한계. 새 제안은 연구·제품에서 가져온 검증 사례가 아님.
 
 ## Part 5. 시험 중 빠른 검색용 요약
 
@@ -1139,25 +1181,27 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 | HazeSpace2M vs Haze-Aware Framework | dataset vs type별 복원 경로를 고르는 방법 | A dataset vs a method that selects restoration models by haze type. |
 | LoLI-Street vs TriFuse | benchmark dataset vs 제안 LLIE 모델 | A benchmark dataset vs the proposed LLIE model. |
 | Multimodal vs Multiple-method Fusion | 서로 다른 정보 형태 결합 vs 같은 영상에 여러 분석법 적용 | Combine different information modalities vs apply multiple analysis methods to the same video. |
+| 행동만 vs 행동+문맥 판단 | 동작 종류만 인식 vs 장소·시간 문맥과의 일치로 정상·비정상 판단 | Recognize the action alone vs judge it by its match with surrounding context. |
+| SSC vs HCC | classifier 하나로 haze type 결정 vs 여러 classifier의 class·probability를 조건부 결합 | One selected classifier vs conditional combination of several classifiers. |
 
-근거: W1 s.30–32; W3 s.28–29, 36–38; W4 s.17–28; W5 s.12–15, 27; BABY s.12–17, 35; LOW s.4–15.
+근거: W1 s.30–32; W3 s.28–29, 36–38; W4 s.17–28; W5 s.12–15, 27; BABY s.12–17, 35; LOW s.4–15; PAT-ASM; PAT-HAZE.
 
 | 정의·원리 | 한 줄 답안 | 바로 이동 |
 | --- | --- | --- |
 | [Representation] [Alignment] [Fusion] | 벡터 표현 → 의미·시간 대응 → 표현·판단 결합 | [[#Representation·Alignment·Fusion]] |
 | [QKV] [Attention] | Q–K 관련성→scaling→softmax→V 가중합 | [[#Q·K·V와 Attention의 작동 원리]] |
-| [Transformer] | 위치 정보＋여러 head＋FFN＋Add/Norm; 각 입력은 embedding sequence로 | [[#Transformer의 구성 요소]] |
-| [Backpropagation] [Optimizer] | gradient 계산 / gradient를 이용한 파라미터 갱신 | [[#학습 과정: 각 단계가 하는 일]] |
+| [Transformer] | 위치 정보+여러 head+FFN+Add/Norm; 각 입력은 embedding sequence로 | [[#Transformer의 구성 요소]] |
+| [Backpropagation] [Optimizer] | gradient 계산 / gradient를 이용한 파라미터 갱신 | [[#학습 과정 — 각 단계가 하는 일]] |
 | [CNN] [Pooling] [Flatten] | 지역 특징 추출 / 지역 요약 / 벡터로 형태 변환 | [[#Pooling·Flatten·Classification]] |
 
 ### 빠른 표 — 수업 사례와 새 제안
 
 | 주제 | 수업에서 확인 | 새 응용 제안 — 제공 자료에서 미확인 | 입력→처리→출력 검색 |
 | --- | --- | --- | --- |
-| [Multimodal AI] | VQA: W1 s.27; 빨간 컵 로봇: W5 s.8 | 녹음＋필기 사진→대응→복습 시각; 냉장고 사진＋메모→대응→장보기 후보 | [[#멀티모달 응용 카드 네 가지]] / Q11 |
-| [Attention] | 자동차 색 VQA: W5 s.42; 이미지 설명: W5 s.8 | 메모＋책상 사진→관련 영역→준비물 확인; 질문＋회의 녹음→관련 구간→내 할 일 후보 | [[#Attention 응용 카드 네 가지]] / Q12 |
+| [Multimodal AI] | VQA: W1 s.27; 빨간 컵 로봇: W5 s.8; (교체용) 행동+문맥 비정상 감시: PAT-ASM | 녹음+필기 사진→대응→복습 시각; 냉장고 사진+요리 재료 목록→대응→사진에 없는 재료=장보기 후보 | [[#멀티모달 응용 카드 네 가지]] / Q11 |
+| [Attention] | 자동차 색 VQA: W5 s.42; 이미지 설명: W5 s.8 | 준비물 목록+꺼내 놓은 물건 사진→관련 영역→빠진 준비물 후보; 질문+회의 녹음→관련 구간→내 할 일 후보 | [[#Attention 응용 카드 네 가지]] / Q12 |
 | [SER] | chunk voting: CALL p.7; 이력·지식 결합: CALL p.12–26 | 발표 녹음→구간별 감정 후보 확인→재청취 시각 | [[#SER 응용·대응 재료]] / Q4 |
-| [Baby Monitoring] | motion→보정→I/D→LCL/UCL→경고: BABY s.33–40 | 공부 영상→자기 기준 비교→자세 확인; 세탁기 영상→움직임 구간 요약→표시 확인 | [[#Baby Monitoring을 일상으로 옮기는 재료]] / Q6 |
+| [Baby Monitoring] | motion→보정→I/D→LCL/UCL→경고: BABY s.33–40 | 공부 영상→개인 하한·상한 비교→스트레칭·집중 확인 알림; 세탁기 영상→움직임 구간 요약→표시 확인 | [[#Baby Monitoring을 일상으로 옮기는 재료]] / Q6 |
 | [Image Enhancement] | Haze-Aware: LOW s.8; LoLI-Street/TriFuse: LOW s.11–21 | 어두운 필기→밝기·획 점검→개선 후보; 단체사진→밝기·경계 조절→사진첩 후보 | [[#영상 개선 응용 카드 네 가지]] / Q5·Q7 |
 | [CNN] | LeNet-5 숫자 인식: W4 s.32–33 | 학용품 사진→특징→정리 범주 | [[#CNN 응용과 비교에 쓸 재료]] |
 
@@ -1167,11 +1211,11 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 
 | 주제·서로 다른 네 축 | 대응 요약 | 빠른 답안 |
 | --- | --- | --- |
-| 멀티모달: 시간·결측·의미·계산량 | 시각＋의미 대조 / 독립 판단＋누락 표시 / paired data 점검 / 관련 구간 선택 | [[#Q3 — 멀티모달 학습 도우미의 네 가지 어려움]] |
+| 멀티모달: 시간·결측·의미·계산량 | 시각+의미 대조 / 독립 판단+누락 표시 / paired data 점검 / 관련 구간 선택 | [[#Q3 — 멀티모달 학습 도우미의 네 가지 어려움]] |
 | Attention: 위치·오대응·관계 다양성·긴 입력 | 위치 정보 / 질문·paired data 점검 / Multi-Head / 구간·영역 축소 | [[#Attention·Transformer의 어려움 네 쌍]] |
-| SER: 낮은 confidence·충돌·변화 억제·오류 누적 | 낮은 결과 제외 / 세 score 결합 / 오래된 이력 비중 조절 / 일부 label 직접 검토 | [[#Q4 — SER의 네 가지 어려움]] |
+| SER: 낮은 confidence·충돌·변화 억제·오류 누적 | 낮은 결과 제외 / 세 score 결합 / 이력 weight r₂·최근 구간 가중 조절 / 일부 label 직접 검토 | [[#Q4 — SER의 네 가지 어려움]] |
 | Baby: 검출 차이·크기·처리량·일반화 | Hybrid / 크기 보정 / 해상도·간격 검토 / 다양한 상황 평가 | [[#Baby Monitoring의 어려움 네 쌍]] |
-| 영상 개선: 경로·환경 차이·detail·평가 | unified 방향 / real testset / 성분별 처리 / 품질＋downstream | [[#Q5 — 영상 개선의 네 가지 어려움]] |
+| 영상 개선: 경로·환경 차이·detail·평가 | HCC·unified 방향 / real testset / 성분별 처리 / 품질+downstream | [[#Q5 — 영상 개선의 네 가지 어려움]] |
 
 ### 빠른 표 — 논문 아이디어와 쓸 질문
 
@@ -1182,6 +1226,8 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 | Attention Is All You Need — W4 s.35–36; W5 s.31–34 | Attention 기반 관계·Position·Multi-Head | Q/K/V·Self/Cross·여러 입력 표현·Q2·Q10 |
 | LeNet-5 — W4 s.32–33 | Convolution·Subsampling·숫자 분류 | CNN 원리·feature hierarchy·분류 출력 |
 | Baby 관련 논문 — BABY s.19–20, 43–44 | 여러 motion 검출법의 Hybrid와 비용 | 여러 방법 vs 여러 모달리티·Q6 |
+| 비정상 상황 감시 특허 — PAT-ASM | 행동 stream+문맥 stream의 matching; 인접 카메라 probability 가중 결합 | Context·Alignment·decision-level Fusion의 사례·Q11 교체용 |
+| Haze-Aware 특허 — PAT-HAZE·PAT-VEH | SSC/HCC 분류 → 전용 dehazer; 차량 카메라로 확장 | Classifier dependency 완화·조건별 처리·Q5·Q7 |
 | CALL 짧은 연구 — p.3–8 | 내용 규칙 / 특징 분류 / 공통 표현의 회귀·분류 / chunk 투표 / 구간 근거 결합 | SER과 내용 분석 비교·Classification/Regression·Fusion |
 
 정량 결과가 필요한 경우 Part 3의 **보고 조건**까지 확인한다. Attention·LeNet-5·CALL 도식에서 제공하지 않은 숫자는 쓰지 않는다.
@@ -1209,7 +1255,7 @@ Perceptron·Backpropagation 원전·Optimizer 참고 링크·SimpleFlow 등은 �
 | --- | --- |
 | 5줄 | [[#Q1 — 멀티모달 AI에 대한 5줄 의견]]처럼 명시적 5줄, 각 줄의 역할이 다름 |
 | 네 문제·해결 | 각 번호 안에서 원인·대응·도움 이유·남는 한계가 연결됨 |
-| 수업 2＋새 2 | 두 집단 표시, 네 항목, 새 제안은 제공 자료에서 미확인이라고 명시 |
+| 수업 2+새 2 | 두 집단 표시, 네 항목, 새 제안은 제공 자료에서 미확인이라고 명시 |
 | 비교·명칭 | 양쪽에 같은 기준; 설명 표현과 공식 동의어를 구별 |
 | 수업 자료의 제한 | BABY correct-frame count와 percentage 일부 불일치: 보고 비율의 경향만 사용; LOW s.11의 33k 본문과 표의 34,000을 임의 통합하지 않음 |
-| 과장 방지 | TriFuse의 모든 지표 최고 주장 금지; Baby 경고를 확진으로 확대하지 않음; 여러 알고리즘·spectrogram·주파수 band를 새 입력 모달리티로 세지 않음 |
+| 과장 방지 | TriFuse의 모든 지표 최고 주장 금지; Baby 경고를 확진으로 확대하지 않음; 여러 알고리즘·spectrogram·주파수 band·영상의 두 stream·여러 카메라 시점을 새 입력 모달리티로 세지 않음 |

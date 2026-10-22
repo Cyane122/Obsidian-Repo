@@ -16,11 +16,11 @@
     - [[#활용 분야와 범위]]
   - [[#2. Week 03 — Deep Learning Foundations, Part A]]
     - [[#Neural Network와 비선형성]]
-    - [[#학습 과정: 각 단계가 하는 일]]
+    - [[#학습 과정 — 각 단계가 하는 일]]
     - [[#출력 과업과 Loss의 연결]]
     - [[#Representation Learning·Embedding·Latent Space]]
   - [[#3. Week 04 — Deep Learning Foundations, Part B]]
-    - [[#CNN: 작은 특징을 쌓아 의미 있는 특징으로]]
+    - [[#CNN — 작은 특징을 쌓아 의미 있는 특징으로]]
     - [[#Pooling·Flatten·Classification]]
     - [[#CNN vs Transformer]]
   - [[#4. Week 05 — Attention & Transformers as the Multimodal Backbone]]
@@ -41,10 +41,13 @@
     - [[#HazeSpace2M과 Haze-Aware Dehazing]]
     - [[#LoLI-Street와 TriFuse]]
     - [[#결과를 읽는 기준]]
+  - [[#8. 사례 — Abnormal Situation Monitoring]]
+    - [[#행동과 문맥의 결합]]
+    - [[#인접 카메라의 협력]]
 - [[#Part 3. 논문 요약]]
   - [[#1. 논문을 어느 깊이까지 공부할 것인가?]]
-  - [[#2. HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing]]
-  - [[#3. LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond — TriFuse]]
+  - [[#2. HazeSpace2M — A Dataset for Haze Aware Single Image Dehazing]]
+  - [[#3. LoLI-Street — Benchmarking Low-Light Image Enhancement and Beyond — TriFuse]]
   - [[#4. Attention Is All You Need — Vaswani et al., 2017]]
   - [[#5. LeNet-5 — LeCun et al., 1998]]
   - [[#6. Intelligent baby behavior monitoring using embedded vision in IoT for smart healthcare centers]]
@@ -68,6 +71,7 @@
   - [[#15. 아기 움직임이 거의 없을 때도 경고해야 하는가?]]
   - [[#16. SER에서 현재 예측보다 History를 믿는 방식의 장점과 한계는?]]
   - [[#17. 자신의 분야에 멀티모달 AI를 적용하는 아이디어를 제안하라.]]
+  - [[#18. 같은 행동을 문맥에 따라 다르게 판단해야 하는 이유와 방법은?]]
 - [[#Part 5. 시험 직전 압축 정리]]
   - [[#1. 핵심 흐름 8줄]]
   - [[#2. 논문·사례별 한 문장]]
@@ -93,12 +97,12 @@
 | 영상 특징·분류 | `[CNN]` `[Convolution]` `[Pooling]` `[Flatten]` `[Classification]` `[Regression]` |
 | Attention·Transformer | `[Attention]` `[QKV]` `[Self-Attention]` `[Cross-Attention]` `[Positional Encoding]` `[Multi-Head Attention]` `[Transformer]` |
 | 영상 복원·논문 | `[Dehazing]` `[HazeSpace2M]` `[LLIE]` `[LoLI-Street]` `[TriFuse]` `[Diffusion]` `[DWT]` |
-| 감시·음성·판단 보완 | `[Context]` `[Baby Monitoring]` `[Motion Detection]` `[SER]` `[Reasoning]` `[Reliability-Weighted Fusion]` |
+| 감시·음성·판단 보완 | `[Abnormal Situation Monitoring]` `[Context]` `[Baby Monitoring]` `[Motion Detection]` `[SER]` `[Reasoning]` `[Reliability-Weighted Fusion]` |
 | 데이터·평가·한계 | `[Paired Data]` `[Dataset Diversity]` `[Synthetic-to-Real Gap]` `[Image Quality]` `[Object Detection]` `[Evaluation]` |
 
 논문은 **테마**를 먼저 읽고 Problem / Method / Result / Significance를 확인한다. 예를 들어 `[Fusion]`으로 검색하면 결합 방식의 정의, 음성 근거 결합, 영상 방법 결합과 관련 답안을 이어서 볼 수 있다.
 
-현재 작업 디렉터리의 `50 Courses/2026-2학기/AAI3031-01 - 멀티모달AI`에서 강의 PDF·PPTX **9개**, 기존 Markdown 정리노트 **7개**를 확인했다. 원본을 우선하고 기존 노트는 누락 점검에 활용했다. 다른 과목 자료와 일반 AI 위키 문서는 시험 근거에 포함하지 않았다.
+현재 작업 디렉터리의 `50 Courses/2026-2학기/AAI3031-01 - 멀티모달AI`에서 `자료` 폴더의 파일 **13개**(강의 PDF·PPTX 9개+특허 PDF 4개), 기존 Markdown 정리노트 **7개**를 확인했다. 원본을 우선하고 기존 노트는 누락 점검에 활용했다. 다른 과목 자료와 일반 AI 위키 문서는 시험 근거에 포함하지 않았다.
 
 사용자가 설명한 예시문제의 난도를 기준으로 **개념 설명 → 논문 아이디어 → 상황에 적용하는 판단**에 분량을 배분했다. 예시문제 원본 파일은 해당 과목 폴더에서 확인되지 않았다. 아래 우선순위는 자료의 반복·분량·학습목표에 따른 학습 권고이며, 출제 예측이나 교수의 구두 강조를 확인한 결과가 아니다.
 
@@ -115,6 +119,11 @@
 | BABY | `Intelligent Baby Monitoring.pptx` | 45슬라이드. 움직임 검출·행동 분석 |
 | LOW | `Low-Level Vision and Image Enhancement.pptx` | 27슬라이드. HazeSpace2M·LoLI-Street·TriFuse |
 | CALL | `Fake Call Analysis.pdf` | 28쪽. LISTEN·음성 감정 인식·추론 |
+| PAT-ASM | `1020190018379B1_Abnormal Situation Monitoring_Korean.pdf`, `Abnormal Situation Monitoring_English Translation.pdf` | 한국 특허(등록 10-2172239)와 영문 번역. 행동+문맥 기반 비정상 상황 감시 |
+| PAT-HAZE | `US12217398B1_Haze-Aware Dehazing.pdf` | 미국 특허. Haze type 분류 후 Specialized Dehazer 선택(SSC·HCC). 스캔 PDF |
+| PAT-VEH | `US12277682B1_Follow Up Patent.pdf` | PAT-HAZE의 continuation. 차량 카메라 영상 대상. 스캔 PDF |
+
+특허 세 건은 교수님이 발명자인 사례 자료로, 과목 노트의 중간고사 범위 `1-1. Multimodal AI Case Studies`에 해당한다. 특허 자체보다 **시스템 아이디어를 사례로 쓰는** 수준으로 정리했다. BABY의 Control Chart 부분과 CALL의 SER reasoning도 강의에서 특허로 소개된 내용이다. PAT-HAZE·PAT-VEH는 스캔본이라 세부는 과목 정리노트 기준이다.
 
 주차는 **W1·W3·W4·W5의 실제 파일명**을 기준으로 했다. BABY·LOW·CALL에는 주차를 임의로 부여하지 않았다. 입문 자료의 계획표와 실제 첨부파일의 주차·순서가 일치하지 않으므로, 로드맵만으로 시험 범위를 넓히지 않았다. 현재 과목 목차의 중간고사 정리 목록은 입문·사례·DL·Attention·Baby·Low-Level Vision이다.
 
@@ -133,6 +142,7 @@
 | 높음 | HazeSpace2M·TriFuse | 문제 → 핵심 설계 → 보고 결과 → 한계 | LOW s.3–22 |
 | 높음 | Baby Monitoring | 세 motion 방법의 차이, ellipse의 Intensity/Diversity, Control Chart와 Alert | BABY s.12–20, 33–40 |
 | 높음 | Context와 Reasoning | 입력의 의미를 문맥으로 이해하고, 순간 예측을 화자 이력·지식으로 보완하는 이유 | W5 s.9–10; CALL p.12–26 |
+| 높음 | Abnormal Situation Monitoring | 같은 행동을 문맥에 따라 다르게 판단하는 이유, 두 stream, 인접 카메라 결합 | PAT-ASM |
 | 보완 | 데이터와 평가 조건 | 합성/실제, paired data, pretrained/dataset-trained, 영상 품질/downstream 성능 구분 | LOW s.5–7, 11, 15–22 |
 
 ### 3. 반드시 연결해서 이해할 내용
@@ -201,7 +211,7 @@
 | Intermediate Fusion | 각 encoder가 표현을 만든 뒤 interaction layer 등에서 결합 | 고유 구조를 보존하면서 Cross-Attention 같은 깊은 상호작용 가능 |
 | Late Fusion | 각 모델이 독립적으로 예측한 뒤 결과를 결합 | 모달리티 결측에 상대적으로 대응하기 쉽지만 세밀한 상호작용은 제한됨 |
 
-Late Fusion의 장점을 “어떤 입력이 없어도 무조건 정상 작동한다”로 외우지 않는다. 선택 이유는 **독립 예측을 결합하는 구조의 유연성**이고, 필요한 결측 대응은 시스템 설계에 달려 있다. [W1 s.31–32]
+슬라이드 원문은 Intermediate Fusion을 “✔ Most widely used in modern multimodal models”, Late Fusion을 “✔ **Robust to missing modalities** / ✖ Limited deep interaction”으로 정리한다. T/F에서 “Late Fusion은 모달리티 결측에 강건하다”는 강의 기준 **T**다. 서술형에서는 그 이유가 **독립 예측을 결합하는 구조**이며, 남은 예측을 어떻게 결합할지는 여전히 설계해야 한다고 덧붙인다. [W1 s.31–32]
 
 **English answer:** Early fusion combines raw inputs or low-level features before deeper processing. It is simple but may limit modality-specific processing. Intermediate fusion first encodes each modality separately and then allows their representations to interact, for example through cross-attention. Late fusion combines independent predictions at the decision level. It can be more flexible when a modality is missing, but it provides less detailed interaction between modalities. The choice depends on whether the task needs fine-grained interaction or independent evidence. Missing-input handling still needs to be designed.
 
@@ -234,7 +244,7 @@ Sigmoid는 각 값의 변환이고, Softmax는 여러 클래스 점수를 **함�
 
 **English answer:** A neural network contains input, hidden, and output layers. A neuron calculates a weighted sum of its inputs, adds a bias, and applies an activation function. Weights control the contributions of inputs, while the bias shifts the response. Nonlinear activation functions allow the network to represent complex nonlinear relationships. ReLU keeps positive values and sets negative values to zero. Sigmoid maps a value to the range between zero and one and is used for binary classification. Softmax jointly normalizes class logits into probabilities that sum to one. Tanh is another nonlinear activation function introduced in the lecture.
 
-#### 학습 과정: 각 단계가 하는 일
+#### 학습 과정 — 각 단계가 하는 일
 
 **검색 태그:** [Forward Propagation] [Loss Function] [Cost Function] [Backpropagation] [Gradient] [Chain Rule] [Optimizer] [Gradient Descent]
 
@@ -274,7 +284,7 @@ MSE는 큰 오차에 더 큰 벌점을 주고, MAE는 MSE보다 이상치에 덜
 
 ### 3. Week 04 — Deep Learning Foundations, Part B
 
-#### CNN: 작은 특징을 쌓아 의미 있는 특징으로
+#### CNN — 작은 특징을 쌓아 의미 있는 특징으로
 
 **검색 태그:** [CNN] [Convolutional Neural Network] [Convolution] [Kernel] [Feature Map] [Kernel Size] [Stride] [Padding] [Number of Filters]
 
@@ -417,9 +427,14 @@ CALL의 앞부분은 통화 내용 기반 사기 탐지와 LISTEN의 모듈을 �
 | Speaker's History | 이전 N개 구간에서 감정이 나타난 비율 |
 | Emotion Co-existence Knowledge | 감정 조합의 공존·충돌에 대해 지식표가 주는 score |
 
-이력 점수는 `H(E) = 이전 N개 중 감정 E의 횟수 / N`, 가중 결합은 `F(E) = r₁S₁(E) + r₂S₂(E) + r₃S₃(E)`다. 후보별 결합 점수 중 가장 큰 감정을 선택한다. 과거 감정이 Sad 4회·Neutral 3회이면 이력 점수는 각각 4/7·3/7이다. [CALL p.18, 22–23]
+이력 점수는 `H(E) = 이전 N개 중 감정 E의 횟수 / N`, 가중 결합은 `F(E) = r₁S₁(E) + r₂S₂(E) + r₃S₃(E)`다. 후보별 결합 점수 중 가장 큰 감정을 선택한다. 강의 예시는 이전 N=5 구간이 Happy 4회·Neutral 1회이므로 이력 점수가 Happy 4/5=0.8, Neutral 1/5=0.2다. [CALL p.18, 22–23]
 
-p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식을 결합한 최종 score는 Happy가 높다. **순간 classifier의 1등이 최종 결정의 1등과 달라질 수 있음**이 핵심이다. 예시 weight 0.15·0.50·0.35는 이 사례의 설정으로 이해한다. [CALL p.22]
+강의의 두 예시 모두 **순간 classifier의 1등이 최종 결정의 1등과 달라질 수 있음**을 보여 준다. weight는 둘 다 r₁=0.15(Original)·r₂=0.50(History)·r₃=0.35(Co-existence)로, 이 사례의 설정으로 이해한다. [CALL p.22–23]
+
+| 예시 | 현재 score | 결합 계산 | 최종 |
+| --- | --- | --- | --- |
+| p.22 | Neutral 0.58 > Happy 0.5 | F(Happy)=0.15×0.5+0.5×0.6+0.35×0.99=0.7215; F(Neutral)=0.15×0.58+0.5×0+0.35×0.79=0.3635 | Happy |
+| p.23 | Sad 0.34 > Happy 0.31 | F(Happy)=0.15×0.31+0.5×0.8+0.35×0.7≈0.691(계산상 0.6915); F(Sad)=0.15×0.34+0.5×0+0.35×0.2=0.121 | Happy |
 
 신뢰도 높고 충돌하지 않는 결과를 Emotional History에 유지하고, 신뢰도 높은 spectrogram·annotation을 누적해 iterative fine-tuning에 사용하는 흐름도 제시된다. 이력은 다음 구간의 추론과 통화 전체 감정 요약에 활용한다. [CALL p.12, 24–26]
 
@@ -448,7 +463,7 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 | Background Subtraction | 현재 frame과 background model을 비교해 foreground mask 추출 | “배경과 무엇이 다른가” |
 | Hybrid | 세 방법의 binary motion 추정 결과를 결합 | 같은 영상의 서로 다른 검출 근거를 함께 사용 |
 
-슬라이드의 Hybrid 도식은 Intersection을 표시한다. 세 입력 모달리티를 결합하는 것으로 외우지 않는다. 보고된 11개 영상의 accuracy에서는 Hybrid가 각 단일 방법보다 높지만, 평가 장면과 자료 범위가 제한되어 있다. 결론은 Hybrid를 권고하면서 **상대적으로 계산 비용이 크다**고 밝히고, 영상 수·상황·난점을 늘리는 dataset 확장을 후속 과제로 제시한다. [BABY s.12–20, 43]
+슬라이드의 Hybrid 도식은 세 binary 결과의 Intersection을 표시하고, 최종 motion 영역의 면적에 따라 confidence를 매긴다(면적 ≥50: 100%, 40–50: 95%, 30–40: 90%, <20: 80%). 세 입력 모달리티를 결합하는 것으로 외우지 않는다. [BABY s.16] 보고된 11개 영상의 accuracy에서는 Hybrid가 각 단일 방법보다 높지만, 평가 장면과 자료 범위가 제한되어 있다. 결론은 Hybrid를 권고하면서 **상대적으로 계산 비용이 크다**고 밝히고, 영상 수·상황·난점을 늘리는 dataset 확장을 후속 과제로 제시한다. [BABY s.12–20, 43]
 
 **English answer:** Frame difference detects changes between consecutive frames using pixel differences and thresholding. Optical flow estimates apparent motion between frames. Background subtraction compares the current frame with a background model to obtain a foreground mask. The hybrid method combines the binary motion estimates from these three methods, and its diagram indicates an intersection operation. These are different methods applied to one video modality. The reported accuracy table favors the hybrid method across the eleven listed videos, but it has higher computational cost. The lecture also calls for a larger dataset covering more scenarios and challenges.
 
@@ -482,7 +497,7 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 **검색 태그:** [HazeSpace2M] [Dehazing] [Haze-Aware Dehazing] [Dataset Diversity] [Paired Data] [Ground Truth] [Specialized Dehazer] [Conditional Model Selection] [Classifier Dependency] [Synthetic-to-Real Gap]
 
-기존 방법이 특정 haze나 합성 조건에 치우치고 다양한 데이터가 부족하다는 문제에 대응한다. **HazeSpace2M**은 Outdoor·Street·Farmland·Satellite의 네 scene, Fog·Environmental Haze(EH)·Cloud의 세 haze type, 여러 intensity와 Real Haze Testset을 제공한다. 모든 scene에 세 type이 전부 존재하는 구성은 아니다. 약 2.2M이라는 총량은 **GT와 hazy image의 합**이다. [LOW s.3–7]
+기존 방법이 특정 haze나 합성 조건에 치우치고 다양한 데이터가 부족하다는 문제에 대응한다. **HazeSpace2M**은 Outdoor·Street·Farmland·Satellite의 네 scene, Fog·Environmental Haze(EH)·Cloud의 세 haze type, **10단계 intensity**와 Real Haze Testset을 제공한다. 모든 scene에 세 type이 전부 존재하는 구성은 아니다. 약 2.2M이라는 총량은 **GT와 hazy image의 합**이다. [LOW s.3–7]
 
 **Paired Data**는 hazy input과 대응 GT reference가 연결된 자료다. 복원 기준과 비교할 수 있게 해 준다. GT 선정에서는 해상도·기존 haze 포함 여부·주제 관련성을 확인한다. [LOW s.5–7]
 
@@ -490,8 +505,9 @@ p.22의 예시에서 현재 score는 Neutral이 높지만, 이력·공존 지식
 
 한계는 **Classifier Dependency**와 **Synthetic-to-Real Gap**이다. 잘못 분류하면 부적합한 dehazer를 선택할 수 있고, 합성 데이터가 실제 환경을 충분히 대표하지 못할 수 있다. 강의의 후속 방향은 여러 type을 처리하는 Unified Method와 계산 비용 절감이다. [LOW s.22]
 
+**특허에서 보충되는 분류 방식:** 같은 원리의 특허는 classifier를 **SSC(Single Selective Classifier)** — 선택한 classifier 하나로 haze type 추론 — 와 **HCC(Hybrid Conditional Classifier)** — 여러 사전학습 classifier의 predicted class·probability를 condition block에서 confidence·accuracy 등으로 종합 — 로 나눈다. 학습 단계에서는 scene별 GT에 synthetic haze·intensity를 적용해 classifier와 type별 dehazer를 학습하고(type별 local server → global federated server로 weight 집계), 추론 단계에서는 type을 판단해 해당 dehazer로 복원한다. 후속 특허는 같은 흐름을 **자율주행 차량 카메라 영상**으로 독립 청구항에 명시한 continuation이다. HCC는 Classifier Dependency를 여러 classifier 결합으로 완화하려는 설계로 볼 수 있으나, 개선 수치는 자료에서 확인하지 않았다. [PAT-HAZE; PAT-VEH]
 
-**English answer:** HazeSpace2M addresses limited diversity in dehazing data. It includes four scene categories, three haze types, multiple intensity levels, and a real haze test set. Not every scene contains every haze type. The approximately 2.2 million total counts ground-truth and hazy images together. Paired data link a degraded input to its corresponding reference for training and evaluation. Ground-truth quality checks consider resolution, existing haze, and relevance. The haze-aware framework first classifies the haze type and then selects a specialized dehazer. The dataset and the framework are different contributions. Its main limitations are classifier dependency and the synthetic-to-real gap: a wrong class can select an unsuitable model, and synthetic conditions may not represent the real world sufficiently. The lecture proposes unified methods and lower computational cost as future directions.
+**English answer:** HazeSpace2M addresses limited diversity in dehazing data. It includes four scene categories, three haze types, ten intensity levels, and a real haze test set. Not every scene contains every haze type. The approximately 2.2 million total counts ground-truth and hazy images together. Paired data link a degraded input to its corresponding reference for training and evaluation. Ground-truth quality checks consider resolution, existing haze, and relevance. The haze-aware framework first classifies the haze type and then selects a specialized dehazer. The dataset and the framework are different contributions. Its main limitations are classifier dependency and the synthetic-to-real gap: a wrong class can select an unsuitable model, and synthetic conditions may not represent the real world sufficiently. The lecture proposes unified methods and lower computational cost as future directions.
 
 #### LoLI-Street와 TriFuse
 
@@ -529,6 +545,33 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **English answer:** Evaluation should distinguish classification, image restoration, real-image quality, and downstream detection. Classification metrics assess whether the haze type is predicted correctly. In the lecture's tables, higher PSNR, SSIM, and MS-SSIM are preferred, while lower MSE, MAE, and LPIPS are preferred. BRISQUE and NIQE evaluate quality without a reference image, with lower values preferred in the reported comparison. YOLOv10 mAP assesses detection after enhancement. Pretrained and dataset-trained results must be kept separate. TriFuse performs well on the reported trained-weight RLLT comparison and average detection mAP, but other methods score higher on some individual metrics, such as Light-condition PSNR. Its strengths should be stated for the relevant data, metric, and training condition.
 
+### 8. 사례 — Abnormal Situation Monitoring
+
+#### 행동과 문맥의 결합
+
+**검색 태그:** [Abnormal Situation Monitoring] [Context] [Behavior] [Two-Stream] [Camera Agent] [Multi-View] [Alignment] [Fusion] [LSTM] [Optical Flow]
+
+같은 행동도 **문맥에 따라 정상·비정상이 달라진다.** 조깅 코스·산책로의 달리기는 운동이지만, 다른 장소·상황의 달리기는 의심 행동일 수 있다. 그래서 행동과 함께 장소·시간 같은 주변 문맥을 분석한다. [PAT-ASM]
+
+`Video → Key Frames → Object 분석 → (Object Sequence → Behavior) + (Key-frame Sequence → Context) → Behavior–Context matching → Abnormal 예측 → Warning`
+
+| 흐름 | 입력 | 판단 대상 |
+| --- | --- | --- |
+| Object-centered stream | 같은 객체를 시간 순서로 묶은 object sequence | 걷기·달리기·자전거·운전 등 behavior |
+| Context-centered stream | 그 객체가 등장하는 key frame sequence | 장소·시간 등 surrounding context |
+
+key frame별 optical-flow 특징을 CNN으로 추출하고 시간 순서대로 복수의 LSTM이 처리한다. 행동·문맥 후보를 probability로 표현하고, 둘의 matching 정도로 비정상 여부를 판단한다. [PAT-ASM 청구항 7]
+
+#### 인접 카메라의 협력
+
+**검색 태그:** [Camera Agent] [Multi-View] [Alignment] [Decision-Level Fusion]
+
+각 Camera Agent는 자체 분석한 context probability·예측 probability·경고 여부를 timestamp·agent ID·위치 메타데이터와 함께 인접 카메라에 공유한다. 원본 영상보다 작은 분석 결과만 보낸다. 카메라별 probability에 weight를 곱해 더한 뒤 최댓값 context를 고르고 예측을 재산출한다. [PAT-ASM]
+
+시간·위치로 같은 대상·사건을 맞추는 것은 **Alignment**, 카메라별 probability를 weight로 합치는 것은 **decision-level Fusion**에 해당한다. 행동과 문맥의 결합은 W1의 **Contextual information**의 예다. 단, 입력은 모두 video다. 두 stream은 같은 영상의 서로 다른 representation, 여러 카메라는 서로 다른 시점이므로 서로 다른 감각 모달리티의 결합이라고 과장하지 않는다.
+
+**English answer:** The same behavior can be normal or abnormal depending on context; running on a jogging course is exercise, but running elsewhere may be suspicious. The system builds an object sequence to recognize behavior and a key-frame sequence to recognize context, using CNN optical-flow features and LSTMs, and judges how well behavior and context match. Neighboring camera agents share context and prediction probabilities with timestamps, identifiers, and locations, and a weighted combination updates the final context. Matching events across cameras is alignment, and combining probabilities is decision-level fusion. All inputs are video, so the streams and cameras provide different representations and views rather than different sensory modalities.
+
 ## Part 3. 논문 요약
 
 ### 1. 논문을 어느 깊이까지 공부할 것인가?
@@ -540,7 +583,7 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 | 도식으로 짧게 소개 | CALL p.3–8의 연구 5편 | 그림의 처리 흐름과 목적. 없는 결과는 암기하지 않기 |
 | 참고·이름 소개 | Perceptron, Backpropagation 원전, 기타 참고문헌·성과 목록 | 개념의 유래·관련성 수준 |
 
-### 2. HazeSpace2M: A Dataset for Haze Aware Single Image Dehazing
+### 2. HazeSpace2M — A Dataset for Haze Aware Single Image Dehazing
 
 **테마:** 열화 조건이 다양한 데이터셋 구축과 haze 유형에 따른 복원 모델 선택.
 
@@ -567,7 +610,7 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 
 **One-sentence takeaway:** HazeSpace2M provides diverse data, and the framework selects a dehazer according to the predicted haze type.
 
-### 3. LoLI-Street: Benchmarking Low-Light Image Enhancement and Beyond — TriFuse
+### 3. LoLI-Street — Benchmarking Low-Light Image Enhancement and Beyond — TriFuse
 
 **테마:** 도로 저조도 영상의 benchmark·복원과 개선 후 객체 검출.
 
@@ -686,7 +729,6 @@ TriFuse는 RLLT의 trained-weights 비교와 downstream 평균 mAP에서 좋은 
 | **Gender and age estimation methods based on speech using deep neural networks** — Kwasny & Hemmerling, 2021. CALL p.6 | 음성에서 나이·성별 추정 | Waveform 처리 → Feature Extractor → DNN Embedder → Age Regressor/Age Classifier/Gender Classifier | Exact age·Age label·Gender label을 출력하는 도식. 성능 미제시 | “공통 음성 embedding에서 수치 회귀와 범주 분류를 구분한다.” | 공통 음성 표현과 다중 출력 과업. [Age Estimation] [Gender Recognition] [Embedding] [Classification] [Regression] |
 | **Deep features-based speech emotion recognition for smart affective services** — Badshah et al., 2019. CALL p.7 | 발화의 감정 분류 | Spectrogram을 chunk로 나누고 CNN의 예측을 Majority Voting으로 모음 | 최종 emotion label을 얻는 도식. 성능 미제시 | “시간 구간의 예측을 투표로 모은다.” 뒤의 이력·지식 기반 추론과 구별 | 음성의 구간별 감정 분류와 투표 결합. [SER] [Speech Emotion Recognition] [Spectrogram] [CNN] [Majority Voting] [Fusion] |
 | **Dempster-Shafer fusion-based gender recognition for speech analysis applications** — Ahmad et al., 2016. CALL p.8 | 음성 구간의 속성 예측 결합 | MFCC → SVM 구간별 예측 → DS Fusion | Fusion-based gender prediction 도식. 성능 미제시 | “구간별 근거를 결합해 최종 판단한다.” DS의 상세 수식은 자료 설명 없음 | 구간별 예측 근거의 Dempster-Shafer 결합. [Gender Recognition] [MFCC] [SVM] [Dempster-Shafer Fusion] [Fusion] |
-
 
 **English answers for the five brief paper examples:**
 
@@ -921,13 +963,25 @@ Theme: evidence fusion across speech-segment predictions. Problem: combining seg
 
 **English question:** Propose a multimodal AI application in your field.
 
-**검색 태그:** [Applications] [Healthcare] [Multimodal AI] [Representation] [Alignment] [Fusion]
+**검색 태그:** [Applications] [Data Science] [Multimodal AI] [Representation] [Alignment] [Fusion] [Missing Modality]
 
-**모범답안:** 강의의 의료 응용을 따라 의료 영상과 임상 텍스트를 결합하는 판독 지원을 제안하겠다. 각 입력을 embedding으로 표현하고 같은 환자·검사에 대응시키며, 질문에 관련된 영상 정보를 텍스트와 연결해 사용한다. 단일 자료의 부족한 단서를 보완할 수 있지만 입력 대응 오류·결측·편향·신뢰도를 함께 검토해야 한다.
+**모범답안:** 데이터사이언스 분야에서 온라인 쇼핑몰의 **반품 원인 분석**에 멀티모달 AI를 적용하겠다. 입력은 리뷰 텍스트, 리뷰에 첨부된 상품 사진, 주문 기록 같은 정형 데이터(가격·사이즈·배송 기간)다. 각 입력을 embedding과 수치 특징으로 표현하고, 같은 주문 ID로 묶은 뒤 리뷰의 “색이 다르다” 같은 표현을 사진 속 해당 영역에 대응시킨다. 그다음 표현 수준에서 결합해 반품 원인을 사이즈·색상·파손·배송으로 분류한다. 텍스트는 불만의 내용을, 사진은 실제 상태를, 정형 데이터는 맥락을 주므로 한 종류의 데이터만 볼 때보다 원인을 구분하기 쉽다. 다만 사진이 없는 리뷰가 많으므로 입력별 예측을 따로 두고 Late Fusion으로 결합하는 경로가 필요하다. 또 불만이 있는 고객이 리뷰를 더 많이 쓰는 표본 편향, 리뷰와 사진의 대응 오류, 계산 비용도 함께 검토해야 한다.
 
-**English model answer:** I would propose a healthcare support system that combines medical images with clinical text, following the lecture’s healthcare example. Each input would be encoded and aligned with the same patient and examination. Relevant image information would then be connected to the text question. This could provide complementary evidence, but alignment errors, missing data, bias, and reliability would need to be considered. This is an application proposal, not a claim of demonstrated performance.
+**English model answer:** In data science, I would apply multimodal AI to analyzing why online-shopping orders are returned. The inputs are review text, attached product photos, and structured order data such as price, size, and delivery time. Each input would be encoded as embeddings or numerical features and linked by order ID. Phrases such as “the color is different” would be aligned with the relevant photo region. The representations would then be fused to classify the return reason as size, color, damage, or delivery. Text describes the complaint, photos show the actual condition, and structured data provides context, so together they separate causes better than any single source. Because many reviews have no photos, I would also keep per-input predictions combined through late fusion. Sampling bias from dissatisfied reviewers, review-photo misalignment, and computational cost would also need checking. This is an application proposal, not a claim of demonstrated performance.
 
-**필수 개념:** Task, Modalities, Representation → Alignment → Fusion, Limitations. 새로운 실험 성과를 주장하지 않는 제안 답안. [W1 s.33, 45; W5 s.28, 50]
+**필수 개념:** Task, Modalities(텍스트·이미지·정형 데이터), Representation → Alignment → Fusion, Missing modality, Limitations. 새로운 실험 성과를 주장하지 않는 제안 답안. [W1 s.25, 30–33, 45; W5 s.50]
+
+### 18. 같은 행동을 문맥에 따라 다르게 판단해야 하는 이유와 방법은?
+
+**English question:** Why should the same behavior be judged differently depending on context, and how does the abnormal situation monitoring system do this?
+
+**검색 태그:** [Abnormal Situation Monitoring] [Context] [Behavior] [Camera Agent] [Fusion]
+
+**모범답안:** 달리기는 조깅 코스에서는 운동이지만 다른 장소에서는 의심 행동일 수 있으므로 행동만으로는 정상·비정상을 가를 수 없다. 시스템은 영상에서 같은 객체의 sequence로 행동을, 그 객체가 나오는 key frame sequence로 장소·시간 문맥을 인식한 뒤 둘의 일치 정도로 비정상 여부를 판단해 경고한다. 인접 카메라는 시간·위치 정보로 같은 사건을 맞추고 probability를 가중 결합해 판단을 갱신한다. 다만 문맥을 잘못 인식하면 오경보가 날 수 있고, 입력은 모두 영상이므로 서로 다른 감각 모달리티의 결합은 아니다.
+
+**English model answer:** Running is exercise on a jogging course but may be suspicious elsewhere, so behavior alone cannot decide whether a situation is abnormal. The system recognizes behavior from an object sequence and context from key frames, then judges abnormality by how well they match. Neighboring cameras align the same event using timestamps and locations and update the decision through weighted probability fusion. However, misrecognized context can cause false alarms, and because every input is video, this is not fusion of different sensory modalities.
+
+**필수 개념:** Contextual information, Two streams, Alignment, Decision-level fusion, 한계. [PAT-ASM; W1 s.32]
 
 ## Part 5. 시험 직전 압축 정리
 
@@ -965,10 +1019,11 @@ Theme: evidence fusion across speech-segment predictions. Problem: combining seg
 | LeNet-5 | Convolution·Subsampling·분류층으로 손글씨 숫자 인식 | Use convolution, subsampling, and classification layers to recognize handwritten digits. |
 | Baby Monitoring | 세 motion 방법의 Hybrid → 보정 → ellipse 크기 I·개수 D → LCL/UCL → Alert; 계산 비용·평가 범위 고려 | Combine three motion methods, calibrate scale, measure ellipse size and number, and compare with control limits; consider cost and evaluation scope. |
 | SER Reasoning | 현재 예측 + 화자 이력 + 감정 공존 지식 → 신뢰도 가중 결합 | Combine current predictions, speaker history, and emotion knowledge using reliability weights. |
+| Abnormal Situation Monitoring | 행동 stream + 문맥 stream의 matching으로 비정상 판단; 인접 카메라 probability 가중 결합 | Judge abnormality by matching behavior with context, and fuse neighboring cameras' probabilities with weights. |
+| Haze-Aware 특허 | SSC(분류기 하나) / HCC(여러 분류기 조건부 결합) → 전용 dehazer; 후속은 차량 카메라 | SSC or HCC selects the haze type and dehazer; the follow-up targets vehicle-camera images. |
 | CALL의 짧은 논문 사례 | 내용 기반 사기 탐지 / 음성 특징·패턴 매칭 / 공통 embedding의 age·gender 출력 / 감정 chunk voting / DS 기반 구간 예측 결합 | Content-based fraud detection; speech-feature matching; age/gender outputs from embeddings; emotion-chunk voting; and DS fusion of segment predictions. |
 
 논문별 정확한 출처·제공된 결과 범위는 Part 3을 따른다.
-
 
 ### 3. 혼동하기 쉬운 비교
 
@@ -989,15 +1044,28 @@ Theme: evidence fusion across speech-segment predictions. Problem: combining seg
 | HazeSpace2M vs Haze-Aware Framework | dataset vs type별 복원 경로를 고르는 방법 | A dataset vs a method that selects restoration models by haze type. |
 | LoLI-Street vs TriFuse | benchmark dataset vs 제안 LLIE 모델 | A benchmark dataset vs the proposed LLIE model. |
 | Multimodal vs Multiple-method Fusion | 서로 다른 정보 형태 결합 vs 같은 영상에 여러 분석법 적용 | Combine different information modalities vs apply multiple analysis methods to the same video. |
+| 행동만 vs 행동+문맥 판단 | 동작 종류만 인식 vs 장소·시간 문맥과의 일치로 정상·비정상 판단 | Recognize the action alone vs judge it by its match with surrounding context. |
+| SSC vs HCC | classifier 하나로 haze type 결정 vs 여러 classifier의 class·probability를 조건부 결합 | One selected classifier vs conditional combination of several classifiers. |
 
-근거: W1 s.30–32; W3 s.28–29, 36–38; W4 s.17–28; W5 s.12–15, 27; BABY s.12–17, 35; LOW s.4–15.
-
+근거: W1 s.30–32; W3 s.28–29, 36–38; W4 s.17–28; W5 s.12–15, 27; BABY s.12–17, 35; LOW s.4–15; PAT-ASM; PAT-HAZE.
 
 ### 4. T/F에서 개념을 오해하기 쉬운 문장만 확인
 
 - **“여러 AI 모델을 결합하면 반드시 멀티모달이다.” → F.** 입력 정보 형태와 상호작용을 봐야 한다. [W1 s.23–24; BABY s.16–17]
 
   **English:** “Combining several AI models always makes a system multimodal.” — False. The input modalities and their interaction matter.
+
+- **“Late Fusion은 모달리티 결측에 강건하다.” → T.** 슬라이드 원문이 “Robust to missing modalities”라고 정리한다. 대신 깊은 상호작용은 제한된다. [W1 s.32]
+
+  **English:** “Late fusion is robust to missing modalities.” — True, as stated on the slide, although it limits deep interaction.
+
+- **“Intermediate Fusion은 현대 멀티모달 모델에서 가장 널리 쓰인다.” → T.** [W1 s.32]
+
+  **English:** “Intermediate fusion is the most widely used in modern multimodal models.” — True.
+
+- **“같은 행동은 장소와 상관없이 항상 같은 정상·비정상 판단을 받는다.” → F.** 비정상 상황 감시는 행동과 문맥의 일치로 판단한다. [PAT-ASM]
+
+  **English:** “The same behavior always receives the same normal/abnormal judgment regardless of location.” — False. The system judges behavior together with context.
 
 - **“Cross-Attention의 Q·K·V는 전부 같은 입력에서 온다.” → F.** 그것은 Self-Attention의 설명이다. [W5 s.27]
 
@@ -1036,6 +1104,7 @@ Theme: evidence fusion across speech-segment predictions. Problem: combining seg
 - W1의 중복 PDF·PPTX는 같은 내용을 중복 학습하지 않도록 통합했다. 원본의 계획표만 있는 향후 강의를 본문 강의로 확장하지 않았다.
 - BABY s.19–20의 일부 correct-frame count와 accuracy는 서로 맞지 않는다. **보고 percentage에서의 Hybrid 우위**까지만 사용하고 세부 숫자 계산 문제로 만들지 않았다.
 - CALL p.23의 Happy 결합 점수는 표기 0.691, 제시 항의 계산은 `0.15×0.31 + 0.50×0.8 + 0.35×0.7 = 0.6915`다. 최종 Happy 선택은 동일하다.
+- 특허 PDF 4개(PAT-ASM 한·영, PAT-HAZE, PAT-VEH)는 사례 아이디어 수준으로 반영했다. PAT-ASM은 영문 번역본 텍스트로 확인했고, PAT-HAZE·PAT-VEH는 스캔본이라 SSC/HCC·continuation 세부를 과목 정리노트 `1-1. Multimodal AI Case Studies` 기준으로 옮겼다.
 - LOW s.11의 본문은 33k paired images, 비교표는 image quantity 34,000을 표시한다. 구성 범주를 임의로 합쳐 설명하지 않고 본문의 paired data와 별도 real testset을 구분했다.
 - LOW s.15의 TriFuse 결과는 표·학습 조건별로 확인했다. BABY의 motion 방법 비교와 행동 분석 개념, CALL p.7의 chunk voting과 p.11 이후 SER reasoning도 구분했다.
 - 영상 데모의 세부 내용·교수의 구두 강조·미제공 논문 원문의 실험 결과는 미확인이다. 학습 우선순위는 현재 파일에서 확인한 반복·설명 비중에 근거한다.
